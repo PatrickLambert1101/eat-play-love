@@ -1,0 +1,33 @@
+@font-face {
+  font-family: 'RV';
+  src: url('/../../fonts/RedVevet.eot');
+  src: url('/../../fonts/RedVevet.eot?#iefix') format('embedded-opentype'),
+    url('/../../fonts/RedVevet.woff2') format('woff2'),
+    url('/../../fonts/RedVevet.woff') format('woff'),
+    url('/../../fonts/RedVevet.ttf') format('truetype'),
+    url('/../../fonts/RedVevet.svg#RedVevet') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Ostrich';
+  src: url('/../../fonts/OstrichSans-Medium.eot');
+  src: url('/../../fonts/OstrichSans-Medium?#iefix') format('embedded-opentype'),
+    url('/../../fonts/OstrichSans-Medium.woff2') format('woff2'),
+    url('/../../fonts/OstrichSans-Medium.woff') format('woff'),
+    url('/../../fonts/OstrichSans-Medium.ttf') format('truetype'),
+    url('/../../fonts/OstrichSans-Medium.svg#OstrichSans-Medium') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Georgia';
+  src: url('/../../fonts/Georgia.eot');
+  src: url('/../../fonts/Georgia?#iefix') format('embedded-opentype'),
+    url('/../../fonts/Georgia.woff2') format('woff2'),
+    url('/../../fonts/Georgia.woff') format('woff'),
+    url('/../../fonts/Georgia.ttf') format('truetype'),
+    url('/../../fonts/Georgia.svg#Georgia') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

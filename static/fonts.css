@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'RV';
+  src: url('fonts/RedVevet.eot');
+  src: url('fonts/RedVevet.eot?#iefix') format('embedded-opentype'),
+    url('fonts/RedVevet.woff2') format('woff2'),
+    url('fonts/RedVevet.woff') format('woff'),
+    url('fonts/RedVevet.ttf') format('truetype'),
+    url('fonts/RedVevet.svg#RedVevet') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
