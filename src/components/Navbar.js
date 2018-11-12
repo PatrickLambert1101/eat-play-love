@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import github from '../img/github-icon.svg';
 import logo from '../img/logo.svg';
+import menu from '../img/menu.svg';
 
 const Navbar = () => (
   <nav className="navbar is-transparent">
@@ -9,35 +9,37 @@ const Navbar = () => (
       <div className="navbar-brand">
         <Link to="/" className="navbar-item">
           <figure className="image">
-            <img src={logo} alt="Kaldi" style={{ width: '200px' }} />
+            <img src={logo} alt="Eat Play Love Logo" />
           </figure>
         </Link>
+        <button
+          class="nav-btn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="menu-list"
+        >
+          <img src={menu} style={{ width: '100px' }} />
+        </button>
       </div>
       <div className="navbar-start">
+        <Link className="navbar-item active" to="/blog">
+          BLOG
+        </Link>
+        <Link className="navbar-item" to="/offerings">
+          OFFERINGS
+        </Link>
+        <Link className="navbar-item" to="/events">
+          EVENTS
+        </Link>
+        <Link className="navbar-item" to="/shop">
+          SHOP
+        </Link>
         <Link className="navbar-item" to="/about">
-          About
+          ABOUT
         </Link>
-        <Link className="navbar-item" to="/products">
-          Products
+        <Link className="navbar-item" to="/directorys">
+          DIRECTORIES
         </Link>
-        <Link className="navbar-item" to="/contact">
-          Contact
-        </Link>
-        <Link className="navbar-item" to="/contact/examples">
-          Form Examples
-        </Link>
-      </div>
-      <div className="navbar-end">
-        <a
-          className="navbar-item"
-          href="https://github.com/AustinGreen/gatsby-netlify-cms-boilerplate"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span className="icon">
-            <img src={github} alt="Github" />
-          </span>
-        </a>
       </div>
     </div>
   </nav>

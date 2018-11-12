@@ -1,6 +1,7 @@
 @import "~bulma/sass/utilities/initial-variables"
 
 // Config vars
+$grey: #979797
 $kaldi-red: #FD461E
 $kaldi-red-invert: #fff
 
@@ -11,6 +12,8 @@ $primary-invert: $kaldi-red-invert
   justify-content: center
   .navbar-item img
     max-height: 5rem
+    width: 100%
+    text-align: center
 
 .content .taglist
   list-style: none
@@ -49,3 +52,24 @@ $primary-invert: $kaldi-red-invert
 
 .content p
   font-family: 'Ostrich'
+
+.nav-btn
+  display: none;
+
+.navbar-start
+  display: flex
+  justify-content: space-around
+  max-width: 900px
+  margin: auto
+  a
+    width: 100px
+    height: 20px
+    text-align: center
+    font-size: 24px
+    letter-spacing: 1.7px
+    text-decoration: none
+    color: $grey
+    font-family: 'Ostrich', Arial, Helvetica, sans-serif
+
+.active
+  color:red
