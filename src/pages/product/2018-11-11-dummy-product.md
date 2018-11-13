@@ -1,9 +1,9 @@
 ---
 templateKey: single-product
 title: Handmade reusable bags
-date: 2018-11-11T09:03:00.385Z
+price: '300'
 description: Commodo tempor elementum quam torquent erat arcu sem vulputate himenaeos
 tags:
   - Bags
 ---
-Habitant cras porta vivamus venenatis diam dictum metus vulputate pellentesque elementum arcu proin magnis morbi hac eget urna posuere fames donec id parturient litora est aliquam non ad et at
+
