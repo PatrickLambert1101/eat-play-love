@@ -1,12 +1,22 @@
 @import "~bulma/sass/utilities/initial-variables"
 
 // Config vars
+$container-width: 1100px
+
+$georgia: 'Georgia', Arial, Helvetica, sans-serif
+
+$gold-light: #daa56b
+$gold-dark: #965711
+$grey-button: #595959
 $grey: #979797
 $kaldi-red: #FD461E
 $kaldi-red-invert: #fff
-
+$pink: #f9decf
 $primary: $kaldi-red
 $primary-invert: $kaldi-red-invert
+
+.navbar
+  margin-bottom: 3rem
 
 .navbar-brand
   justify-content: center
@@ -44,14 +54,17 @@ $primary-invert: $kaldi-red-invert
   justify-content: center
   align-items: center
 
-.margin-top-0
-  margin-top: 0 !important
+.blog-thumb
+  height: 400px;
+  width: 100%
+  background-size: cover
 
-.pages
-  font-family: 'RV', Arial, Helvetica, sans-serif;
+.gatsby-image-wrapper
+  border-radius: 0
 
 .content p
-  font-family: 'Ostrich'
+  font-family: $georgia
+  font-size: 16px
 
 .nav-btn
   display: none;
@@ -59,10 +72,10 @@ $primary-invert: $kaldi-red-invert
 .navbar-start
   display: flex
   justify-content: space-around
-  max-width: 900px
+  max-width: $container-width
   margin: auto
   a
-    width: 100px
+    width: 120px
     height: 20px
     text-align: center
     font-size: 24px
@@ -73,3 +86,65 @@ $primary-invert: $kaldi-red-invert
 
 .active
   color:red
+
+.content
+  max-width: $container-width
+  margin: auto;
+  text-align: center;
+
+.button
+  text-decoration: none
+  font-family: $georgia
+  font-size: 14px
+  color: $grey-button
+  padding: 6px 10px
+  background-color: $pink
+  transition: all 0.2s ease-out
+  box-shadow: 0px 1px 5px rgba(0,0,0,0)
+  &:hover
+    box-shadow: 0px 1px 5px rgba(0,0,0,0.1)
+    padding: 10px 16px
+
+.blog-posts
+    margin: 10px auto 60px
+    h4
+      margin-bottom: 0px
+      margin-top: 10px
+    small
+      margin-top: -20px
+      font-size: 10px
+      margin-bottom: 20px
+      display: inline-block
+    ul
+      list-style: none
+      margin-bottom: 0
+      padding: 0
+      text-align: center
+      li
+        display: inline-block
+        padding-left: 3px
+
+.no-under
+  text-decoration: none;
+
+h2
+  font-size: 2.8rem
+  color: $gold-light
+  text-align: center
+  font-family: 'RV', Arial, Helvetica, sans-serif;
+
+h4
+  color: $gold-dark
+  font-weight: bold
+  font-size: 24px
+  text-decoration: none
+  font-family: $georgia
+
+
+.tag-link a
+  text-decoration: none;
+  color:#131211
+  font-family: $georgia
+  font-size: 18px
+  &:hover
+    border-bottom: 1px solid $gold-light
