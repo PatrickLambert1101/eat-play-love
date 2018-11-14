@@ -1,6 +1,7 @@
 ---
 templateKey: single-product
 title: Handmade facebalm
+image: /img/product-2.jpg
 price: '250'
 description: >-
   Cursus dapibus proin netus condimentum conubia malesuada augue vestibulum nec
