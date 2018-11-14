@@ -39,6 +39,7 @@ collections:
           default: 'single-product',
         }
       - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: Image, name: image, widget: image }
       - { label: 'Price', name: 'price', widget: 'number' }
       - { label: 'Description', name: 'description', widget: 'text' }
       - { label: 'Tags', name: 'tags', widget: 'list' }

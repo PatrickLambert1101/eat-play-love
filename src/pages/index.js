@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import { kebabCase } from 'lodash';
+import Slider from 'react-slick';
+
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
+import '../../node_modules/slick-carousel/slick/slick.css';
+import '../../node_modules/slick-carousel/slick/slick-theme.css';
 
 import '../../static/fonts/OstrichSans-Medium.eot';
 import '../../static/fonts/OstrichSans-Medium.svg';
@@ -24,8 +28,20 @@ import './font-face.css';
 
 export default class IndexPage extends React.Component {
   render() {
+    var settings = {
+      dots: true,
+      infinite: true,
+      centerMode: true,
+      slidesToShow: 3,
+      autoPlay: true,
+      className: 'insta-slide',
+      speed: 500,
+      slidesToScroll: 1
+    };
     const { data } = this.props;
-    const { edges: posts } = data.allMarkdownRemark;
+    const { edges: posts } = data.blogs;
+    const { edges: products } = data.products;
+    const { edges: instas } = data.instas;
 
     return (
       <Layout>
@@ -41,7 +57,7 @@ export default class IndexPage extends React.Component {
                   <li className="tag-link" key={tag + `tag`}>
                     <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
                     {i < post.frontmatter.tags.length - 1 &&
-                    i != post.frontmatter.tags.length - 2
+                    i !== post.frontmatter.tags.length - 2
                       ? ','
                       : ' '}
                     {i === post.frontmatter.tags.length - 2 &&
@@ -66,6 +82,29 @@ export default class IndexPage extends React.Component {
             </div>
           ))}
           <h2>New finds</h2>
+          <div className="product-thumbs">
+            {products.map(({ node: product }) => (
+              <Link
+                className="no-under product-thumb"
+                key={product.fields.slug}
+                to={product.fields.slug}
+              >
+                <h4>{product.frontmatter.title}</h4>
+              </Link>
+            ))}
+          </div>
+          <h2>Insta</h2>
+          <div className="insta-feed">
+            <Slider {...settings}>
+              {instas.map(({ node: ig }) => (
+                <PreviewCompatibleImage
+                  className="insta-image"
+                  key={ig.id}
+                  imageInfo={ig.localFile}
+                />
+              ))}
+            </Slider>
+          </div>
         </section>
       </Layout>
     );
@@ -82,7 +121,34 @@ IndexPage.propTypes = {
 
 export const pageQuery = graphql`
   query IndexQuery {
-    allMarkdownRemark(
+    instas: allInstaNode(limit: 5) {
+      edges {
+        node {
+          id
+          likes
+          comments
+          original
+          timestamp
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 400, maxHeight: 400, quality: 80) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          thumbnails {
+            src
+            config_width
+            config_height
+          }
+          dimensions {
+            height
+            width
+          }
+        }
+      }
+    }
+    blogs: allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
       limit: 2
       filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
@@ -104,6 +170,27 @@ export const pageQuery = graphql`
             }
             title
             tags
+            templateKey
+            date(formatString: "MMMM DD, YYYY")
+          }
+        }
+      }
+    }
+    products: allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date] }
+      limit: 3
+      filter: { frontmatter: { templateKey: { eq: "single-product" } } }
+    ) {
+      edges {
+        node {
+          id
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            tags
+            price
             templateKey
             date(formatString: "MMMM DD, YYYY")
           }

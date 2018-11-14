@@ -49,6 +49,12 @@ module.exports = {
             }
           },
           {
+            resolve: `gatsby-source-instagram`,
+            options: {
+              username: `eatplayloveretreat`
+            }
+          },
+          {
             resolve: 'gatsby-remark-images',
             options: {
               // It's important to specify the maxWidth (in pixels) of
