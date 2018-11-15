@@ -64,7 +64,7 @@ const SingleProduct = ({ data }) => {
   );
 };
 
-BlogPost.propTypes = {
+SingleProduct.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object
   })
