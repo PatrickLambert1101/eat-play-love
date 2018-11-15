@@ -26,7 +26,7 @@ import '../../static/fonts/RedVevet.woff';
 import '../../static/fonts/RedVevet.woff2';
 import './font-face.css';
 
-export default class IndexPage extends React.Component {
+export default class OfferingsPage extends React.Component {
   render() {
     var settings = {
       dots: true,
@@ -116,7 +116,7 @@ export default class IndexPage extends React.Component {
   }
 }
 
-IndexPage.propTypes = {
+OfferingsPage.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       edges: PropTypes.array
@@ -125,7 +125,7 @@ IndexPage.propTypes = {
 };
 
 export const pageQuery = graphql`
-  query IndexQuery {
+  query OfferingQuery {
     instas: allInstaNode(limit: 5) {
       edges {
         node {

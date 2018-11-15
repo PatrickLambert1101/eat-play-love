@@ -92,6 +92,17 @@ $primary-invert: $kaldi-red-invert
   margin: auto;
   text-align: center;
 
+.tag-link a
+  text-decoration: none;
+  color:#131211
+  font-family: $georgia
+  font-size: 18px
+  &:hover
+    border-bottom: 1px solid $gold-light
+
+.blog-content
+  text-align: left
+
 .button
   text-decoration: none
   font-family: $georgia
@@ -107,6 +118,8 @@ $primary-invert: $kaldi-red-invert
 
 .blog-posts
     margin: 10px auto 60px
+    h1
+      margin-bottom: 0
     h4
       margin-bottom: 0px
       margin-top: 10px
@@ -123,9 +136,18 @@ $primary-invert: $kaldi-red-invert
       li
         display: inline-block
         padding-left: 3px
+    &__single
+      li, a
+        color: $gold-light
 
 .no-under
   text-decoration: none;
+
+h1
+  font-size: 2.2rem
+  color: $gold-light
+  text-align: center
+  font-family: $georgia
 
 h2
   font-size: 2.8rem
@@ -141,13 +163,6 @@ h4
   font-family: $georgia
 
 
-.tag-link a
-  text-decoration: none;
-  color:#131211
-  font-family: $georgia
-  font-size: 18px
-  &:hover
-    border-bottom: 1px solid $gold-light
 
 .product-thumbs
   display: flex

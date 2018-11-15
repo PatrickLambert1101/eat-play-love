@@ -17,30 +17,23 @@ export const SingleProductTemplate = ({
   const PostContent = contentComponent || Content;
 
   return (
-    <section className="section">
+    <section className="content blog-posts blog-posts__single">
       {helmet || ''}
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
-            <p>{description}</p>
-            <PostContent content={content} />
-            {tags && tags.length ? (
-              <div style={{ marginTop: `4rem` }}>
-                <h4>Tags</h4>
-                <ul className="taglist">
-                  {tags.map(tag => (
-                    <li key={tag + `tag`}>
-                      <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
-          </div>
-        </div>
+
+      <h1>{title}</h1>
+      <ul>
+        {tags && tags.length
+          ? tags.map((tag, i) => (
+              <li className="tag-link" key={tag + `tag`}>
+                <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+                {i < tags.length - 1 && i !== tags.length - 2 ? ',' : ' '}
+                {i === tags.length - 2 && tags.length > 1 ? 'and' : ' '}
+              </li>
+            ))
+          : null}
+      </ul>
+      <div className="blog-content">
+        <PostContent content={content} />
       </div>
     </section>
   );
@@ -59,11 +52,11 @@ const SingleProduct = ({ data }) => {
 
   return (
     <Layout>
-      <SingleProductTemplate
+      <BlogPostTemplate
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
-        helmet={<Helmet title={`${post.frontmatter.title} | Product`} />}
+        helmet={<Helmet title={`${post.frontmatter.title} | Blog`} />}
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
       />
@@ -71,7 +64,7 @@ const SingleProduct = ({ data }) => {
   );
 };
 
-SingleProduct.propTypes = {
+BlogPost.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object
   })
@@ -80,7 +73,7 @@ SingleProduct.propTypes = {
 export default SingleProduct;
 
 export const pageQuery = graphql`
-  query SingleProductByID($id: String!) {
+  query ProductById($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       html
