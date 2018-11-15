@@ -52,7 +52,7 @@ const SingleProduct = ({ data }) => {
 
   return (
     <Layout>
-      <BlogPostTemplate
+      <SingleProductTemplate
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
