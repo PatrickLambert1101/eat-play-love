@@ -44,12 +44,12 @@ collections:
       - { label: 'Description', name: 'description', widget: 'text' }
       - { label: 'Tags', name: 'tags', widget: 'list' }
 
-      - name: 'offering'
-    label: 'offering'
-    folder: 'src/pages/offering'
-    create: true
-    slug: '{{slug}}'
-    fields:
+      - name: 'single-offering'
+      - label: 'single-offering'
+      - folder: 'src/pages/single-offering'
+      - create: false
+      - slug: '{{slug}}'
+      - fields:
       - {
           label: 'Template Key',
           name: 'templateKey',
