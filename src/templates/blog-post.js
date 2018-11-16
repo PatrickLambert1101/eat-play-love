@@ -4,13 +4,14 @@ import { kebabCase } from 'lodash';
 import Helmet from 'react-helmet';
 import { graphql, Link } from 'gatsby';
 import Layout from '../components/Layout';
+import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import Content, { HTMLContent } from '../components/Content';
 
 export const BlogPostTemplate = ({
   content,
   contentComponent,
-  description,
   tags,
+  image,
   title,
   helmet
 }) => {
@@ -32,6 +33,8 @@ export const BlogPostTemplate = ({
             ))
           : null}
       </ul>
+      <PreviewCompatibleImage imageInfo={image} />
+
       <div className="blog-content">
         <PostContent content={content} />
       </div>
@@ -43,6 +46,7 @@ BlogPostTemplate.propTypes = {
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
+  image: PropTypes.object,
   title: PropTypes.string,
   helmet: PropTypes.instanceOf(Helmet)
 };
@@ -56,6 +60,7 @@ const BlogPost = ({ data }) => {
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
+        image={post.frontmatter.image}
         helmet={<Helmet title={`${post.frontmatter.title} | Blog`} />}
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
@@ -78,6 +83,13 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
+        image {
+          childImageSharp {
+            fluid(maxWidth: 1100, maxHeight: 400, quality: 80) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
         date(formatString: "MMMM DD, YYYY")
         title
         description

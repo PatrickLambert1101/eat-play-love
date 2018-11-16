@@ -4,8 +4,8 @@ import { Link, graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import { kebabCase } from 'lodash';
 import Slider from 'react-slick';
-
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
+
 import '../../node_modules/slick-carousel/slick/slick.css';
 import '../../node_modules/slick-carousel/slick/slick-theme.css';
 
@@ -90,6 +90,11 @@ export default class IndexPage extends React.Component {
                   key={product.fields.slug}
                   to={product.fields.slug}
                 >
+                  <Link className="has-text-primary" to={product.fields.slug}>
+                    <PreviewCompatibleImage
+                      imageInfo={product.frontmatter.image}
+                    />
+                  </Link>
                   <h4>{product.frontmatter.title}</h4>
                   <h4>{product.frontmatter.price}</h4>
                 </Link>
@@ -194,7 +199,13 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
-
+            image {
+              childImageSharp {
+                fluid(maxWidth: 1100, maxHeight: 400, quality: 80) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
             tags
             price
             templateKey

@@ -26,6 +26,42 @@ collections:
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'Tags', name: 'tags', widget: 'list' }
 
+  - name: 'event'
+    label: 'Event'
+    folder: 'src/pages/event'
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    fields:
+      - {
+          label: 'Template Key',
+          name: 'templateKey',
+          widget: 'hidden',
+          default: 'event-post',
+        }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Location', name: 'location', widget: 'string' }
+      - { label: 'Event Date', name: 'date', widget: 'datetime' }
+      - { label: 'Image', name: 'image', widget: 'image' }
+      - { label: 'Description', name: 'description', widget: 'text' }
+
+  - name: 'review'
+    label: 'Review'
+    folder: 'src/pages/review'
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    fields:
+      - {
+          label: 'Template Key',
+          name: 'templateKey',
+          widget: 'hidden',
+          default: 'review-post',
+        }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Location', name: 'location', widget: 'string' }
+      - { label: 'review Date', name: 'date', widget: 'datetime' }
+      - { label: 'Image', name: 'image', widget: 'image' }
+      - { label: 'Description', name: 'description', widget: 'text' }
+
   - name: 'product'
     label: 'Product'
     folder: 'src/pages/product'
@@ -39,25 +75,7 @@ collections:
           default: 'single-product',
         }
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: Image, name: image, widget: image }
-      - { label: 'Price', name: 'price', widget: 'number' }
-      - { label: 'Description', name: 'description', widget: 'text' }
-      - { label: 'Tags', name: 'tags', widget: 'list' }
-
-      - name: 'single-offering'
-      - label: 'single-offering'
-      - folder: 'src/pages/single-offering'
-      - create: false
-      - slug: '{{slug}}'
-      - fields:
-      - {
-          label: 'Template Key',
-          name: 'templateKey',
-          widget: 'hidden',
-          default: 'single-offering',
-        }
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: Image, name: image, widget: image }
+      - { label: 'Image', name: 'image', widget: 'image' }
       - { label: 'Price', name: 'price', widget: 'number' }
       - { label: 'Description', name: 'description', widget: 'text' }
       - { label: 'Tags', name: 'tags', widget: 'list' }
@@ -88,7 +106,12 @@ collections:
               default: 'offerings-page',
             }
           - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Body', name: 'body', widget: 'markdown' }
+          - { label: 'First Image', name: 'firstImage', widget: 'image' }
+          - { label: 'First Title', name: 'firstTitle', widget: 'string' }
+          - { label: 'Second Image', name: 'secondImage', widget: 'image' }
+          - { label: 'Second Title', name: 'secondTitle', widget: 'string' }
+          - { label: 'Third Image', name: 'thirdImage', widget: 'image' }
+          - { label: 'Third Title', name: 'thirdTitle', widget: 'string' }
         label: 'Products Page'
         name: 'products'
         fields:
