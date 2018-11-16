@@ -112,6 +112,7 @@ collections:
           - { label: 'Second Title', name: 'secondTitle', widget: 'string' }
           - { label: 'Third Image', name: 'thirdImage', widget: 'image' }
           - { label: 'Third Title', name: 'thirdTitle', widget: 'string' }
+      - file: 'src/pages/products/index.md'
         label: 'Products Page'
         name: 'products'
         fields:
