@@ -46,7 +46,7 @@ export default class IndexPage extends React.Component {
     return (
       <Layout>
         <section className="page">
-          <h2>Recent Posts</h2>
+          <h2>Recent Posts1</h2>
           {posts.map(({ node: post }) => (
             <div className="content blog-posts" key={post.id}>
               <Link className="has-text-primary" to={post.fields.slug}>
