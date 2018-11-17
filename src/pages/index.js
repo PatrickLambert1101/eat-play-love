@@ -103,7 +103,7 @@ export default class IndexPage extends React.Component {
                 {instas.map(({ node: ig }) => (
                   <PreviewCompatibleImage
                     className="insta-image"
-                    key={ig.id}
+                    key={ig.timestamp}
                     imageInfo={ig.localFile}
                   />
                 ))}
@@ -194,7 +194,6 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
-
             tags
             price
             templateKey
