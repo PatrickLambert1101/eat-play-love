@@ -5,6 +5,6 @@ image: /img/chemex.jpg
 price: '123123123'
 description: asdfasdfasdfasdfasdf
 tags:
-  - asdfasdfasdf
+  - testsdfsdf asdasdasd asdlkajsdlkj kjahsdlkja
 ---
 
