@@ -74,10 +74,10 @@ collections:
           widget: 'hidden',
           default: 'single-product',
         }
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Image', name: 'image', widget: 'image' }
-      - { label: 'Price', name: 'price', widget: 'number' }
-      - { label: 'Description', name: 'description', widget: 'text' }
+      - { label: 'Titlea', name: 'titlea', widget: 'string' }
+      - { label: 'Imagea', name: 'imagea', widget: 'image' }
+      - { label: 'Pricea', name: 'pricea', widget: 'number' }
+      - { label: 'Descriptiona', name: 'descriptiona', widget: 'text' }
 
   - name: 'pages'
     label: 'Pages'
