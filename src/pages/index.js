@@ -90,11 +90,11 @@ export default class IndexPage extends React.Component {
                   key={product.fields.slug}
                   to={product.fields.slug}
                 >
-                  <Link className="has-text-primary" to={product.fields.slug}>
+                  {/* <Link className="has-text-primary" to={product.fields.slug}>
                     <PreviewCompatibleImage
                       imageInfo={product.frontmatter.image}
                     />
-                  </Link>
+                  </Link> */}
                   <h4>{product.frontmatter.title}</h4>
                   <h4>{product.frontmatter.price}</h4>
                 </Link>
