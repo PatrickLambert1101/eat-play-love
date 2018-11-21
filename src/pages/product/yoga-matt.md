@@ -1,6 +1,6 @@
 ---
 templateKey: single-product
-title: Yoga matt
+title: sdfYoga matt
 image: /img/jumbotron.jpg
 price: '450'
 description: >-
