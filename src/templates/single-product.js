@@ -1,20 +1,22 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { kebabCase } from 'lodash';
-import Helmet from 'react-helmet';
-import { graphql, Link } from 'gatsby';
-import Layout from '../components/Layout';
-import Content, { HTMLContent } from '../components/Content';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { kebabCase } from 'lodash'
+import Helmet from 'react-helmet'
+import { graphql, Link } from 'gatsby'
+import Layout from '../components/Layout'
+import Content, { HTMLContent } from '../components/Content'
+import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 
 export const SingleProductTemplate = ({
   content,
   contentComponent,
   description,
+  image,
   tags,
   title,
-  helmet
+  helmet,
 }) => {
-  const PostContent = contentComponent || Content;
+  const PostContent = contentComponent || Content
 
   return (
     <section className="content blog-posts blog-posts__single">
@@ -32,23 +34,26 @@ export const SingleProductTemplate = ({
             ))
           : null}
       </ul>
+      {/* <PreviewCompatibleImage imageInfo={image} /> */}
+
       <div className="blog-content">
         <PostContent content={content} />
       </div>
     </section>
-  );
-};
+  )
+}
 
 SingleProductTemplate.propTypes = {
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
+  image: PropTypes.object,
   title: PropTypes.string,
-  helmet: PropTypes.instanceOf(Helmet)
-};
+  helmet: PropTypes.instanceOf(Helmet),
+}
 
 const SingleProduct = ({ data }) => {
-  const { markdownRemark: post } = data;
+  const { markdownRemark: post } = data
 
   return (
     <Layout>
@@ -58,19 +63,20 @@ const SingleProduct = ({ data }) => {
         description={post.frontmatter.description}
         helmet={<Helmet title={`${post.frontmatter.title} | Blog`} />}
         tags={post.frontmatter.tags}
+        image={post.frontmatter.image}
         title={post.frontmatter.title}
       />
     </Layout>
-  );
-};
+  )
+}
 
 SingleProduct.propTypes = {
   data: PropTypes.shape({
-    markdownRemark: PropTypes.object
-  })
-};
+    markdownRemark: PropTypes.object,
+  }),
+}
 
-export default SingleProduct;
+export default SingleProduct
 
 export const pageQuery = graphql`
   query ProductById($id: String!) {
@@ -78,6 +84,13 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
+        image {
+          childImageSharp {
+            fluid(maxWidth: 1100, maxHeight: 400, quality: 80) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
         date(formatString: "MMMM DD, YYYY")
         title
         description
@@ -85,4 +98,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

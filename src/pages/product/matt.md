@@ -1,8 +1,8 @@
 ---
 templateKey: single-product
 title: matt
-ljimage: /img/chemex.jpg
-ljprice: '877978987'
-ljdescription: hgffhfhjfvjh
+image: /img/chemex.jpg
+price: '877978987'
+description: hgffhfhjfvjh
 ---
 

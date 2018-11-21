@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { SingleProductTemplate } from '../../templates/single-product';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { SingleProductTemplate } from '../../templates/single-product'
 
 const SingleProductPreview = ({ entry, widgetFor }) => (
   <SingleProductTemplate
@@ -9,13 +9,13 @@ const SingleProductPreview = ({ entry, widgetFor }) => (
     tags={entry.getIn(['data', 'tags'])}
     title={entry.getIn(['data', 'title'])}
   />
-);
+)
 
 SingleProductPreview.propTypes = {
   entry: PropTypes.shape({
-    getIn: PropTypes.func
+    getIn: PropTypes.func,
   }),
-  widgetFor: PropTypes.func
-};
+  widgetFor: PropTypes.func,
+}
 
-export default SingleProductPreview;
+export default SingleProductPreview
