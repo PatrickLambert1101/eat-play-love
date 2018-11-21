@@ -40,7 +40,7 @@ export default class IndexPage extends React.Component {
     };
     const { data } = this.props;
     const { edges: posts } = data.blogs;
-    const { edges: products } = data.products;
+    // const { edges: products } = data.products;
     const { edges: instas } = data.instas;
 
     return (
@@ -83,23 +83,23 @@ export default class IndexPage extends React.Component {
           ))}
           <div className="content">
             <h2>New finds</h2>
-            <div className="product-thumbs">
+            {/* <div className="product-thumbs">
               {products.map(({ node: product }) => (
                 <Link
                   className="no-under product-thumb"
                   key={product.fields.slug}
                   to={product.fields.slug}
                 >
-                  {/* <Link className="has-text-primary" to={product.fields.slug}>
+                  <Link className="has-text-primary" to={product.fields.slug}>
                     <PreviewCompatibleImage
                       imageInfo={product.frontmatter.image}
                     />
-                  </Link> */}
+                  </Link>
                   <h4>{product.frontmatter.title}</h4>
                   <h4>{product.frontmatter.price}</h4>
                 </Link>
               ))}
-            </div>
+            </div>*/}
           </div>
           <div className="content">
             <h2>Insta</h2>
@@ -207,7 +207,6 @@ export const pageQuery = graphql`
               }
             }
             tags
-            price
             templateKey
             date(formatString: "MMMM DD, YYYY")
           }

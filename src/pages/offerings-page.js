@@ -40,7 +40,7 @@ export default class OfferingsPage extends React.Component {
     };
     const { data } = this.props;
     const { edges: posts } = data.blogs;
-    const { edges: products } = data.products;
+    // const { edges: products } = data.products;
     const { edges: instas } = data.instas;
 
     return (
@@ -83,7 +83,7 @@ export default class OfferingsPage extends React.Component {
           ))}
           <div className="content">
             <h2>New finds</h2>
-            <div className="product-thumbs">
+            {/* <div className="product-thumbs">
               {products.map(({ node: product }) => (
                 <Link
                   className="no-under product-thumb"
@@ -94,7 +94,7 @@ export default class OfferingsPage extends React.Component {
                   <h4>{product.frontmatter.price}</h4>
                 </Link>
               ))}
-            </div>
+            </div> */}
           </div>
           <div className="content">
             <h2>Insta</h2>
@@ -194,9 +194,7 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
-
             tags
-            price
             templateKey
             date(formatString: "MMMM DD, YYYY")
           }
