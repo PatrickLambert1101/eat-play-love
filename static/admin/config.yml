@@ -75,9 +75,9 @@ collections:
           default: 'single-product',
         }
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Image', name: 'ljimage', widget: 'image' }
-      - { label: 'Price', name: 'ljprice', widget: 'number' }
-      - { label: 'Description', name: 'ljdescription', widget: 'text' }
+      - { label: 'Image', name: 'image', widget: 'image' }
+      - { label: 'Price', name: 'price', widget: 'number' }
+      - { label: 'Description', name: 'description', widget: 'text' }
 
   - name: 'pages'
     label: 'Pages'

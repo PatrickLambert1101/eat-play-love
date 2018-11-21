@@ -48,12 +48,12 @@ module.exports = {
               name: 'uploads'
             }
           },
-          {
-            resolve: `gatsby-source-instagram`,
-            options: {
-              username: `eatplayloveretreat`
-            }
-          },
+          // {
+          //   resolve: `gatsby-source-instagram`,
+          //   options: {
+          //     username: `eatplayloveretreat`
+          //   }
+          // },
           {
             resolve: 'gatsby-remark-images',
             options: {

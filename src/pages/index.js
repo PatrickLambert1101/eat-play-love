@@ -40,8 +40,8 @@ export default class IndexPage extends React.Component {
     };
     const { data } = this.props;
     const { edges: posts } = data.blogs;
-    // const { edges: products } = data.products;
-    const { edges: instas } = data.instas;
+    const { edges: products } = data.products;
+    // const { edges: instas } = data.instas;
 
     return (
       <Layout>
@@ -83,35 +83,35 @@ export default class IndexPage extends React.Component {
           ))}
           <div className="content">
             <h2>New finds</h2>
-            {/* <div className="product-thumbs">
+            <div className="product-thumbs">
               {products.map(({ node: product }) => (
                 <Link
                   className="no-under product-thumb"
                   key={product.fields.slug}
                   to={product.fields.slug}
                 >
-                  <Link className="has-text-primary" to={product.fields.slug}>
+                  {/* <Link className="has-text-primary" to={product.fields.slug}>
                     <PreviewCompatibleImage
                       imageInfo={product.frontmatter.image}
                     />
-                  </Link>
+                  </Link> */}
                   <h4>{product.frontmatter.title}</h4>
                   <h4>{product.frontmatter.price}</h4>
                 </Link>
               ))}
-            </div>*/}
+            </div>
           </div>
           <div className="content">
             <h2>Insta</h2>
             <div className="insta-feed">
               <Slider {...settings}>
-                {instas.map(({ node: ig }) => (
+                {/* {instas.map(({ node: ig }) => (
                   <PreviewCompatibleImage
                     className="insta-image"
                     key={ig.id}
                     imageInfo={ig.localFile}
                   />
-                ))}
+                ))} */}
               </Slider>
             </div>
           </div>
@@ -131,33 +131,33 @@ IndexPage.propTypes = {
 
 export const pageQuery = graphql`
   query IndexQuery {
-    instas: allInstaNode(limit: 5) {
-      edges {
-        node {
-          id
-          likes
-          comments
-          original
-          timestamp
-          localFile {
-            childImageSharp {
-              fluid(maxWidth: 400, maxHeight: 400, quality: 80) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-          thumbnails {
-            src
-            config_width
-            config_height
-          }
-          dimensions {
-            height
-            width
-          }
-        }
-      }
-    }
+    # instas: allInstaNode(limit: 5) {
+    #   edges {
+    #     node {
+    #       id
+    #       likes
+    #       comments
+    #       original
+    #       timestamp
+    #       localFile {
+    #         childImageSharp {
+    #           fluid(maxWidth: 400, maxHeight: 400, quality: 80) {
+    #             ...GatsbyImageSharpFluid
+    #           }
+    #         }
+    #       }
+    #       thumbnails {
+    #         src
+    #         config_width
+    #         config_height
+    #       }
+    #       dimensions {
+    #         height
+    #         width
+    #       }
+    #     }
+    #   }
+    # }
     blogs: allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
       limit: 2
