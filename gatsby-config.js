@@ -30,6 +30,12 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-source-instagram`,
+      options: {
+        username: `eatplayloveretreat`
+      }
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/src/img`,
@@ -48,12 +54,7 @@ module.exports = {
               name: 'uploads'
             }
           },
-          {
-            resolve: `gatsby-source-instagram`,
-            options: {
-              username: `eatplayloveretreat`
-            }
-          },
+
           {
             resolve: 'gatsby-remark-images',
             options: {
