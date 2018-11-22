@@ -62,9 +62,9 @@ collections:
       - { label: 'Image', name: 'image', widget: 'image' }
       - { label: 'Description', name: 'description', widget: 'text' }
 
-  - name: 'product'
-    label: 'Product'
-    folder: 'src/pages/product'
+  - name: 'single-product'
+    label: 'Single Product'
+    folder: 'src/pages/single-product'
     create: true
     slug: '{{slug}}'
     fields:
