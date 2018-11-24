@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import { kebabCase } from 'lodash';
+import styled from 'styled-components';
+
 import Slider from 'react-slick';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 
@@ -38,6 +40,55 @@ export default class IndexPage extends React.Component {
       speed: 500,
       slidesToScroll: 1
     };
+
+    const BlogPostSingle = styled.div`
+      margin: 10px auto 60px;
+      h1 {
+        margin-bottom: 0;
+      }
+      h4 {
+        margin-bottom: 0px;
+        margin-top: 10px;
+      }
+      small {
+        margin-top: -20px;
+        font-size: 10px;
+        margin-bottom: 20px;
+        display: inline-block;
+      }
+      ul {
+        list-style: none;
+        margin-bottom: 0;
+        padding: 0;
+        text-align: center;
+      }
+      li {
+        display: inline-block;
+        padding-left: 3px;
+      }
+      &__single li,
+      a {
+        color: ${props => props.theme.goldLight};
+      }
+    `;
+
+    const ProductPostSingle = styled.div`
+      width: 100%;
+      margin: 30px;
+    `;
+    const ProductWrapper = styled.div`
+      display: flex;
+      justify-content: space-between;
+    `;
+
+    const theme = {
+      goldLight: '#daa56b',
+      goldDark: '#965711',
+      greyButton: '#595959',
+      grey: '#979797',
+      pink: '#f9decf'
+    };
+
     const { data } = this.props;
     const { edges: posts } = data.blogs;
     const { edges: products } = data.products;
@@ -46,9 +97,9 @@ export default class IndexPage extends React.Component {
     return (
       <Layout>
         <section className="page">
-          <h2>Recent Pjosts</h2>
+          <h2>Recent Posts</h2>
           {posts.map(({ node: post }) => (
-            <div className="content blog-posts" key={post.id}>
+            <BlogPostSingle className="content" key={post.id}>
               <Link className="has-text-primary" to={post.fields.slug}>
                 <PreviewCompatibleImage imageInfo={post.frontmatter.image} />
               </Link>
@@ -79,30 +130,26 @@ export default class IndexPage extends React.Component {
                   Read More
                 </Link>
               </p>
-            </div>
+            </BlogPostSingle>
           ))}
           <div className="content">
             <h2>New finds</h2>
-            <div className="product-thumbs">
+            <ProductWrapper>
               {products.map(({ node: product }) => (
-                <Link
-                  className="no-under product-thumb"
-                  key={product.fields.slug}
-                  to={product.fields.slug}
-                >
-                  <Link className="has-text-primary" to={product.fields.slug}>
+                <ProductPostSingle>
+                  <Link key={product.fields.slug} to={product.fields.slug}>
                     <PreviewCompatibleImage
                       imageInfo={product.frontmatter.image}
                     />
+                    <h4>{product.frontmatter.title}</h4>
+                    <h4>{product.frontmatter.price}</h4>
                   </Link>
-                  <h4>{product.frontmatter.title}</h4>
-                  <h4>{product.frontmatter.price}</h4>
-                </Link>
+                </ProductPostSingle>
               ))}
-            </div>
+            </ProductWrapper>
           </div>
           <div className="content">
-            <h2>Insta</h2>
+            <h2>Instagram</h2>
             <div className="insta-feed">
               <Slider {...settings}>
                 {instas.map(({ node: ig }) => (
