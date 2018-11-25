@@ -1,11 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { kebabCase } from 'lodash'
-import Helmet from 'react-helmet'
-import { graphql, Link } from 'gatsby'
-import Layout from '../components/Layout'
-import Content, { HTMLContent } from '../components/Content'
-import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { kebabCase } from 'lodash';
+import Helmet from 'react-helmet';
+import { graphql, Link } from 'gatsby';
+import Layout from '../components/Layout';
+import Content, { HTMLContent } from '../components/Content';
+import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 
 export const SingleProductTemplate = ({
   content,
@@ -14,9 +14,9 @@ export const SingleProductTemplate = ({
   image,
   tags,
   title,
-  helmet,
+  helmet
 }) => {
-  const PostContent = contentComponent || Content
+  const PostContent = contentComponent || Content;
 
   return (
     <section className="content blog-posts blog-posts__single">
@@ -34,14 +34,10 @@ export const SingleProductTemplate = ({
             ))
           : null}
       </ul>
-      {/* <PreviewCompatibleImage imageInfo={image} /> */}
-
-      <div className="blog-content">
-        <PostContent content={content} />
-      </div>
+      <PreviewCompatibleImage imageInfo={image} />
     </section>
-  )
-}
+  );
+};
 
 SingleProductTemplate.propTypes = {
   content: PropTypes.node.isRequired,
@@ -49,11 +45,11 @@ SingleProductTemplate.propTypes = {
   description: PropTypes.string,
   image: PropTypes.object,
   title: PropTypes.string,
-  helmet: PropTypes.instanceOf(Helmet),
-}
+  helmet: PropTypes.instanceOf(Helmet)
+};
 
 const SingleProduct = ({ data }) => {
-  const { markdownRemark: post } = data
+  const { markdownRemark: post } = data;
 
   return (
     <Layout>
@@ -67,16 +63,16 @@ const SingleProduct = ({ data }) => {
         title={post.frontmatter.title}
       />
     </Layout>
-  )
-}
+  );
+};
 
 SingleProduct.propTypes = {
   data: PropTypes.shape({
-    markdownRemark: PropTypes.object,
-  }),
-}
+    markdownRemark: PropTypes.object
+  })
+};
 
-export default SingleProduct
+export default SingleProduct;
 
 export const pageQuery = graphql`
   query ProductById($id: String!) {
@@ -98,4 +94,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

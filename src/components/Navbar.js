@@ -1,7 +1,7 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import logo from '../img/logo.svg'
-import menu from '../img/menu.svg'
+import React from 'react';
+import { Link } from 'gatsby';
+import logo from '../img/logo.svg';
+import menu from '../img/menu.svg';
 
 const Navbar = () => (
   <nav className="navbar is-transparent">
@@ -24,7 +24,7 @@ const Navbar = () => (
       <Link className="navbar-item active" to="/blog">
         BLOG
       </Link>
-      <Link className="navbar-item" to="/offerings">
+      <Link className="navbar-item" to="/offerings-page">
         OFFERINGS
       </Link>
       <Link className="navbar-item" to="/events">
@@ -41,6 +41,6 @@ const Navbar = () => (
       </Link>
     </div>
   </nav>
-)
+);
 
-export default Navbar
+export default Navbar;
