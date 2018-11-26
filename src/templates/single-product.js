@@ -8,16 +8,12 @@ import Content, { HTMLContent } from '../components/Content';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 
 export const SingleProductTemplate = ({
-  content,
   contentComponent,
-  description,
   image,
   tags,
   title,
   helmet
 }) => {
-  const PostContent = contentComponent || Content;
-
   return (
     <section className="content blog-posts blog-posts__single">
       {helmet || ''}

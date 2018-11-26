@@ -81,13 +81,13 @@ export default class IndexPage extends React.Component {
       justify-content: space-between;
     `;
 
-    const theme = {
-      goldLight: '#daa56b',
-      goldDark: '#965711',
-      greyButton: '#595959',
-      grey: '#979797',
-      pink: '#f9decf'
-    };
+    // const theme = {
+    //   goldLight: '#daa56b',
+    //   goldDark: '#965711',
+    //   greyButton: '#595959',
+    //   grey: '#979797',
+    //   pink: '#f9decf'
+    // };
 
     const { data } = this.props;
     const { edges: posts } = data.blogs;
