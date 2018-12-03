@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
 import Layout from '../components/Layout';
-import { kebabCase } from 'lodash';
 import styled from 'styled-components';
 
 import Slider from 'react-slick';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
+import PostThumb from '../components/PostThumb';
 
 import '../../node_modules/slick-carousel/slick/slick.css';
 import '../../node_modules/slick-carousel/slick/slick-theme.css';
@@ -41,37 +41,6 @@ export default class IndexPage extends React.Component {
       slidesToScroll: 1
     };
 
-    const BlogPostSingle = styled.div`
-      margin: 10px auto 60px;
-      h1 {
-        margin-bottom: 0;
-      }
-      h4 {
-        margin-bottom: 0px;
-        margin-top: 10px;
-      }
-      small {
-        margin-top: -20px;
-        font-size: 10px;
-        margin-bottom: 20px;
-        display: inline-block;
-      }
-      ul {
-        list-style: none;
-        margin-bottom: 0;
-        padding: 0;
-        text-align: center;
-      }
-      li {
-        display: inline-block;
-        padding-left: 3px;
-      }
-      &__single li,
-      a {
-        color: ${props => props.theme.goldLight};
-      }
-    `;
-
     // const theme = {
     //   goldLight: '#daa56b',
     //   goldDark: '#965711',
@@ -89,40 +58,8 @@ export default class IndexPage extends React.Component {
         <section className="page">
           <h2>Recent Posts</h2>
           {posts.map(({ node: post }) => (
-            <BlogPostSingle className="content" key={post.id}>
-              <Link className="has-text-primary" to={post.fields.slug}>
-                <PreviewCompatibleImage imageInfo={post.frontmatter.image} />
-              </Link>
-              <ul>
-                {post.frontmatter.tags.map((tag, i) => (
-                  <li className="tag-link" key={tag + `tag`}>
-                    <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                    {i < post.frontmatter.tags.length - 1 &&
-                    i !== post.frontmatter.tags.length - 2
-                      ? ','
-                      : ' '}
-                    {i === post.frontmatter.tags.length - 2 &&
-                    post.frontmatter.tags.length > 1
-                      ? 'and'
-                      : ' '}
-                  </li>
-                ))}
-              </ul>
-              <Link className="no-under" to={post.fields.slug}>
-                <h4>{post.frontmatter.title}</h4>
-              </Link>
-              <small>{post.frontmatter.date}</small>
-              <p>
-                {post.excerpt}
-                <br />
-                <br />
-                <Link className="button button-primary" to={post.fields.slug}>
-                  Read More
-                </Link>
-              </p>
-            </BlogPostSingle>
+            <PostThumb className="content" post={post} key={post.id} />
           ))}
-
           <div className="content">
             <h2>Instagram</h2>
             <div className="insta-feed">
