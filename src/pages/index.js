@@ -72,15 +72,6 @@ export default class IndexPage extends React.Component {
       }
     `;
 
-    const ProductPostSingle = styled.div`
-      width: 100%;
-      margin: 30px;
-    `;
-    const ProductWrapper = styled.div`
-      display: flex;
-      justify-content: space-between;
-    `;
-
     // const theme = {
     //   goldLight: '#daa56b',
     //   goldDark: '#965711',
@@ -91,7 +82,6 @@ export default class IndexPage extends React.Component {
 
     const { data } = this.props;
     const { edges: posts } = data.blogs;
-    const { edges: products } = data.products;
     const { edges: instas } = data.instas;
 
     return (
@@ -132,22 +122,7 @@ export default class IndexPage extends React.Component {
               </p>
             </BlogPostSingle>
           ))}
-          <div className="content">
-            <h2>New finds</h2>
-            <ProductWrapper>
-              {products.map(({ node: product }) => (
-                <ProductPostSingle>
-                  <Link key={product.fields.slug} to={product.fields.slug}>
-                    <PreviewCompatibleImage
-                      imageInfo={product.frontmatter.image}
-                    />
-                    <h4>{product.frontmatter.title}</h4>
-                    <h4>{product.frontmatter.price}</h4>
-                  </Link>
-                </ProductPostSingle>
-              ))}
-            </ProductWrapper>
-          </div>
+
           <div className="content">
             <h2>Instagram</h2>
             <div className="insta-feed">
@@ -226,33 +201,6 @@ export const pageQuery = graphql`
               }
             }
             title
-            tags
-            templateKey
-            date(formatString: "MMMM DD, YYYY")
-          }
-        }
-      }
-    }
-    products: allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
-      limit: 3
-      filter: { frontmatter: { templateKey: { eq: "single-product" } } }
-    ) {
-      edges {
-        node {
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            image {
-              childImageSharp {
-                fluid(maxWidth: 350, maxHeight: 350, quality: 80) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
             tags
             templateKey
             date(formatString: "MMMM DD, YYYY")

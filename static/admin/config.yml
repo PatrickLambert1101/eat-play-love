@@ -79,23 +79,6 @@ collections:
       - { label: 'Image', name: 'image', widget: 'image' }
       - { label: 'Description', name: 'description', widget: 'text' }
 
-  - name: 'single-product'
-    label: 'Single Product'
-    folder: 'src/pages/single-product'
-    create: true
-    slug: '{{slug}}'
-    fields:
-      - {
-          label: 'Template Key',
-          name: 'templateKey',
-          widget: 'hidden',
-          default: 'single-product',
-        }
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Image', name: 'image', widget: 'image' }
-      - { label: 'Price', name: 'price', widget: 'number' }
-      - { label: 'Description', name: 'description', widget: 'text' }
-
   - name: 'pages'
     label: 'Pages'
     files:
@@ -123,34 +106,3 @@ collections:
             }
           - { label: 'Title', name: 'title', widget: 'string' }
           - { label: 'Body', name: 'body', widget: 'markdown' }
-      - file: 'src/pages/offerings/index.md'
-        label: 'Offerings'
-        name: 'offerings'
-        fields:
-          - {
-              label: 'Template Key',
-              name: 'templateKey',
-              widget: 'hidden',
-              default: 'offerings-page',
-            }
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'First Image', name: 'firstImage', widget: 'image' }
-          - { label: 'First Title', name: 'firstTitle', widget: 'string' }
-          - { label: 'Second Image', name: 'secondImage', widget: 'image' }
-          - { label: 'Second Title', name: 'secondTitle', widget: 'string' }
-          - { label: 'Third Image', name: 'thirdImage', widget: 'image' }
-          - { label: 'Third Title', name: 'thirdTitle', widget: 'string' }
-      - file: 'src/pages/products/index.md'
-        label: 'Products Page'
-        name: 'products'
-        fields:
-          - {
-              label: 'Template Key',
-              name: 'templateKey',
-              widget: 'hidden',
-              default: 'product-page',
-            }
-          - { label: Title, name: title, widget: string }
-          - { label: Image, name: image, widget: image }
-          - { label: Heading, name: heading, widget: string }
-          - { label: Description, name: description, widget: string }
