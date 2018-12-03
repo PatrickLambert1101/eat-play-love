@@ -5,5 +5,5 @@ import OfferingsPagePreview from './preview-templates/OfferingsPagePreview';
 import BlogPostPreview from './preview-templates/BlogPostPreview';
 
 CMS.registerPreviewTemplate('about', AboutPagePreview);
-CMS.registerPreviewTemplate('offerings', OfferingsPagePreview);
+CMS.registerPreviewTemplate('offerings-page', OfferingsPagePreview);
 CMS.registerPreviewTemplate('blog', BlogPostPreview);
