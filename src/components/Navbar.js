@@ -24,20 +24,17 @@ const Navbar = () => (
       <Link className="navbar-item active" to="/blog">
         BLOG
       </Link>
-      <Link className="navbar-item" to="/offerings-page">
+      <Link className="navbar-item" to="/experinces">
+        EXPERIENCES
+      </Link>
+      <Link className="navbar-item" to="/offerings">
         OFFERINGS
       </Link>
-      <Link className="navbar-item" to="/events">
-        EVENTS
+      <Link className="navbar-item" to="/retreats">
+        RETREATS
       </Link>
-      <Link className="navbar-item" to="/shop">
-        SHOP
-      </Link>
-      <Link className="navbar-item" to="/about">
-        ABOUT
-      </Link>
-      <Link className="navbar-item" to="/directorys">
-        DIRECTORIES
+      <Link className="navbar-item" to="/contact">
+        CONTACT
       </Link>
     </div>
   </nav>
