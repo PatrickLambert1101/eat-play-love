@@ -87,6 +87,7 @@ collections:
           widget: 'hidden',
           default: 'home-post',
         }
+      - { label: 'Title', name: 'title', widget: 'string' }
       - label: 'Slider'
         name: 'slider'
         widget: 'list'
