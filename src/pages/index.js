@@ -50,15 +50,15 @@ export default class IndexPage extends React.Component {
     // };
 
     const { data } = this.props;
-    const { edges: posts } = data.blogs;
+    const { edges: home } = data.home;
     const { edges: instas } = data.instas;
 
     return (
       <Layout>
         <section className="page">
           <h2>Recent Posts</h2>
-          {posts.map(({ node: post }) => (
-            <PostThumb className="content" post={post} key={post.id} />
+          {home.map(({ node: house }) => (
+            <h1>{house.title}</h1>
           ))}
           <div className="content">
             <h2>Instagram</h2>
@@ -117,30 +117,13 @@ export const pageQuery = graphql`
         }
       }
     }
-    blogs: allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
-      limit: 2
-      filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
+    home: allMarkdownRemark(
+      filter: { frontmatter: { templateKey: { eq: "home-page" } } }
     ) {
       edges {
         node {
-          excerpt(pruneLength: 400)
-          id
-          fields {
-            slug
-          }
           frontmatter {
-            image {
-              childImageSharp {
-                fluid(maxWidth: 1100, maxHeight: 400, quality: 80) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
             title
-            tags
-            templateKey
-            date(formatString: "MMMM DD, YYYY")
           }
         }
       }

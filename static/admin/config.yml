@@ -75,21 +75,34 @@ collections:
         fields:
           - { label: 'Gallery Image', name: 'galleryimage', widget: 'image' }
 
+  - name: 'home'
+    label: 'Home'
+    folder: 'src/pages/home'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - {
+          label: 'Template Key',
+          name: 'templateKey',
+          widget: 'hidden',
+          default: 'home-post',
+        }
+      - label: 'Slider'
+        name: 'slider'
+        widget: 'list'
+        fields:
+          - { label: 'Slider Image', name: 'sliderimage', widget: 'image' }
+      - label: 'Cards'
+        name: 'cards'
+        widget: 'list'
+        fields:
+          - { label: 'Image', name: 'image', widget: 'image' }
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Text', name: 'text', widget: 'text' }
+
   - name: 'pages'
     label: 'Pages'
     files:
-      - file: 'src/pages/home/index.md'
-        label: 'Home'
-        name: 'home'
-        fields:
-          - {
-              label: 'Template Key',
-              name: 'templateKey',
-              widget: 'hidden',
-              default: 'home-page',
-            }
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Body', name: 'body', widget: 'markdown' }
       - file: 'src/pages/about/index.md'
         label: 'About'
         name: 'about'

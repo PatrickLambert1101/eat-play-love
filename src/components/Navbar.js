@@ -21,9 +21,6 @@ const Navbar = () => (
       </button>
     </div>
     <div className="navbar-start">
-      <Link className="navbar-item active" to="/blog">
-        BLOG
-      </Link>
       <Link className="navbar-item" to="/experinces">
         EXPERIENCES
       </Link>
