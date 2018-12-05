@@ -4,9 +4,10 @@ import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Slider from 'react-slick';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
+import styled from 'styled-components';
+
 import '../../node_modules/slick-carousel/slick/slick.css';
 import '../../node_modules/slick-carousel/slick/slick-theme.css';
-
 import '../../static/fonts/OstrichSans-Medium.eot';
 import '../../static/fonts/OstrichSans-Medium.svg';
 import '../../static/fonts/OstrichSans-Medium.ttf';
@@ -36,6 +37,25 @@ export default class IndexPage extends React.Component {
       speed: 500,
       slidesToScroll: 1
     };
+    var bannerSettings = {
+      dots: false,
+      infinite: true,
+      slidesToShow: 1,
+      autoPlay: true,
+      className: 'banner-slide',
+      speed: 500,
+      slidesToScroll: 1
+    };
+    const Content = styled.div`
+      max-width: 900px;
+    `;
+    const BannerSlider = styled.div`
+      height: 100vh;
+    `;
+
+    const Card = styled.div`
+      height: 100vh;
+    `;
 
     // const theme = {
     //   goldLight: '#daa56b',
@@ -47,50 +67,37 @@ export default class IndexPage extends React.Component {
 
     const { data } = this.props;
     const { edges: home } = data.home;
-    console.log('home', home);
-    const { edges: instas } = data.instas;
+    // const { edges: instas } = data.instas;
 
     return (
       <Layout>
-        <section className="page">
+        <Content>
           {home.map(({ node: house }) => (
             <div>
-              <h1 key={house.id}>{house.frontmatter.title}</h1>
-              <Slider {...settings}>
-                {house.frontmatter.slider.map(({ sliderimage }) => (
-                  <PreviewCompatibleImage
-                    key={sliderimage.id}
-                    imageInfo={sliderimage}
-                  />
-                ))}
-              </Slider>
+              <BannerSlider>
+                <Slider {...bannerSettings}>
+                  {house.frontmatter.slider.map(({ sliderimage }) => (
+                    <PreviewCompatibleImage
+                      key={sliderimage.id}
+                      imageInfo={sliderimage}
+                    />
+                  ))}
+                </Slider>
+              </BannerSlider>
               {house.frontmatter.cards.map(card => (
-                <div>
+                <Card key={card.title}>
                   <PreviewCompatibleImage
                     key={card.image.id}
                     imageInfo={card.image}
                   />
-                  <h1 key={card.title}>{card.title}</h1>
-                  <h1 key={card.title}>{card.title}</h1>
-                </div>
+                  <h3>{card.title}</h3>
+                  <p key={card.text}>{card.text}</p>
+                </Card>
               ))}
             </div>
           ))}
-          <div className="content">
-            <h2>Instagram</h2>
-            <div className="insta-feed">
-              <Slider {...settings}>
-                {instas.map(({ node: ig }) => (
-                  <PreviewCompatibleImage
-                    className="insta-image"
-                    key={ig.id}
-                    imageInfo={ig.localFile}
-                  />
-                ))}
-              </Slider>
-            </div>
-          </div>
-        </section>
+          <h2>Instagram</h2>
+        </Content>
       </Layout>
     );
   }
@@ -103,43 +110,50 @@ IndexPage.propTypes = {
     })
   })
 };
-
+// <Slider {...settings}>
+// {instas.map(({ node: ig }) => (
+//   <PreviewCompatibleImage
+//     className="insta-image"
+//     key={ig.id}
+//     imageInfo={ig.localFile}
+//   />
+// ))}
+// </Slider>
 export const pageQuery = graphql`
   query IndexQuery {
-    instas: allInstaNode(limit: 5) {
-      edges {
-        node {
-          id
-          likes
-          comments
-          original
-          timestamp
-          localFile {
-            childImageSharp {
-              fluid(maxWidth: 400, maxHeight: 400, quality: 80) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-          thumbnails {
-            src
-            config_width
-            config_height
-          }
-          dimensions {
-            height
-            width
-          }
-        }
-      }
-    }
+    # instas: allInstaNode(limit: 5) {
+    #   edges {
+    #     node {
+    #       id
+    #       likes
+    #       comments
+    #       original
+    #       timestamp
+    #       localFile {
+    #         childImageSharp {
+    #           fluid(maxWidth: 400, maxHeight: 400, quality: 80) {
+    #             ...GatsbyImageSharpFluid
+    #           }
+    #         }
+    #       }
+    #       thumbnails {
+    #         src
+    #         config_width
+    #         config_height
+    #       }
+    #       dimensions {
+    #         height
+    #         width
+    #       }
+    #     }
+    #   }
+    # }
     home: allMarkdownRemark(
       filter: { frontmatter: { templateKey: { eq: "home-post" } } }
     ) {
       edges {
         node {
           frontmatter {
-            title
             slider {
               sliderimage {
                 id
