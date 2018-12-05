@@ -64,7 +64,7 @@ export default class OfferingsPage extends React.Component {
       <Layout>
         <Content>
           {offerings.map(({ node: house }) => (
-            <h1>{house.title}</h1>
+            <h1>{house.frontmatter.title}</h1>
           ))}
         </Content>
       </Layout>
