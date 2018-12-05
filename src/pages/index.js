@@ -1,13 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
-import styled from 'styled-components';
-
 import Slider from 'react-slick';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
-import PostThumb from '../components/PostThumb';
-
 import '../../node_modules/slick-carousel/slick/slick.css';
 import '../../node_modules/slick-carousel/slick/slick-theme.css';
 
@@ -51,14 +47,34 @@ export default class IndexPage extends React.Component {
 
     const { data } = this.props;
     const { edges: home } = data.home;
+    console.log('home', home);
     const { edges: instas } = data.instas;
 
     return (
       <Layout>
         <section className="page">
-          <h2>Recent Posts</h2>
           {home.map(({ node: house }) => (
-            <h1>{house.title}</h1>
+            <div>
+              <h1 key={house.id}>{house.frontmatter.title}</h1>
+              <Slider {...settings}>
+                {house.frontmatter.slider.map(({ sliderimage }) => (
+                  <PreviewCompatibleImage
+                    key={sliderimage.id}
+                    imageInfo={sliderimage}
+                  />
+                ))}
+              </Slider>
+              {house.frontmatter.cards.map(card => (
+                <div>
+                  <PreviewCompatibleImage
+                    key={card.image.id}
+                    imageInfo={card.image}
+                  />
+                  <h1 key={card.title}>{card.title}</h1>
+                  <h1 key={card.title}>{card.title}</h1>
+                </div>
+              ))}
+            </div>
           ))}
           <div className="content">
             <h2>Instagram</h2>
@@ -118,12 +134,34 @@ export const pageQuery = graphql`
       }
     }
     home: allMarkdownRemark(
-      filter: { frontmatter: { templateKey: { eq: "home-page" } } }
+      filter: { frontmatter: { templateKey: { eq: "home-post" } } }
     ) {
       edges {
         node {
           frontmatter {
             title
+            slider {
+              sliderimage {
+                id
+                childImageSharp {
+                  fluid(maxWidth: 400, maxHeight: 400, quality: 80) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
+            cards {
+              image {
+                id
+                childImageSharp {
+                  fluid(maxWidth: 400, maxHeight: 400, quality: 80) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+              title
+              text
+            }
           }
         }
       }

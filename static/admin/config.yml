@@ -9,7 +9,6 @@ collections:
   - name: 'offerings'
     label: 'Offerings'
     folder: 'src/pages/offerings'
-    create: true
     slug: '{{slug}}'
     fields:
       - {
