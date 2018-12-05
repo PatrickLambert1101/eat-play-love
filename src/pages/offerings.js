@@ -58,12 +58,12 @@ export default class OfferingsPage extends React.Component {
     `;
 
     const { data } = this.props;
-    const { edges: home } = data.home;
+    const { edges: offerings } = data.offerings;
 
     return (
       <Layout>
         <Content>
-          {home.map(({ node: house }) => (
+          {offerings.map(({ node: house }) => (
             <h1>{house.title}</h1>
           ))}
         </Content>
@@ -82,7 +82,7 @@ OfferingsPage.propTypes = {
 
 export const pageQuery = graphql`
   query OfferingsQuery {
-    offering: allMarkdownRemark(
+    offerings: allMarkdownRemark(
       filter: { frontmatter: { templateKey: { eq: "offerings-post" } } }
     ) {
       edges {
