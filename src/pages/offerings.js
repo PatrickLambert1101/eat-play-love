@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Slider from 'react-slick';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
@@ -65,7 +65,9 @@ export default class OfferingsPage extends React.Component {
         <Content>
           {offerings.map(({ node: offering }) => (
             <div>
-              <h1>{offering.frontmatter.title}</h1>
+              <Link to={offering.fields.slug}>
+                <h1>{offering.frontmatter.title}</h1>
+              </Link>
               <PreviewCompatibleImage
                 key={offering.frontmatter.image.id}
                 imageInfo={offering.frontmatter.image}
@@ -95,6 +97,9 @@ export const pageQuery = graphql`
       edges {
         node {
           html
+          fields {
+            slug
+          }
           frontmatter {
             title
             image {
