@@ -63,8 +63,15 @@ export default class OfferingsPage extends React.Component {
     return (
       <Layout>
         <Content>
-          {offerings.map(({ node: house }) => (
-            <h1>{house.frontmatter.title}</h1>
+          {offerings.map(({ node: offering }) => (
+            <div>
+              <h1>{offering.frontmatter.title}</h1>
+              <PreviewCompatibleImage
+                key={offering.frontmatter.image.id}
+                imageInfo={offering.frontmatter.image}
+              />
+              <h5>{offering.frontmatter.excerpt}</h5>
+            </div>
           ))}
         </Content>
       </Layout>
@@ -87,8 +94,17 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
+          html
           frontmatter {
             title
+            image {
+              childImageSharp {
+                fluid(maxWidth: 400, maxHeight: 400, quality: 80) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            excerpt
           }
         }
       }

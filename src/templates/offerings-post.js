@@ -24,6 +24,7 @@ const OfferingsPost = ({ data }) => {
 
   return (
     <Layout>
+      asdfasdfasdf
       <OfferingsPostTemplate title={post.frontmatter.title} />
     </Layout>
   );
