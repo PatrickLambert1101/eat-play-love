@@ -11,6 +11,9 @@ $grey-button: #595959
 $grey: #979797
 $pink: #f9decf
 
+body
+  margin: 0
+
 .navbar
   margin-bottom: 3rem
   @media (max-width: 900px)
@@ -113,19 +116,25 @@ $pink: #f9decf
     padding: 10px 16px
 
 h1
-  font-size: 2.2rem
-  color: $gold-light
-  text-align: center
-  font-family: $georgia
-
-h2
   font-size: 2.8rem
   color: $gold-light
   text-align: center
-  font-family: 'RV', Arial, Helvetica, sans-serif;
+  margin-bottom: 2rem
+  font-family: 'RV', Arial, Helvetica, sans-serif
+
+h2
+  font-size: 2.2rem
+  color: $gold-light
+  font-family: $georgia
+  text-align: center
+
+.home
+  h2
+    font-family: 'RV', Arial, Helvetica, sans-serif
+
 
 h4
-  color: $gold-dark
+  color: $gold-light
   font-weight: bold
   font-size: 24px
   text-decoration: none

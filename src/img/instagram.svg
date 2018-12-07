@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="99px" height="91px" viewBox="0 0 99 91" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>instagram</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="HOME-PAGE-2ND" transform="translate(-789.000000, -5045.000000)" fill="#C5802F" fill-rule="nonzero">
+            <g id="Group" transform="translate(637.000000, 5045.000000)">
+                <g id="instagram" transform="translate(152.000000, 0.000000)">
+                    <path d="M68.0625,0 L30.9375,0 C13.8538125,0 0,12.7343125 0,28.4375 L0,62.5625 C0,78.2656875 13.8538125,91 30.9375,91 L68.0625,91 C85.1461875,91 99,78.2656875 99,62.5625 L99,28.4375 C99,12.7343125 85.1461875,0 68.0625,0 Z M89.71875,62.5625 C89.71875,73.539375 80.004375,82.46875 68.0625,82.46875 L30.9375,82.46875 C18.995625,82.46875 9.28125,73.539375 9.28125,62.5625 L9.28125,28.4375 C9.28125,17.460625 18.995625,8.53125 30.9375,8.53125 L68.0625,8.53125 C80.004375,8.53125 89.71875,17.460625 89.71875,28.4375 L89.71875,62.5625 Z" id="Shape"></path>
+                    <path d="M48.5,22 C34.969875,22 24,32.074375 24,44.5 C24,56.925625 34.969875,67 48.5,67 C62.030125,67 73,56.925625 73,44.5 C73,32.074375 62.030125,22 48.5,22 Z M48.5,58 C39.9564,58 33,51.7168 33,44 C33,36.2776 39.9564,30 48.5,30 C57.0436,30 64,36.2776 64,44 C64,51.7168 57.0436,58 48.5,58 Z" id="Shape"></path>
+                    <circle id="Oval" cx="76" cy="21" r="3"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

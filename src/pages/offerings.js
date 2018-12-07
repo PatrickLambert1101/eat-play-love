@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
 import Layout from '../components/Layout';
-import Slider from 'react-slick';
+// import Slider from 'react-slick';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import styled from 'styled-components';
 
@@ -27,28 +27,12 @@ import './font-face.css';
 
 export default class OfferingsPage extends React.Component {
   render() {
-    var settings = {
-      dots: true,
-      infinite: true,
-      centerMode: true,
-      slidesToShow: 3,
-      autoPlay: true,
-      className: 'insta-slide',
-      speed: 500,
-      slidesToScroll: 1
-    };
-    var bannerSettings = {
-      dots: false,
-      infinite: true,
-      slidesToShow: 1,
-      autoPlay: true,
-      className: 'banner-slide',
-      speed: 500,
-      slidesToScroll: 1
-    };
     const Content = styled.div`
       max-width: 1000px;
       margin: auto;
+      h1 {
+        margin-bottom: 4rem;
+      }
     `;
 
     const Item = styled.div`
@@ -64,6 +48,16 @@ export default class OfferingsPage extends React.Component {
       }
       &:nth-child(2n + 1) {
         flex-direction: row-reverse;
+      }
+      @media (max-width: 900px) {
+        flex-direction: column;
+        text-align: center;
+        h2 {
+          text-align: center;
+        }
+        &:nth-child(2n + 1) {
+          flex-direction: column;
+        }
       }
     `;
 
@@ -86,7 +80,7 @@ export default class OfferingsPage extends React.Component {
                 <Link to={offering.fields.slug}>
                   <h2>{offering.frontmatter.title}</h2>
                 </Link>
-                <h5>{offering.frontmatter.excerpt}</h5>
+                <h4>{offering.frontmatter.excerpt}</h4>
               </div>
             </Item>
           ))}

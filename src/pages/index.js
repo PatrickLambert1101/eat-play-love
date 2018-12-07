@@ -56,6 +56,14 @@ export default class IndexPage extends React.Component {
         padding: 0;
       }
     `;
+    const InstaSlider = styled.div`
+      max-width: 1000px;
+      margin: auto;
+      padding: 0 20px;
+      @media (max-width: 900px) {
+        padding: 0;
+      }
+    `;
 
     const Card = styled.div`
       max-width: 1000px;
@@ -73,11 +81,10 @@ export default class IndexPage extends React.Component {
 
     const { data } = this.props;
     const { edges: home } = data.home;
-    console.log('home', home);
     const { edges: instas } = data.instas;
 
     return (
-      <Layout>
+      <Layout className="home">
         {home.map(({ node: house }) => (
           <div>
             <BannerSlider>
@@ -108,7 +115,7 @@ export default class IndexPage extends React.Component {
           </div>
         ))}
         <h2>Instagram</h2>
-        <BannerSlider>
+        <InstaSlider>
           <Slider {...settings}>
             {instas.map(({ node: ig }) => (
               <PreviewCompatibleImage
@@ -118,7 +125,7 @@ export default class IndexPage extends React.Component {
               />
             ))}
           </Slider>
-        </BannerSlider>
+        </InstaSlider>
       </Layout>
     );
   }

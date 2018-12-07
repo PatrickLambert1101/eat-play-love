@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { kebabCase } from 'lodash';
-import Helmet from 'react-helmet';
-import { graphql, Link } from 'gatsby';
+// import { kebabCase } from 'lodash';
+// import Helmet from 'react-helmet';
+import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
-import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
-import Content, { HTMLContent } from '../components/Content';
+// import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
+// import Content, { HTMLContent } from '../components/Content';
 
 export const OfferingsPostTemplate = ({ title }) => {
   return (
