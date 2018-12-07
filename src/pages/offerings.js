@@ -47,14 +47,24 @@ export default class OfferingsPage extends React.Component {
       slidesToScroll: 1
     };
     const Content = styled.div`
-      max-width: 900px;
-    `;
-    const BannerSlider = styled.div`
-      height: 100vh;
+      max-width: 1000px;
+      margin: auto;
     `;
 
-    const Card = styled.div`
-      height: 100vh;
+    const Item = styled.div`
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+      & > * {
+        flex: 1;
+        padding: 0 20px;
+      }
+      h2 {
+        text-align: left;
+      }
+      &:nth-child(2n + 1) {
+        flex-direction: row-reverse;
+      }
     `;
 
     const { data } = this.props;
@@ -63,17 +73,22 @@ export default class OfferingsPage extends React.Component {
     return (
       <Layout>
         <Content>
+          <h1>Offerings</h1>
           {offerings.map(({ node: offering }) => (
-            <div>
+            <Item>
               <Link to={offering.fields.slug}>
-                <h1>{offering.frontmatter.title}</h1>
+                <PreviewCompatibleImage
+                  key={offering.frontmatter.image.id}
+                  imageInfo={offering.frontmatter.image}
+                />
               </Link>
-              <PreviewCompatibleImage
-                key={offering.frontmatter.image.id}
-                imageInfo={offering.frontmatter.image}
-              />
-              <h5>{offering.frontmatter.excerpt}</h5>
-            </div>
+              <div>
+                <Link to={offering.fields.slug}>
+                  <h2>{offering.frontmatter.title}</h2>
+                </Link>
+                <h5>{offering.frontmatter.excerpt}</h5>
+              </div>
+            </Item>
           ))}
         </Content>
       </Layout>

@@ -12,10 +12,13 @@ $grey: #979797
 $pink: #f9decf
 
 .navbar
-  margin-bottom: 6rem
+  margin-bottom: 3rem
+  @media (max-width: 900px)
+    margin-bottom: 1.5rem
 
 .navbar-brand
   justify-content: center
+  display: flex
   .navbar-item img
     max-height: 9rem
     width: 100%
@@ -61,9 +64,6 @@ $pink: #f9decf
 .content p
   font-family: $georgia
   font-size: 16px
-
-.nav-btn
-  display: none;
 
 .navbar-start
   display: flex
@@ -112,33 +112,6 @@ $pink: #f9decf
     box-shadow: 0px 1px 5px rgba(0,0,0,0.1)
     padding: 10px 16px
 
-.blog-posts
-    margin: 10px auto 60px
-    h1
-      margin-bottom: 0
-    h4
-      margin-bottom: 0px
-      margin-top: 10px
-    small
-      margin-top: -20px
-      font-size: 10px
-      margin-bottom: 20px
-      display: inline-block
-    ul
-      list-style: none
-      margin-bottom: 0
-      padding: 0
-      text-align: center
-      li
-        display: inline-block
-        padding-left: 3px
-    &__single
-      li, a
-        color: $gold-light
-
-.no-under
-  text-decoration: none;
-
 h1
   font-size: 2.2rem
   color: $gold-light
@@ -158,13 +131,38 @@ h4
   text-decoration: none
   font-family: $georgia
 
+p
+  font-family: $georgia
 
-.insta-feed .insta-slide
-  .slick-slide
-    opacity: 0;
-  .slick-active
-    opacity: 1
-  .slick-center
-    height: 360px
-    transform: scale(1.3)
-    margin-top: -30px
+a
+  text-decoration: none
+
+
+.toggle-closed
+  .navbar-start
+    @media (max-width: 900px)
+     max-height: 1px
+     overflow: hidden
+     list-style: none
+     opacity: 0
+     margin: 0
+     padding: 0
+     transition: all 0.7s cubic-bezier(.325, 1, .22, 1)
+
+.navbar-start
+  height: auto
+  max-height: 30rem
+  opacity: 1
+  transition: all 0.7s cubic-bezier(.5, 1, .22, 1)
+  @media (max-width: 900px)
+    flex-direction: column
+    align-items: center
+    a
+     min-height: 60px
+
+.nav-btn
+  @media (min-width: 901px)
+    display: none
+  img
+    max-width: 55px
+
