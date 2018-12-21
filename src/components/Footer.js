@@ -88,6 +88,10 @@ export default class Footer extends React.Component {
         display: flex;
         max-width: 1000px;
         justify-content: space-between;
+        @media (max-width: 900px) {
+          flex-direction: column;
+          padding-bottom: 50px;
+        }
 
         align-items: center;
         h2 {
@@ -96,19 +100,38 @@ export default class Footer extends React.Component {
       }
     `;
     const FootBottom = styled.div`
-      padding-top: 4rem;
+      padding-top: 2rem;
       display: flex;
       justify-content: space-between;
       margin: auto;
       max-width: 1000px;
       align-items: center;
+      @media (max-width: 900px) {
+        flex-direction: column;
+        img {
+          max-width: 180px;
+        }
+      }
+    `;
+    const Social = styled.div`
+      display: flex;
+      flex: 2;
+      justify-content: space-around;
+      width: 100%;
     `;
     const SocialLogo = styled.img`
-      max-width: 270px;
+      height: 80px;
+      @media (max-width: 900px) {
+        height: 50px;
+      }
     `;
 
-    const FootLogo = styled.img`
-      max-width: 270px;
+    const FootLogo = styled.div`
+      flex: 1;
+      img {
+        width: 100%;
+      }
+      margin-bottom: 30px;
     `;
     return (
       <footer>
@@ -147,21 +170,32 @@ export default class Footer extends React.Component {
           </div>{' '}
         </FootTop>
         <FootBottom>
-          <FootLogo src={logo} />
-          <div>
-            <Link to={'https://www.facebook.com/eatplayloveretreat/'}>
+          <FootLogo>
+            <img src={logo} alt={'Footer logo'} />
+          </FootLogo>
+          <Social>
+            <a
+              target="_blank"
+              href={'https://www.facebook.com/eatplayloveretreat/'}
+            >
               <SocialLogo src={facebook} />
-            </Link>
-            <Link to={'contact'}>
+            </a>
+            <a
+              target="_blank"
+              href={'https://www.instagram.com/eatplayloveretreat/'}
+            >
               <SocialLogo src={instagram} />
-            </Link>
-            <Link to={'contact'}>
+            </a>
+            <a target="_blank" href={'mailto:eatplayloveretreat@gmail.com'}>
               <SocialLogo src={mail} />
-            </Link>
-            <Link to={'contact'}>
+            </a>
+            <a
+              target="_blank"
+              href={'https://za.pinterest.com/eatplayloveshop/'}
+            >
               <SocialLogo src={pinterest} />
-            </Link>
-          </div>
+            </a>
+          </Social>
         </FootBottom>
       </footer>
     );
