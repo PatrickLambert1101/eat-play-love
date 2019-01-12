@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
 import Layout from '../components/Layout';
 // import Slider from 'react-slick';
-import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import styled from 'styled-components';
+import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 
 import '../../node_modules/slick-carousel/slick/slick.css';
 import '../../node_modules/slick-carousel/slick/slick-theme.css';
@@ -32,6 +32,19 @@ export default class OfferingsPage extends React.Component {
       margin: auto;
       h1 {
         margin-bottom: 4rem;
+      }
+    `;
+    const SideButton = styled.div`
+      display: flex;
+      justify-content: flex-end;
+      a {
+        background-color: #f9decf;
+        padding: 15px 17px;
+        font-size: 1.3em;
+        h4 {
+          color: #824706;
+          margin: 0;
+        }
       }
     `;
 
@@ -85,6 +98,11 @@ export default class OfferingsPage extends React.Component {
             </Item>
           ))}
         </Content>
+        <SideButton>
+          <Link to={'/contact'}>
+            <h4>Contact us for more info</h4>
+          </Link>
+        </SideButton>
       </Layout>
     );
   }

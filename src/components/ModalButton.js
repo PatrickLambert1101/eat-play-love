@@ -1,7 +1,33 @@
 import React from 'react';
+import ReactModal from 'react-modal';
 import { navigateTo } from 'gatsby-link';
-import Layout from '../../components/Layout';
 import styled, { css } from 'styled-components';
+
+const Close = styled.div`
+  position: absolute;
+  right: 25px;
+  border-width: 0;
+  button {
+    border-width: 0;
+    font-size: 2.4em;
+    color: #824706;
+  }
+`;
+const CenterButton = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  button {
+    background-color: #f9decf;
+    padding: 15px 17px;
+    font-size: 1.3em;
+    border-width: 0;
+    h4 {
+      margin: 0;
+      color: #824706;
+    }
+  }
+`;
 
 function encode(data) {
   return Object.keys(data)
@@ -11,21 +37,14 @@ function encode(data) {
 
 const FormFlex = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  input:first-child {
-    margin-right: 10px;
-  }
-  input:last-child {
-    margin-left: 10px;
-  }
 `;
-
 const styles = css`
   background-color: #f9decf;
   color: #824706;
   font-size: 22px;
   padding: 12px;
-  min-width: 250px;
   width: 100%;
   box-sizing: border-box;
   border-radius: 1px;
@@ -57,15 +76,17 @@ const TextArea = styled.textarea`
   ${styles};
 `;
 
-export default class Index extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { isValidated: false };
-  }
+class ModalButton extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      showModal: false,
+      isValidated: false
+    };
 
-  handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
+    this.handleOpenModal = this.handleOpenModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
+  }
 
   handleSubmit = e => {
     e.preventDefault();
@@ -81,12 +102,48 @@ export default class Index extends React.Component {
       .then(() => navigateTo(form.getAttribute('action')))
       .catch(error => alert(error));
   };
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+  handleOpenModal() {
+    this.setState({ showModal: true });
+  }
+
+  handleCloseModal() {
+    this.setState({ showModal: false });
+  }
 
   render() {
     return (
-      <Layout>
-        <div className="content">
-          <h1>Contact</h1>
+      <div>
+        <CenterButton>
+          <button onClick={this.handleOpenModal}>
+            <h4>Book Now</h4>
+          </button>
+        </CenterButton>
+        <ReactModal
+          closeTimeoutMS={200}
+          isOpen={this.state.showModal}
+          style={{
+            overlay: {
+              backgroundColor: '#ffefd587'
+            },
+            content: {
+              maxWidth: '500px',
+              margin: 'auto',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              border: 'none',
+              borderRadius: '0',
+              bottom: 'auto'
+            }
+          }}
+          contentLabel="Minimal Modal Example"
+        >
+          <Close>
+            <button onClick={this.handleCloseModal}>X</button>
+          </Close>
+          <h2>Book Now</h2>
           <form
             name="contact"
             method="post"
@@ -118,21 +175,23 @@ export default class Index extends React.Component {
                 id={'email'}
                 required={true}
               />
+              <TextArea
+                className="textarea"
+                name={'message'}
+                placeholder={'Message'}
+                onChange={this.handleChange}
+                id={'email'}
+                required={true}
+              />
+              <button className="button large is-link" type="submit">
+                Send
+              </button>
             </FormFlex>
-            <TextArea
-              className="textarea"
-              name={'message'}
-              placeholder={'Message'}
-              onChange={this.handleChange}
-              id={'email'}
-              required={true}
-            />
-            <button className="button large is-link" type="submit">
-              Send
-            </button>
           </form>
-        </div>
-      </Layout>
+        </ReactModal>
+      </div>
     );
   }
 }
+
+export default ModalButton;

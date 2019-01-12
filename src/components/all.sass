@@ -42,6 +42,8 @@ body
     margin-bottom: 1.5rem
     margin-top: 0
 
+.left-content
+  text-align: left
 // Helper Classes
 .full-width-image-container
   width: 100vw
@@ -57,16 +59,12 @@ body
   align-items: center
 
 .blog-thumb
-  height: 400px;
+  height: 400px
   width: 100%
   background-size: cover
 
 .gatsby-image-wrapper
   border-radius: 0
-
-.content p
-  font-family: $georgia
-  font-size: 16px
 
 .navbar-start
   display: flex
@@ -88,11 +86,11 @@ body
 
 .content
   max-width: $container-width
-  margin: auto;
-  text-align: center;
+  margin: auto
+  text-align: center
 
 .tag-link a
-  text-decoration: none;
+  text-decoration: none
   color:#131211
   font-family: $georgia
   font-size: 18px
@@ -114,16 +112,26 @@ body
   &:hover
     box-shadow: 0px 1px 5px rgba(0,0,0,0.1)
     padding: 10px 16px
+  &.large
+    font-weight: bold
+    font-family: 'Georgia', Arial, Helvetica, sans-serif
+    font-size: 28px
+    padding: 8px 22px
+    color: #ebe6e1
+    background-color: #824706
+    border: 1px solid #a93a3a
 
 h1
   font-size: 2.8rem
   color: $gold-light
   text-align: center
   margin-bottom: 2rem
+  font-weight: 100
   font-family: 'RV', Arial, Helvetica, sans-serif
 
 h2
   font-size: 2.2rem
+  font-weight: 100
   color: $gold-light
   font-family: $georgia
   text-align: center
@@ -135,17 +143,32 @@ h2
 
 h4
   color: $gold-light
-  font-weight: bold
+  font-weight: 100
   font-size: 24px
+  text-decoration: none
+  font-family: $georgia
+
+h5
+  color: $gold-light
+  font-weight: 100
+  font-size: 18px
+  margin-top: -20px
   text-decoration: none
   font-family: $georgia
 
 p
   font-family: $georgia
+  font-size: 21px
+  line-height: 27px
 
 a
   text-decoration: none
 
+.blurb
+  font-style: italic
+  color: #925a20
+  margin-top: 30px
+  text-align: left
 
 .toggle-closed
   .navbar-start
@@ -175,3 +198,15 @@ a
   img
     max-width: 55px
 
+.ReactModal__Overlay
+    opacity: 0
+    transition: opacity 200ms ease-in-out
+
+.ReactModal__Overlay--after-open
+    opacity: 1
+
+.ReactModal__Overlay--before-close
+    opacity: 0
+
+.gallery-wrap
+  display: flex
