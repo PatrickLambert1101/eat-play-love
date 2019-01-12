@@ -2,7 +2,7 @@
 templateKey: home-post
 title: Home Page
 slider:
-  - sliderimage: /img/home-banner.jpg
+  - sliderimage: /img/jessica-castro-355974-unsplash.jpg
   - sliderimage: /img/jumbotron.jpg
   - sliderimage: /img/jumbotron.jpg
 cards:
