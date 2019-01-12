@@ -2,24 +2,23 @@
 templateKey: home-post
 title: Home Page
 slider:
-  - sliderimage: /img/chemex.jpg
+  - sliderimage: /img/home-banner.jpg
   - sliderimage: /img/jumbotron.jpg
   - sliderimage: /img/jumbotron.jpg
 cards:
-  - image: /img/products-grid1.jpg
+  - image: /img/blog-1.png
     text: >-
-      Congue tristique eleifend convallis interdum pharetra molestie ante quis
-      viverra
-    title: Experiences
-  - image: /img/flavor_wheel.jpg
+      As I write this, we are under a full Sagittarius moon, and June is about
+      the begin – the season of high summer, of the Solstice and the midpoint of
+      the year. I am preparing a full moon ritual, and feeling so grateful for
+      the increasing depth of work tha
+    title: Events
+  - image: /img/event.jpg
     text: >-
-      Nisl taciti euismod curae sollicitudin facilisis diam ornare nisi est
-      posuere habitant torquent luctus fusce id potenti
+      As I write this, we are under a full Sagittarius moon, and June is about
+      the begin – the season of high summer, of the Solstice and the midpoint of
+      the year. I am preparing a full moon ritual, and feeling so grateful for
+      the increasing depth of work tha
     title: Offerings
-  - image: /img/products-grid3.jpg
-    text: >-
-      Sit per ac egestas ipsum magna primis tincidunt interdum fringilla
-      parturient phasellus class mollis
-    title: Retreats
 ---
 
