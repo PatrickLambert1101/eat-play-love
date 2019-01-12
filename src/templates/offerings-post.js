@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
-import Layout from '../components/Layout';
+
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import ModalButton from '../components/ModalButton';
 import Content, { HTMLContent } from '../components/Content';
@@ -95,7 +95,7 @@ const OfferingsPost = ({ data }) => {
   const { markdownRemark: post } = data;
 
   return (
-    <Layout>
+    <div>
       <OfferingsPostTemplate
         title={post.frontmatter.title}
         image={post.frontmatter.image}
@@ -104,7 +104,7 @@ const OfferingsPost = ({ data }) => {
         contentComponent={HTMLContent}
         content={post.html}
       />
-    </Layout>
+    </div>
   );
 };
 

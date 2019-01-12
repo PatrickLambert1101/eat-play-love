@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
-import Layout from '../components/Layout';
 import Slider from 'react-slick';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import styled from 'styled-components';
@@ -84,7 +83,7 @@ export default class IndexPage extends React.Component {
     const { edges: instas } = data.instas;
 
     return (
-      <Layout className="home">
+      <div className="home">
         {home.map(({ node: house }) => (
           <div>
             <BannerSlider>
@@ -126,7 +125,7 @@ export default class IndexPage extends React.Component {
             ))}
           </Slider>
         </InstaSlider>
-      </Layout>
+      </div>
     );
   }
 }

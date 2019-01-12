@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
-import Layout from '../components/Layout';
+
 // import Slider from 'react-slick';
 import styled from 'styled-components';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
@@ -78,7 +78,7 @@ export default class OfferingsPage extends React.Component {
     const { edges: offerings } = data.offerings;
 
     return (
-      <Layout>
+      <div>
         <Content>
           <h1>Offerings</h1>
           {offerings.map(({ node: offering }) => (
@@ -103,7 +103,7 @@ export default class OfferingsPage extends React.Component {
             <h4>Contact us for more info</h4>
           </Link>
         </SideButton>
-      </Layout>
+      </div>
     );
   }
 }

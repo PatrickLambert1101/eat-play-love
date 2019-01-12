@@ -1,6 +1,5 @@
 import React from 'react';
 import { navigateTo } from 'gatsby-link';
-import Layout from '../../components/Layout';
 import styled, { css } from 'styled-components';
 
 function encode(data) {
@@ -84,7 +83,7 @@ export default class Index extends React.Component {
 
   render() {
     return (
-      <Layout>
+      <div>
         <div className="content">
           <h1>Contact</h1>
           <form
@@ -132,7 +131,7 @@ export default class Index extends React.Component {
             </button>
           </form>
         </div>
-      </Layout>
+      </div>
     );
   }
 }

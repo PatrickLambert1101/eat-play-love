@@ -1,13 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Layout from '../components/Layout';
-
 const HomePost = () => {
   return (
-    <Layout>
+    <div>
       <h1>test</h1>
-    </Layout>
+    </div>
   );
 };
 
