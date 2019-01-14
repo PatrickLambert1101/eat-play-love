@@ -54,10 +54,6 @@ export default class IndexPage extends React.Component {
       padding: 0 20px;
       @media (max-width: 900px) {
         padding: 0;
-        height: 300px;
-        .slick-slide {
-          height: 300px;
-        }
       }
     `;
     const InstaSlider = styled.div`
@@ -95,7 +91,8 @@ export default class IndexPage extends React.Component {
     const { data } = this.props;
     const { edges: home } = data.home;
     const { edges: instas } = data.instas;
-
+    console.log('test');
+    console.log(home);
     return (
       <div className="home">
         {home.map(({ node: house }) => (
@@ -103,9 +100,9 @@ export default class IndexPage extends React.Component {
             <BannerSlider>
               <Slider {...bannerSettings}>
                 {house.frontmatter.slider.map(({ sliderimage }) => (
-                  <Image
+                  <PreviewCompatibleImage
                     key={sliderimage.id}
-                    fixed={sliderimage.childImageSharp.fixed}
+                    imageInfo={sliderimage}
                   />
                 ))}
               </Slider>
@@ -119,9 +116,8 @@ export default class IndexPage extends React.Component {
                   <PreviewCompatibleImage
                     key={card.image.id}
                     imageInfo={card.image}
-                  />{' '}
+                  />
                 </Link>
-
                 <p key={card.text}>{card.text}</p>
               </Card>
             ))}
