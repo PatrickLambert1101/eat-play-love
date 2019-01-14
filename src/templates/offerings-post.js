@@ -59,14 +59,6 @@ export const OfferingsPostTemplate = ({
         <GalleryImages>
           {gallery.map(single => (
             <PreviewCompatibleImage
-              className="insta-image"
-              key={single.id}
-              imageInfo={single.galleryimage}
-            />
-          ))}
-          {gallery.map(single => (
-            <PreviewCompatibleImage
-              className="insta-image"
               key={single.id}
               imageInfo={single.galleryimage}
             />
@@ -81,8 +73,6 @@ export const OfferingsPostTemplate = ({
     </div>
   );
 };
-
-const PostContent = Content;
 
 OfferingsPostTemplate.propTypes = {
   title: PropTypes.string,
@@ -125,7 +115,7 @@ export const pageQuery = graphql`
         title
         image {
           childImageSharp {
-            fluid(maxWidth: 400, maxHeight: 200, quality: 80) {
+            fluid(maxWidth: 900, maxHeight: 450, quality: 80) {
               ...GatsbyImageSharpFluid
             }
           }

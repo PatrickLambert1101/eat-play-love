@@ -12,6 +12,9 @@ const GalleryImages = styled.div`
   margin-top: 40px;
   flex-wrap: wrap;
   justify-content: space-between;
+  @media (max-width: 480px) {
+    flex-direction: column;
+  }
   & > div {
     flex: 1 0 30%;
     margin: 10px;
@@ -64,13 +67,6 @@ export const RetreatsPostTemplate = ({
               imageInfo={single.galleryimage}
             />
           ))}
-          {gallery.map(single => (
-            <PreviewCompatibleImage
-              className="insta-image"
-              key={single.id}
-              imageInfo={single.galleryimage}
-            />
-          ))}
         </GalleryImages>
       </div>
       <SideButton>
@@ -81,8 +77,6 @@ export const RetreatsPostTemplate = ({
     </div>
   );
 };
-
-const PostContent = Content;
 
 RetreatsPostTemplate.propTypes = {
   title: PropTypes.string,
@@ -125,7 +119,7 @@ export const pageQuery = graphql`
         title
         image {
           childImageSharp {
-            fluid(maxWidth: 400, maxHeight: 200, quality: 80) {
+            fluid(maxWidth: 900, maxHeight: 450, quality: 80) {
               ...GatsbyImageSharpFluid
             }
           }

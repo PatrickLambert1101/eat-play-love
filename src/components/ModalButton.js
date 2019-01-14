@@ -11,6 +11,7 @@ const Close = styled.div`
     border-width: 0;
     font-size: 2.4em;
     color: #824706;
+    background-color: inherit;
   }
 `;
 const CenterButton = styled.div`
@@ -34,6 +35,11 @@ function encode(data) {
     .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
     .join('&');
 }
+
+const ModalTitle = styled.h2`
+  margin-top: 5px;
+  margin-bottom: 20px;
+`;
 
 const FormFlex = styled.div`
   display: flex;
@@ -117,7 +123,7 @@ class ModalButton extends React.Component {
     return (
       <div>
         <CenterButton>
-          <button onClick={this.handleOpenModal}>
+          <button className="read-more" onClick={this.handleOpenModal}>
             <h4>Book Now</h4>
           </button>
         </CenterButton>
@@ -143,7 +149,7 @@ class ModalButton extends React.Component {
           <Close>
             <button onClick={this.handleCloseModal}>X</button>
           </Close>
-          <h2>Book Now</h2>
+          <ModalTitle>Book Now</ModalTitle>
           <form
             name="contact"
             method="post"

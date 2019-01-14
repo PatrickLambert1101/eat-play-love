@@ -18,6 +18,9 @@ const FooterForm = styled.form`
   display: flex;
   align-items: stretch;
   margin-left: 20px;
+  @media (max-width: 480px) {
+    margin-left: 0;
+  }
   button {
     background-color: #aa9275;
     color: #ebe6e1;
@@ -115,7 +118,10 @@ const SocialTitle = styled.div``;
 const FootLogo = styled.div`
   flex: 1;
   img {
-    width: 100%;
+    width: 80%;
+    @media (max-width: 480px) {
+      width: 100%;
+    }
   }
   margin-bottom: 30px;
   @media (max-width: 480px) {

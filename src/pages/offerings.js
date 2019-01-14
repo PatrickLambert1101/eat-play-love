@@ -48,6 +48,26 @@ export default class OfferingsPage extends React.Component {
       }
     `;
 
+    const Card = styled.div`
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      h2 {
+        margin-top: 0;
+      }
+      h4 {
+        margin: 0;
+      }
+      @media (max-width: 480px) {
+        align-items: center;
+        margin-bottom: 15px;
+        h2 {
+          margin-top: 15px;
+        }
+      }
+    `;
+
     const Item = styled.div`
       display: flex;
       justify-content: center;
@@ -89,12 +109,15 @@ export default class OfferingsPage extends React.Component {
                   imageInfo={offering.frontmatter.image}
                 />
               </Link>
-              <div>
+              <Card>
                 <Link to={offering.fields.slug}>
                   <h2>{offering.frontmatter.title}</h2>
                 </Link>
                 <h4>{offering.frontmatter.excerpt}</h4>
-              </div>
+                <Link to={offering.fields.slug} className="read-more">
+                  Read More
+                </Link>
+              </Card>
             </Item>
           ))}
         </Content>
@@ -131,7 +154,7 @@ export const pageQuery = graphql`
             title
             image {
               childImageSharp {
-                fluid(maxWidth: 400, maxHeight: 400, quality: 80) {
+                fluid(maxWidth: 410, maxHeight: 410, quality: 80) {
                   ...GatsbyImageSharpFluid
                 }
               }

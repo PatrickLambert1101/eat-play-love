@@ -91,8 +91,7 @@ export default class IndexPage extends React.Component {
     const { data } = this.props;
     const { edges: home } = data.home;
     const { edges: instas } = data.instas;
-    console.log('test');
-    console.log(home);
+
     return (
       <div className="home">
         {home.map(({ node: house }) => (
@@ -119,6 +118,9 @@ export default class IndexPage extends React.Component {
                   />
                 </Link>
                 <p key={card.text}>{card.text}</p>
+                <Link to={`/${card.title.toLowerCase()}`} className="read-more">
+                  Read More
+                </Link>
               </Card>
             ))}
           </div>
@@ -187,7 +189,7 @@ export const pageQuery = graphql`
               sliderimage {
                 id
                 childImageSharp {
-                  fluid(maxWidth: 1500, maxHeight: 500, quality: 80) {
+                  fluid(maxWidth: 1600, quality: 80) {
                     ...GatsbyImageSharpFluid
                   }
                 }
@@ -197,7 +199,7 @@ export const pageQuery = graphql`
               image {
                 id
                 childImageSharp {
-                  fluid(maxWidth: 900, maxHeight: 400, quality: 80) {
+                  fluid(maxWidth: 950, maxHeight: 450, quality: 80) {
                     ...GatsbyImageSharpFluid
                   }
                 }
