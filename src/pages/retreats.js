@@ -75,6 +75,7 @@ export default class RetreatsPage extends React.Component {
     `;
 
     const { data } = this.props;
+    console.log('data:', data);
     const { edges: retreats } = data.retreats;
 
     return (

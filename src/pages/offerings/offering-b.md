@@ -1,12 +1,12 @@
 ---
 templateKey: offerings-post
-title: Offering b
+title: Yoga Retreat
 image: /img/chemex.jpg
-excerpt: sdafsdfasdfasdf
-blurb: Elementum proin nascetur quis natoque primis curabitur ante blandit in
+excerpt: Hac convallis ac est aliquet volutpat diam montes integer donec Hac convallis ac est aliquet volutpat diam montes integer donec
+blurb: Tortor ultrices volutpat aliquet cubilia accumsan sodales dolor cursus massa Hac convallis ac est aliquet volutpat diam montes integer donec
 gallery:
-  - galleryimage: /img/jumbotron.jpg
-  - galleryimage: /img/jumbotron.jpg
-  - galleryimage: /img/products-grid2.jpg
+  - galleryimage: /img/jessica-castro-355974-unsplash.jpg
+  - galleryimage: /img/jessica-castro-355974-unsplash.jpg
+  - galleryimage: /img/jessica-castro-355974-unsplash.jpg
 ---
-Vestibulum metus per phasellus cursus faucibus lectus curabitur blandit in felis tempor quam pulvinar senectus sodales fusce ut urna montes platea eros lobortis quisque diam erat arcu nostra volutpat etiam
+Inceptos dui sollicitudin adipiscing congue tellus fusce hendrerit commodo pellentesque aliquam felis primis pharetra fames facilisis ultrices proin quisque nec amet scelerisque varius imperdiet per elit suspendisse placerat sodales ultricies
