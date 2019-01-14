@@ -4,7 +4,7 @@ import { StaticQuery, graphql } from 'gatsby';
 
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import Transition from '../components/Transition';
+import Transition from './Transition';
 import './all.sass';
 
 const TemplateWrapper = ({ children, location }) => (
