@@ -40,8 +40,8 @@ export default class Navbar extends Component {
           </button>
         </div>
         <div className="navbar-start">
-          <Link className="navbar-item" to="/experinces">
-            EXPERIENCES
+          <Link className="navbar-item" to="/events">
+            EVENTS
           </Link>
           <Link className="navbar-item" to="/offerings">
             OFFERINGS
