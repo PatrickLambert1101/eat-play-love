@@ -123,7 +123,7 @@ export default class Index extends React.Component {
               name={'message'}
               placeholder={'Message'}
               onChange={this.handleChange}
-              id={'email'}
+              id={'message'}
               required={true}
             />
             <button className="button large is-link" type="submit">

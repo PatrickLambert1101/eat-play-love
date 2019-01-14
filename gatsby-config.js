@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby + Netlify CMS Starter'
+    title: 'Eat Play Love |',
+    description: 'Health, wellness, retreats'
   },
   plugins: [
     'gatsby-plugin-react-helmet',
