@@ -32,6 +32,7 @@ export default class IndexPage extends React.Component {
       infinite: true,
       slidesToShow: 3,
       arrows: false,
+      centerMode: true,
       autoPlay: true,
       className: 'instafeed',
       speed: 500,
@@ -53,19 +54,32 @@ export default class IndexPage extends React.Component {
       padding: 0 20px;
       @media (max-width: 900px) {
         padding: 0;
+        height: 300px;
+        .slick-slide {
+          height: 300px;
+        }
       }
     `;
     const InstaSlider = styled.div`
-      max-width: 1000px;
+      max-width: 900px;
       margin: auto;
       padding: 0 20px;
+      .slick-slide .gatsby-image-wrapper {
+        padding: 5px;
+      }
+      .slick-dots button::before {
+        color: #daa56b;
+      }
+      .slick-dots .slick-active button::before {
+        color: #965711;
+      }
       @media (max-width: 900px) {
         padding: 0;
       }
     `;
 
     const Card = styled.div`
-      max-width: 1000px;
+      max-width: 900px;
       text-align: center;
       margin: auto;
     `;
@@ -113,7 +127,7 @@ export default class IndexPage extends React.Component {
             ))}
           </div>
         ))}
-        <h2>Instagram</h2>
+        <h2 className="lg-mg">Instagram</h2>
         <InstaSlider>
           <Slider {...settings}>
             {instas.map(({ node: ig }) => (
@@ -177,8 +191,8 @@ export const pageQuery = graphql`
               sliderimage {
                 id
                 childImageSharp {
-                  fixed(width: 1500, height: 500, quality: 80) {
-                    ...GatsbyImageSharpFixed
+                  fluid(maxWidth: 1500, maxHeight: 500, quality: 80) {
+                    ...GatsbyImageSharpFluid
                   }
                 }
               }

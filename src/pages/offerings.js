@@ -28,7 +28,7 @@ import './font-face.css';
 export default class OfferingsPage extends React.Component {
   render() {
     const Content = styled.div`
-      max-width: 1000px;
+      max-width: 900px;
       margin: auto;
       h1 {
         margin-bottom: 4rem;
