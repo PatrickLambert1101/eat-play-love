@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
 import styled from 'styled-components';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
-import '../../node_modules/slick-carousel/slick/slick.css';
-import '../../node_modules/slick-carousel/slick/slick-theme.css';
 
 export default class EventsPage extends React.Component {
   render() {
