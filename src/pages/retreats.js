@@ -5,22 +5,6 @@ import styled from 'styled-components';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import '../../node_modules/slick-carousel/slick/slick.css';
 import '../../node_modules/slick-carousel/slick/slick-theme.css';
-import '../../static/fonts/OstrichSans-Medium.eot';
-import '../../static/fonts/OstrichSans-Medium.svg';
-import '../../static/fonts/OstrichSans-Medium.ttf';
-import '../../static/fonts/OstrichSans-Medium.woff';
-import '../../static/fonts/OstrichSans-Medium.woff2';
-import '../../static/fonts/Georgia.eot';
-import '../../static/fonts/Georgia.svg';
-import '../../static/fonts/Georgia.ttf';
-import '../../static/fonts/Georgia.woff';
-import '../../static/fonts/Georgia.woff2';
-import '../../static/fonts/RedVevet.eot';
-import '../../static/fonts/RedVevet.svg';
-import '../../static/fonts/RedVevet.ttf';
-import '../../static/fonts/RedVevet.woff';
-import '../../static/fonts/RedVevet.woff2';
-import './font-face.css';
 
 export default class RetreatsPage extends React.Component {
   render() {
