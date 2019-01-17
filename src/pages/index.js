@@ -169,7 +169,7 @@ export const pageQuery = graphql`
               sliderimage {
                 id
                 childImageSharp {
-                  fluid(maxWidth: 1600, quality: 80) {
+                  fluid(maxWidth: 1500, maxHeight: 420, quality: 80) {
                     ...GatsbyImageSharpFluid
                   }
                 }
@@ -179,7 +179,7 @@ export const pageQuery = graphql`
               image {
                 id
                 childImageSharp {
-                  fluid(maxWidth: 950, maxHeight: 450, quality: 80) {
+                  fluid(maxWidth: 900, maxHeight: 428, quality: 80) {
                     ...GatsbyImageSharpFluid
                   }
                 }
