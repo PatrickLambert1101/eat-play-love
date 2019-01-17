@@ -1,11 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
-
-// import Slider from 'react-slick';
 import styled from 'styled-components';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
-
 import '../../node_modules/slick-carousel/slick/slick.css';
 import '../../node_modules/slick-carousel/slick/slick-theme.css';
 import '../../static/fonts/OstrichSans-Medium.eot';
@@ -24,7 +21,6 @@ import '../../static/fonts/RedVevet.ttf';
 import '../../static/fonts/RedVevet.woff';
 import '../../static/fonts/RedVevet.woff2';
 import './font-face.css';
-
 export default class OfferingsPage extends React.Component {
   render() {
     const Content = styled.div`

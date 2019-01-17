@@ -1,15 +1,56 @@
-@import "~bulma/sass/utilities/initial-variables"
-
-// Config vars
 $container-width: 900px
-
 $georgia: 'Georgia', Arial, Helvetica, sans-serif
-
 $gold-light: #daa56b
 $gold-dark: #965711
 $grey-button: #595959
 $grey: #979797
 $pink: #f9decf
+
+h1
+  font-size: 3.8rem
+  color: $gold-light
+  text-align: center
+  margin-bottom: 2rem
+  margin-top: 5px
+  font-weight: 100
+  font-family: 'RV', Arial, Helvetica, sans-serif
+
+h2
+  font-size: 2.2rem
+  font-weight: 100
+  color: $gold-light
+  font-family: $georgia
+  text-align: center
+
+h3
+  font-size: 2rem
+  font-weight: 100
+  color: $gold-light
+  font-family: $georgia
+  text-align: center
+
+h4
+  color: $gold-light
+  font-weight: 100
+  font-size: 24px
+  text-decoration: none
+  font-family: $georgia
+
+h5
+  color: $gold-light
+  font-weight: 100
+  font-size: 18px
+  margin-top: -20px
+  text-decoration: none
+  font-family: $georgia
+
+p
+  font-family: $georgia
+  font-size: 21px
+  line-height: 27px
+
+a
+  text-decoration: none
 
 body
   margin: 0
@@ -35,43 +76,8 @@ body
     @media (max-width: 480px)
       max-width: 300px
 
-
-
-.content .taglist
-  list-style: none
-  margin-bottom: 0
-  margin-left: 0
-  margin-right: 1.5rem
-  margin-top: 1.5rem
-  display: flex
-  flex-wrap: wrap
-  justify-content: left
-  align-items: center
-  li
-    padding: 0 2rem 1rem 0
-    margin-bottom: 1.5rem
-    margin-top: 0
-
 .left-content
   text-align: left
-// Helper Classes
-.full-width-image-container
-  width: 100vw
-  height: 400px
-  position: relative
-  left: 50%
-  right: 50%
-  margin: 5em -50vw
-  background-size: cover
-  background-position: bottom
-  display: flex
-  justify-content: center
-  align-items: center
-
-.blog-thumb
-  height: 400px
-  width: 100%
-  background-size: cover
 
 .gatsby-image-wrapper
   border-radius: 0
@@ -92,9 +98,6 @@ body
     color: $grey
     font-family: 'Ostrich', Arial, Helvetica, sans-serif
 
-.active
-  color:red
-
 .content
   max-width: $container-width
   margin: auto
@@ -110,9 +113,6 @@ body
   font-size: 18px
   &:hover
     border-bottom: 1px solid $gold-light
-
-.blog-content
-  text-align: left
 
 .read-more
   text-decoration: none
@@ -158,29 +158,6 @@ body
     background-color: #824706
     border: 1px solid #a93a3a
 
-h1
-  font-size: 3.8rem
-  color: $gold-light
-  text-align: center
-  margin-bottom: 2rem
-  margin-top: 5px
-  font-weight: 100
-  font-family: 'RV', Arial, Helvetica, sans-serif
-
-h2
-  font-size: 2.2rem
-  font-weight: 100
-  color: $gold-light
-  font-family: $georgia
-  text-align: center
-
-h3
-  font-size: 2rem
-  font-weight: 100
-  color: $gold-light
-  font-family: $georgia
-  text-align: center
-
 .home
   @media (max-width: 500px)
     margin-left: 15px
@@ -191,29 +168,6 @@ h3
 
 .lg-mg
   margin-top: 50px
-
-h4
-  color: $gold-light
-  font-weight: 100
-  font-size: 24px
-  text-decoration: none
-  font-family: $georgia
-
-h5
-  color: $gold-light
-  font-weight: 100
-  font-size: 18px
-  margin-top: -20px
-  text-decoration: none
-  font-family: $georgia
-
-p
-  font-family: $georgia
-  font-size: 21px
-  line-height: 27px
-
-a
-  text-decoration: none
 
 .blurb
   font-style: italic

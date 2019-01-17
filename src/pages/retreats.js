@@ -1,11 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
-
-// import Slider from 'react-slick';
 import styled from 'styled-components';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
-
 import '../../node_modules/slick-carousel/slick/slick.css';
 import '../../node_modules/slick-carousel/slick/slick-theme.css';
 import '../../static/fonts/OstrichSans-Medium.eot';

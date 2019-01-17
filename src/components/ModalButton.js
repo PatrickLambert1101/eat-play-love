@@ -94,6 +94,14 @@ class ModalButton extends React.Component {
     this.handleCloseModal = this.handleCloseModal.bind(this);
   }
 
+  handleOpenModal() {
+    this.setState({ showModal: true });
+  }
+
+  handleCloseModal() {
+    this.setState({ showModal: false });
+  }
+
   handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
@@ -130,6 +138,7 @@ class ModalButton extends React.Component {
         <ReactModal
           closeTimeoutMS={200}
           isOpen={this.state.showModal}
+          onRequestClose={this.handleCloseModal}
           style={{
             overlay: {
               backgroundColor: '#ffefd587'

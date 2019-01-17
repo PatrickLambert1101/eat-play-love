@@ -52,10 +52,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-nprogress`,
       options: {
-        // Setting a color is optional.
         color: `#faf1c9`,
-        // Disable the loading spinner.
-        showSpinner: false
+        showSpinner: true
       }
     },
     {
@@ -68,14 +66,10 @@ module.exports = {
               name: 'uploads'
             }
           },
-
           {
             resolve: 'gatsby-remark-images',
             options: {
-              // It's important to specify the maxWidth (in pixels) of
-              // the content container as this plugin uses this as the
-              // base for generating different widths of each image.
-              maxWidth: 2048
+              maxWidth: 1500
             }
           }
         ]
