@@ -62,16 +62,17 @@ body
 
 .navbar-brand
   justify-content: center
+  margin-bottom: 0
+  margin-left: 15px
+  margin-top: 15px
   display: flex
   @media (max-width: 480px)
     justify-content: space-between
-  .image
-    margin-bottom: 0
-    margin-left: 15px
-    margin-top: 15px
+  .navbar-item
+    width: 480px
   .navbar-item img
     max-height: 9rem
-    width: 100%
+    width: 100% !important
     text-align: center
     @media (max-width: 480px)
       max-width: 300px

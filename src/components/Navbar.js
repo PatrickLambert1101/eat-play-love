@@ -1,6 +1,5 @@
 import React from 'react';
-import { StaticQuery, Link, graphql } from 'gatsby';
-import logo from '../img/logo.svg';
+import { Link } from 'gatsby';
 import menu from '../img/menu.svg';
 import HeadLogo from './HeadLogo';
 
