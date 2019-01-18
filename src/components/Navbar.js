@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
-import { Link } from 'gatsby';
+import React from 'react';
+import { StaticQuery, Link, graphql } from 'gatsby';
 import logo from '../img/logo.svg';
 import menu from '../img/menu.svg';
+import HeadLogo from './HeadLogo';
 
-export default class Navbar extends Component {
+export default class Navbar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,6 +14,7 @@ export default class Navbar extends Component {
     this.toggleMenu = this.toggleMenu.bind(this);
     this.closeMenu = this.closeMenu.bind(this);
   }
+  s;
 
   closeMenu() {
     this.setState({ isToggle: false });
@@ -25,14 +27,15 @@ export default class Navbar extends Component {
 
   render() {
     let menuClassName = this.state.isToggle ? 'toggle-open' : 'toggle-closed';
-
     return (
       <nav className={`navbar is-transparent ${menuClassName}`}>
         <div className="navbar-brand">
           <Link to="/" className="navbar-item">
-            <figure className="image" onClick={this.closeMenu}>
-              <img src={logo} alt="Eat Play Love Logo" />
-            </figure>
+            <HeadLogo
+              className="image"
+              onClick={this.closeMenu}
+              alt="Eat Play Love Logo"
+            />
           </Link>
           <button
             className="nav-btn"
