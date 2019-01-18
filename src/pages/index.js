@@ -142,7 +142,7 @@ export const pageQuery = graphql`
           timestamp
           localFile {
             childImageSharp {
-              fluid(maxWidth: 267, maxHeight: 267, quality: 80) {
+              fluid(maxWidth: 267, maxHeight: 267, quality: 65) {
                 ...GatsbyImageSharpFluid_withWebp
               }
             }
@@ -169,7 +169,7 @@ export const pageQuery = graphql`
               sliderimage {
                 id
                 childImageSharp {
-                  fluid(maxWidth: 1500, maxHeight: 420, quality: 80) {
+                  fluid(maxWidth: 1500, maxHeight: 420, quality: 65) {
                     ...GatsbyImageSharpFluid_withWebp
                   }
                 }
@@ -179,7 +179,7 @@ export const pageQuery = graphql`
               image {
                 id
                 childImageSharp {
-                  fluid(maxWidth: 900, maxHeight: 428, quality: 80) {
+                  fluid(maxWidth: 900, maxHeight: 428, quality: 65) {
                     ...GatsbyImageSharpFluid_withWebp
                   }
                 }
