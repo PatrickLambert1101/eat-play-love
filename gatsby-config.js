@@ -8,6 +8,19 @@ module.exports = {
     'gatsby-plugin-sass',
     'gatsby-plugin-layout',
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `GatsbyJS`,
+        short_name: `GatsbyJS`,
+        start_url: `/`,
+        background_color: `#f7f0eb`,
+        theme_color: `#a2466c`,
+        display: `standalone`,
+        icon: `${__dirname}/src/img/footer-logo.png` // This path is relative to the root of the site.
+      }
+    },
+    `gatsby-plugin-offline`,
+    {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
       options: {
