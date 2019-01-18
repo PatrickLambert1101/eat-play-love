@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-import { Link } from 'gatsby';
-import logo from '../img/footer-logo.png';
+import React from 'react';
 import facebook from '../img/facebook.svg';
 import instagram from '../img/instagram.svg';
 import mail from '../img/mail.svg';
+import FootLogo from './FootLogo.js';
 import pinterest from '../img/pinterest.svg';
 import styled from 'styled-components';
 import { navigateTo } from 'gatsby-link';
@@ -113,13 +112,14 @@ const SocialWrapper = styled.div`
     width: 100%;
   }
 `;
-const SocialTitle = styled.div``;
 
-const FootLogo = styled.div`
+const FooterLogo = styled.div`
   flex: 1;
-  img {
+  & > div {
     width: 80%;
-    @media (max-width: 480px) {
+  }
+  @media (max-width: 480px) {
+    img {
       width: 100%;
     }
   }
@@ -189,9 +189,9 @@ export default class Footer extends React.Component {
           </div>
         </FootTop>
         <FootBottom>
-          <FootLogo>
-            <img src={logo} alt={'Footer logo'} />
-          </FootLogo>
+          <FooterLogo>
+            <FootLogo />
+          </FooterLogo>
           <SocialWrapper>
             <h1>Follow us</h1>
             <h3>Get all the latest updates</h3>

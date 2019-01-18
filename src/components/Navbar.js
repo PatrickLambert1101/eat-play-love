@@ -30,11 +30,7 @@ export default class Navbar extends React.Component {
       <nav className={`navbar is-transparent ${menuClassName}`}>
         <div className="navbar-brand">
           <Link to="/" className="navbar-item">
-            <HeadLogo
-              className="image"
-              onClick={this.closeMenu}
-              alt="Eat Play Love Logo"
-            />
+            <HeadLogo onClick={this.closeMenu} alt="Eat Play Love Logo" />
           </Link>
           <button
             className="nav-btn"
