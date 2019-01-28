@@ -1,4 +1,4 @@
-import CMS from 'netlify-cms';
+// import CMS from 'netlify-cms';
 
 // import AboutPagePreview from './preview-templates/AboutPagePreview';
 // import OfferingsPagePreview from './preview-templates/OfferingsPagePreview';

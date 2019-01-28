@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
 import Slider from 'react-slick';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
-import styled from 'styled-components';
+import Card from '../components/styles/Card';
+import CardWrap from '../components/styles/CardWrap';
+import BannerSlider from '../components/styles/BannerSlider';
+import InstaSlider from '../components/styles/InstaSlider';
 
 export default class IndexPage extends React.Component {
   render() {
@@ -12,61 +15,31 @@ export default class IndexPage extends React.Component {
       infinite: true,
       slidesToShow: 3,
       arrows: false,
-      centerMode: true,
       autoPlay: true,
       className: 'instafeed',
       speed: 500,
       slidesToScroll: 1
     };
-    var bannerSettings = {
+    var bannerSettingsMobile = {
       dots: false,
       infinite: true,
       slidesToShow: 1,
       arrows: false,
       autoPlay: true,
-      className: 'banner-slide',
+      className: 'mobile',
       speed: 500,
       slidesToScroll: 1
     };
-    const BannerSlider = styled.div`
-      max-width: 1500px;
-      margin: auto;
-      padding: 0 20px;
-      @media (max-width: 900px) {
-        padding: 0;
-      }
-    `;
-    const InstaSlider = styled.div`
-      max-width: 900px;
-      margin: auto;
-      padding: 0 20px;
-      .slick-slide .gatsby-image-wrapper {
-        padding: 5px;
-      }
-      .slick-dots button::before {
-        color: #daa56b;
-      }
-      .slick-dots .slick-active button::before {
-        color: #965711;
-      }
-      @media (max-width: 900px) {
-        padding: 0;
-      }
-    `;
-
-    const Card = styled.div`
-      max-width: 900px;
-      text-align: center;
-      margin: auto;
-    `;
-
-    // const theme = {
-    //   goldLight: '#daa56b',
-    //   goldDark: '#965711',
-    //   greyButton: '#595959',
-    //   grey: '#979797',
-    //   pink: '#f9decf'
-    // };
+    var bannerSettingsDesktop = {
+      dots: false,
+      infinite: true,
+      slidesToShow: 1,
+      arrows: false,
+      autoPlay: true,
+      className: 'desktop',
+      speed: 500,
+      slidesToScroll: 1
+    };
 
     const { data } = this.props;
     const { edges: home } = data.home;
@@ -77,7 +50,15 @@ export default class IndexPage extends React.Component {
         {home.map(({ node: house }) => (
           <div>
             <BannerSlider>
-              <Slider {...bannerSettings}>
+              <Slider {...bannerSettingsMobile}>
+                {house.frontmatter.slider.map(({ sliderimage }) => (
+                  <PreviewCompatibleImage
+                    key={sliderimage.id}
+                    imageInfo={sliderimage}
+                  />
+                ))}
+              </Slider>
+              <Slider {...bannerSettingsDesktop}>
                 {house.frontmatter.slider.map(({ sliderimage }) => (
                   <PreviewCompatibleImage
                     key={sliderimage.id}
@@ -86,23 +67,28 @@ export default class IndexPage extends React.Component {
                 ))}
               </Slider>
             </BannerSlider>
-            {house.frontmatter.cards.map(card => (
-              <Card key={card.title}>
-                <Link to={`/${card.title.toLowerCase()}`}>
-                  <h2>{card.title}</h2>
-                </Link>
-                <Link to={`/${card.title.toLowerCase()}`}>
-                  <PreviewCompatibleImage
-                    key={card.image.id}
-                    imageInfo={card.image}
-                  />
-                </Link>
-                <p key={card.text}>{card.text}</p>
-                <Link to={`/${card.title.toLowerCase()}`} className="read-more">
-                  Read More
-                </Link>
-              </Card>
-            ))}
+            <CardWrap>
+              {house.frontmatter.cards.map(card => (
+                <Card key={card.title}>
+                  <Link to={`/${card.title.toLowerCase()}`}>
+                    <h2>{card.title}</h2>
+                  </Link>
+                  <Link to={`/${card.title.toLowerCase()}`}>
+                    <PreviewCompatibleImage
+                      key={card.image.id}
+                      imageInfo={card.image}
+                    />
+                  </Link>
+                  <p key={card.text}>{card.text}</p>
+                  <Link
+                    to={`/${card.title.toLowerCase()}`}
+                    className="read-more"
+                  >
+                    Read More
+                  </Link>
+                </Card>
+              ))}
+            </CardWrap>
           </div>
         ))}
         <h2 className="lg-mg">Instagram</h2>
@@ -169,7 +155,7 @@ export const pageQuery = graphql`
               sliderimage {
                 id
                 childImageSharp {
-                  fluid(maxWidth: 1500, maxHeight: 420, quality: 65) {
+                  fluid(maxWidth: 1650, maxHeight: 750, quality: 65) {
                     ...GatsbyImageSharpFluid_withWebp
                   }
                 }
@@ -179,7 +165,7 @@ export const pageQuery = graphql`
               image {
                 id
                 childImageSharp {
-                  fluid(maxWidth: 900, maxHeight: 428, quality: 65) {
+                  fluid(maxWidth: 1650, maxHeight: 750, quality: 65) {
                     ...GatsbyImageSharpFluid_withWebp
                   }
                 }

@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Eat Play Love |',
+    title: 'Eat Play Love',
     description: 'Health, wellness, retreats'
   },
   plugins: [

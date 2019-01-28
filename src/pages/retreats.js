@@ -1,78 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
-import styled from 'styled-components';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
+import AltCard from '../components/styles/AltCard';
+import AltCardWrap from '../components/styles/AltCardWrap';
+import SideButton from '../components/styles/SideButton';
+import Content from '../components/styles/Content';
+import ReadMore from '../components/styles/ReadMore';
 
 export default class RetreatsPage extends React.Component {
   render() {
-    const Content = styled.div`
-      max-width: 900px;
-      margin: auto;
-      h1 {
-        margin-bottom: 4rem;
-      }
-    `;
-    const SideButton = styled.div`
-      display: flex;
-      justify-content: flex-end;
-      a {
-        background-color: #f9decf;
-        padding: 15px 17px;
-        font-size: 1.3em;
-        h4 {
-          color: #824706;
-          margin: 0;
-        }
-      }
-    `;
-
-    const Card = styled.div`
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      h2 {
-        margin-top: 0;
-      }
-      h4 {
-        margin: 0;
-      }
-      @media (max-width: 480px) {
-        align-items: center;
-        margin-bottom: 15px;
-        h2 {
-          margin-top: 15px;
-        }
-      }
-    `;
-
-    const Item = styled.div`
-      display: flex;
-      justify-content: center;
-      margin-bottom: 30px;
-      & > * {
-        flex: 1;
-        padding: 0 20px;
-      }
-      h2 {
-        text-align: left;
-      }
-      &:nth-child(2n + 1) {
-        flex-direction: row-reverse;
-      }
-      @media (max-width: 900px) {
-        flex-direction: column;
-        text-align: center;
-        h2 {
-          text-align: center;
-        }
-        &:nth-child(2n + 1) {
-          flex-direction: column;
-        }
-      }
-    `;
-
     const { data } = this.props;
     console.log('data:', data);
     const { edges: retreats } = data.retreats;
@@ -82,23 +19,23 @@ export default class RetreatsPage extends React.Component {
         <Content>
           <h1>Retreats</h1>
           {retreats.map(({ node: retreat }) => (
-            <Item>
+            <AltCardWrap key={retreat.id}>
               <Link to={retreat.fields.slug}>
                 <PreviewCompatibleImage
                   key={retreat.frontmatter.image.id}
                   imageInfo={retreat.frontmatter.image}
                 />
               </Link>
-              <Card>
+              <AltCard>
                 <Link to={retreat.fields.slug}>
                   <h2>{retreat.frontmatter.title}</h2>
                 </Link>
                 <h4>{retreat.frontmatter.excerpt}</h4>
-                <Link to={retreat.fields.slug} className="read-more">
-                  Read More
+                <Link to={retreat.fields.slug}>
+                  <ReadMore>Read more</ReadMore>
                 </Link>
-              </Card>
-            </Item>
+              </AltCard>
+            </AltCardWrap>
           ))}
         </Content>
         <SideButton>

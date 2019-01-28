@@ -1,6 +1,7 @@
 import React from 'react';
 import { navigateTo } from 'gatsby-link';
 import styled, { css } from 'styled-components';
+import Content from '../../components/styles/Content.js';
 
 function encode(data) {
   return Object.keys(data)
@@ -93,7 +94,7 @@ export default class Index extends React.Component {
   render() {
     return (
       <div>
-        <div className="content">
+        <Content>
           <h1>Contact</h1>
           <form
             name="contact"
@@ -139,7 +140,7 @@ export default class Index extends React.Component {
               Send
             </button>
           </form>
-        </div>
+        </Content>
       </div>
     );
   }

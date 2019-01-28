@@ -7,9 +7,10 @@ const HeadLogo = () => (
     query={graphql`
       query NavbarQuery {
         file(relativePath: { regex: "img/epl.png/" }) {
+          name
           childImageSharp {
-            fluid(maxWidth: 480, maxHeight: 140, quality: 80) {
-              ...GatsbyImageSharpFluid_withWebp
+            fluid(maxWidth: 530, maxHeight: 148, quality: 80) {
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
           }
         }

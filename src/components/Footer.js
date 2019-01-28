@@ -197,21 +197,28 @@ export default class Footer extends React.Component {
             <h3>Get all the latest updates</h3>
             <Social>
               <a
+                rel="noreferrer noopener"
                 target="_blank"
                 href={'https://www.facebook.com/eatplayloveretreat/'}
               >
                 <SocialLogo src={facebook} />
               </a>
               <a
+                rel="noreferrer noopener"
                 target="_blank"
                 href={'https://www.instagram.com/eatplayloveretreat/'}
               >
                 <SocialLogo src={instagram} />
               </a>
-              <a target="_blank" href={'mailto:eatplayloveretreat@gmail.com'}>
+              <a
+                rel="noreferrer noopener"
+                target="_blank"
+                href={'mailto:eatplayloveretreat@gmail.com'}
+              >
                 <SocialLogo src={mail} />
               </a>
               <a
+                rel="noreferrer noopener"
                 target="_blank"
                 href={'https://za.pinterest.com/eatplayloveshop/'}
               >

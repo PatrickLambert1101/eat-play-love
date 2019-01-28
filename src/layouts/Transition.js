@@ -3,6 +3,7 @@ import {
   TransitionGroup,
   Transition as ReactTransition
 } from 'react-transition-group';
+var shortid = require('shortid');
 
 //This variable will be responsible for our animation duration
 const timeout = 200;

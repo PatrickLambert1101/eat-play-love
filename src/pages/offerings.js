@@ -1,78 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
-import styled from 'styled-components';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
+import AltCard from '../components/styles/AltCard';
+import AltCardWrap from '../components/styles/AltCardWrap';
+import SideButton from '../components/styles/SideButton';
+import Content from '../components/styles/Content';
 
 export default class OfferingsPage extends React.Component {
   render() {
-    const Content = styled.div`
-      max-width: 900px;
-      margin: auto;
-      h1 {
-        margin-bottom: 4rem;
-      }
-    `;
-    const SideButton = styled.div`
-      display: flex;
-      justify-content: flex-end;
-      a {
-        background-color: #f9decf;
-        padding: 15px 17px;
-        font-size: 1.3em;
-        h4 {
-          color: #824706;
-          margin: 0;
-        }
-      }
-    `;
-
-    const Card = styled.div`
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      h2 {
-        margin-top: 0;
-      }
-      h4 {
-        margin: 0;
-      }
-      @media (max-width: 480px) {
-        align-items: center;
-        margin-bottom: 15px;
-        h2 {
-          margin-top: 15px;
-        }
-      }
-    `;
-
-    const Item = styled.div`
-      display: flex;
-      justify-content: center;
-      margin-bottom: 30px;
-      & > * {
-        flex: 1;
-        padding: 0 20px;
-      }
-      h2 {
-        text-align: left;
-      }
-      &:nth-child(2n + 1) {
-        flex-direction: row-reverse;
-      }
-      @media (max-width: 900px) {
-        flex-direction: column;
-        text-align: center;
-        h2 {
-          text-align: center;
-        }
-        &:nth-child(2n + 1) {
-          flex-direction: column;
-        }
-      }
-    `;
-
     const { data } = this.props;
     const { edges: offerings } = data.offerings;
 
@@ -81,14 +17,14 @@ export default class OfferingsPage extends React.Component {
         <Content>
           <h1>Offerings</h1>
           {offerings.map(({ node: offering }) => (
-            <Item>
+            <AltCardWrap key={offering.id}>
               <Link to={offering.fields.slug}>
                 <PreviewCompatibleImage
                   key={offering.frontmatter.image.id}
                   imageInfo={offering.frontmatter.image}
                 />
               </Link>
-              <Card>
+              <AltCard>
                 <Link to={offering.fields.slug}>
                   <h2>{offering.frontmatter.title}</h2>
                 </Link>
@@ -96,8 +32,8 @@ export default class OfferingsPage extends React.Component {
                 <Link to={offering.fields.slug} className="read-more">
                   Read More
                 </Link>
-              </Card>
-            </Item>
+              </AltCard>
+            </AltCardWrap>
           ))}
         </Content>
         <SideButton>

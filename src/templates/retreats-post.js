@@ -5,35 +5,8 @@ import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import ModalButton from '../components/ModalButton';
 import Content, { HTMLContent } from '../components/Content';
 import styled from 'styled-components';
-
-const GalleryImages = styled.div`
-  display: flex;
-  margin-top: 40px;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  @media (max-width: 480px) {
-    flex-direction: column;
-  }
-  & > div {
-    flex: 1 0 30%;
-    margin: 10px;
-    height: 300px;
-  }
-`;
-const SideButton = styled.div`
-  margin-top: 20px;
-  display: flex;
-  justify-content: flex-start;
-  a {
-    background-color: #f9decf;
-    padding: 15px 17px;
-    font-size: 1.3em;
-    h4 {
-      color: #824706;
-      margin: 0;
-    }
-  }
-`;
+import SingleSideButton from '../components/styles/SingleSideButton';
+import GalleryImages from '../components/styles/GalleryImages';
 
 export const RetreatsPostTemplate = ({
   title,
@@ -68,11 +41,11 @@ export const RetreatsPostTemplate = ({
           ))}
         </GalleryImages>
       </div>
-      <SideButton>
+      <SingleSideButton>
         <Link to={'/retreats'}>
           <h4>Back to retreats</h4>
         </Link>
-      </SideButton>
+      </SingleSideButton>
     </div>
   );
 };

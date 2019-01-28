@@ -1,40 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
-
+import SingleSideButton from '../components/styles/SingleSideButton';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import ModalButton from '../components/ModalButton';
+import GalleryImages from '../components/styles/GalleryImages';
 import Content, { HTMLContent } from '../components/Content';
-import styled from 'styled-components';
-
-const GalleryImages = styled.div`
-  display: flex;
-  margin-top: 40px;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  @media (max-width: 480px) {
-    flex-direction: column;
-  }
-  & > div {
-    flex: 1 0 30%;
-    margin: 10px;
-    height: 300px;
-  }
-`;
-const SideButton = styled.div`
-  margin-top: 20px;
-  display: flex;
-  justify-content: flex-start;
-  a {
-    background-color: #f9decf;
-    padding: 15px 17px;
-    font-size: 1.3em;
-    h4 {
-      color: #824706;
-      margin: 0;
-    }
-  }
-`;
 
 export const EventsPostTemplate = ({
   title,
@@ -69,11 +40,11 @@ export const EventsPostTemplate = ({
           ))}
         </GalleryImages>
       </div>
-      <SideButton>
+      <SingleSideButton>
         <Link to={'/events'}>
           <h4>Back to events</h4>
         </Link>
-      </SideButton>
+      </SingleSideButton>
     </div>
   );
 };
