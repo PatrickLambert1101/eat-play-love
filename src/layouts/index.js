@@ -6,13 +6,14 @@ import Footer from '../components/Footer';
 import Transition from './Transition';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import './font-face.css';
+
 import '../../node_modules/slick-carousel/slick/slick.css';
 import '../../node_modules/slick-carousel/slick/slick-theme.css';
+var shortid = require('shortid');
 
 const theme = {
   red: '#FF0000',
   black: '#393939',
-  grey: '#3A3A3A',
   lightgrey: '#E1E1E1',
   offWhite: '#EDEDED',
   maxWidth: '97vw',
@@ -87,7 +88,6 @@ a
 body
   {margin: 0;}
 .navbar {
-  margin-bottom: 3rem;
   @media (max-width: 900px) {
     margin-bottom: 1.5rem;
   }
@@ -215,7 +215,7 @@ body
 .navbar-start {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   max-width: ${theme.containerWidth};
   margin-bottom: 30px;
   margin: auto;
@@ -223,7 +223,7 @@ body
   opacity: 1;
   transition: all 0.7s cubic-bezier(0.5, 1, 0.22, 1);
   a {
-    width: 120px;
+    width: 250px;
     padding: 15px;
     text-align: center;
     font-size: 24px;
@@ -356,7 +356,9 @@ const TemplateWrapper = ({ children, location }) => (
               <meta property="og:image" content="/img/og-image.jpg" />
             </Helmet>
             <Navbar />
-            <Transition location={location}>{children}</Transition>
+            <Transition key={shortid.generate()} location={location}>
+              {children}
+            </Transition>
             <Footer />
           </React.Fragment>
         </ThemeProvider>

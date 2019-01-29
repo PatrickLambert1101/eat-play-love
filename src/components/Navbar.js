@@ -40,7 +40,7 @@ export default class Navbar extends React.Component {
               aria-controls="menu-list"
               onClick={this.toggleMenu}
             >
-              <img src={menu} style={{ width: '100px' }} alt="menu" />
+              <HeadLogo />
             </button>
           </div>
           <Link className="navbar-item" to="/events">
