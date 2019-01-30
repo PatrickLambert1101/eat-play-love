@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import HeadLogo from './HeadLogo';
 import NavbarBrand from './styles/NavbarBrand';
 import NavLinks from './styles/NavLinks';
+import NavButton from './styles/NavButton';
 
 export default class Navbar extends React.Component {
   constructor(props) {
@@ -35,15 +36,14 @@ export default class Navbar extends React.Component {
           <Link to="/" className="navbar-item">
             <HeadLogo onClick={this.closeMenu} alt="Eat Play Love Logo" />
           </Link>
-          <button
-            className="nav-btn"
+          <NavButton
             type="button"
             aria-expanded="false"
             aria-controls="menu-list"
             onClick={this.toggleMenu}
           >
             <HeadLogo />
-          </button>
+          </NavButton>
         </NavbarBrand>
         <NavLinks onClick={this.closeMenu}>
           <Link to="/events" className={current === '/events' ? 'active' : ''}>

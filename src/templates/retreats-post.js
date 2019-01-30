@@ -4,9 +4,9 @@ import { Link, graphql } from 'gatsby';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import ModalButton from '../components/ModalButton';
 import Content, { HTMLContent } from '../components/Content';
-import styled from 'styled-components';
 import SingleSideButton from '../components/styles/SingleSideButton';
 import GalleryImages from '../components/styles/GalleryImages';
+import Blurb from '../components/styles/Blurb';
 
 export const RetreatsPostTemplate = ({
   title,
@@ -30,7 +30,7 @@ export const RetreatsPostTemplate = ({
         <PreviewCompatibleImage imageInfo={image} />
         <PageContent className="left-content" content={content} />
         <ModalButton />
-        <p className="blurb">{blurb}</p>
+        <Blurb>{blurb}</Blurb>
         <GalleryImages>
           {gallery.map(single => (
             <PreviewCompatibleImage

@@ -4,8 +4,8 @@ import { Link, graphql } from 'gatsby';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import AltCard from '../components/styles/AltCard';
 import AltCardWrap from '../components/styles/AltCardWrap';
-import SideButton from '../components/styles/SideButton';
-import Content from '../components/styles/Content';
+import Button from '../components/Button';
+import PageContainer from '../components/styles/PageContainer';
 import ReadMore from '../components/styles/ReadMore';
 
 export default class RetreatsPage extends React.Component {
@@ -16,7 +16,7 @@ export default class RetreatsPage extends React.Component {
 
     return (
       <div>
-        <Content>
+        <PageContainer>
           <h1>Retreats</h1>
           {retreats.map(({ node: retreat }) => (
             <AltCardWrap key={retreat.id}>
@@ -37,12 +37,12 @@ export default class RetreatsPage extends React.Component {
               </AltCard>
             </AltCardWrap>
           ))}
-        </Content>
-        <SideButton>
-          <Link to={'/contact'}>
-            <h4>Contact us for more info</h4>
-          </Link>
-        </SideButton>
+        </PageContainer>
+        <Button
+          to={'/contact'}
+          text={'Contact us for more info'}
+          align={'flex-end'}
+        />
       </div>
     );
   }

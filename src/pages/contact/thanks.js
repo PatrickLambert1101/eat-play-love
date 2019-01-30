@@ -1,11 +1,11 @@
 import React from 'react';
-import Content from '../../components/styles/Content.js';
+import PageContainer from '../../components/styles/PageContainer.js';
 
 export default () => (
   <div>
-    <Content>
+    <PageContainer>
       <h1>Thank you</h1>
       <h4>Your message has been sent</h4>
-    </Content>
+    </PageContainer>
   </div>
 );

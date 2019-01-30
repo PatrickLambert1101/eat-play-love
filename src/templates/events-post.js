@@ -5,6 +5,7 @@ import SingleSideButton from '../components/styles/SingleSideButton';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import ModalButton from '../components/ModalButton';
 import GalleryImages from '../components/styles/GalleryImages';
+import Blurb from '../components/styles/Blurb';
 import Content, { HTMLContent } from '../components/Content';
 
 export const EventsPostTemplate = ({
@@ -29,7 +30,7 @@ export const EventsPostTemplate = ({
         <PreviewCompatibleImage imageInfo={image} />
         <PageContent className="left-content" content={content} />
         <ModalButton />
-        <p className="blurb">{blurb}</p>
+        <Blurb>{blurb}</Blurb>
         <GalleryImages>
           {gallery.map(single => (
             <PreviewCompatibleImage
@@ -85,7 +86,6 @@ export default EventsPost;
 export const pageQuery = graphql`
   query EventsPostByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
-      html
       frontmatter {
         title
         image {

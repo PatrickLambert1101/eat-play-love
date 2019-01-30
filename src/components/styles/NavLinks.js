@@ -4,7 +4,7 @@ const NavLinks = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: ${theme.containerWidth};
+  max-width: ${props => props.theme.containerWidth};
   margin-bottom: 30px;
   margin: auto;
   height: auto;
@@ -17,7 +17,7 @@ const NavLinks = styled.div`
     font-size: 24px;
     letter-spacing: 1.7px;
     text-decoration: none;
-    color: ${theme.grey};
+    color: ${props => props.theme.grey};
     font-family: 'Ostrich', Arial, Helvetica, sans-serif;
   }
   @media (max-width: 900px) {

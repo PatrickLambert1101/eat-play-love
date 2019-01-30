@@ -4,8 +4,9 @@ import { Link, graphql } from 'gatsby';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import AltCard from '../components/styles/AltCard';
 import AltCardWrap from '../components/styles/AltCardWrap';
-import SideButton from '../components/styles/SideButton';
-import Content from '../components/styles/Content';
+import Button from '../components/Button';
+import PageContainer from '../components/styles/PageContainer';
+import ReadMore from '../components/styles/ReadMore';
 
 export default class EventsPage extends React.Component {
   render() {
@@ -14,7 +15,7 @@ export default class EventsPage extends React.Component {
 
     return (
       <div>
-        <Content>
+        <PageContainer>
           <h1>Events</h1>
           {events.map(({ node: event }) => (
             <AltCardWrap key={event.id}>
@@ -29,18 +30,18 @@ export default class EventsPage extends React.Component {
                   <h2>{event.frontmatter.title}</h2>
                 </Link>
                 <h4>{event.frontmatter.excerpt}</h4>
-                <Link to={event.fields.slug} className="read-more">
-                  Read More
+                <Link to={event.fields.slug}>
+                  <ReadMore>Read More</ReadMore>
                 </Link>
               </AltCard>
             </AltCardWrap>
           ))}
-        </Content>
-        <SideButton>
-          <Link to={'/contact'}>
-            <h4>Contact us for more info</h4>
-          </Link>
-        </SideButton>
+        </PageContainer>
+        <Button
+          to={'/contact'}
+          text={'Contact us for more info'}
+          align={'flex-start'}
+        />
       </div>
     );
   }

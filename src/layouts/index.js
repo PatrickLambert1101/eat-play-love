@@ -101,74 +101,6 @@ body
   border-radius: 0;
 }
 
-.content {
-  max-width: ${theme.containerWidth};
-  margin: auto;
-  text-align: center;
-  @media (max-width: 500px) {
-    margin-left: 15px;
-    margin-right: 15px;
-  }
-}
-.tag-link a {
-  text-decoration: none;
-  color: #131211;
-  font-family: ${theme.georgia};
-  font-size: 18px;
-  &:hover {
-    border-bottom: 1px solid ${theme.goldLight};
-  }
-}
-
-.read-more {
-  text-decoration: none;
-  font-family: ${theme.georgia};
-  font-size: 16px;
-  color: ${theme.greyButton};
-  text-align: center;
-  margin-top: 20px;
-  padding: 6px 10px;
-  background-color: ${theme.pink};
-  transition: all 0.2s ease-out;
-  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0);
-  &:hover {
-    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
-    background-color: #ecc2aa;
-  }
-  &.large {
-    font-weight: bold;
-    font-family: 'Georgia', Arial, Helvetica, sans-serif;
-    font-size: 28px;
-    padding: 8px 22px;
-    color: #ebe6e1;
-    background-color: #824706;
-    border: 1px solid #a93a3a;
-  }
-}
-
-.button {
-  text-decoration: none;
-  font-family: ${theme.georgia};
-  font-size: 14px;
-  color: ${theme.greyButton};
-  padding: 6px 10px;
-  background-color: ${theme.pink};
-  transition: all 0.2s ease-out;
-  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0);
-  &:hover {
-    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
-    padding: 10px 16px;
-  }
-  &.large {
-    font-weight: bold;
-    font-family: 'Georgia', Arial, Helvetica, sans-serif;
-    font-size: 28px;
-    padding: 8px 22px;
-    color: #ebe6e1;
-    background-color: #824706;
-    border: 1px solid #a93a3a;
-  }
-}
 
 .home {
   @media (max-width: 500px) {
@@ -185,26 +117,6 @@ body
   margin-top: 50px;
 }
 
-.blurb {
-  font-style: italic;
-  color: #925a20;
-  margin-top: 30px;
-  text-align: left;
-}
-
-
-.nav-btn {
-  @media (min-width: 901px) {
-    display: none;
-  }
-  @media (max-width: 480px) {
-    margin-right: 15px;
-    margin-top: 15px;
-  }
-  img {
-    max-width: 55px;
-  }
-}
 .ReactModal__Overlay {
   opacity: 0;
   transition: opacity 200ms ease-in-out;
@@ -220,17 +132,6 @@ body
 
 .gallery-wrap {
   display: flex;
-}
-
-.banner-slide .slick-slide {
-  height: 420px;
-  @media (max-width: 480px) {
-    height: auto;
-  }
-}
-
-.instafeed .slick-slide > div {
-  padding: 50px;
 }`;
 
 const TemplateWrapper = ({ children, location }) => (

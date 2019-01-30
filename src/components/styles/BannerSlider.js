@@ -22,6 +22,12 @@ const BannerSlider = styled.div`
       height: 420px;
     }
   }
+  .slick-slide {
+    height: 420px;
+    @media (max-width: 480px) {
+      height: auto;
+    }
+  }
 `;
 
 export default BannerSlider;

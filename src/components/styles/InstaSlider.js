@@ -16,6 +16,9 @@ const InstaSlider = styled.div`
   @media (max-width: 900px) {
     padding: 0;
   }
+  .slick-slide > div {
+    padding: 50px;
+  }
 `;
 
 export default InstaSlider;

@@ -2,6 +2,7 @@ import React from 'react';
 import ReactModal from 'react-modal';
 import { navigateTo } from 'gatsby-link';
 import styled, { css } from 'styled-components';
+import ReadMore from './styles/ReadMore';
 
 const Close = styled.div`
   position: absolute;
@@ -131,9 +132,9 @@ class ModalButton extends React.Component {
     return (
       <div>
         <CenterButton>
-          <button className="read-more" onClick={this.handleOpenModal}>
+          <ReadMore onClick={this.handleOpenModal}>
             <h4>Book Now</h4>
-          </button>
+          </ReadMore>
         </CenterButton>
         <ReactModal
           closeTimeoutMS={200}

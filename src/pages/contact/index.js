@@ -1,7 +1,7 @@
 import React from 'react';
 import { navigateTo } from 'gatsby-link';
 import styled, { css } from 'styled-components';
-import Content from '../../components/styles/Content.js';
+import PageContainer from '../../components/styles/PageContainer.js';
 
 function encode(data) {
   return Object.keys(data)
@@ -93,55 +93,53 @@ export default class Index extends React.Component {
 
   render() {
     return (
-      <div>
-        <Content>
-          <h1>Contact</h1>
-          <form
-            name="contact"
-            method="post"
-            action="/contact/thanks/"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
-            onSubmit={this.handleSubmit}
-          >
-            <input type="hidden" name="form-name" value="contact" />
-            <div hidden>
-              <input name="bot-field" onChange={this.handleChange} />
-            </div>
-            <FormFlex>
-              <Input
-                className="input"
-                type={'text'}
-                name={'name'}
-                placeholder={'Name'}
-                onChange={this.handleChange}
-                id={'name'}
-                required={true}
-              />
-              <Input
-                className="input"
-                type={'email'}
-                placeholder={'Email'}
-                name={'email'}
-                onChange={this.handleChange}
-                id={'email'}
-                required={true}
-              />
-            </FormFlex>
-            <TextArea
-              className="textarea"
-              name={'message'}
-              placeholder={'Message'}
+      <PageContainer>
+        <h1>Contact</h1>
+        <form
+          name="contact"
+          method="post"
+          action="/contact/thanks/"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          onSubmit={this.handleSubmit}
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          <div hidden>
+            <input name="bot-field" onChange={this.handleChange} />
+          </div>
+          <FormFlex>
+            <Input
+              className="input"
+              type={'text'}
+              name={'name'}
+              placeholder={'Name'}
               onChange={this.handleChange}
-              id={'message'}
+              id={'name'}
               required={true}
             />
-            <button className="button large is-link" type="submit">
-              Send
-            </button>
-          </form>
-        </Content>
-      </div>
+            <Input
+              className="input"
+              type={'email'}
+              placeholder={'Email'}
+              name={'email'}
+              onChange={this.handleChange}
+              id={'email'}
+              required={true}
+            />
+          </FormFlex>
+          <TextArea
+            className="textarea"
+            name={'message'}
+            placeholder={'Message'}
+            onChange={this.handleChange}
+            id={'message'}
+            required={true}
+          />
+          <button className="button large is-link" type="submit">
+            Send
+          </button>
+        </form>
+      </PageContainer>
     );
   }
 }

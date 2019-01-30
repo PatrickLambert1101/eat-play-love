@@ -6,21 +6,22 @@ import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import Card from '../components/styles/Card';
 import CardWrap from '../components/styles/CardWrap';
 import BannerSlider from '../components/styles/BannerSlider';
-// import InstaSlider from '../components/styles/InstaSlider';
+import ReadMore from '../components/styles/ReadMore';
+import InstaSlider from '../components/styles/InstaSlider';
 var shortid = require('shortid');
 
 export default class IndexPage extends React.Component {
   render() {
-    // var settings = {
-    //   dots: true,
-    //   infinite: true,
-    //   slidesToShow: 3,
-    //   arrows: false,
-    //   autoPlay: true,
-    //   className: 'instafeed',
-    //   speed: 500,
-    //   slidesToScroll: 1
-    // };
+    var settings = {
+      dots: true,
+      infinite: true,
+      slidesToShow: 3,
+      arrows: false,
+      autoPlay: true,
+      className: 'instafeed',
+      speed: 500,
+      slidesToScroll: 1
+    };
     var bannerSettingsMobile = {
       dots: false,
       infinite: true,
@@ -44,7 +45,7 @@ export default class IndexPage extends React.Component {
 
     const { data } = this.props;
     const { edges: home } = data.home;
-    // const { edges: instas } = data.instas;
+    const { edges: instas } = data.instas;
 
     return (
       <div className="home">
@@ -81,11 +82,8 @@ export default class IndexPage extends React.Component {
                     />
                   </Link>
                   <p key={card.text}>{card.text}</p>
-                  <Link
-                    to={`/${card.title.toLowerCase()}`}
-                    className="read-more"
-                  >
-                    Read More
+                  <Link to={`/${card.title.toLowerCase()}`}>
+                    <ReadMore>Read More</ReadMore>
                   </Link>
                 </Card>
               ))}
@@ -93,21 +91,21 @@ export default class IndexPage extends React.Component {
           </div>
         ))}
         <h2 className="lg-mg">Instagram</h2>
+        <InstaSlider>
+          <Slider {...settings}>
+            {instas.map(({ node: ig }) => (
+              <PreviewCompatibleImage
+                className="insta-image"
+                key={ig.id}
+                imageInfo={ig.localFile}
+              />
+            ))}
+          </Slider>
+        </InstaSlider>
       </div>
     );
   }
 }
-// <InstaSlider>
-//   <Slider {...settings}>
-//     {instas.map(({ node: ig }) => (
-//       <PreviewCompatibleImage
-//         className="insta-image"
-//         key={ig.id}
-//         imageInfo={ig.localFile}
-//       />
-//     ))}
-//   </Slider>
-// </InstaSlider>
 
 IndexPage.propTypes = {
   data: PropTypes.shape({
@@ -119,33 +117,33 @@ IndexPage.propTypes = {
 
 export const pageQuery = graphql`
   query IndexQuery {
-    # instas: allInstaNode(limit: 5) {
-    #   edges {
-    #     node {
-    #       id
-    #       likes
-    #       comments
-    #       original
-    #       timestamp
-    #       localFile {
-    #         childImageSharp {
-    #           fluid(maxWidth: 267, maxHeight: 267, quality: 50) {
-    #             ...GatsbyImageSharpFluid_withWebp
-    #           }
-    #         }
-    #       }
-    #       thumbnails {
-    #         src
-    #         config_width
-    #         config_height
-    #       }
-    #       dimensions {
-    #         height
-    #         width
-    #       }
-    #     }
-    #   }
-    # }
+    instas: allInstaNode(limit: 5) {
+      edges {
+        node {
+          id
+          likes
+          comments
+          original
+          timestamp
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 267, maxHeight: 267, quality: 50) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+          thumbnails {
+            src
+            config_width
+            config_height
+          }
+          dimensions {
+            height
+            width
+          }
+        }
+      }
+    }
     home: allMarkdownRemark(
       filter: { frontmatter: { templateKey: { eq: "home-post" } } }
     ) {

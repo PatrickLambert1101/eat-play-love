@@ -4,8 +4,8 @@ import { Link, graphql } from 'gatsby';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import AltCard from '../components/styles/AltCard';
 import AltCardWrap from '../components/styles/AltCardWrap';
-import SideButton from '../components/styles/SideButton';
-import Content from '../components/styles/Content';
+import Button from '../components/Button';
+import PageContainer from '../components/styles/PageContainer';
 
 export default class OfferingsPage extends React.Component {
   render() {
@@ -14,7 +14,7 @@ export default class OfferingsPage extends React.Component {
 
     return (
       <div>
-        <Content>
+        <PageContainer>
           <h1>Offerings</h1>
           {offerings.map(({ node: offering }) => (
             <AltCardWrap key={offering.id}>
@@ -35,12 +35,12 @@ export default class OfferingsPage extends React.Component {
               </AltCard>
             </AltCardWrap>
           ))}
-        </Content>
-        <SideButton>
-          <Link to={'/contact'}>
-            <h4>Contact us for more info</h4>
-          </Link>
-        </SideButton>
+        </PageContainer>
+        <Button
+          to={'/contact'}
+          text={'Contact us for more info'}
+          align={'flex-end'}
+        />
       </div>
     );
   }
