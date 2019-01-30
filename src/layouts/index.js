@@ -20,6 +20,9 @@ const theme = {
   bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)',
   goldLight: '#daa56b',
   goldDark: '#965711',
+  brown: '#ebe6e1',
+  lightBrown: '#824706',
+  darkRed: '#a93a3a',
   greyButton: '#595959',
   grey: '#979797',
   pink: '#f9decf'
@@ -49,10 +52,11 @@ h1{
   font-family: 'RV', Arial, Helvetica, sans-serif;
 }
 h2
-  {font-size: 2.2rem;
+{font-size: 3.2rem;
   font-weight: 100;
   color: ${theme.goldLight};
   font-family: ${theme.georgia};
+  font-family: 'RV', Arial, Helvetica, sans-serif;
   text-align: center;}
 
 h3
@@ -91,30 +95,6 @@ body
   @media (max-width: 900px) {
     margin-bottom: 1.5rem;
   }
-}
-
-.left-content {
-  text-align: left;
-}
-
-.gatsby-image-wrapper {
-  border-radius: 0;
-}
-
-
-.home {
-  @media (max-width: 500px) {
-    margin-left: 15px;
-    margin-right: 15px;
-  }
-  h2 {
-    font-size: 2.6rem;
-    font-family: 'RV', Arial, Helvetica, sans-serif;
-  }
-}
-
-.lg-mg {
-  margin-top: 50px;
 }
 
 .ReactModal__Overlay {

@@ -41,6 +41,7 @@ export default class EventsPage extends React.Component {
           to={'/contact'}
           text={'Contact us for more info'}
           align={'flex-start'}
+          size={'large'}
         />
       </div>
     );

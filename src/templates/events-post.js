@@ -28,7 +28,7 @@ export const EventsPostTemplate = ({
           <br /> 5th-8th October
         </h5>
         <PreviewCompatibleImage imageInfo={image} />
-        <PageContent className="left-content" content={content} />
+        <PageContent content={content} />
         <ModalButton />
         <Blurb>{blurb}</Blurb>
         <GalleryImages>

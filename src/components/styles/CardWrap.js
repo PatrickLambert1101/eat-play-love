@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 const CardWrap = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
 `;
 
 export default CardWrap;

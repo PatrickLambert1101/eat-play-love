@@ -24,6 +24,16 @@ const BannerSlider = styled.div`
   }
   .slick-slide {
     height: 420px;
+    position: relative;
+
+    h2 {
+      position: absolute;
+      z-index: 1;
+      margin: 0;
+      left: 50%; /* horizontal alignment */
+      top: 50%; /* vertical alignment */
+      transform: translate(-50%, -50%);
+    }
     @media (max-width: 480px) {
       height: auto;
     }

@@ -15,7 +15,7 @@ export default class IndexPage extends React.Component {
     var settings = {
       dots: true,
       infinite: true,
-      slidesToShow: 3,
+      slidesToShow: 4,
       arrows: false,
       autoPlay: true,
       className: 'instafeed',
@@ -54,43 +54,44 @@ export default class IndexPage extends React.Component {
             <BannerSlider>
               <Slider {...bannerSettingsMobile}>
                 {house.frontmatter.slider.map(({ sliderimage }) => (
-                  <PreviewCompatibleImage
-                    key={sliderimage.id}
-                    imageInfo={sliderimage}
-                  />
+                  <div>
+                    <h2>{sliderimage.title}</h2>
+                    <PreviewCompatibleImage
+                      key={sliderimage.id}
+                      imageInfo={sliderimage}
+                    />
+                  </div>
                 ))}
               </Slider>
               <Slider {...bannerSettingsDesktop}>
                 {house.frontmatter.slider.map(({ sliderimage }) => (
-                  <PreviewCompatibleImage
-                    key={sliderimage.id}
-                    imageInfo={sliderimage}
-                  />
+                  <div>
+                    <h2>{sliderimage.title}</h2>
+                    <PreviewCompatibleImage
+                      key={sliderimage.id}
+                      imageInfo={sliderimage}
+                    />
+                  </div>
                 ))}
               </Slider>
             </BannerSlider>
+            <h2>Recent Events</h2>
             <CardWrap>
               {house.frontmatter.cards.map(card => (
-                <Card key={card.title}>
+                <Card key={card.title} textImage>
                   <Link to={`/${card.title.toLowerCase()}`}>
                     <h2>{card.title}</h2>
-                  </Link>
-                  <Link to={`/${card.title.toLowerCase()}`}>
                     <PreviewCompatibleImage
                       key={card.image.id}
                       imageInfo={card.image}
                     />
-                  </Link>
-                  <p key={card.text}>{card.text}</p>
-                  <Link to={`/${card.title.toLowerCase()}`}>
-                    <ReadMore>Read More</ReadMore>
                   </Link>
                 </Card>
               ))}
             </CardWrap>
           </div>
         ))}
-        <h2 className="lg-mg">Instagram</h2>
+        <h2>Instagram</h2>
         <InstaSlider>
           <Slider {...settings}>
             {instas.map(({ node: ig }) => (
@@ -158,19 +159,19 @@ export const pageQuery = graphql`
                     ...GatsbyImageSharpFluid_withWebp
                   }
                 }
+                title
               }
             }
             cards {
               image {
                 id
                 childImageSharp {
-                  fluid(maxWidth: 1650, maxHeight: 750, quality: 65) {
+                  fluid(maxWidth: 800, maxHeight: 600, quality: 65) {
                     ...GatsbyImageSharpFluid_withWebp
                   }
                 }
               }
               title
-              text
             }
           }
         }

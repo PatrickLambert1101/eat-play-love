@@ -6,6 +6,7 @@ import FootLogo from './FootLogo.js';
 import pinterest from '../img/pinterest.svg';
 import styled from 'styled-components';
 import { navigateTo } from 'gatsby-link';
+import { Link } from 'gatsby';
 
 function encode(data) {
   return Object.keys(data)
@@ -115,13 +116,9 @@ export default class Footer extends React.Component {
               >
                 <SocialLogo src={instagram} />
               </a>
-              <a
-                rel="noreferrer noopener"
-                target="_blank"
-                href={'mailto:eatplayloveretreat@gmail.com'}
-              >
+              <Link to={'/contact'}>
                 <SocialLogo src={mail} />
-              </a>
+              </Link>
               <a
                 rel="noreferrer noopener"
                 target="_blank"

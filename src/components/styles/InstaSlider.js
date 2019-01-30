@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
 const InstaSlider = styled.div`
-  max-width: ${props => props.theme.maxWidth};
+  max-width: ${props => `${parseInt(props.theme.maxWidth, 10) + 1}vw`};
   margin: auto;
-  padding: 0 20px;
   .slick-slide .gatsby-image-wrapper {
     padding: 5px;
   }
@@ -17,7 +16,7 @@ const InstaSlider = styled.div`
     padding: 0;
   }
   .slick-slide > div {
-    padding: 50px;
+    padding: 0.5vw;
   }
 `;
 
