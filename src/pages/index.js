@@ -6,7 +6,6 @@ import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import Card from '../components/styles/Card';
 import CardWrap from '../components/styles/CardWrap';
 import BannerSlider from '../components/styles/BannerSlider';
-import ReadMore from '../components/styles/ReadMore';
 import InstaSlider from '../components/styles/InstaSlider';
 var shortid = require('shortid');
 
@@ -55,7 +54,7 @@ export default class IndexPage extends React.Component {
               <Slider {...bannerSettingsMobile}>
                 {house.frontmatter.slider.map(({ sliderimage }) => (
                   <div>
-                    <h2>{sliderimage.title}</h2>
+                    <h2>sliderimage.title</h2>
                     <PreviewCompatibleImage
                       key={sliderimage.id}
                       imageInfo={sliderimage}
@@ -66,7 +65,6 @@ export default class IndexPage extends React.Component {
               <Slider {...bannerSettingsDesktop}>
                 {house.frontmatter.slider.map(({ sliderimage }) => (
                   <div>
-                    <h2>{sliderimage.title}</h2>
                     <PreviewCompatibleImage
                       key={sliderimage.id}
                       imageInfo={sliderimage}
@@ -159,7 +157,6 @@ export const pageQuery = graphql`
                     ...GatsbyImageSharpFluid_withWebp
                   }
                 }
-                title
               }
             }
             cards {

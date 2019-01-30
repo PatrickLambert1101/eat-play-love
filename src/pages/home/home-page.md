@@ -3,8 +3,11 @@ templateKey: home-post
 title: Home Page
 slider:
   - sliderimage: /img/jessica-castro-355974-unsplash.jpg
+    title: Events
   - sliderimage: /img/jumbotron.jpg
+    title: Offerings
   - sliderimage: /img/jumbotron.jpg
+    title: Offerings
 cards:
   - image: /img/home-banner.jpg
     text: >-
