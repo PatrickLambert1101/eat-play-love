@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import menu from '../img/menu.svg';
 import HeadLogo from './HeadLogo';
+import NavbarBrand from './styles/NavbarBrand';
+import NavLinks from './styles/NavLinks';
 
 export default class Navbar extends React.Component {
   constructor(props) {
@@ -26,36 +27,44 @@ export default class Navbar extends React.Component {
 
   render() {
     let menuClassName = this.state.isToggle ? 'toggle-open' : 'toggle-closed';
+    let current = this.props.page;
+    console.log('TCL: Navbar -> render -> current', current);
     return (
       <nav className={`navbar is-transparent ${menuClassName}`}>
-        <div className="navbar-start" onClick={this.closeMenu}>
-          <div className="navbar-brand">
-            <Link to="/" className="navbar-item">
-              <HeadLogo onClick={this.closeMenu} alt="Eat Play Love Logo" />
-            </Link>
-            <button
-              className="nav-btn"
-              type="button"
-              aria-expanded="false"
-              aria-controls="menu-list"
-              onClick={this.toggleMenu}
-            >
-              <HeadLogo />
-            </button>
-          </div>
-          <Link className="navbar-item" to="/events">
+        <NavbarBrand>
+          <Link to="/" className="navbar-item">
+            <HeadLogo onClick={this.closeMenu} alt="Eat Play Love Logo" />
+          </Link>
+          <button
+            className="nav-btn"
+            type="button"
+            aria-expanded="false"
+            aria-controls="menu-list"
+            onClick={this.toggleMenu}
+          >
+            <HeadLogo />
+          </button>
+        </NavbarBrand>
+        <NavLinks onClick={this.closeMenu}>
+          <Link to="/events" className={current === '/events' ? 'active' : ''}>
             EVENTS
           </Link>
-          <Link className="navbar-item" to="/retreats">
+          <Link
+            to="/retreats"
+            className={current === '/retreats' ? 'active' : ''}
+          >
             RETREATS
           </Link>
-          <Link className="navbar-item" to="/about">
+          <Link to="/about" className={current === '/about' ? 'active' : ''}>
             ABOUT
           </Link>
-          <Link className="navbar-item" to="/contact">
+          <Link
+            to="/contact"
+            className={current === '/contact' ? 'active' : ''}
+          >
             CONTACT
           </Link>
-        </div>
+        </NavLinks>
       </nav>
     );
   }

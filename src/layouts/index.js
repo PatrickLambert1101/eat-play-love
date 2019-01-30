@@ -93,26 +93,6 @@ body
   }
 }
 
-.navbar-brand {
-  justify-content: center;
-  margin-bottom: 40px;
-  margin-left: 15px;
-  margin-top: 40px;
-  display: flex;
-  @media (max-width: 480px) {
-    justify-content: space-between;
-  }
-  .navbar-item {
-    width: 530px;
-  }
-  .navbar-item img {
-    width: 100% !important;
-    text-align: center;
-    @media (max-width: 480px) {
-      max-width: 300px;
-    }
-  }
-}
 .left-content {
   text-align: left;
 }
@@ -212,50 +192,6 @@ body
   text-align: left;
 }
 
-.navbar-start {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: ${theme.containerWidth};
-  margin-bottom: 30px;
-  margin: auto;
-  height: auto;
-  opacity: 1;
-  transition: all 0.7s cubic-bezier(0.5, 1, 0.22, 1);
-  a {
-    width: 250px;
-    padding: 15px;
-    text-align: center;
-    font-size: 24px;
-    letter-spacing: 1.7px;
-    text-decoration: none;
-    color: ${theme.grey};
-    font-family: 'Ostrich', Arial, Helvetica, sans-serif;
-  }
-}
-
-@media (max-width: 900px) {
-  .navbar-start {
-    padding-top: 30px;
-    flex-direction: column;
-    align-items: center;
-    a {
-      min-height: 60px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  }
-  .toggle-closed .navbar-start {
-    max-height: 1px;
-    overflow: hidden;
-    list-style: none;
-    opacity: 0;
-    margin: 0;
-    padding: 0;
-    transition: all 0.7s cubic-bezier(0.325, 1, 0.22, 1);
-  }
-}
 
 .nav-btn {
   @media (min-width: 901px) {
@@ -355,7 +291,7 @@ const TemplateWrapper = ({ children, location }) => (
               <meta property="og:url" content="/" />
               <meta property="og:image" content="/img/og-image.jpg" />
             </Helmet>
-            <Navbar />
+            <Navbar page={children.props.location.pathname} />
             <Transition key={shortid.generate()} location={location}>
               {children}
             </Transition>

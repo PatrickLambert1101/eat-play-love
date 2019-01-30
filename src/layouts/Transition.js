@@ -6,7 +6,7 @@ import {
 var shortid = require('shortid');
 
 //This variable will be responsible for our animation duration
-const timeout = 600;
+const timeout = 1500;
 
 //This object contains basic styles for animation, but you can extend them to whatever you like. Be creative!
 const getTransitionStyles = {
@@ -35,7 +35,7 @@ class Transition extends React.PureComponent {
       <TransitionGroup key={shortid.generate()}>
         <ReactTransition
           //the key is necessary here because our ReactTransition needs to know when pages are entering/exiting the DOM
-          key={shortid.generate()}
+          key={location.pathname}
           //duration of transition
           timeout={{
             enter: timeout,
