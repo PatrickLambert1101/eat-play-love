@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const GalleryImages = styled.div`
+const GalleryStyle = styled.div`
   display: flex;
   margin-top: 40px;
   flex-wrap: wrap;
@@ -15,4 +15,4 @@ const GalleryImages = styled.div`
   }
 `;
 
-export default GalleryImages;
+export default GalleryStyle;

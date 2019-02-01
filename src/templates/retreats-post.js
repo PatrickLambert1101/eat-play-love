@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import ModalButton from '../components/ModalButton';
+import GalleryImage from '../components/GalleryImage';
 import Content, { HTMLContent } from '../components/Content';
 import SingleSideButton from '../components/styles/SingleSideButton';
-import GalleryImages from '../components/styles/GalleryImages';
 import Blurb from '../components/styles/Blurb';
 
 export const RetreatsPostTemplate = ({
@@ -17,7 +17,6 @@ export const RetreatsPostTemplate = ({
   contentComponent
 }) => {
   const PageContent = contentComponent || Content;
-  console.log(gallery);
   return (
     <div>
       <div className="content">
@@ -31,15 +30,7 @@ export const RetreatsPostTemplate = ({
         <PageContent content={content} />
         <ModalButton />
         <Blurb>{blurb}</Blurb>
-        <GalleryImages>
-          {gallery.map(single => (
-            <PreviewCompatibleImage
-              className="insta-image"
-              key={single.id}
-              imageInfo={single.galleryimage}
-            />
-          ))}
-        </GalleryImages>
+        <GalleryImage gallery={gallery} />
       </div>
       <SingleSideButton>
         <Link to={'/retreats'}>

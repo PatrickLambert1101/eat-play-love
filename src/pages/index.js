@@ -5,8 +5,10 @@ import Slider from 'react-slick';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import Card from '../components/styles/Card';
 import CardWrap from '../components/styles/CardWrap';
+import PageContainer from '../components/styles/PageContainer';
 import BannerSlider from '../components/styles/BannerSlider';
 import InstaSlider from '../components/styles/InstaSlider';
+import InstaGallery from '../components/styles/InstaGallery';
 var shortid = require('shortid');
 
 export default class IndexPage extends React.Component {
@@ -19,7 +21,16 @@ export default class IndexPage extends React.Component {
       autoPlay: true,
       className: 'instafeed',
       speed: 500,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+      responsive: [
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 2,
+            dots: false
+          }
+        }
+      ]
     };
     var bannerSettingsMobile = {
       dots: false,
@@ -44,49 +55,44 @@ export default class IndexPage extends React.Component {
 
     const { data } = this.props;
     const { edges: home } = data.home;
+    console.log('TCL: IndexPage -> render -> home', home);
     const { edges: instas } = data.instas;
 
     return (
-      <div className="home">
+      <React.Fragment>
         {home.map(({ node: house }) => (
           <div key={shortid.generate()}>
             <BannerSlider>
               <Slider {...bannerSettingsMobile}>
-                {house.frontmatter.slider.map(({ sliderimage }) => (
-                  <div>
-                    <h2>sliderimage.title</h2>
-                    <PreviewCompatibleImage
-                      key={sliderimage.id}
-                      imageInfo={sliderimage}
-                    />
+                {house.frontmatter.slider.map(slide => (
+                  <div key={shortid.generate()}>
+                    <h2>{slide.title}</h2>
+                    <PreviewCompatibleImage imageInfo={slide.sliderimage} />
                   </div>
                 ))}
               </Slider>
               <Slider {...bannerSettingsDesktop}>
-                {house.frontmatter.slider.map(({ sliderimage }) => (
-                  <div>
-                    <PreviewCompatibleImage
-                      key={sliderimage.id}
-                      imageInfo={sliderimage}
-                    />
+                {house.frontmatter.slider.map(slide => (
+                  <div key={shortid.generate()}>
+                    <h2>{slide.title}</h2>
+                    <PreviewCompatibleImage imageInfo={slide.sliderimage} />
                   </div>
                 ))}
               </Slider>
             </BannerSlider>
             <h2>Recent Events</h2>
-            <CardWrap>
-              {house.frontmatter.cards.map(card => (
-                <Card key={card.title} textImage>
-                  <Link to={`/${card.title.toLowerCase()}`}>
-                    <h2>{card.title}</h2>
-                    <PreviewCompatibleImage
-                      key={card.image.id}
-                      imageInfo={card.image}
-                    />
-                  </Link>
-                </Card>
-              ))}
-            </CardWrap>
+            <PageContainer>
+              <CardWrap>
+                {house.frontmatter.cards.map(card => (
+                  <Card key={card.title} textImage key={shortid.generate()}>
+                    <Link to={`/${card.title.toLowerCase()}`}>
+                      <h2>{card.title}</h2>
+                      <PreviewCompatibleImage imageInfo={card.image} />
+                    </Link>
+                  </Card>
+                ))}
+              </CardWrap>
+            </PageContainer>
           </div>
         ))}
         <h2>Instagram</h2>
@@ -101,7 +107,16 @@ export default class IndexPage extends React.Component {
             ))}
           </Slider>
         </InstaSlider>
-      </div>
+        <InstaGallery>
+          {instas.map(({ node: ig }) => (
+            <PreviewCompatibleImage
+              className="insta-image"
+              key={ig.id}
+              imageInfo={ig.localFile}
+            />
+          ))}
+        </InstaGallery>
+      </React.Fragment>
     );
   }
 }
@@ -158,6 +173,7 @@ export const pageQuery = graphql`
                   }
                 }
               }
+              title
             }
             cards {
               image {

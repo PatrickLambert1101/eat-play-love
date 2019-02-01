@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 const PageContainer = styled.div`
-  max-width: ${props => props.theme.containerWidth};
-  margin: auto;
+  max-width: ${props => (props.form ? '50vw' : props.theme.maxWidth)};
   margin: auto;
   text-align: center;
   @media (max-width: 500px) {

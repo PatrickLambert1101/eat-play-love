@@ -20,6 +20,7 @@ const theme = {
   bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)',
   goldLight: '#daa56b',
   goldDark: '#965711',
+  yellow: '#ecb84c',
   brown: '#ebe6e1',
   lightBrown: '#824706',
   darkRed: '#a93a3a',

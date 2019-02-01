@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 const BannerSlider = styled.div`
-  max-width: ${props => props.theme.maxWidth};
+  /* max-width: ${props => props.theme.maxWidth}; */
   margin: 0 auto 80px;
+  width:100%;
   .desktop {
     display: block;
   }
@@ -14,7 +15,6 @@ const BannerSlider = styled.div`
       display: none;
     }
     .mobile {
-      padding: 0 20px;
       display: block;
     }
     padding: 0;

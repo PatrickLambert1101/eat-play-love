@@ -1,10 +1,15 @@
 import styled from 'styled-components';
 
 const Card = styled.div`
-  width: 47%;
   position: relative;
   text-align: center;
-  margin: 0 auto 30px;
+  flex-basis: 49%;
+  margin-bottom: 2%;
+  @media screen and (max-width: 480px) {
+    margin-bottom: 15px;
+    flex-basis: 100%;
+  }
+
   h2 {
     position: absolute;
     left: 50%;

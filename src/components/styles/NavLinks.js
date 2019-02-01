@@ -5,8 +5,7 @@ const NavLinks = styled.div`
   align-items: center;
   justify-content: space-between;
   max-width: ${props => props.theme.containerWidth};
-  margin-bottom: 30px;
-  margin: auto;
+  margin: 0 auto 35px;
   height: auto;
   opacity: 1;
   transition: all 0.7s cubic-bezier(0.5, 1, 0.22, 1);
@@ -19,6 +18,22 @@ const NavLinks = styled.div`
     text-decoration: none;
     color: ${props => props.theme.grey};
     font-family: 'Ostrich', Arial, Helvetica, sans-serif;
+    position: relative;
+    &::after {
+      position: absolute;
+      content: '';
+      bottom: 5px;
+      left: 50%;
+      transform: translateX(-52%);
+      height: 2px;
+      width: 65px;
+      opacity: 0;
+      background-color: ${props => props.theme.yellow};
+      transition: all 0.3s ease-in;
+    }
+    &.active::after {
+      opacity: 1;
+    }
   }
   @media (max-width: 900px) {
     padding-top: 30px;
@@ -31,15 +46,15 @@ const NavLinks = styled.div`
       align-items: center;
     }
   }
-  /* .toggle-closed .navbar-start {
-      max-height: 1px;
-      overflow: hidden;
-      list-style: none;
-      opacity: 0;
-      margin: 0;
-      padding: 0;
-      transition: all 0.7s cubic-bezier(0.325, 1, 0.22, 1);
-    } */
+  &.toggle-closed {
+    max-height: 1px;
+    overflow: hidden;
+    list-style: none;
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+    transition: all 0.7s cubic-bezier(0.325, 1, 0.22, 1);
+  }
 `;
 
 export default NavLinks;

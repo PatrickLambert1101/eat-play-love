@@ -4,65 +4,65 @@ import HeadLogo from './HeadLogo';
 import NavbarBrand from './styles/NavbarBrand';
 import NavLinks from './styles/NavLinks';
 import NavButton from './styles/NavButton';
+import menu from '../img/menu.svg';
 
 export default class Navbar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      isToggle: false
-    };
+    this.state = { isToggle: false };
 
     this.toggleMenu = this.toggleMenu.bind(this);
-    this.closeMenu = this.closeMenu.bind(this);
-  }
-  s;
-
-  closeMenu() {
-    this.setState({ isToggle: false });
   }
 
   toggleMenu(e) {
-    e.preventDefault();
-    this.setState({ isToggle: !this.state.isToggle });
+    this.setState({
+      isToggle: !this.state.isToggle
+    });
   }
 
   render() {
     let menuClassName = this.state.isToggle ? 'toggle-open' : 'toggle-closed';
     let current = this.props.page;
-    console.log('TCL: Navbar -> render -> current', current);
     return (
-      <nav className={`navbar is-transparent ${menuClassName}`}>
+      <nav>
         <NavbarBrand>
           <Link to="/" className="navbar-item">
-            <HeadLogo onClick={this.closeMenu} alt="Eat Play Love Logo" />
+            <HeadLogo alt="Eat Play Love Logo" onClick={this.toggleMenu} />
           </Link>
           <NavButton
             type="button"
             aria-expanded="false"
             aria-controls="menu-list"
-            onClick={this.toggleMenu}
           >
-            <HeadLogo />
+            <img
+              src={menu}
+              onClick={this.toggleMenu}
+              style={{ width: '100px' }}
+              alt="menu"
+            />
           </NavButton>
         </NavbarBrand>
-        <NavLinks onClick={this.closeMenu}>
+        <NavLinks className={menuClassName}>
+          <Link to="/" className={current === '/' ? 'active' : ''}>
+            <a onClick={this.toggleMenu}>HOME</a>
+          </Link>
           <Link to="/events" className={current === '/events' ? 'active' : ''}>
-            EVENTS
+            <a onClick={this.toggleMenu}>EVENTS</a>
           </Link>
           <Link
             to="/retreats"
             className={current === '/retreats' ? 'active' : ''}
           >
-            RETREATS
+            <a onClick={this.toggleMenu}>RETREATS</a>
           </Link>
           <Link to="/about" className={current === '/about' ? 'active' : ''}>
-            ABOUT
+            <a onClick={this.toggleMenu}>ABOUT</a>
           </Link>
           <Link
             to="/contact"
             className={current === '/contact' ? 'active' : ''}
           >
-            CONTACT
+            <a onClick={this.toggleMenu}>CONTACT</a>
           </Link>
         </NavLinks>
       </nav>

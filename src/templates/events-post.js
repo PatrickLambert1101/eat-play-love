@@ -4,7 +4,6 @@ import { Link, graphql } from 'gatsby';
 import SingleSideButton from '../components/styles/SingleSideButton';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import ModalButton from '../components/ModalButton';
-import GalleryImages from '../components/styles/GalleryImages';
 import Blurb from '../components/styles/Blurb';
 import Content, { HTMLContent } from '../components/Content';
 
@@ -31,15 +30,14 @@ export const EventsPostTemplate = ({
         <PageContent content={content} />
         <ModalButton />
         <Blurb>{blurb}</Blurb>
-        <GalleryImages>
-          {gallery.map(single => (
-            <PreviewCompatibleImage
-              className="insta-image"
-              key={single.id}
-              imageInfo={single.galleryimage}
-            />
-          ))}
-        </GalleryImages>
+
+        {gallery.map(single => (
+          <PreviewCompatibleImage
+            className="insta-image"
+            key={single.id}
+            imageInfo={single.galleryimage}
+          />
+        ))}
       </div>
       <SingleSideButton>
         <Link to={'/events'}>

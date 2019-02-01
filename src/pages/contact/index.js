@@ -2,32 +2,13 @@ import React from 'react';
 import { navigateTo } from 'gatsby-link';
 import styled, { css } from 'styled-components';
 import PageContainer from '../../components/styles/PageContainer.js';
+import FormFlex from '../../components/styles/FormFlex.js';
 
 function encode(data) {
   return Object.keys(data)
     .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
     .join('&');
 }
-
-const FormFlex = styled.div`
-  display: flex;
-  justify-content: space-between;
-  input:first-child {
-    margin-right: 10px;
-  }
-  input:last-child {
-    margin-left: 10px;
-  }
-  @media (max-width: 480px) {
-    display: block;
-    input:first-child {
-      margin-right: 0px;
-    }
-    input:last-child {
-      margin-left: 0px;
-    }
-  }
-`;
 
 const styles = css`
   background-color: #f9decf;
@@ -93,7 +74,7 @@ export default class Index extends React.Component {
 
   render() {
     return (
-      <PageContainer>
+      <PageContainer form={true}>
         <h1>Contact</h1>
         <form
           name="contact"
