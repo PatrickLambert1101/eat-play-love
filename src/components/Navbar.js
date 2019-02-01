@@ -44,25 +44,25 @@ export default class Navbar extends React.Component {
         </NavbarBrand>
         <NavLinks className={menuClassName}>
           <Link to="/" className={current === '/' ? 'active' : ''}>
-            <a onClick={this.toggleMenu}>HOME</a>
+            <div onClick={this.toggleMenu}>HOME</div>
           </Link>
           <Link to="/events" className={current === '/events' ? 'active' : ''}>
-            <a onClick={this.toggleMenu}>EVENTS</a>
+            <div onClick={this.toggleMenu}>EVENTS</div>
           </Link>
           <Link
             to="/retreats"
             className={current === '/retreats' ? 'active' : ''}
           >
-            <a onClick={this.toggleMenu}>RETREATS</a>
+            <div onClick={this.toggleMenu}>RETREATS</div>
           </Link>
           <Link to="/about" className={current === '/about' ? 'active' : ''}>
-            <a onClick={this.toggleMenu}>ABOUT</a>
+            <div onClick={this.toggleMenu}>ABOUT</div>
           </Link>
           <Link
             to="/contact"
             className={current === '/contact' ? 'active' : ''}
           >
-            <a onClick={this.toggleMenu}>CONTACT</a>
+            <div onClick={this.toggleMenu}>CONTACT</div>
           </Link>
         </NavLinks>
       </nav>

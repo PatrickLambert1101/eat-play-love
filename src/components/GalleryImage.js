@@ -1,23 +1,28 @@
 import React from 'react';
 import Gallery from 'react-photo-gallery';
-import PreviewCompatibleImage from './PreviewCompatibleImage';
 import GalleryStyle from './styles/GalleryStyle';
+var shortid = require('shortid');
 
 class GalleryImage extends React.Component {
   render() {
-    const raw = this.props.gallery.map(
-      image => image.galleryimage.childImageSharp.fluid
-    );
-    const allowed = ['src', 'srcSet', 'sizes'];
-    const images = Object.keys(raw)
-      .filter(key => allowed.includes(key))
-      .reduce((obj, key) => {
-        obj[key] = raw[key];
-        return obj;
-      }, {});
+    const width = [4, 1, 3, 5, 2, 3];
+    const height = [2, 4, 1, 5, 2, 3];
+    const images = this.props.gallery.map((image, i) => ({
+      src: image.galleryimage.childImageSharp.fluid.src,
+      srcSet: image.galleryimage.childImageSharp.fluid.srcSet,
+      sizes: image.galleryimage.childImageSharp.fluid.sizes,
+      width: width[i],
+      height: height[i],
+      key: shortid.generate()
+    }));
+
     console.log('TCL: render -> images', images);
 
-    return <Gallery photos={images} />;
+    return (
+      <GalleryStyle>
+        <Gallery photos={images} />;
+      </GalleryStyle>
+    );
   }
 }
 
