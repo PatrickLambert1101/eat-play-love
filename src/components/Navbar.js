@@ -9,15 +9,37 @@ import menu from '../img/menu.svg';
 export default class Navbar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isToggle: false };
+    this.state = { isToggle: false, width: 0, height: 0 };
 
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     this.toggleMenu = this.toggleMenu.bind(this);
   }
 
-  toggleMenu(e) {
+  componentDidMount() {
+    this.updateWindowDimensions();
+    window.addEventListener('resize', this.updateWindowDimensions);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+
+  updateWindowDimensions() {
+    this.setState({ width: window.innerWidth, height: window.innerHeight });
+  }
+
+  UNSAFE_componentWillMount() {
     this.setState({
       isToggle: !this.state.isToggle
     });
+  }
+
+  toggleMenu(e) {
+    if (this.state.width <= 480) {
+      this.setState({
+        isToggle: !this.state.isToggle
+      });
+    }
   }
 
   render() {

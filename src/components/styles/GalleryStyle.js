@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 
 const GalleryStyle = styled.div`
-  display: flex;
-  margin-top: 40px;
-  flex-wrap: wrap;
-  justify-content: space-between;
   @media (max-width: 480px) {
     flex-direction: column;
   }

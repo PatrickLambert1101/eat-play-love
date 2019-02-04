@@ -15,7 +15,7 @@ function encode(data) {
 }
 
 const FooterWrap = styled.footer`
-  padding-top: 2rem;
+  padding-top: 4rem;
   display: flex;
   justify-content: space-between;
   margin: auto;
@@ -46,6 +46,7 @@ const SocialWrapper = styled.div`
     margin-top: -20px;
   }
   width: 60%;
+  max-width: 700px;
   @media (max-width: 480px) {
     width: 100%;
   }
@@ -53,7 +54,7 @@ const SocialWrapper = styled.div`
 
 const FooterLogo = styled.div`
   flex: 1;
-  max-width: 500px;
+  max-width: 400px;
   & > div {
     width: 80%;
   }

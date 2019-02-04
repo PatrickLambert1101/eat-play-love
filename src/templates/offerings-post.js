@@ -16,7 +16,6 @@ export const OfferingsPostTemplate = ({
   contentComponent
 }) => {
   const PageContent = contentComponent || Content;
-  console.log(gallery);
   return (
     <div>
       <div className="content">

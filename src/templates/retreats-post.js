@@ -7,6 +7,7 @@ import GalleryImage from '../components/GalleryImage';
 import Content, { HTMLContent } from '../components/Content';
 import SingleSideButton from '../components/styles/SingleSideButton';
 import Blurb from '../components/styles/Blurb';
+import PageContainer from '../components/styles/PageContainer';
 
 export const RetreatsPostTemplate = ({
   title,
@@ -18,26 +19,24 @@ export const RetreatsPostTemplate = ({
 }) => {
   const PageContent = contentComponent || Content;
   return (
-    <div>
-      <div className="content">
-        <h1>Join us</h1>
-        <h2>{title}</h2>
-        <h5>
-          Hearth &amp; Soul Eco Farm Stanford
-          <br /> 5th-8th October
-        </h5>
-        <PreviewCompatibleImage imageInfo={image} />
-        <PageContent content={content} />
-        <ModalButton />
-        <Blurb>{blurb}</Blurb>
-        <GalleryImage gallery={gallery} />
-      </div>
+    <PageContainer>
+      <h1>Join us</h1>
+      <h2>{title}</h2>
+      <h5>
+        Hearth &amp; Soul Eco Farm Stanford
+        <br /> 5th-8th October
+      </h5>
+      <PreviewCompatibleImage imageInfo={image} />
+      <PageContent content={content} />
+      <ModalButton />
+      <Blurb>{blurb}</Blurb>
+      <GalleryImage gallery={gallery} />
       <SingleSideButton>
         <Link to={'/retreats'}>
           <h4>Back to retreats</h4>
         </Link>
       </SingleSideButton>
-    </div>
+    </PageContainer>
   );
 };
 

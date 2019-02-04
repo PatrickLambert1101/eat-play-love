@@ -16,7 +16,6 @@ export const EventsPostTemplate = ({
   contentComponent
 }) => {
   const PageContent = contentComponent || Content;
-  console.log(gallery);
   return (
     <div>
       <div className="content">

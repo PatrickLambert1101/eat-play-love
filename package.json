@@ -35,6 +35,7 @@
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.4.1",
+    "react-grid-gallery": "^0.5.3",
     "react-helmet": "^5.2.0",
     "react-modal": "^3.8.1",
     "react-photo-gallery": "^6.3.1",

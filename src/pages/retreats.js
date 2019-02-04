@@ -11,7 +11,6 @@ import ReadMore from '../components/styles/ReadMore';
 export default class RetreatsPage extends React.Component {
   render() {
     const { data } = this.props;
-    console.log('data:', data);
     const { edges: retreats } = data.retreats;
 
     return (

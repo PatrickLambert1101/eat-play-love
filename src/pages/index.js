@@ -55,7 +55,6 @@ export default class IndexPage extends React.Component {
 
     const { data } = this.props;
     const { edges: home } = data.home;
-    console.log('TCL: IndexPage -> render -> home', home);
     const { edges: instas } = data.instas;
 
     return (
@@ -84,7 +83,7 @@ export default class IndexPage extends React.Component {
             <PageContainer>
               <CardWrap>
                 {house.frontmatter.cards.map(card => (
-                  <Card key={card.title} textImage key={shortid.generate()}>
+                  <Card textImage key={shortid.generate()}>
                     <Link to={`/${card.title.toLowerCase()}`}>
                       <h2>{card.title}</h2>
                       <PreviewCompatibleImage imageInfo={card.image} />
