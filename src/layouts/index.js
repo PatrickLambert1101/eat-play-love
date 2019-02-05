@@ -15,6 +15,7 @@ const theme = {
   red: '#FF0000',
   black: '#393939',
   lightgrey: '#E1E1E1',
+  overlay: '#4e4c4c2e',
   offWhite: '#EDEDED',
   maxWidth: '97vw',
   bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)',
@@ -53,10 +54,11 @@ h1{
   font-family: 'RV', Arial, Helvetica, sans-serif;
 }
 h2
-{font-size: 3.2rem;
+{font-size: 3.5rem;
   font-weight: 100;
   color: ${theme.goldLight};
   font-family: ${theme.georgia};
+  margin-top:1em;
   font-family: 'RV', Arial, Helvetica, sans-serif;
   text-align: center;}
 

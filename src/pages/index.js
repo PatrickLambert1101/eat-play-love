@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import Slider from 'react-slick';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
-import Card from '../components/styles/Card';
-import CardWrap from '../components/styles/CardWrap';
-import PageContainer from '../components/styles/PageContainer';
+import CardWrapper from '../components/CardWrapper';
 import BannerSlider from '../components/styles/BannerSlider';
 import InstaSlider from '../components/styles/InstaSlider';
 import InstaGallery from '../components/styles/InstaGallery';
@@ -14,7 +12,6 @@ var shortid = require('shortid');
 export default class IndexPage extends React.Component {
   render() {
     var settings = {
-      dots: true,
       infinite: true,
       slidesToShow: 4,
       arrows: false,
@@ -33,7 +30,6 @@ export default class IndexPage extends React.Component {
       ]
     };
     var bannerSettingsMobile = {
-      dots: false,
       infinite: true,
       slidesToShow: 1,
       arrows: false,
@@ -43,7 +39,6 @@ export default class IndexPage extends React.Component {
       slidesToScroll: 1
     };
     var bannerSettingsDesktop = {
-      dots: false,
       infinite: true,
       slidesToShow: 1,
       arrows: false,
@@ -80,18 +75,7 @@ export default class IndexPage extends React.Component {
               </Slider>
             </BannerSlider>
             <h2>Recent Events</h2>
-            <PageContainer>
-              <CardWrap>
-                {house.frontmatter.cards.map(card => (
-                  <Card textImage key={shortid.generate()}>
-                    <Link to={`/${card.title.toLowerCase()}`}>
-                      <h2>{card.title}</h2>
-                      <PreviewCompatibleImage imageInfo={card.image} />
-                    </Link>
-                  </Card>
-                ))}
-              </CardWrap>
-            </PageContainer>
+            <CardWrapper data={house.frontmatter.cards} />
           </div>
         ))}
         <h2>Instagram</h2>

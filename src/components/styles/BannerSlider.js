@@ -23,12 +23,22 @@ const BannerSlider = styled.div`
     }
   }
   .slick-slide {
-    height: 420px;
+    height: 530px;
     position: relative;
+      &::after {
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: ${props => props.theme.overlay};
+    z-index: 1;
+  }
 
     h2 {
       position: absolute;
-      z-index: 1;
+      z-index: 2;
       margin: 0;
       left: 50%; /* horizontal alignment */
       top: 50%; /* vertical alignment */

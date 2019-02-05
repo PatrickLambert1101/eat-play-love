@@ -13,11 +13,15 @@ export default class RetreatsPage extends React.Component {
   render() {
     const { data } = this.props;
     const { edges: retreats } = data.retreats;
+    const { edges: retreatsPageData } = data.retreatsPageData;
 
     return (
       <div>
         <PageContainer>
           <h1>Retreats</h1>
+          <p>
+            {retreatsPageData.map(({ node: title }) => title.frontmatter.title)}
+          </p>
           {retreats.map(({ node: retreat }) => (
             <AltCardWrap key={shortid.generate()}>
               <Link to={retreat.fields.slug}>
@@ -58,6 +62,17 @@ RetreatsPage.propTypes = {
 
 export const pageQuery = graphql`
   query RetreatsQuery {
+    retreatsPageData: allMarkdownRemark(
+      filter: { frontmatter: { templateKey: { eq: "retreats-page" } } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+          }
+        }
+      }
+    }
     retreats: allMarkdownRemark(
       filter: { frontmatter: { templateKey: { eq: "retreats-post" } } }
     ) {

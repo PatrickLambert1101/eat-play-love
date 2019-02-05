@@ -78,6 +78,60 @@ collections:
           - { label: 'Image', name: 'image', widget: 'image' }
           - { label: 'Title', name: 'title', widget: 'string' }
 
+  - name: 'events-page'
+    label: 'Events Page'
+    folder: 'src/pages/events-page'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - {
+          label: 'Template Key',
+          name: 'templateKey',
+          widget: 'hidden',
+          default: 'events-page',
+        }
+      - { label: 'Title', name: 'title', widget: 'string' }
+
+  - name: 'retreats-page'
+    label: 'Retreats Page'
+    folder: 'src/pages/retreats-page'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - {
+          label: 'Template Key',
+          name: 'templateKey',
+          widget: 'hidden',
+          default: 'retreats-page',
+        }
+      - { label: 'Title', name: 'title', widget: 'string' }
+
+  - name: 'home'
+    label: 'Home'
+    folder: 'src/pages/home'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - {
+          label: 'Template Key',
+          name: 'templateKey',
+          widget: 'hidden',
+          default: 'home-post',
+        }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - label: 'Slider'
+        name: 'slider'
+        widget: 'list'
+        fields:
+          - { label: 'Slider Image', name: 'sliderimage', widget: 'image' }
+          - { label: 'Title', name: 'title', widget: 'string' }
+      - label: 'Cards'
+        name: 'cards'
+        widget: 'list'
+        fields:
+          - { label: 'Image', name: 'image', widget: 'image' }
+          - { label: 'Title', name: 'title', widget: 'string' }
+
   - name: 'pages'
     label: 'Pages'
     files:
@@ -90,18 +144,6 @@ collections:
               name: 'templateKey',
               widget: 'hidden',
               default: 'about-page',
-            }
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Body', name: 'body', widget: 'markdown' }
-      - file: 'src/pages/retreats/index.md'
-        label: 'retreats'
-        name: 'retreats'
-        fields:
-          - {
-              label: 'Template Key',
-              name: 'templateKey',
-              widget: 'hidden',
-              default: 'retreats-page',
             }
           - { label: 'Title', name: 'title', widget: 'string' }
           - { label: 'Body', name: 'body', widget: 'markdown' }
