@@ -78,7 +78,7 @@ export default class Navbar extends React.Component {
             <div onClick={this.toggleMenu}>RETREATS</div>
           </Link>
           <Link to="/about" className={current === '/about' ? 'active' : ''}>
-            <div onClick={this.toggleMenu}>ABOUT</div>
+            <div onClick={this.toggleMenu}>ABOUT US</div>
           </Link>
           <Link
             to="/contact"

@@ -6,29 +6,6 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: 'offerings'
-    label: 'Offerings'
-    folder: 'src/pages/offerings'
-    create: true
-    slug: '{{slug}}'
-    fields:
-      - {
-          label: 'Template Key',
-          name: 'templateKey',
-          widget: 'hidden',
-          default: 'offerings-post',
-        }
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Image', name: 'image', widget: 'image' }
-      - { label: 'Excerpt', name: 'excerpt', widget: 'text' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
-      - { label: 'Blurb', name: 'blurb', widget: 'text' }
-      - label: 'Gallery'
-        name: 'gallery'
-        widget: 'list'
-        fields:
-          - { label: 'Gallery Image', name: 'galleryimage', widget: 'image' }
-
   - name: 'events'
     label: 'Events'
     folder: 'src/pages/events'
