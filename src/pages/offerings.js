@@ -6,6 +6,7 @@ import AltCard from '../components/styles/AltCard';
 import AltCardWrap from '../components/styles/AltCardWrap';
 import Button from '../components/Button';
 import PageContainer from '../components/styles/PageContainer';
+var shortid = require('shortid');
 
 export default class OfferingsPage extends React.Component {
   render() {
@@ -17,7 +18,7 @@ export default class OfferingsPage extends React.Component {
         <PageContainer>
           <h1>Offerings</h1>
           {offerings.map(({ node: offering }) => (
-            <AltCardWrap key={offering.id}>
+            <AltCardWrap key={shortid.generate()}>
               <Link to={offering.fields.slug}>
                 <PreviewCompatibleImage
                   key={offering.frontmatter.image.id}

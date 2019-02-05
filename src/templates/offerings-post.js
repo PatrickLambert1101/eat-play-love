@@ -4,6 +4,7 @@ import { Link, graphql } from 'gatsby';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import ModalButton from '../components/ModalButton';
 import Content, { HTMLContent } from '../components/Content';
+import GalleryImage from '../components/GalleryImage';
 import SingleSideButton from '../components/styles/SingleSideButton';
 import Blurb from '../components/styles/Blurb';
 
@@ -29,12 +30,7 @@ export const OfferingsPostTemplate = ({
         <PageContent content={content} />
         <ModalButton />
         <Blurb>{blurb}</Blurb>
-        {gallery.map(single => (
-          <PreviewCompatibleImage
-            key={single.id}
-            imageInfo={single.galleryimage}
-          />
-        ))}
+        <GalleryImage gallery={gallery} />
       </div>
       <SingleSideButton>
         <Link to={'/offerings'}>

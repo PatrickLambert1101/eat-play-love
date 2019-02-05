@@ -7,6 +7,7 @@ import AltCardWrap from '../components/styles/AltCardWrap';
 import Button from '../components/Button';
 import PageContainer from '../components/styles/PageContainer';
 import ReadMore from '../components/styles/ReadMore';
+var shortid = require('shortid');
 
 export default class EventsPage extends React.Component {
   render() {
@@ -18,7 +19,7 @@ export default class EventsPage extends React.Component {
         <PageContainer>
           <h1>Events</h1>
           {events.map(({ node: event }) => (
-            <AltCardWrap key={event.id}>
+            <AltCardWrap key={shortid.generate()}>
               <Link to={event.fields.slug}>
                 <PreviewCompatibleImage
                   key={event.frontmatter.image.id}

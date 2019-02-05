@@ -11,5 +11,10 @@ gallery:
   - galleryimage: /img/yoga-1.jpg
   - galleryimage: /img/yoga-2.jpg
   - galleryimage: /img/yoga-3.jpg
+  - galleryimage: /img/yoga-1.jpg
+  - galleryimage: /img/yoga-2.jpg
+  - galleryimage: /img/yoga-3.jpg
+  - galleryimage: /img/yoga-1.jpg
+  - galleryimage: /img/yoga-2.jpg
 ---
 Inceptos dui sollicitudin adipiscing congue tellus fusce hendrerit commodo pellentesque aliquam felis primis pharetra fames facilisis ultrices proin quisque nec amet scelerisque varius imperdiet per elit suspendisse placerat sodales ultricies

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
 import SingleSideButton from '../components/styles/SingleSideButton';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
+import GalleryImage from '../components/GalleryImage';
 import ModalButton from '../components/ModalButton';
 import Blurb from '../components/styles/Blurb';
 import Content, { HTMLContent } from '../components/Content';
@@ -29,14 +30,7 @@ export const EventsPostTemplate = ({
         <PageContent content={content} />
         <ModalButton />
         <Blurb>{blurb}</Blurb>
-
-        {gallery.map(single => (
-          <PreviewCompatibleImage
-            className="insta-image"
-            key={single.id}
-            imageInfo={single.galleryimage}
-          />
-        ))}
+        <GalleryImage gallery={gallery} />
       </div>
       <SingleSideButton>
         <Link to={'/events'}>

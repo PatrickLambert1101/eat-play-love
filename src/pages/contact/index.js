@@ -1,51 +1,13 @@
 import React from 'react';
 import { navigateTo } from 'gatsby-link';
-import styled, { css } from 'styled-components';
 import PageContainer from '../../components/styles/PageContainer.js';
-import FormFlex from '../../components/styles/FormFlex.js';
+import Form from '../../components/styles/Form.js';
 
 function encode(data) {
   return Object.keys(data)
     .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
     .join('&');
 }
-
-const styles = css`
-  background-color: #f9decf;
-  color: #824706;
-  font-size: 22px;
-  padding: 12px;
-  min-width: 250px;
-  width: 100%;
-  box-sizing: border-box;
-  border-radius: 1px;
-  margin-bottom: 14px;
-  border: 0.5px solid #be8989;
-  &::placeholder {
-    color: #824706;
-    opacity: 1;
-    font-weight: bold;
-    font-family: 'Georgia', Arial, Helvetica, sans-serif;
-  }
-  &:-ms-input-placeholder {
-    color: #824706;
-    font-weight: bold;
-    font-family: 'Georgia', Arial, Helvetica, sans-serif;
-  }
-  &::-ms-input-placeholder {
-    color: #824706;
-    font-weight: bold;
-    font-family: 'Georgia', Arial, Helvetica, sans-serif;
-  }
-`;
-
-const Input = styled.input`
-  ${styles};
-`;
-
-const TextArea = styled.textarea`
-  ${styles};
-`;
 
 export default class Index extends React.Component {
   constructor(props) {
@@ -76,7 +38,7 @@ export default class Index extends React.Component {
     return (
       <PageContainer form={true}>
         <h1>Contact</h1>
-        <form
+        <Form
           name="contact"
           method="post"
           action="/contact/thanks/"
@@ -88,8 +50,8 @@ export default class Index extends React.Component {
           <div hidden>
             <input name="bot-field" onChange={this.handleChange} />
           </div>
-          <FormFlex>
-            <Input
+          <div className="flex">
+            <input
               className="input"
               type={'text'}
               name={'name'}
@@ -98,7 +60,7 @@ export default class Index extends React.Component {
               id={'name'}
               required={true}
             />
-            <Input
+            <input
               className="input"
               type={'email'}
               placeholder={'Email'}
@@ -107,8 +69,8 @@ export default class Index extends React.Component {
               id={'email'}
               required={true}
             />
-          </FormFlex>
-          <TextArea
+          </div>
+          <textarea
             className="textarea"
             name={'message'}
             placeholder={'Message'}
@@ -116,10 +78,8 @@ export default class Index extends React.Component {
             id={'message'}
             required={true}
           />
-          <button className="button large is-link" type="submit">
-            Send
-          </button>
-        </form>
+          <button type="submit">Send</button>
+        </Form>
       </PageContainer>
     );
   }

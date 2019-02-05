@@ -111,9 +111,24 @@ body
   opacity: 0;
 }
 
-.gallery-wrap {
-  display: flex;
-}`;
+ &::placeholder {
+    color: #824706;
+    opacity: 1;
+    font-weight: bold;
+    font-family: 'Georgia', Arial, Helvetica, sans-serif;
+  }
+  &:-ms-input-placeholder {
+    color: #824706;
+    font-weight: bold;
+    font-family: 'Georgia', Arial, Helvetica, sans-serif;
+  }
+  &::-ms-input-placeholder {
+    color: #824706;
+    font-weight: bold;
+    font-family: 'Georgia', Arial, Helvetica, sans-serif;
+  }
+
+`;
 
 const TemplateWrapper = ({ children, location }) => (
   <StaticQuery

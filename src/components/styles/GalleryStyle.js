@@ -2,21 +2,97 @@ import styled from 'styled-components';
 
 const GalleryStyle = styled.div`
   display: flex;
+  max-width: 600px;
+  margin: auto;
   flex-wrap: wrap;
   list-style-type: none;
-  .gatsby-image-wrapper:nth-child(3n + 1) {
-    background: red;
-    flex: 0 0 100%;
-    width: 60%;
-  }
-  .gatsby-image-wrapper:nth-child(3n),
-  .gatsby-image-wrapper:nth-child(3n + 2) {
-    flex: 0 0 50%;
-    width: 40%;
-  }
-
-  @media (max-width: 480px) {
-    flex-direction: column;
+  & > div {
+    .gatsby-image-wrapper {
+      height: 290px;
+      @media (max-width: 480px) {
+        height: 100px;
+      }
+    }
+    @media (max-width: 480px) {
+      margin-top: 10px;
+    }
+    &:nth-child(11n + 1) {
+      flex: 0 0 100%;
+    }
+    &:nth-child(11n + 2) {
+      flex: 0 0 36.5625%;
+      padding-right: 20px;
+      @media (max-width: 480px) {
+        padding-right: 10px;
+      }
+    }
+    &:nth-child(11n + 3) {
+      flex: 0 0 63.4375%;
+    }
+    &:nth-child(11n + 4) {
+      .gatsby-image-wrapper {
+        height: 500px;
+        @media (max-width: 480px) {
+          height: 190px;
+        }
+      }
+      padding-right: 20px;
+      @media (max-width: 480px) {
+        padding-right: 10px;
+      }
+      flex: 0 0 68.95833333333333%;
+    }
+    &:nth-child(11n + 5) {
+      .gatsby-image-wrapper {
+        height: 500px;
+        @media (max-width: 480px) {
+          height: 190px;
+        }
+      }
+      flex: 0 0 31.041666667%;
+    }
+    &:nth-child(11n + 6) {
+      flex: 0 0 36.5625%;
+      padding-right: 20px;
+      @media (max-width: 480px) {
+        padding-right: 10px;
+      }
+    }
+    &:nth-child(11n + 7) {
+      flex: 0 0 63.4375%;
+    }
+    &:nth-child(11n + 8) {
+      flex: 0 0 61.5625%;
+      padding-right: 20px;
+      @media (max-width: 480px) {
+        padding-right: 10px;
+      }
+    }
+    &:nth-child(11n + 9) {
+      flex: 0 0 38.4375%;
+    }
+    &:nth-child(11n + 10) {
+      .gatsby-image-wrapper {
+        height: 500px;
+        @media (max-width: 480px) {
+          height: 190px;
+        }
+      }
+      flex: 0 0 29.375%;
+      padding-right: 20px;
+      @media (max-width: 480px) {
+        padding-right: 10px;
+      }
+    }
+    &:nth-child(11n) {
+      .gatsby-image-wrapper {
+        height: 500px;
+        @media (max-width: 480px) {
+          height: 190px;
+        }
+      }
+      flex: 0 0 70.625%;
+    }
   }
 `;
 

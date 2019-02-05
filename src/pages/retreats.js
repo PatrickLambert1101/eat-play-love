@@ -7,6 +7,7 @@ import AltCardWrap from '../components/styles/AltCardWrap';
 import Button from '../components/Button';
 import PageContainer from '../components/styles/PageContainer';
 import ReadMore from '../components/styles/ReadMore';
+var shortid = require('shortid');
 
 export default class RetreatsPage extends React.Component {
   render() {
@@ -18,7 +19,7 @@ export default class RetreatsPage extends React.Component {
         <PageContainer>
           <h1>Retreats</h1>
           {retreats.map(({ node: retreat }) => (
-            <AltCardWrap key={retreat.id}>
+            <AltCardWrap key={shortid.generate()}>
               <Link to={retreat.fields.slug}>
                 <PreviewCompatibleImage
                   key={retreat.frontmatter.image.id}

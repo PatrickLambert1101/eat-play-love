@@ -31,6 +31,8 @@ const CenterButton = styled.div`
   }
 `;
 
+ReactModal.setAppElement('body');
+
 function encode(data) {
   return Object.keys(data)
     .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
@@ -146,7 +148,6 @@ class ModalButton extends React.Component {
               bottom: 'auto'
             }
           }}
-          contentLabel="Minimal Modal Example"
         >
           <Close>
             <button onClick={this.handleCloseModal}>X</button>
