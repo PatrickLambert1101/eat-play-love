@@ -7,7 +7,6 @@ import GalleryImage from '../components/GalleryImage';
 import Review from '../components/Review';
 import Content, { HTMLContent } from '../components/Content';
 import SingleSideButton from '../components/styles/SingleSideButton';
-import Blurb from '../components/styles/Blurb';
 import PageContainer from '../components/styles/PageContainer';
 
 export const RetreatsPostTemplate = ({
@@ -55,7 +54,6 @@ const RetreatsPost = ({ data }) => {
       <RetreatsPostTemplate
         title={post.frontmatter.title}
         image={post.frontmatter.image}
-        review={post.frontmatter.review}
         review={post.frontmatter.review}
         author={post.frontmatter.author}
         gallery={post.frontmatter.gallery}

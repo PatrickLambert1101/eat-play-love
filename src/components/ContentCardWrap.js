@@ -1,31 +1,44 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import PreviewCompatibleImage from '../PreviewCompatibleImage';
+import PreviewCompatibleImage from './PreviewCompatibleImage';
 import ReadMore from './styles/ReadMore';
 import styled from 'styled-components';
+var shortid = require('shortid');
 
 const ContentCardWrapStyle = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   margin-bottom: 30px;
-  h2 {
-    text-align: left;
-  }
   @media (max-width: 900px) {
     flex-direction: column;
-    text-align: center;
-    h2 {
-      text-align: center;
-    }
-    &:nth-child(2n + 1) {
-      flex-direction: column;
-    }
   }
 `;
 
 const ContentCard = styled.div`
-  flex-basis: 100%;
+  margin-bottom: 20px;
+  flex-basis: 50%;
+  color: ${props => props.theme.goldLight};
+  h3 {
+    margin-bottom: 0;
+  }
+  h5 {
+    text-align: left;
+    margin: 20px auto;
+    padding: 0 15px;
+  }
+  p {
+    margin: 0;
+  }
+  &:nth-child(2n) {
+    padding-left: 10px;
+  }
+  &:nth-child(2n + 1) {
+    padding-right: 10px;
+  }
+  .gatsby-image-wrapper {
+    margin-top: 30px;
+  }
 `;
 
 class ContentCardWrap extends React.Component {
@@ -33,11 +46,13 @@ class ContentCardWrap extends React.Component {
     return (
       <ContentCardWrapStyle>
         {this.props.content.map(item => (
-          <ContentCard>
-            <Link to={item.fields.link}>
-              <PreviewCompatibleImage imageInfo={item.frontmatter.image} />
-              <h2>{item.frontmatter.title}</h2>
-              <h4>{item.frontmatter.excerpt}</h4>
+          <ContentCard key={shortid.generate()}>
+            <Link to={item.node.fields.slug}>
+              <h3>{item.node.frontmatter.title}</h3>
+              <p>{item.node.frontmatter.location}</p>
+              <p>{item.node.frontmatter.date}</p>
+              <PreviewCompatibleImage imageInfo={item.node.frontmatter.image} />
+              <h5>{item.node.frontmatter.excerpt}</h5>
               <ReadMore>Read more</ReadMore>
             </Link>
           </ContentCard>

@@ -42,6 +42,8 @@ collections:
         }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Image', name: 'image', widget: 'image' }
+      - { label: 'Location', name: 'location', widget: 'text' }
+      - { label: 'Date', name: 'date', widget: 'text' }
       - { label: 'Excerpt', name: 'excerpt', widget: 'text' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'Review', name: 'review', widget: 'string' }

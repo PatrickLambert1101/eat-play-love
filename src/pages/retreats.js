@@ -1,24 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import ContentCard from '../components/ContentCardWrap';
+import ContentCardWrap from '../components/ContentCardWrap';
 import Button from '../components/Button';
 import PageContainer from '../components/styles/PageContainer';
-var shortid = require('shortid');
 
 export default class RetreatsPage extends React.Component {
   render() {
     const { data } = this.props;
     const { edges: retreats } = data.retreats;
-    const { edges: retreatsPageData } = data.retreatsPageData;
+    const retreatsPageData = data.retreatsPageData.edges[0].node.frontmatter;
 
     return (
       <div>
         <PageContainer>
-          <h1>Retreats</h1>
-          <p>
-            {retreatsPageData.map(({ node: title }) => title.frontmatter.title)}
-          </p>
+          <h1>{retreatsPageData.title}</h1>
+          <p className="lead">{retreatsPageData.leadText}</p>
           <ContentCardWrap content={retreats} />
         </PageContainer>
         <Button
@@ -64,6 +61,8 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
+            location
+            date
             image {
               childImageSharp {
                 fluid(maxWidth: 410, maxHeight: 410, quality: 80) {

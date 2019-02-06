@@ -2,22 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
 import SingleSideButton from '../components/styles/SingleSideButton';
-import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import GalleryImage from '../components/GalleryImage';
 import ModalButton from '../components/ModalButton';
 import Review from '../components/Review';
 import PageContainer from '../components/styles/PageContainer';
-import Content, { HTMLContent } from '../components/Content';
 
 export const EventsPostTemplate = ({
   title,
   leadText,
   gallery,
   review,
-  author,
-  contentComponent
+  author
 }) => {
-  const PageContent = contentComponent || Content;
   return (
     <div>
       <PageContainer>

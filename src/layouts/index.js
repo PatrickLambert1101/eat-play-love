@@ -65,7 +65,7 @@ h2
   text-align: center;}
 
 h3
- { font-size: 2rem;
+ { font-size: 2.6rem;
   font-weight: 100;
   color: ${theme.goldLight};
   font-family: ${theme.georgia};
@@ -92,7 +92,7 @@ p
   line-height: 27px;
 }
 a
- { text-decoration: none;}
+ { text-decoration: none; color: inherit}
 
 body
   {margin: 0;}
