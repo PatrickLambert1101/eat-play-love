@@ -8,18 +8,22 @@ var shortid = require('shortid');
 
 class CardWrapper extends React.Component {
   render() {
-    console.log(
-      'TCL: CardWrapper -> render -> this.props.data',
-      this.props.data
-    );
     return (
       <PageContainer>
         <CardWrap>
           {this.props.data.map(card => (
             <Card textImage key={shortid.generate()}>
-              <Link to={`/${card.title.toLowerCase()}`}>
-                <h2>{card.title}</h2>
-                <PreviewCompatibleImage imageInfo={card.image} />
+              <Link
+                to={`${
+                  this.props.baseUrl
+                }/${card.node.frontmatter.title
+                  .toLowerCase()
+                  .replace(/\s+/g, '-')}`}
+              >
+                <h2>{card.node.frontmatter.title}</h2>
+                <PreviewCompatibleImage
+                  imageInfo={card.node.frontmatter.image}
+                />
               </Link>
             </Card>
           ))}

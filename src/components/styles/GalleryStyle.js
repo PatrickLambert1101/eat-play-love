@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const GalleryStyle = styled.div`
   display: flex;
-  max-width: 600px;
+  max-width: 1200px;
   margin: auto;
   flex-wrap: wrap;
   list-style-type: none;
@@ -13,6 +13,7 @@ const GalleryStyle = styled.div`
         height: 100px;
       }
     }
+    margin-top: 20px;
     @media (max-width: 480px) {
       margin-top: 10px;
     }

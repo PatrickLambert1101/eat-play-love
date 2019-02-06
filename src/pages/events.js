@@ -2,31 +2,34 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import CardWrapper from '../components/CardWrapper';
-import Button from '../components/Button';
+import Review from '../components/Review';
 import PageContainer from '../components/styles/PageContainer';
+var shortid = require('shortid');
 
 export default class EventsPage extends React.Component {
   render() {
     const { data } = this.props;
     const { edges: events } = data.events;
     const { edges: eventsPageData } = data.eventsPageData;
-    const eventsCard = events.map(event => event.node.frontmatter);
 
     return (
       <div>
-        <PageContainer>
-          <h1>Events</h1>
-          <p>
-            {eventsPageData.map(({ node: title }) => title.frontmatter.title)}
-          </p>
-        </PageContainer>
-        <CardWrapper data={eventsCard} />
-        <Button
-          to={'/contact'}
-          text={'Contact us for more info'}
-          align={'flex-start'}
-          size={'large'}
-        />
+        {eventsPageData.map(page => (
+          <div key={shortid.generate()}>
+            <PageContainer>
+              <div className="lead">
+                <h1>{page.node.frontmatter.title}</h1>
+                <p>{page.node.frontmatter.leadText}</p>
+              </div>
+            </PageContainer>
+            <CardWrapper baseUrl={'events'} data={events} />
+            <Review
+              review={page.node.frontmatter.review}
+              author={page.node.frontmatter.author}
+            />
+          </div>
+        ))}
+        ;
       </div>
     );
   }
@@ -49,6 +52,9 @@ export const pageQuery = graphql`
         node {
           frontmatter {
             title
+            leadText
+            review
+            author
           }
         }
       }

@@ -8,13 +8,4 @@ slider:
     title: Winter retreats
   - sliderimage: /img/yoga-3.jpg
     title: Holistic events
-cards:
-  - image: /img/yoga-1.jpg
-    title: Stanford Retreat
-  - image: /img/yoga-2.jpg
-    title: Minas Mind Body
-  - image: /img/yoga-3.jpg
-    title: Bhodi breathwork session
-  - image: /img/yoga-1.jpg
-    title: Summer rituals
 ---

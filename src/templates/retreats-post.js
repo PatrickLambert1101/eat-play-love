@@ -4,6 +4,7 @@ import { Link, graphql } from 'gatsby';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import ModalButton from '../components/ModalButton';
 import GalleryImage from '../components/GalleryImage';
+import Review from '../components/Review';
 import Content, { HTMLContent } from '../components/Content';
 import SingleSideButton from '../components/styles/SingleSideButton';
 import Blurb from '../components/styles/Blurb';
@@ -14,13 +15,13 @@ export const RetreatsPostTemplate = ({
   image,
   content,
   gallery,
-  blurb,
+  review,
+  author,
   contentComponent
 }) => {
   const PageContent = contentComponent || Content;
   return (
     <PageContainer>
-      <h1>Join us</h1>
       <h2>{title}</h2>
       <h5>
         Hearth &amp; Soul Eco Farm Stanford
@@ -29,13 +30,13 @@ export const RetreatsPostTemplate = ({
       <PreviewCompatibleImage imageInfo={image} />
       <PageContent content={content} />
       <ModalButton />
-      <Blurb>{blurb}</Blurb>
       <GalleryImage gallery={gallery} />
       <SingleSideButton>
         <Link to={'/retreats'}>
           <h4>Back to retreats</h4>
         </Link>
       </SingleSideButton>
+      <Review review={review} author={author} />
     </PageContainer>
   );
 };
@@ -43,8 +44,7 @@ export const RetreatsPostTemplate = ({
 RetreatsPostTemplate.propTypes = {
   title: PropTypes.string,
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  content: PropTypes.node.isRequired,
-  blurb: PropTypes.string
+  content: PropTypes.node.isRequired
 };
 
 const RetreatsPost = ({ data }) => {
@@ -55,7 +55,9 @@ const RetreatsPost = ({ data }) => {
       <RetreatsPostTemplate
         title={post.frontmatter.title}
         image={post.frontmatter.image}
-        blurb={post.frontmatter.blurb}
+        review={post.frontmatter.review}
+        review={post.frontmatter.review}
+        author={post.frontmatter.author}
         gallery={post.frontmatter.gallery}
         contentComponent={HTMLContent}
         content={post.html}
@@ -86,7 +88,8 @@ export const pageQuery = graphql`
             }
           }
         }
-        blurb
+        review
+        author
         gallery {
           galleryimage {
             id

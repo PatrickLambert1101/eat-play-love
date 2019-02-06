@@ -15,7 +15,7 @@ const theme = {
   red: '#FF0000',
   black: '#393939',
   lightgrey: '#E1E1E1',
-  overlay: '#4e4c4c2e',
+  overlay: '#3a3a3aa6',
   offWhite: '#EDEDED',
   maxWidth: '97vw',
   bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)',
@@ -24,9 +24,11 @@ const theme = {
   yellow: '#ecb84c',
   brown: '#ebe6e1',
   lightBrown: '#824706',
+  textBrown: '#925A20',
   darkRed: '#a93a3a',
   greyButton: '#595959',
   grey: '#979797',
+  georgia: 'Georgia, Arial, Helvetica, sans-serif',
   pink: '#f9decf'
 };
 

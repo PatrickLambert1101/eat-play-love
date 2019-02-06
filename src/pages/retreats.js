@@ -1,12 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, graphql } from 'gatsby';
-import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
-import AltCard from '../components/styles/AltCard';
-import AltCardWrap from '../components/styles/AltCardWrap';
+import { graphql } from 'gatsby';
+import ContentCard from '../components/ContentCardWrap';
 import Button from '../components/Button';
 import PageContainer from '../components/styles/PageContainer';
-import ReadMore from '../components/styles/ReadMore';
 var shortid = require('shortid');
 
 export default class RetreatsPage extends React.Component {
@@ -22,25 +19,7 @@ export default class RetreatsPage extends React.Component {
           <p>
             {retreatsPageData.map(({ node: title }) => title.frontmatter.title)}
           </p>
-          {retreats.map(({ node: retreat }) => (
-            <AltCardWrap key={shortid.generate()}>
-              <Link to={retreat.fields.slug}>
-                <PreviewCompatibleImage
-                  key={retreat.frontmatter.image.id}
-                  imageInfo={retreat.frontmatter.image}
-                />
-              </Link>
-              <AltCard>
-                <Link to={retreat.fields.slug}>
-                  <h2>{retreat.frontmatter.title}</h2>
-                </Link>
-                <h4>{retreat.frontmatter.excerpt}</h4>
-                <Link to={retreat.fields.slug}>
-                  <ReadMore>Read more</ReadMore>
-                </Link>
-              </AltCard>
-            </AltCardWrap>
-          ))}
+          <ContentCardWrap content={retreats} />
         </PageContainer>
         <Button
           to={'/contact'}
@@ -69,6 +48,7 @@ export const pageQuery = graphql`
         node {
           frontmatter {
             title
+            leadText
           }
         }
       }

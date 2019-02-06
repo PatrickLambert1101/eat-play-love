@@ -19,10 +19,9 @@ collections:
           default: 'events-post',
         }
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Image', name: 'image', widget: 'image' }
-      - { label: 'Excerpt', name: 'excerpt', widget: 'text' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
-      - { label: 'Blurb', name: 'blurb', widget: 'text' }
+      - { label: 'Lead text', name: 'leadText', widget: 'text' }
+      - { label: 'Review', name: 'review', widget: 'string' }
+      - { label: 'Author', name: 'author', widget: 'text' }
       - label: 'Gallery'
         name: 'gallery'
         widget: 'list'
@@ -45,7 +44,8 @@ collections:
       - { label: 'Image', name: 'image', widget: 'image' }
       - { label: 'Excerpt', name: 'excerpt', widget: 'text' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
-      - { label: 'Blurb', name: 'blurb', widget: 'text' }
+      - { label: 'Review', name: 'review', widget: 'string' }
+      - { label: 'Author', name: 'author', widget: 'text' }
       - label: 'Gallery'
         name: 'gallery'
         widget: 'list'
@@ -91,6 +91,9 @@ collections:
           default: 'events-page',
         }
       - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Lead text', name: 'leadText', widget: 'text' }
+      - { label: 'Review', name: 'review', widget: 'string' }
+      - { label: 'Author', name: 'author', widget: 'text' }
 
   - name: 'retreats-page'
     label: 'Retreats Page'
@@ -105,6 +108,7 @@ collections:
           default: 'retreats-page',
         }
       - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Lead text', name: 'leadText', widget: 'text' }
 
   - name: 'home'
     label: 'Home'
@@ -124,12 +128,6 @@ collections:
         widget: 'list'
         fields:
           - { label: 'Slider Image', name: 'sliderimage', widget: 'image' }
-          - { label: 'Title', name: 'title', widget: 'string' }
-      - label: 'Cards'
-        name: 'cards'
-        widget: 'list'
-        fields:
-          - { label: 'Image', name: 'image', widget: 'image' }
           - { label: 'Title', name: 'title', widget: 'string' }
 
   - name: 'pages'

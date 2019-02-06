@@ -51,6 +51,7 @@ export default class IndexPage extends React.Component {
     const { data } = this.props;
     const { edges: home } = data.home;
     const { edges: instas } = data.instas;
+    const { edges: events } = data.events;
 
     return (
       <React.Fragment>
@@ -75,7 +76,7 @@ export default class IndexPage extends React.Component {
               </Slider>
             </BannerSlider>
             <h2>Recent Events</h2>
-            <CardWrapper data={house.frontmatter.cards} />
+            <CardWrapper baseUrl={'events'} data={events} />
           </div>
         ))}
         <h2>Instagram</h2>
@@ -141,6 +142,24 @@ export const pageQuery = graphql`
         }
       }
     }
+    events: allMarkdownRemark(
+      filter: { frontmatter: { templateKey: { eq: "events-post" } } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            image {
+              childImageSharp {
+                fluid(maxWidth: 410, maxHeight: 410, quality: 80) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+      }
+    }
     home: allMarkdownRemark(
       filter: { frontmatter: { templateKey: { eq: "home-post" } } }
     ) {
@@ -152,17 +171,6 @@ export const pageQuery = graphql`
                 id
                 childImageSharp {
                   fluid(maxWidth: 1650, maxHeight: 750, quality: 65) {
-                    ...GatsbyImageSharpFluid_withWebp
-                  }
-                }
-              }
-              title
-            }
-            cards {
-              image {
-                id
-                childImageSharp {
-                  fluid(maxWidth: 800, maxHeight: 600, quality: 65) {
                     ...GatsbyImageSharpFluid_withWebp
                   }
                 }

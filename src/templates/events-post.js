@@ -5,33 +5,31 @@ import SingleSideButton from '../components/styles/SingleSideButton';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import GalleryImage from '../components/GalleryImage';
 import ModalButton from '../components/ModalButton';
-import Blurb from '../components/styles/Blurb';
+import Review from '../components/Review';
+import PageContainer from '../components/styles/PageContainer';
 import Content, { HTMLContent } from '../components/Content';
 
 export const EventsPostTemplate = ({
   title,
-  image,
-  content,
+  leadText,
   gallery,
-  blurb,
+  review,
+  author,
   contentComponent
 }) => {
   const PageContent = contentComponent || Content;
   return (
     <div>
-      <div className="content">
-        <h1>Join us</h1>
-        <h2>{title}</h2>
-        <h5>
-          Hearth &amp; Soul Eco Farm Stanford
-          <br /> 5th-8th October
-        </h5>
-        <PreviewCompatibleImage imageInfo={image} />
-        <PageContent content={content} />
-        <ModalButton />
-        <Blurb>{blurb}</Blurb>
+      <PageContainer>
+        <div className="lead">
+          <h1>{title}</h1>
+          <p>{leadText}</p>
+        </div>
         <GalleryImage gallery={gallery} />
-      </div>
+        <Review review={review} author={author} />
+
+        <ModalButton />
+      </PageContainer>
       <SingleSideButton>
         <Link to={'/events'}>
           <h4>Back to events</h4>
@@ -44,8 +42,7 @@ export const EventsPostTemplate = ({
 EventsPostTemplate.propTypes = {
   title: PropTypes.string,
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  content: PropTypes.node.isRequired,
-  blurb: PropTypes.string
+  content: PropTypes.node.isRequired
 };
 
 const EventsPost = ({ data }) => {
@@ -55,11 +52,10 @@ const EventsPost = ({ data }) => {
     <div>
       <EventsPostTemplate
         title={post.frontmatter.title}
-        image={post.frontmatter.image}
-        blurb={post.frontmatter.blurb}
+        leadText={post.frontmatter.leadText}
+        review={post.frontmatter.review}
+        author={post.frontmatter.author}
         gallery={post.frontmatter.gallery}
-        contentComponent={HTMLContent}
-        content={post.html}
       />
     </div>
   );
@@ -79,14 +75,9 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       frontmatter {
         title
-        image {
-          childImageSharp {
-            fluid(maxWidth: 900, maxHeight: 450, quality: 80) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
-        blurb
+        leadText
+        review
+        author
         gallery {
           galleryimage {
             id

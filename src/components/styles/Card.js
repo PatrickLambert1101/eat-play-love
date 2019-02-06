@@ -5,7 +5,7 @@ const Card = styled.div`
   text-align: center;
   flex-basis: 49%;
   margin-bottom: 2%;
-  &::after {
+  a::after {
     position: absolute;
     content: '';
     left: 0;
@@ -14,6 +14,10 @@ const Card = styled.div`
     width: 100%;
     background-color: ${props => props.theme.overlay};
     z-index: 1;
+    transition: opacity 1s ease;
+  }
+  a:hover::after {
+    opacity: 0.6;
   }
   @media screen and (max-width: 480px) {
     margin-bottom: 15px;
