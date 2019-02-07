@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Form = styled.form`
   input,
   textarea {
-    background-color: #f9decf;
+    background-color: #fff;
     color: #824706;
     font-size: 22px;
     padding: 12px;
@@ -12,7 +12,10 @@ const Form = styled.form`
     box-sizing: border-box;
     border-radius: 1px;
     margin-bottom: 14px;
-    border: 0.5px solid #be8989;
+    border: 1px solid ${props => props.theme.goldLight};
+  }
+  textarea {
+    height: 150px;
   }
   .flex {
     display: flex;

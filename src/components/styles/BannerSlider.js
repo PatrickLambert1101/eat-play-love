@@ -38,6 +38,7 @@ const BannerSlider = styled.div`
 
     h2 {
       position: absolute;
+      color: #fff;
       z-index: 2;
       margin: 0;
       left: 50%; /* horizontal alignment */

@@ -9,7 +9,7 @@ const HeadLogo = () => (
         file(relativePath: { regex: "img/epl.png/" }) {
           name
           childImageSharp {
-            fluid(maxWidth: 530, maxHeight: 148, quality: 80) {
+            fluid(maxWidth: 580, maxHeight: 160, quality: 80) {
               ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
           }

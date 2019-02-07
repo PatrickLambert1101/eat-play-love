@@ -19,7 +19,7 @@ const FooterWrap = styled.footer`
   display: flex;
   justify-content: space-between;
   margin: auto;
-  max-width: ${props => props.theme.maxWidth};
+  max-width: 1400px;
   margin-bottom: 60px;
   align-items: center;
   @media (max-width: 900px) {
@@ -54,9 +54,9 @@ const SocialWrapper = styled.div`
 
 const FooterLogo = styled.div`
   flex: 1;
-  max-width: 400px;
+  max-width: 450px;
   & > div {
-    width: 80%;
+    width: 90%;
   }
   @media (max-width: 480px) {
     img {

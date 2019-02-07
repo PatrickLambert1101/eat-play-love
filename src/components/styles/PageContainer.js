@@ -16,7 +16,7 @@ const PageContainer = styled.div`
   }
 
   .body-text {
-    text-align: left;
+    text-align: center;
     padding: 15px;
   }
 

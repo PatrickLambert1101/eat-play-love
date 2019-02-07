@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const InstaSlider = styled.div`
-  max-width: ${props => `${parseInt(props.theme.maxWidth, 10) + 1}vw`};
+  max-width: 1400px;
   margin: auto;
 
   .slick-dots button::before {

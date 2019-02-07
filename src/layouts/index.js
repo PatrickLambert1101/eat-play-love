@@ -13,9 +13,9 @@ const theme = {
   red: '#FF0000',
   black: '#393939',
   lightgrey: '#E1E1E1',
-  overlay: '#3a3a3aa6',
+  overlay: '#615f5fa6',
   offWhite: '#EDEDED',
-  maxWidth: '97vw',
+  maxWidth: '94vw',
   bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)',
   goldLight: '#c67927',
   goldDark: '#965711',
@@ -87,7 +87,7 @@ h5
 }
 p, li
  { font-family: ${theme.georgia};
-  font-size: 21px;
+  font-size: 18px;
   line-height: 27px;
 }
 a

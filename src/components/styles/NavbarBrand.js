@@ -10,7 +10,7 @@ const NavbarBrand = styled.div`
     justify-content: space-between;
   }
   .navbar-item {
-    width: 530px;
+    width: 620px;
   }
   .navbar-item img {
     width: 100% !important;

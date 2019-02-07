@@ -9,6 +9,8 @@ const ContentCardWrapStyle = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  margin: auto;
+  max-width: 1300px;
   margin-bottom: 30px;
   @media (max-width: 900px) {
     flex-direction: column;
@@ -17,7 +19,7 @@ const ContentCardWrapStyle = styled.div`
 
 const ContentCard = styled.div`
   margin-bottom: 20px;
-  flex-basis: 50%;
+  flex-basis: 48%;
   color: ${props => props.theme.goldLight};
   h3 {
     margin-bottom: 0;
