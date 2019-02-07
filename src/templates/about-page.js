@@ -6,7 +6,12 @@ import PageContainer from '../components/styles/PageContainer';
 import ContactForm from '../components/ContactForm';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 
-export const AboutPageTemplate = ({ title, content, contentComponent }) => {
+export const AboutPageTemplate = ({
+  title,
+  content,
+  aboutImage,
+  contentComponent
+}) => {
   const PageContent = contentComponent || Content;
 
   return (
@@ -15,7 +20,8 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
         <h1> {title}</h1>
         <PageContent className="content" content={content} />
       </div>
-      <PreviewCompatibleImage imageInfo={image} />
+      <PreviewCompatibleImage imageInfo={aboutImage} />
+      <h2>Contact us</h2>
       <ContactForm />
     </PageContainer>
   );
@@ -23,7 +29,7 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
 
 AboutPageTemplate.propTypes = {
   title: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
+  aboutImage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   content: PropTypes.string,
   contentComponent: PropTypes.func
 };
@@ -36,7 +42,7 @@ const AboutPage = ({ data }) => {
       <AboutPageTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}
-        image={post.frontmatter.image}
+        aboutImage={post.frontmatter.aboutImage}
         content={post.html}
       />
     </div>
@@ -55,9 +61,9 @@ export const aboutPageQuery = graphql`
       html
       frontmatter {
         title
-        image {
+        aboutImage {
           childImageSharp {
-            fluid(maxWidth: 900, maxHeight: 450, quality: 80) {
+            fluid(maxWidth: 1650, maxHeight: 600, quality: 80) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }

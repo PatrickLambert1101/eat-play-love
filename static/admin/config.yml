@@ -146,5 +146,5 @@ collections:
               default: 'about-page',
             }
           - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Image', name: 'aboutImage', widget: 'image' }
           - { label: 'Body', name: 'body', widget: 'markdown' }
-          - { label: 'Image', name: 'image', widget: 'image' }
