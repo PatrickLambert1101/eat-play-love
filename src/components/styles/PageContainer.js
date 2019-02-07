@@ -9,6 +9,7 @@ const PageContainer = styled.div`
     margin-bottom: 4em;
     p {
       margin-top: 1.5em;
+      padding: 0 15px;
       text-align: left;
     }
   }
