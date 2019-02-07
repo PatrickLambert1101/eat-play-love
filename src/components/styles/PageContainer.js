@@ -7,7 +7,8 @@ const PageContainer = styled.div`
   .lead {
     margin-top: 2.5em;
     margin-bottom: 4em;
-    p {
+    p,
+    .content {
       margin-top: 1.5em;
       padding: 0 15px;
       text-align: left;

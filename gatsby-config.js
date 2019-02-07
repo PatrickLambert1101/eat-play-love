@@ -6,12 +6,8 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
-    {
-      resolve: 'gatsby-plugin-transition-link',
-      options: {
-        layout: require.resolve(`./src/layouts/index.js`)
-      }
-    },
+    'gatsby-plugin-page-transitions',
+    'gatsby-plugin-layout',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

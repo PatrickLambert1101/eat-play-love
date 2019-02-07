@@ -3,12 +3,14 @@ import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import Transition from '../components/Transition';
 
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import './font-face.css';
 
 import '../../node_modules/slick-carousel/slick/slick.css';
 import '../../node_modules/slick-carousel/slick/slick-theme.css';
+var shortid = require('shortid');
 
 const theme = {
   red: '#FF0000',
@@ -23,7 +25,6 @@ const theme = {
   brown: '#ebe6e1',
   lightBrown: '#824706',
   textBrown: '#925A20',
-  qtextBrown: '#925A20',
   darkRed: '#a93a3a',
   greyButton: '#595959',
   grey: '#979797',
@@ -38,9 +39,6 @@ const GlobalStyle = createGlobalStyle`
 
   *, *:before, *:after {
     box-sizing: inherit;
-  }
-  .tl-wrapper{
-    position: relative !important;
   }
 
   body {
@@ -57,6 +55,7 @@ h1{
   font-weight: 100;
   font-family: 'RV', Arial, Helvetica, sans-serif;
 }
+.tl-wrapper{position:relative !important;}
 h2
 {font-size: 3.5rem;
   font-weight: 100;
@@ -135,7 +134,6 @@ body
   }
 
 `;
-
 const TemplateWrapper = ({ children, location }) => (
   <StaticQuery
     query={graphql`
@@ -195,7 +193,7 @@ const TemplateWrapper = ({ children, location }) => (
               <meta property="og:image" content="/img/og-image.jpg" />
             </Helmet>
             <Navbar />
-            {children}
+            <Transition location={location}>{children}</Transition>
             <Footer />
           </React.Fragment>
         </ThemeProvider>

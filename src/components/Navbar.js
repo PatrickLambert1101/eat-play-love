@@ -1,8 +1,6 @@
 import React from 'react';
-import TransitionLink from 'gatsby-plugin-transition-link';
+import { Link } from 'gatsby';
 import HeadLogo from './HeadLogo';
-import { TimelineMax, Power1 } from 'gsap';
-
 import NavbarBrand from './styles/NavbarBrand';
 import NavLinks from './styles/NavLinks';
 import NavButton from './styles/NavButton';
@@ -15,26 +13,6 @@ export default class Navbar extends React.Component {
 
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     this.toggleMenu = this.toggleMenu.bind(this);
-
-    this.layoutContents = React.createRef();
-    this.transitionCover = React.createRef();
-  }
-
-  in(entry, node) {
-    return new TimelineMax().staggerFrom(
-      node.querySelectorAll('h1, p, a, pre'),
-      1,
-      { opacity: 0, y: '+=50' },
-      0.1
-    );
-  }
-  out(entry, node) {
-    return new TimelineMax().staggerFrom(
-      node.querySelectorAll('h1, p, a, pre'),
-      1,
-      { opacity: 0, y: '+=50' },
-      0.1
-    );
   }
 
   componentDidMount() {
@@ -47,10 +25,7 @@ export default class Navbar extends React.Component {
   }
 
   updateWindowDimensions() {
-    this.setState({
-      width: window.innerWidth,
-      height: window.innerHeight
-    });
+    this.setState({ width: window.innerWidth, height: window.innerHeight });
   }
 
   UNSAFE_componentWillMount() {
@@ -69,24 +44,13 @@ export default class Navbar extends React.Component {
 
   render() {
     let menuClassName = this.state.isToggle ? 'toggle-open' : 'toggle-closed';
+    let current = this.props.page;
     return (
       <nav>
         <NavbarBrand>
-          <TransitionLink
-            to="/page-2"
-            exit={{
-              delay: 0.5,
-              trigger: ({ entry, node }) => this.in(entry, node)
-            }}
-            entry={{
-              delay: 0.5,
-              trigger: ({ entry, node }) => this.out(entry, node)
-            }}
-            to="/"
-            className="navbar-item"
-          >
+          <Link to="/" className="navbar-item">
             <HeadLogo alt="Eat Play Love Logo" onClick={this.toggleMenu} />
-          </TransitionLink>
+          </Link>
           <NavButton
             type="button"
             aria-expanded="false"
@@ -101,76 +65,27 @@ export default class Navbar extends React.Component {
           </NavButton>
         </NavbarBrand>
         <NavLinks className={menuClassName}>
-          <TransitionLink
-            to="/page-2"
-            exit={{
-              delay: 0.5,
-              trigger: ({ entry, node }) => this.in(entry, node)
-            }}
-            entry={{
-              delay: 0.5,
-              trigger: ({ entry, node }) => this.out(entry, node)
-            }}
-            to="/"
-          >
+          <Link to="/" className={current === '/' ? 'active' : ''}>
             <div onClick={this.toggleMenu}>HOME</div>
-          </TransitionLink>
-          <TransitionLink
-            to="/page-2"
-            exit={{
-              delay: 0.5,
-              trigger: ({ entry, node }) => this.in(entry, node)
-            }}
-            entry={{
-              delay: 0.5,
-              trigger: ({ entry, node }) => this.out(entry, node)
-            }}
-            to="/events"
-          >
+          </Link>
+          <Link to="/events" className={current === '/events' ? 'active' : ''}>
             <div onClick={this.toggleMenu}>EVENTS</div>
-          </TransitionLink>
-          <TransitionLink
-            to="/page-2"
-            exit={{
-              delay: 0.5,
-              trigger: ({ entry, node }) => this.in(entry, node)
-            }}
-            entry={{
-              delay: 0.5,
-              trigger: ({ entry, node }) => this.out(entry, node)
-            }}
+          </Link>
+          <Link
             to="/retreats"
+            className={current === '/retreats' ? 'active' : ''}
           >
-            <div onClick={this.toggleMenu}> RETREATS</div>
-          </TransitionLink>
-          <TransitionLink
-            to="/page-2"
-            exit={{
-              delay: 0.5,
-              trigger: ({ entry, node }) => this.in(entry, node)
-            }}
-            entry={{
-              delay: 0.5,
-              trigger: ({ entry, node }) => this.out(entry, node)
-            }}
-            to="/about"
-          >
+            <div onClick={this.toggleMenu}>RETREATS</div>
+          </Link>
+          <Link to="/about" className={current === '/about' ? 'active' : ''}>
             <div onClick={this.toggleMenu}>ABOUT US</div>
-          </TransitionLink>
-          <TransitionLink
-            to="/page-2"
-            exit={{
-              delay: 0.5,
-              trigger: ({ entry, node }) => this.in(entry, node)
-            }}
-            entry={{
-              delay: 0.5,
-              trigger: ({ entry, node }) => this.out(entry, node)
-            }}
+          </Link>
+          <Link
             to="/contact"
+            className={current === '/contact' ? 'active' : ''}
           >
             <div onClick={this.toggleMenu}>CONTACT</div>
-          </TransitionLink>
+          </Link>
         </NavLinks>
       </nav>
     );

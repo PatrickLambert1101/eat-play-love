@@ -14,10 +14,8 @@ export default class RetreatsPage extends React.Component {
     return (
       <div>
         <PageContainer>
-          <div className="lead">
-            <h1>{retreatsPageData.title}</h1>
-            <p>{retreatsPageData.leadText}</p>
-          </div>
+          <h1>{retreatsPageData.title}</h1>
+          <p className="lead">{retreatsPageData.leadText}</p>
           <ContentCardWrap content={retreats} />
         </PageContainer>
         <Link to={'/contact'}>
