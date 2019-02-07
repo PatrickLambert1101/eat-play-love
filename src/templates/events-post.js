@@ -6,6 +6,7 @@ import GalleryImage from '../components/GalleryImage';
 import ModalButton from '../components/ModalButton';
 import Review from '../components/Review';
 import PageContainer from '../components/styles/PageContainer';
+import Footer from '../components/Footer';
 
 export const EventsPostTemplate = ({
   title,
@@ -31,6 +32,7 @@ export const EventsPostTemplate = ({
           <h4>Back to events</h4>
         </Link>
       </SingleSideButton>
+      <Footer />
     </div>
   );
 };

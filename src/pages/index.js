@@ -5,6 +5,8 @@ import Slider from 'react-slick';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import CardWrapper from '../components/CardWrapper';
 import BannerSlider from '../components/styles/BannerSlider';
+import Footer from '../components/Footer';
+
 import InstaSlider from '../components/styles/InstaSlider';
 import InstaGallery from '../components/styles/InstaGallery';
 var shortid = require('shortid');
@@ -100,6 +102,7 @@ export default class IndexPage extends React.Component {
             />
           ))}
         </InstaGallery>
+        <Footer />
       </React.Fragment>
     );
   }

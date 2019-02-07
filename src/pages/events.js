@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import CardWrapper from '../components/CardWrapper';
+import Footer from '../components/Footer';
+
 import Review from '../components/Review';
 import PageContainer from '../components/styles/PageContainer';
 var shortid = require('shortid');
@@ -27,6 +29,7 @@ export default class EventsPage extends React.Component {
               review={page.node.frontmatter.review}
               author={page.node.frontmatter.author}
             />
+            <Footer />
           </div>
         ))}
         ;

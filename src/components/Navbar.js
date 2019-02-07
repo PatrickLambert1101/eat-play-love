@@ -1,7 +1,7 @@
 import React from 'react';
 import TransitionLink from 'gatsby-plugin-transition-link';
 import HeadLogo from './HeadLogo';
-import { TimelineMax, Power1 } from 'gsap';
+import { TimelineMax } from 'gsap';
 
 import NavbarBrand from './styles/NavbarBrand';
 import NavLinks from './styles/NavLinks';
@@ -20,11 +20,11 @@ export default class Navbar extends React.Component {
     this.transitionCover = React.createRef();
   }
 
-  in(entry, node) {
+  in(exit, node) {
     return new TimelineMax().staggerFrom(
-      node.querySelectorAll('h1, p, a, pre'),
+      node.querySelectorAll('h1, p'),
       1,
-      { opacity: 0, y: '+=50' },
+      { opacity: 1, y: '-=50' },
       0.1
     );
   }
@@ -73,10 +73,9 @@ export default class Navbar extends React.Component {
       <nav>
         <NavbarBrand>
           <TransitionLink
-            to="/page-2"
             exit={{
-              delay: 0.5,
-              trigger: ({ entry, node }) => this.in(entry, node)
+              delay: 0,
+              trigger: ({ exit, node }) => this.in(exit, node)
             }}
             entry={{
               delay: 0.5,
@@ -102,10 +101,9 @@ export default class Navbar extends React.Component {
         </NavbarBrand>
         <NavLinks className={menuClassName}>
           <TransitionLink
-            to="/page-2"
             exit={{
-              delay: 0.5,
-              trigger: ({ entry, node }) => this.in(entry, node)
+              delay: 0,
+              trigger: ({ exit, node }) => this.in(exit, node)
             }}
             entry={{
               delay: 0.5,
@@ -116,10 +114,9 @@ export default class Navbar extends React.Component {
             <div onClick={this.toggleMenu}>HOME</div>
           </TransitionLink>
           <TransitionLink
-            to="/page-2"
             exit={{
-              delay: 0.5,
-              trigger: ({ entry, node }) => this.in(entry, node)
+              delay: 0,
+              trigger: ({ exit, node }) => this.in(exit, node)
             }}
             entry={{
               delay: 0.5,
@@ -130,10 +127,9 @@ export default class Navbar extends React.Component {
             <div onClick={this.toggleMenu}>EVENTS</div>
           </TransitionLink>
           <TransitionLink
-            to="/page-2"
             exit={{
-              delay: 0.5,
-              trigger: ({ entry, node }) => this.in(entry, node)
+              delay: 0,
+              trigger: ({ exit, node }) => this.in(exit, node)
             }}
             entry={{
               delay: 0.5,
@@ -144,10 +140,9 @@ export default class Navbar extends React.Component {
             <div onClick={this.toggleMenu}> RETREATS</div>
           </TransitionLink>
           <TransitionLink
-            to="/page-2"
             exit={{
-              delay: 0.5,
-              trigger: ({ entry, node }) => this.in(entry, node)
+              delay: 0,
+              trigger: ({ exit, node }) => this.in(exit, node)
             }}
             entry={{
               delay: 0.5,
@@ -158,10 +153,9 @@ export default class Navbar extends React.Component {
             <div onClick={this.toggleMenu}>ABOUT US</div>
           </TransitionLink>
           <TransitionLink
-            to="/page-2"
             exit={{
-              delay: 0.5,
-              trigger: ({ entry, node }) => this.in(entry, node)
+              delay: 0,
+              trigger: ({ exit, node }) => this.in(exit, node)
             }}
             entry={{
               delay: 0.5,

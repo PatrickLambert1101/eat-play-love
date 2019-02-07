@@ -8,6 +8,7 @@ import Review from '../components/Review';
 import Content, { HTMLContent } from '../components/Content';
 import SingleSideButton from '../components/styles/SingleSideButton';
 import PageContainer from '../components/styles/PageContainer';
+import Footer from '../components/Footer';
 
 export const RetreatsPostTemplate = ({
   title,
@@ -38,6 +39,7 @@ export const RetreatsPostTemplate = ({
           <h4>Back to retreats</h4>
         </Link>
       </SingleSideButton>
+      <Footer />
     </div>
   );
 };

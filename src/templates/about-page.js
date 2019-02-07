@@ -5,6 +5,7 @@ import Content, { HTMLContent } from '../components/Content';
 import PageContainer from '../components/styles/PageContainer';
 import ContactForm from '../components/ContactForm';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
+import Footer from '../components/Footer';
 
 export const AboutPageTemplate = ({
   title,
@@ -23,6 +24,7 @@ export const AboutPageTemplate = ({
       <PreviewCompatibleImage imageInfo={aboutImage} />
       <h2>Contact us</h2>
       <ContactForm />
+      <Footer />
     </PageContainer>
   );
 };

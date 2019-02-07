@@ -2,7 +2,6 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import './font-face.css';
@@ -196,7 +195,6 @@ const TemplateWrapper = ({ children, location }) => (
             </Helmet>
             <Navbar />
             {children}
-            <Footer />
           </React.Fragment>
         </ThemeProvider>
       </React.Fragment>
