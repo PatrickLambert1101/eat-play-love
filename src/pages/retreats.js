@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import ContentCardWrap from '../components/ContentCardWrap';
 import Button from '../components/Button';
 import PageContainer from '../components/styles/PageContainer';
@@ -18,11 +18,9 @@ export default class RetreatsPage extends React.Component {
           <p className="lead">{retreatsPageData.leadText}</p>
           <ContentCardWrap content={retreats} />
         </PageContainer>
-        <Button
-          to={'/contact'}
-          text={'Contact us for more info'}
-          align={'flex-end'}
-        />
+        <Link to={'/contact'}>
+          <Button text={'Contact us for more info'} align={'flex-end'} />
+        </Link>
       </div>
     );
   }
