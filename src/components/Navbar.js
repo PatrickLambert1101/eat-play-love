@@ -1,7 +1,7 @@
 import React from 'react';
-import TransitionLink from 'gatsby-plugin-transition-link';
 import HeadLogo from './HeadLogo';
 import { TimelineMax } from 'gsap';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 import NavbarBrand from './styles/NavbarBrand';
 import NavLinks from './styles/NavLinks';
@@ -15,26 +15,6 @@ export default class Navbar extends React.Component {
 
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     this.toggleMenu = this.toggleMenu.bind(this);
-
-    this.layoutContents = React.createRef();
-    this.transitionCover = React.createRef();
-  }
-
-  in(exit, node) {
-    return new TimelineMax().staggerFrom(
-      node.querySelectorAll('h1, p'),
-      1,
-      { opacity: 1, y: '-=50' },
-      0.1
-    );
-  }
-  out(entry, node) {
-    return new TimelineMax().staggerFrom(
-      node.querySelectorAll('h1, p, a, pre'),
-      1,
-      { opacity: 0, y: '+=50' },
-      0.1
-    );
   }
 
   componentDidMount() {
@@ -72,20 +52,9 @@ export default class Navbar extends React.Component {
     return (
       <nav>
         <NavbarBrand>
-          <TransitionLink
-            exit={{
-              delay: 0,
-              trigger: ({ exit, node }) => this.in(exit, node)
-            }}
-            entry={{
-              delay: 0.5,
-              trigger: ({ entry, node }) => this.out(entry, node)
-            }}
-            to="/"
-            className="navbar-item"
-          >
+          <AniLink fade direction="up" to="/" className="navbar-item">
             <HeadLogo alt="Eat Play Love Logo" onClick={this.toggleMenu} />
-          </TransitionLink>
+          </AniLink>
           <NavButton
             type="button"
             aria-expanded="false"
@@ -100,71 +69,21 @@ export default class Navbar extends React.Component {
           </NavButton>
         </NavbarBrand>
         <NavLinks className={menuClassName}>
-          <TransitionLink
-            exit={{
-              delay: 0,
-              trigger: ({ exit, node }) => this.in(exit, node)
-            }}
-            entry={{
-              delay: 0.5,
-              trigger: ({ entry, node }) => this.out(entry, node)
-            }}
-            to="/"
-          >
+          <AniLink fade direction="up" to="/">
             <div onClick={this.toggleMenu}>HOME</div>
-          </TransitionLink>
-          <TransitionLink
-            exit={{
-              delay: 0,
-              trigger: ({ exit, node }) => this.in(exit, node)
-            }}
-            entry={{
-              delay: 0.5,
-              trigger: ({ entry, node }) => this.out(entry, node)
-            }}
-            to="/events"
-          >
+          </AniLink>
+          <AniLink fade direction="up" to="/events">
             <div onClick={this.toggleMenu}>EVENTS</div>
-          </TransitionLink>
-          <TransitionLink
-            exit={{
-              delay: 0,
-              trigger: ({ exit, node }) => this.in(exit, node)
-            }}
-            entry={{
-              delay: 0.5,
-              trigger: ({ entry, node }) => this.out(entry, node)
-            }}
-            to="/retreats"
-          >
+          </AniLink>
+          <AniLink fade direction="up" to="/retreats">
             <div onClick={this.toggleMenu}> RETREATS</div>
-          </TransitionLink>
-          <TransitionLink
-            exit={{
-              delay: 0,
-              trigger: ({ exit, node }) => this.in(exit, node)
-            }}
-            entry={{
-              delay: 0.5,
-              trigger: ({ entry, node }) => this.out(entry, node)
-            }}
-            to="/about"
-          >
+          </AniLink>
+          <AniLink fade direction="up" to="/about">
             <div onClick={this.toggleMenu}>ABOUT US</div>
-          </TransitionLink>
-          <TransitionLink
-            exit={{
-              delay: 0,
-              trigger: ({ exit, node }) => this.in(exit, node)
-            }}
-            entry={{
-              delay: 0.5,
-              trigger: ({ entry, node }) => this.out(entry, node)
-            }}
-            to="/contact"
-          >
+          </AniLink>
+          <AniLink fade direction="up" to="/contact">
             <div onClick={this.toggleMenu}>CONTACT</div>
-          </TransitionLink>
+          </AniLink>
         </NavLinks>
       </nav>
     );

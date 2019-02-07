@@ -38,9 +38,7 @@ const GlobalStyle = createGlobalStyle`
   *, *:before, *:after {
     box-sizing: inherit;
   }
-  .tl-wrapper{
-    position: relative !important;
-  }
+
 
   body {
     padding: 0;
@@ -56,7 +54,6 @@ h1{
   font-weight: 100;
   font-family: 'RV', Arial, Helvetica, sans-serif;
 }
-.tl-wrapper{position:relative !important;}
 h2
 {font-size: 3.5rem;
   font-weight: 100;

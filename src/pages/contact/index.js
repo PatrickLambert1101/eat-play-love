@@ -7,7 +7,9 @@ export default class Index extends React.Component {
   render() {
     return (
       <PageContainer>
-        <h1>Contact</h1>
+        <div className="lead">
+          <h1>Contact</h1>
+        </div>
         <ContactForm />
         <Footer />
       </PageContainer>
