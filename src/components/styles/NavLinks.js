@@ -28,7 +28,7 @@ const NavLinks = styled.div`
       height: 2px;
       width: 65px;
       opacity: 0;
-      background-color: ${props => props.theme.yellow};
+      background-color: ${props => props.theme.goldLight};
       transition: all 0.3s ease-in;
     }
     &.active::after,
