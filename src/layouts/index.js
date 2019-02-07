@@ -4,6 +4,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Transition from './Transition';
+
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import './font-face.css';
 
@@ -192,9 +193,7 @@ const TemplateWrapper = ({ children, location }) => (
               <meta property="og:image" content="/img/og-image.jpg" />
             </Helmet>
             <Navbar page={children.props.location.pathname} />
-            <Transition key={shortid.generate()} location={location}>
-              {children}
-            </Transition>
+            <Transition location={location}>{children}</Transition>
             <Footer />
           </React.Fragment>
         </ThemeProvider>
