@@ -52,7 +52,7 @@ export default class Navbar extends React.Component {
     return (
       <nav>
         <NavbarBrand>
-          <AniLink fade direction="up" to="/" className="navbar-item">
+          <AniLink fade to="/" className="navbar-item">
             <HeadLogo alt="Eat Play Love Logo" onClick={this.toggleMenu} />
           </AniLink>
           <NavButton
@@ -69,19 +69,19 @@ export default class Navbar extends React.Component {
           </NavButton>
         </NavbarBrand>
         <NavLinks className={menuClassName}>
-          <AniLink fade direction="up" to="/">
+          <AniLink fade to="/">
             <div onClick={this.toggleMenu}>HOME</div>
           </AniLink>
-          <AniLink fade direction="up" to="/events">
+          <AniLink fade to="/events">
             <div onClick={this.toggleMenu}>EVENTS</div>
           </AniLink>
-          <AniLink fade direction="up" to="/retreats">
+          <AniLink fade to="/retreats">
             <div onClick={this.toggleMenu}> RETREATS</div>
           </AniLink>
-          <AniLink fade direction="up" to="/about">
+          <AniLink fade to="/about">
             <div onClick={this.toggleMenu}>ABOUT US</div>
           </AniLink>
-          <AniLink fade direction="up" to="/contact">
+          <AniLink fade to="/contact">
             <div onClick={this.toggleMenu}>CONTACT</div>
           </AniLink>
         </NavLinks>
