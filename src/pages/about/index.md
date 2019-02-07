@@ -1,7 +1,7 @@
 ---
 templateKey: about-page
 title: Our Story
-aboutImage: /img/yoga-1.jpg
+aboutImage: /img/events10.jpg
 ---
 We created Eat Play Love with exactly those ingredients in mind.
 We run retreats and workshops in beautiful spaces as an opportunity to bring women together and share in a safe and supported environment where connection is honoured above status, where creativity is honoured above outcome and being is honoured above doing.

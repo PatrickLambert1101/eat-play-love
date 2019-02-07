@@ -2,10 +2,10 @@
 templateKey: home-post
 title: Home Page
 slider:
-  - sliderimage: /img/yoga-1.jpg
+  - sliderimage: /img/events1.jpg
     title: Holistic events
-  - sliderimage: /img/yoga-2.jpg
+  - sliderimage: /img/events2.jpg
     title: Winter retreats
-  - sliderimage: /img/yoga-3.jpg
+  - sliderimage: /img/events3.jpg
     title: Holistic events
 ---

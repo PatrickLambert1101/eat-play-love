@@ -27,6 +27,7 @@ const Card = styled.div`
   h2 {
     position: absolute;
     left: 50%;
+    color: #fff;
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
