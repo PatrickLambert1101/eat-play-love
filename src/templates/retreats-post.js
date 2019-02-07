@@ -20,23 +20,25 @@ export const RetreatsPostTemplate = ({
 }) => {
   const PageContent = contentComponent || Content;
   return (
-    <PageContainer>
-      <h2>{title}</h2>
-      <h5>
-        Hearth &amp; Soul Eco Farm Stanford
-        <br /> 5th-8th October
-      </h5>
-      <PreviewCompatibleImage imageInfo={image} />
-      <PageContent content={content} />
-      <ModalButton />
-      <GalleryImage gallery={gallery} />
+    <div>
+      <PageContainer>
+        <h2>{title}</h2>
+        <h5>
+          Hearth &amp; Soul Eco Farm Stanford
+          <br /> 5th-8th October
+        </h5>
+        <PreviewCompatibleImage imageInfo={image} />
+        <PageContent content={content} className="body-text" />
+        <ModalButton />
+        <GalleryImage gallery={gallery} />
+        <Review review={review} author={author} />
+      </PageContainer>
       <SingleSideButton>
         <Link to={'/retreats'}>
           <h4>Back to retreats</h4>
         </Link>
       </SingleSideButton>
-      <Review review={review} author={author} />
-    </PageContainer>
+    </div>
   );
 };
 

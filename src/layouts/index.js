@@ -86,7 +86,7 @@ h5
   text-decoration: none;
   font-family: ${theme.georgia};
 }
-p
+p, li
  { font-family: ${theme.georgia};
   font-size: 21px;
   line-height: 27px;

@@ -3,6 +3,7 @@ import ReactModal from 'react-modal';
 import { navigateTo } from 'gatsby-link';
 import styled, { css } from 'styled-components';
 import ReadMore from './styles/ReadMore';
+import ContactForm from './ContactForm';
 
 const Close = styled.div`
   position: absolute;
@@ -42,47 +43,6 @@ function encode(data) {
 const ModalTitle = styled.h2`
   margin-top: 5px;
   margin-bottom: 20px;
-`;
-
-const FormFlex = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`;
-const styles = css`
-  background-color: #f9decf;
-  color: #824706;
-  font-size: 22px;
-  padding: 12px;
-  width: 100%;
-  box-sizing: border-box;
-  border-radius: 1px;
-  margin-bottom: 14px;
-  border: 0.5px solid #be8989;
-  &::placeholder {
-    color: #824706;
-    opacity: 1;
-    font-weight: bold;
-    font-family: 'Georgia', Arial, Helvetica, sans-serif;
-  }
-  &:-ms-input-placeholder {
-    color: #824706;
-    font-weight: bold;
-    font-family: 'Georgia', Arial, Helvetica, sans-serif;
-  }
-  &::-ms-input-placeholder {
-    color: #824706;
-    font-weight: bold;
-    font-family: 'Georgia', Arial, Helvetica, sans-serif;
-  }
-`;
-
-const Input = styled.input`
-  ${styles};
-`;
-
-const TextArea = styled.textarea`
-  ${styles};
 `;
 
 class ModalButton extends React.Component {
@@ -135,9 +95,7 @@ class ModalButton extends React.Component {
           isOpen={this.state.showModal}
           onRequestClose={this.handleCloseModal}
           style={{
-            overlay: {
-              backgroundColor: '#ffefd587'
-            },
+            overlay: { backgroundColor: '#ffefd587' },
             content: {
               maxWidth: '500px',
               margin: 'auto',
@@ -153,50 +111,7 @@ class ModalButton extends React.Component {
             <button onClick={this.handleCloseModal}>X</button>
           </Close>
           <ModalTitle>Book Now</ModalTitle>
-          <form
-            name="contact"
-            method="post"
-            action="/contact/thanks/"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
-            onSubmit={this.handleSubmit}
-          >
-            <input type="hidden" name="form-name" value="contact" />
-            <div hidden>
-              <input name="bot-field" onChange={this.handleChange} />
-            </div>
-            <FormFlex>
-              <Input
-                className="input"
-                type={'text'}
-                name={'name'}
-                placeholder={'Name'}
-                onChange={this.handleChange}
-                id={'name'}
-                required={true}
-              />
-              <Input
-                className="input"
-                type={'email'}
-                placeholder={'Email'}
-                name={'email'}
-                onChange={this.handleChange}
-                id={'email'}
-                required={true}
-              />
-              <TextArea
-                className="textarea"
-                name={'message'}
-                placeholder={'Message'}
-                onChange={this.handleChange}
-                id={'email'}
-                required={true}
-              />
-              <button className="button large is-link" type="submit">
-                Send
-              </button>
-            </FormFlex>
-          </form>
+          <ContactForm singleColumn />
         </ReactModal>
       </div>
     );

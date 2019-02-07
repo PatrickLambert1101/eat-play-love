@@ -48,7 +48,7 @@ class ContactForm extends React.Component {
         <div hidden>
           <input name="bot-field" onChange={this.handleChange} />
         </div>
-        <div className="flex">
+        <div className={this.props.singleColumn ? 'single-column' : 'flex'}>
           <input
             className="input"
             type={'text'}
@@ -76,7 +76,13 @@ class ContactForm extends React.Component {
           id={'message'}
           required={true}
         />
-        <Button text={'Send'} align={'center'} type="submit" brown />
+        <Button
+          text={'Send'}
+          align={'center'}
+          type="submit"
+          brown
+          fullWidth={this.props.singleColumn}
+        />
       </Form>
     );
   }

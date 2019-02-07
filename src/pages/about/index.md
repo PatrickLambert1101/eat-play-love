@@ -1,18 +1,15 @@
 ---
 templateKey: about-page
-title: 123About our valuesasdf
+title: Our Story
+image: /img/yoga-1.jpg
 ---
-### Shade-grown coffee
-Coffee is a small tree or shrub that grows in the forest understory in its wild form, and traditionally was grown commercially under other trees that provided shade. The forest-like structure of shade coffee farms provides habitat for a great number of migratory and resident species.
+We created Eat Play Love with exactly those ingredients in mind.
+We run retreats and workshops in beautiful spaces as an opportunity to bring women together and share in a safe and supported environment where connection is honoured above status, where creativity is honoured above outcome and being is honoured above doing.
 
-### Single origin
-Single-origin coffee is coffee grown within a single known geographic origin. Sometimes, this is a single farm or a specific collection of beans from a single country. The name of the coffee is then usually the place it was grown to whatever degree available.
+We’re two besties who have a passion and LOVE for:
 
-### Sustainable farming
-Sustainable agriculture is farming in sustainable ways based on an understanding of ecosystem services, the study of relationships between organisms and their environment. What grows where and how it is grown are a matter of choice and careful consideration for nature and communities.
+Delicious nutritious Plant-Based foods // Mind Body Spirit Alignment // Creative Expression // CONNECTION // Heart space // Empowered Authentic WOMEN // Soul stirring & Heart opening // Conscious Expansion // Sharing tools // FUN // Healing // Being REAL // MAGIC // Nature // PLAY // Support // Self - Love
 
-### Direct sourcing
-Direct trade is a form of sourcing practiced by some coffee roasters. Advocates of direct trade practices promote direct communication and price negotiation between buyer and farmer, along with systems that encourage and incentivize quality.
-
-### Reinvest profits
-We want to truly empower the communities that bring amazing coffee to you. That’s why we reinvest 20% of our profits into farms, local businesses and schools everywhere our coffee is grown. You can see the communities grow and learn more about coffee farming on our blog.
+Becca has experience in teaching art & cooking up a storm in any kitchen, and she can turn a carnivore into a Vegan with just one meal! Seriously!
+Liz has studied psychology, NLP, Life Coaching & loves a deep and meaningful convo any time of the day. She has experience in and a real love for facilitating change, transformation & anything that evokes true connection.
+We strongly support and foster emotional intelligence and hope to bring each member of our retreats closer to who they really are. We believe that each and every one of us is more than ENOUGH just as we are, and we hope to remind you of that.

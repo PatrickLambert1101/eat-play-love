@@ -13,6 +13,11 @@ const PageContainer = styled.div`
     }
   }
 
+  .body-text {
+    text-align: left;
+    padding: 15px;
+  }
+
   @media (max-width: 500px) {
     margin-left: 15px;
     margin-right: 15px;

@@ -3,20 +3,27 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import Content, { HTMLContent } from '../components/Content';
 import PageContainer from '../components/styles/PageContainer';
+import ContactForm from '../components/ContactForm';
+import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 
 export const AboutPageTemplate = ({ title, content, contentComponent }) => {
   const PageContent = contentComponent || Content;
 
   return (
     <PageContainer>
-      {title}
-      <PageContent className="content" content={content} />
+      <div className="lead">
+        <h1> {title}</h1>
+        <PageContent className="content" content={content} />
+      </div>
+      <PreviewCompatibleImage imageInfo={image} />
+      <ContactForm />
     </PageContainer>
   );
 };
 
 AboutPageTemplate.propTypes = {
   title: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
   content: PropTypes.string,
   contentComponent: PropTypes.func
 };
@@ -29,6 +36,7 @@ const AboutPage = ({ data }) => {
       <AboutPageTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}
+        image={post.frontmatter.image}
         content={post.html}
       />
     </div>
@@ -47,6 +55,13 @@ export const aboutPageQuery = graphql`
       html
       frontmatter {
         title
+        image {
+          childImageSharp {
+            fluid(maxWidth: 900, maxHeight: 450, quality: 80) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
       }
     }
   }

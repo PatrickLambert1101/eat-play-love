@@ -1,6 +1,6 @@
 ---
 templateKey: retreats-post
-title: Body, Breath & Balance
+title: Body Breath and Balance
 image: /img/yoga-1.jpg
 location: Hearth & Soul Eco Farm Stanford
 date: 5th-8th October
@@ -21,4 +21,28 @@ gallery:
   - galleryimage: /img/yoga-1.jpg
   - galleryimage: /img/yoga-2.jpg
 ---
-Inceptos dui sollicitudin adipiscing congue tellus fusce hendrerit commodo pellentesque aliquam felis primis pharetra fames facilisis ultrices proin quisque nec amet scelerisque varius imperdiet per elit suspendisse placerat sodales ultricies
+A Weekend of Being with the Body, the Breath & inviting an element of Balance in all you do ~
+
+Join us for a delicious weekend retreat of women coming together to honour the Body through Yoga, Breath, Connection, Expression, Learning & Nourishing foods.
+
+We are delighted to be hosting this retreat at the beautiful Hearth & Soul Eco Farm ~ a very special space surrounded by lush green rolling hills & nature walks, a permaculture garden & fruit forest, luxurious accommodation & more!
+
+We are bringing some nurtition & health experts on Board; Hormonal Harmony will be giving us an insightful & educational workshop on how we can better support hormone balance & gut health to inspire healthy & Balanced living. This will be accompanied by a Plant-based cooking class, giving us a chance to tap into our intuitive creativity & apply what we have learnt.
+
+**What you Receive ::**
+\- 3 Nights in Private / Shared accommodation
+\- Daily Yoga & Meditation
+\- Gentle, slow, candle lit Yin Yoga
+\- Relaxing and Energizing Breathing techniques
+\- Conscious Connected Breathing Session
+\- Hormone Balance & Gut Health Workshop
+\- Plant-Based Cooking Workshop
+\- Flower crown making
+\- Sister Circles
+\- Gift Bag
+\*Healing Reiki & Massage Sessions optional and to be booked in advance\*
+
+Prices Per Person ::
+
+Shared accommodation ~ R3200
+Private accommodation ~ R4200

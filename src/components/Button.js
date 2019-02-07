@@ -8,10 +8,10 @@ const ButtonStyle = styled.button`
   transition: all 0.2s ease-out;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0);
   display: flex;
+  width: ${props => (props.fullWidth ? '100%' : 'auto')};
   justify-content: ${props => props.align};
   &:hover {
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
-    padding: 10px 16px;
   }
   font-weight: ${props => (props.size === 'large' ? 'bold' : '')};
   font-size: ${props => (props.size === 'large' ? '28px' : '14px')};
@@ -32,6 +32,7 @@ export default class Button extends React.Component {
         brown={this.props.brown}
         align={this.props.align}
         size={this.props.size}
+        fullWidth={this.props.fullWidth}
       >
         <h4>{this.props.text}</h4>
       </ButtonStyle>
