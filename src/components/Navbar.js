@@ -1,6 +1,8 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import TransitionLink from 'gatsby-plugin-transition-link';
 import HeadLogo from './HeadLogo';
+import { TimelineMax, Power1 } from 'gsap';
+
 import NavbarBrand from './styles/NavbarBrand';
 import NavLinks from './styles/NavLinks';
 import NavButton from './styles/NavButton';
@@ -45,7 +47,10 @@ export default class Navbar extends React.Component {
   }
 
   updateWindowDimensions() {
-    this.setState({ width: window.innerWidth, height: window.innerHeight });
+    this.setState({
+      width: window.innerWidth,
+      height: window.innerHeight
+    });
   }
 
   UNSAFE_componentWillMount() {
@@ -64,7 +69,6 @@ export default class Navbar extends React.Component {
 
   render() {
     let menuClassName = this.state.isToggle ? 'toggle-open' : 'toggle-closed';
-    let current = this.props.page;
     return (
       <nav>
         <NavbarBrand>
@@ -82,7 +86,7 @@ export default class Navbar extends React.Component {
             className="navbar-item"
           >
             <HeadLogo alt="Eat Play Love Logo" onClick={this.toggleMenu} />
-          </Link>
+          </TransitionLink>
           <NavButton
             type="button"
             aria-expanded="false"
@@ -136,7 +140,6 @@ export default class Navbar extends React.Component {
               trigger: ({ entry, node }) => this.out(entry, node)
             }}
             to="/retreats"
-            className={current === '/retreats' ? 'active' : ''}
           >
             <div onClick={this.toggleMenu}> RETREATS</div>
           </TransitionLink>
@@ -165,7 +168,6 @@ export default class Navbar extends React.Component {
               trigger: ({ entry, node }) => this.out(entry, node)
             }}
             to="/contact"
-            className={current === '/contact' ? 'active' : ''}
           >
             <div onClick={this.toggleMenu}>CONTACT</div>
           </TransitionLink>

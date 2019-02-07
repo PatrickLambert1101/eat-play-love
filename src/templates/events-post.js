@@ -37,8 +37,7 @@ export const EventsPostTemplate = ({
 
 EventsPostTemplate.propTypes = {
   title: PropTypes.string,
-  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  content: PropTypes.node.isRequired
+  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string])
 };
 
 const EventsPost = ({ data }) => {
