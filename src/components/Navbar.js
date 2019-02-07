@@ -13,6 +13,26 @@ export default class Navbar extends React.Component {
 
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     this.toggleMenu = this.toggleMenu.bind(this);
+
+    this.layoutContents = React.createRef();
+    this.transitionCover = React.createRef();
+  }
+
+  in(entry, node) {
+    return new TimelineMax().staggerFrom(
+      node.querySelectorAll('h1, p, a, pre'),
+      1,
+      { opacity: 0, y: '+=50' },
+      0.1
+    );
+  }
+  out(entry, node) {
+    return new TimelineMax().staggerFrom(
+      node.querySelectorAll('h1, p, a, pre'),
+      1,
+      { opacity: 0, y: '+=50' },
+      0.1
+    );
   }
 
   componentDidMount() {
@@ -48,7 +68,19 @@ export default class Navbar extends React.Component {
     return (
       <nav>
         <NavbarBrand>
-          <Link to="/" className="navbar-item">
+          <TransitionLink
+            to="/page-2"
+            exit={{
+              delay: 0.5,
+              trigger: ({ entry, node }) => this.in(entry, node)
+            }}
+            entry={{
+              delay: 0.5,
+              trigger: ({ entry, node }) => this.out(entry, node)
+            }}
+            to="/"
+            className="navbar-item"
+          >
             <HeadLogo alt="Eat Play Love Logo" onClick={this.toggleMenu} />
           </Link>
           <NavButton
@@ -65,27 +97,78 @@ export default class Navbar extends React.Component {
           </NavButton>
         </NavbarBrand>
         <NavLinks className={menuClassName}>
-          <Link to="/" className={current === '/' ? 'active' : ''}>
+          <TransitionLink
+            to="/page-2"
+            exit={{
+              delay: 0.5,
+              trigger: ({ entry, node }) => this.in(entry, node)
+            }}
+            entry={{
+              delay: 0.5,
+              trigger: ({ entry, node }) => this.out(entry, node)
+            }}
+            to="/"
+          >
             <div onClick={this.toggleMenu}>HOME</div>
-          </Link>
-          <Link to="/events" className={current === '/events' ? 'active' : ''}>
+          </TransitionLink>
+          <TransitionLink
+            to="/page-2"
+            exit={{
+              delay: 0.5,
+              trigger: ({ entry, node }) => this.in(entry, node)
+            }}
+            entry={{
+              delay: 0.5,
+              trigger: ({ entry, node }) => this.out(entry, node)
+            }}
+            to="/events"
+          >
             <div onClick={this.toggleMenu}>EVENTS</div>
-          </Link>
-          <Link
+          </TransitionLink>
+          <TransitionLink
+            to="/page-2"
+            exit={{
+              delay: 0.5,
+              trigger: ({ entry, node }) => this.in(entry, node)
+            }}
+            entry={{
+              delay: 0.5,
+              trigger: ({ entry, node }) => this.out(entry, node)
+            }}
             to="/retreats"
             className={current === '/retreats' ? 'active' : ''}
           >
-            <div onClick={this.toggleMenu}>RETREATS</div>
-          </Link>
-          <Link to="/about" className={current === '/about' ? 'active' : ''}>
+            <div onClick={this.toggleMenu}> RETREATS</div>
+          </TransitionLink>
+          <TransitionLink
+            to="/page-2"
+            exit={{
+              delay: 0.5,
+              trigger: ({ entry, node }) => this.in(entry, node)
+            }}
+            entry={{
+              delay: 0.5,
+              trigger: ({ entry, node }) => this.out(entry, node)
+            }}
+            to="/about"
+          >
             <div onClick={this.toggleMenu}>ABOUT US</div>
-          </Link>
-          <Link
+          </TransitionLink>
+          <TransitionLink
+            to="/page-2"
+            exit={{
+              delay: 0.5,
+              trigger: ({ entry, node }) => this.in(entry, node)
+            }}
+            entry={{
+              delay: 0.5,
+              trigger: ({ entry, node }) => this.out(entry, node)
+            }}
             to="/contact"
             className={current === '/contact' ? 'active' : ''}
           >
             <div onClick={this.toggleMenu}>CONTACT</div>
-          </Link>
+          </TransitionLink>
         </NavLinks>
       </nav>
     );
