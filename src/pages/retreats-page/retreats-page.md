@@ -2,7 +2,7 @@
 templateKey: retreats-page
 title: Upcoming Retreats
 ---
-As a passion project, we also coordinate and host women’s wellness retreats for the love of connection and coming together to share in beautiful spaces.
+####As a passion project, we also coordinate and host women’s wellness retreats for the love of connection and coming together to share in beautiful spaces.
 
 We run retreats and workshops in beautiful spaces as an opportunity to bring women together and share in a safe and supported environment where connection is honoured above status, where creativity is honoured above outcome and being is honoured above doing.
 

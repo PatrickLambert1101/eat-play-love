@@ -110,7 +110,7 @@ collections:
           default: 'retreats-page',
         }
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Lead text', name: 'leadText', widget: 'text' }
+      - { label: 'Lead text', name: 'leadText', widget: 'markdown' }
 
   - name: 'home'
     label: 'Home'

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import CardWrapper from '../components/CardWrapper';
 import Footer from '../components/Footer';
+import { HTMLContent } from '../components/Content';
 
 import Review from '../components/Review';
 import PageContainer from '../components/styles/PageContainer';
@@ -21,8 +22,8 @@ export default class EventsPage extends React.Component {
             <PageContainer>
               <div className="lead">
                 <h1>{page.node.frontmatter.title}</h1>
-                <p>{page.node.frontmatter.leadText}</p>
               </div>
+              <HTMLContent className="body-text" content={page.node.html} />
             </PageContainer>
             <CardWrapper baseUrl={'events'} data={events} />
             <Review

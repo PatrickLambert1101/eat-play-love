@@ -5,20 +5,21 @@ import ContentCardWrap from '../components/ContentCardWrap';
 import Button from '../components/Button';
 import PageContainer from '../components/styles/PageContainer';
 import Footer from '../components/Footer';
+import { HTMLContent } from '../components/Content';
 
 export default class RetreatsPage extends React.Component {
   render() {
     const { data } = this.props;
     const { edges: retreats } = data.retreats;
-    const retreatsPageData = data.retreatsPageData.edges[0].node.frontmatter;
+    const retreatsPageData = data.retreatsPageData.edges[0].node;
 
     return (
       <div>
         <PageContainer>
           <div className="lead">
-            <h1>{retreatsPageData.title}</h1>
-            <p>{retreatsPageData.leadText}</p>
+            <h1>{retreatsPageData.frontmatter.title}</h1>
           </div>
+          <HTMLContent content={retreatsPageData.html} />
           <ContentCardWrap content={retreats} />
         </PageContainer>
         <Link to={'/contact'}>
@@ -45,9 +46,9 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
+          html
           frontmatter {
             title
-            leadText
           }
         }
       }

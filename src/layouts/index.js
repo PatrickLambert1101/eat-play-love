@@ -74,6 +74,8 @@ h4
   {color: ${theme.goldLight};
   font-weight: 100;
   font-size: 24px;
+  line-height: 31px;
+  margin-top: 10px;
   text-decoration: none;
   font-family: ${theme.georgia};
 }
