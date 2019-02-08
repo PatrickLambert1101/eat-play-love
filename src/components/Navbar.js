@@ -69,19 +69,19 @@ export default class Navbar extends React.Component {
           </NavButton>
         </NavbarBrand>
         <NavLinks className={menuClassName}>
-          <AniLink activeClassName="active" xx fade to="/">
+          <AniLink activeClassName="active" fade to="/">
             <div onClick={this.toggleMenu}>HOME</div>
           </AniLink>
-          <AniLink activeClassName="active" xx fade to="/events">
+          <AniLink activeClassName="active" fade to="/events">
             <div onClick={this.toggleMenu}>EVENTS</div>
           </AniLink>
-          <AniLink activeClassName="active" xx fade to="/retreats">
+          <AniLink activeClassName="active" fade to="/retreats">
             <div onClick={this.toggleMenu}> RETREATS</div>
           </AniLink>
-          <AniLink activeClassName="active" xx fade to="/about">
+          <AniLink activeClassName="active" fade to="/about">
             <div onClick={this.toggleMenu}>ABOUT US</div>
           </AniLink>
-          <AniLink activeClassName="active" xx fade to="/contact">
+          <AniLink activeClassName="active" fade to="/contact">
             <div onClick={this.toggleMenu}>CONTACT</div>
           </AniLink>
         </NavLinks>
