@@ -152,6 +152,13 @@ export const pageQuery = graphql`
         node {
           frontmatter {
             title
+            image {
+              childImageSharp {
+                fluid(maxWidth: 410, maxHeight: 380, quality: 80) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }
