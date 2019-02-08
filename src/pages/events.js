@@ -53,9 +53,9 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
+          html
           frontmatter {
             title
-            leadText
             review
             author
           }

@@ -19,7 +19,7 @@ collections:
           default: 'events-post',
         }
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Lead text', name: 'leadText', widget: 'text' }
+      - { label: 'Lead text', name: 'leadText', widget: 'markdown' }
       - { label: 'Review', name: 'review', widget: 'string' }
       - { label: 'Author', name: 'author', widget: 'text' }
       - label: 'Gallery'
@@ -93,7 +93,7 @@ collections:
           default: 'events-page',
         }
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Lead text', name: 'leadText', widget: 'text' }
+      - { label: 'Lead text', name: 'leadText', widget: 'markdown' }
       - { label: 'Review', name: 'review', widget: 'string' }
       - { label: 'Author', name: 'author', widget: 'text' }
 
@@ -146,5 +146,4 @@ collections:
               default: 'about-page',
             }
           - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Image', name: 'aboutImage', widget: 'image' }
           - { label: 'Body', name: 'body', widget: 'markdown' }

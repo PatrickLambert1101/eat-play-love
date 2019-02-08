@@ -100,7 +100,9 @@ body
     margin-bottom: 1.5rem;
   }
 }
-
+.gatsby-resp-image-link{
+  margin:15px -15px;
+}
 .ReactModal__Overlay {
   opacity: 0;
   transition: opacity 200ms ease-in-out;

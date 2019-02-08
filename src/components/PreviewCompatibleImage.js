@@ -4,6 +4,10 @@ import Img from 'gatsby-image';
 
 const PreviewCompatibleImage = ({ imageInfo }) => {
   const { alt = '', childImageSharp } = imageInfo;
+  console.log(
+    'TCL: PreviewCompatibleImage -> childImageSharp',
+    childImageSharp
+  );
   if (!!childImageSharp) {
     return <Img fluid={childImageSharp.fluid} alt={alt} />;
   }

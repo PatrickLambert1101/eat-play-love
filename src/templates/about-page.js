@@ -19,9 +19,8 @@ export const AboutPageTemplate = ({
     <PageContainer>
       <div className="lead">
         <h1> {title}</h1>
-        <PageContent className="content" content={content} />
       </div>
-      <PreviewCompatibleImage imageInfo={aboutImage} />
+      <PageContent className="body-text" content={content} />
       <h2>Contact us</h2>
       <ContactForm />
       <Footer />
@@ -31,7 +30,6 @@ export const AboutPageTemplate = ({
 
 AboutPageTemplate.propTypes = {
   title: PropTypes.string.isRequired,
-  aboutImage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   content: PropTypes.string,
   contentComponent: PropTypes.func
 };
@@ -63,13 +61,6 @@ export const aboutPageQuery = graphql`
       html
       frontmatter {
         title
-        aboutImage {
-          childImageSharp {
-            fluid(maxWidth: 1650, maxHeight: 600, quality: 80) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
       }
     }
   }
