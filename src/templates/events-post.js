@@ -7,6 +7,7 @@ import ModalButton from '../components/ModalButton';
 import Review from '../components/Review';
 import PageContainer from '../components/styles/PageContainer';
 import Footer from '../components/Footer';
+import { HTMLContent } from '../components/Content';
 
 export const EventsPostTemplate = ({
   title,
@@ -20,8 +21,8 @@ export const EventsPostTemplate = ({
       <PageContainer>
         <div className="lead">
           <h1>{title}</h1>
-          <p>{leadText}</p>
         </div>
+        <HTMLContent content={leadText} />
         <GalleryImage gallery={gallery} />
         <Review review={review} author={author} />
 
@@ -49,7 +50,7 @@ const EventsPost = ({ data }) => {
     <div>
       <EventsPostTemplate
         title={post.frontmatter.title}
-        leadText={post.frontmatter.leadText}
+        leadText={post.html}
         review={post.frontmatter.review}
         author={post.frontmatter.author}
         gallery={post.frontmatter.gallery}
@@ -70,9 +71,9 @@ export default EventsPost;
 export const pageQuery = graphql`
   query EventsPostByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
+      html
       frontmatter {
         title
-        leadText
         review
         author
         gallery {
