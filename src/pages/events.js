@@ -65,6 +65,7 @@ export const pageQuery = graphql`
     }
     events: allMarkdownRemark(
       filter: { frontmatter: { templateKey: { eq: "events-post" } } }
+      limit: 1
     ) {
       edges {
         node {
