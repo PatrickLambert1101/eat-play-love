@@ -4,7 +4,6 @@ import { graphql } from 'gatsby';
 import Content, { HTMLContent } from '../components/Content';
 import PageContainer from '../components/styles/PageContainer';
 import ContactForm from '../components/ContactForm';
-import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import Footer from '../components/Footer';
 
 export const AboutPageTemplate = ({

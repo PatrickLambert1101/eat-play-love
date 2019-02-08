@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
 
 const PreviewCompatibleImage = ({ imageInfo }) => {
@@ -10,12 +9,5 @@ const PreviewCompatibleImage = ({ imageInfo }) => {
   }
   return null;
 };
-
-// PreviewCompatibleImage.propTypes = {
-//   imageInfo: PropTypes.shape({
-//     alt: PropTypes.string,
-//     childImageSharp: PropTypes.object
-//   }).isRequired
-// };
 
 export default PreviewCompatibleImage;

@@ -55,7 +55,6 @@ export const pageQuery = graphql`
     }
     retreats: allMarkdownRemark(
       filter: { frontmatter: { templateKey: { eq: "retreats-post" } } }
-      limit: 1
     ) {
       edges {
         node {

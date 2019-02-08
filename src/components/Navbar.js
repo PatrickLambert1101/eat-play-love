@@ -1,6 +1,5 @@
 import React from 'react';
 import HeadLogo from './HeadLogo';
-import { TimelineMax } from 'gsap';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 import NavbarBrand from './styles/NavbarBrand';
