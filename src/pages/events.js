@@ -25,7 +25,7 @@ export default class EventsPage extends React.Component {
               </div>
               <HTMLContent className="body-text" content={page.node.html} />
             </PageContainer>
-            <CardWrapper baseUrl={'events'} data={events} />
+
             <Review
               review={page.node.frontmatter.review}
               author={page.node.frontmatter.author}
