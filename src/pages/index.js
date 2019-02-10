@@ -129,7 +129,7 @@ export const pageQuery = graphql`
           localFile {
             childImageSharp {
               fluid(maxWidth: 267, maxHeight: 267, quality: 50) {
-                ...GatsbyImageSharpFluid_withWebp
+                ...GatsbyImageSharpFluid
               }
             }
           }
@@ -174,7 +174,7 @@ export const pageQuery = graphql`
                 id
                 childImageSharp {
                   fluid(maxWidth: 1650, maxHeight: 750, quality: 65) {
-                    ...GatsbyImageSharpFluid_withWebp
+                    ...GatsbyImageSharpFluid
                   }
                 }
               }

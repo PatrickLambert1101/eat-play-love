@@ -10,7 +10,7 @@ const HeadLogo = () => (
           name
           childImageSharp {
             fluid(maxWidth: 580, maxHeight: 160, quality: 80) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              ...GatsbyImageSharpFluid_tracedSVG
             }
           }
         }

@@ -10,7 +10,7 @@ const FootLogo = () => (
           name
           childImageSharp {
             fluid(maxWidth: 400, maxHeight: 360, quality: 65) {
-              ...GatsbyImageSharpFluid_withWebp
+              ...GatsbyImageSharpFluid
             }
           }
         }
