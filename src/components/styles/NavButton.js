@@ -4,7 +4,7 @@ const NavButton = styled.button`
   @media (min-width: 901px) {
     display: none;
   }
-  @media (max-width: 480px) {
+  @media (max-width: ${props => props.theme.mobile}) {
     margin-right: 15px;
     margin-top: 15px;
   }

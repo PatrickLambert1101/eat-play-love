@@ -4,7 +4,7 @@ const InstaGallery = styled.div`
   & > div {
     margin: 15px;
   }
-  @media (min-width: 480px) {
+  @media (min-width: ${props => props.theme.mobile}) {
     display: none;
   }
 `;

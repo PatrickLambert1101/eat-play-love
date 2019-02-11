@@ -19,7 +19,7 @@ const Card = styled.div`
   a:hover::after {
     opacity: 0.6;
   }
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: ${props => props.theme.mobile}) {
     margin-bottom: 15px;
     flex-basis: 100%;
   }

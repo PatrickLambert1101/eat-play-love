@@ -47,7 +47,7 @@ const SocialWrapper = styled.div`
   }
   width: 60%;
   max-width: 700px;
-  @media (max-width: 480px) {
+  @media (max-width: ${props => props.theme.mobile}) {
     width: 100%;
   }
 `;
@@ -58,13 +58,13 @@ const FooterLogo = styled.div`
   & > div {
     width: 90%;
   }
-  @media (max-width: 480px) {
+  @media (max-width: ${props => props.theme.mobile}) {
     img {
       width: 100%;
     }
   }
   margin-bottom: 30px;
-  @media (max-width: 480px) {
+  @media (max-width: ${props => props.theme.mobile}) {
     margin-bottom: 0;
   }
 `;

@@ -6,7 +6,7 @@ const NavbarBrand = styled.div`
   margin-left: 15px;
   margin-top: 40px;
   display: flex;
-  @media (max-width: 480px) {
+  @media (max-width: ${props => props.theme.mobile}) {
     justify-content: space-between;
   }
   .navbar-item {
@@ -15,7 +15,7 @@ const NavbarBrand = styled.div`
   .navbar-item img {
     width: 100% !important;
     text-align: center;
-    @media (max-width: 480px) {
+    @media (max-width: ${props => props.theme.mobile}) {
       max-width: 300px;
     }
   }

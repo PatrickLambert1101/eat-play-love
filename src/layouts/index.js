@@ -27,7 +27,8 @@ const theme = {
   greyButton: '#595959',
   grey: '#979797',
   georgia: 'Georgia, Arial, Helvetica, sans-serif',
-  pink: '#f9decf'
+  pink: '#f9decf',
+  mobile: '800px'
 };
 
 const GlobalStyle = createGlobalStyle`

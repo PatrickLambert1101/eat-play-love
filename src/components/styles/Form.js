@@ -26,7 +26,7 @@ const Form = styled.form`
     input:last-child {
       margin-left: 10px;
     }
-    @media (max-width: 480px) {
+    @media (max-width: ${props => props.theme.mobile}) {
       display: block;
       input:first-child {
         margin-right: 0px;

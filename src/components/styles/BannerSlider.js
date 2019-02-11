@@ -10,7 +10,7 @@ const BannerSlider = styled.div`
   .mobile {
     display: none;
   }
-  @media (max-width: 480px) {
+  @media (max-width: ${props => props.theme.mobile}) {
     .desktop {
       display: none;
     }
@@ -45,7 +45,7 @@ const BannerSlider = styled.div`
       top: 50%; /* vertical alignment */
       transform: translate(-50%, -50%);
     }
-    @media (max-width: 480px) {
+    @media (max-width: ${props => props.theme.mobile}) {
       height: auto;
     }
   }
