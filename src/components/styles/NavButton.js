@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
 const NavButton = styled.button`
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: inherit;
+  border: none;
   @media (min-width: 901px) {
     display: none;
   }
