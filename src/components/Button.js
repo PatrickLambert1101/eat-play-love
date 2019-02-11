@@ -18,7 +18,7 @@ const ButtonStyle = styled.button`
   background-color: ${props => (props.brown ? '#fff' : '#fff')};
   border: ${props =>
     props.brown
-      ? `1px solid ${props.theme.darkRed}`
+      ? `1px solid ${props.theme.goldLight}`
       : `1px solid ${props.theme.goldLight}`};
   border-left: ${props => (props.align === 'flex-end' ? 'none' : '')};
 
