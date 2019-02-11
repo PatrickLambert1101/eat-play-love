@@ -34,12 +34,12 @@ export default class Navbar extends React.Component {
 
   UNSAFE_componentWillMount() {
     this.setState({
-      isToggle: !this.state.isToggle
+      isToggle: false
     });
   }
 
   toggleMenu(e) {
-    if (this.state.width <= 480) {
+    if (this.state.width <= 800) {
       this.setState({
         isToggle: !this.state.isToggle
       });
