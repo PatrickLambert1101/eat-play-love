@@ -6,6 +6,13 @@ module.exports = {
     icon16: `${__dirname}/static/img/favicon-16x16.png`
   },
   plugins: [
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/static/img`,
+        name: 'uploads'
+      }
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     {
@@ -18,7 +25,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Eat Play Love`,
-        short_name: `Eat Play Love`,
+        short_name: `EatPlayLove`,
         start_url: `/`,
         background_color: `#f7f0eb`,
         theme_color: `#a2466c`,
@@ -28,14 +35,6 @@ module.exports = {
       }
     },
     `gatsby-plugin-offline`,
-    {
-      // keep as first gatsby-source-filesystem plugin for gatsby image support
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/static/img`,
-        name: 'uploads'
-      }
-    },
     {
       resolve: `gatsby-plugin-styled-components`
     },
