@@ -14,7 +14,7 @@ class CardWrapper extends React.Component {
           {this.props.data.map(card => (
             <Card textImage key={shortid.generate()}>
               <Link
-                to={`${
+                to={`/${
                   this.props.baseUrl
                 }/${card.node.frontmatter.title
                   .toLowerCase()

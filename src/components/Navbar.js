@@ -22,7 +22,9 @@ export default class Navbar extends React.Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.updateWindowDimensions);
+    if (this.state.width <= 800) {
+      window.removeEventListener('resize', this.updateWindowDimensions);
+    }
   }
 
   updateWindowDimensions() {

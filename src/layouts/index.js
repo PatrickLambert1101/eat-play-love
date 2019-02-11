@@ -6,9 +6,6 @@ import Navbar from '../components/Navbar';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import './font-face.css';
 
-import '../../node_modules/slick-carousel/slick/slick.css';
-import '../../node_modules/slick-carousel/slick/slick-theme.css';
-
 const theme = {
   red: '#FF0000',
   black: '#393939',
