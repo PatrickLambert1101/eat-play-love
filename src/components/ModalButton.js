@@ -11,7 +11,7 @@ const Close = styled.div`
   button {
     border-width: 0;
     font-size: 2.4em;
-    color: #824706;
+    color: ${props => props.theme.lightBrown};
     background-color: inherit;
   }
 `;
@@ -20,13 +20,13 @@ const CenterButton = styled.div`
   justify-content: center;
   margin-top: 30px;
   button {
-    background-color: #f9decf;
+    background-color: ${props => props.theme.pink};
     padding: 15px 17px;
     font-size: 1.3em;
     border-width: 0;
     h4 {
       margin: 0;
-      color: #824706;
+      color: ${props => props.theme.lightBrown};
     }
   }
 `;

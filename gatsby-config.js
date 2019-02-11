@@ -1,7 +1,9 @@
 module.exports = {
   siteMetadata: {
     title: 'Eat Play Love',
-    description: 'Health, wellness, retreats'
+    description: 'Health, wellness, retreats',
+    icon32: `${__dirname}/static/img/favicon-32x32.png`,
+    icon16: `${__dirname}/static/img/favicon-16x16.png`
   },
   plugins: [
     'gatsby-plugin-react-helmet',

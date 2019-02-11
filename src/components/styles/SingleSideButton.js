@@ -5,11 +5,11 @@ const SingleSideButton = styled.div`
   display: flex;
   justify-content: flex-start;
   a {
-    background-color: #f9decf;
+    background-color: ${props => props.theme.pink};
     padding: 15px 17px;
     font-size: 1.3em;
     h4 {
-      color: #824706;
+      color: ${props => props.theme.lightBrown};
       margin: 0;
     }
   }

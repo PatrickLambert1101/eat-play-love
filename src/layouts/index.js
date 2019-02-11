@@ -28,6 +28,7 @@ const theme = {
   grey: '#979797',
   georgia: 'Georgia, Arial, Helvetica, sans-serif',
   pink: '#f9decf',
+  lightPink: '#ecc2aa',
   mobile: '800px'
 };
 
@@ -137,15 +138,13 @@ body
   }
 
 `;
-function makeTitle(slug) {
-  var words = slug.split('-');
-
-  for (var i = 0; i < words.length; i++) {
-    var word = words[i];
-    words[i] = word.charAt(0).toUpperCase() + word.slice(1);
+function titleCase(str) {
+  var splitStr = str.toLowerCase().split(' ');
+  for (var i = 0; i < splitStr.length; i++) {
+    splitStr[i] =
+      splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
   }
-
-  return words.join(' ');
+  return splitStr.join(' ');
 }
 
 const TemplateWrapper = ({ children, location }) => (
@@ -156,74 +155,48 @@ const TemplateWrapper = ({ children, location }) => (
           siteMetadata {
             title
             description
+            icon16
+            icon32
           }
         }
       }
     `}
-    render={data => (
-      <React.Fragment>
-        <GlobalStyle />
-        <ThemeProvider theme={theme}>
-          <React.Fragment>
-            <Helmet>
-              <html lang="en" />
-              <title>
-                {data.site.siteMetadata.title} |
-                {' ' +
-                  makeTitle(
-                    location.pathname.split('/')[
-                      location.pathname.split('/').length - 2
-                    ]
-                  )}
-              </title>
+    render={function(data) {
+      const title = data.site.siteMetadata.title;
+      const page = titleCase(
+        location.pathname
+          .split('/')
+          .filter(i => i)
+          .join(' | ')
+      );
+      const pageTitle =
+        location.pathname === '/' ? title + ' | Home' : title + ' | ' + page;
+      return (
+        <React.Fragment>
+          <GlobalStyle />
+          <ThemeProvider theme={theme}>
+            <React.Fragment>
+              <Helmet>
+                <html lang="en" />
+                <title>{pageTitle}</title>
 
-              <meta
-                name="description"
-                content={
-                  location.pathname
-                    .split('/')
-                    .slice(1)
-                    .map(title => makeTitle(title)) +
-                  data.site.siteMetadata.description
-                }
-              />
-              <link
-                rel="apple-touch-icon"
-                sizes="180x180"
-                href="/static/img/apple-touch-icon.png"
-              />
-              <link
-                rel="icon"
-                type="image/png"
-                href="/static/img/favicon-32x32.png"
-                sizes="32x32"
-              />
-              <link
-                rel="icon"
-                type="image/png"
-                href="/static/img/favicon-16x16.png"
-                sizes="16x16"
-              />
-              <link
-                rel="mask-icon"
-                href="/static/img/safari-pinned-tab.svg"
-                color="#ff4400"
-              />
-              <meta name="theme-color" content="#fff" />
-              <meta property="og:type" content="business.business" />
-              <meta
-                property="og:title"
-                content={data.site.siteMetadata.title}
-              />
-              <meta property="og:url" content="/" />
-              <meta property="og:image" content="/img/og-image.jpg" />
-            </Helmet>
-            <Navbar />
-            {children}
-          </React.Fragment>
-        </ThemeProvider>
-      </React.Fragment>
-    )}
+                <meta
+                  name="description"
+                  content={page + ' | ' + data.site.siteMetadata.description}
+                />
+                <meta
+                  property="og:title"
+                  content={data.site.siteMetadata.title}
+                />
+                <meta property="og:url" content="/" />
+              </Helmet>
+              <Navbar />
+              {children}
+            </React.Fragment>
+          </ThemeProvider>
+        </React.Fragment>
+      );
+    }}
   />
 );
 

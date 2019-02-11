@@ -4,7 +4,7 @@ const Form = styled.form`
   input,
   textarea {
     background-color: #fff;
-    color: #824706;
+    color: ${props => props.theme.lightBrown};
     font-size: 22px;
     padding: 12px;
     min-width: 250px;
