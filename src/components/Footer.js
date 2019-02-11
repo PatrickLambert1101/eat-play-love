@@ -108,24 +108,40 @@ export default class Footer extends React.Component {
               target="_blank"
               href={'https://www.facebook.com/eatplayloveretreat/'}
             >
-              <SocialLogo src={facebook} />
+              <SocialLogo
+                src={facebook}
+                alt="Eat play love events facebook"
+                aria-label="facebook"
+              />
             </a>
             <a
               rel="noreferrer noopener"
               target="_blank"
               href={'https://www.instagram.com/eatplayloveretreat/'}
             >
-              <SocialLogo src={instagram} />
+              <SocialLogo
+                src={instagram}
+                alt="Eat play love events instagram"
+                aria-label="instagram"
+              />
             </a>
             <Link to={'/contact'}>
-              <SocialLogo src={mail} />
+              <SocialLogo
+                src={mail}
+                alt="Eat play love events mail"
+                aria-label="mail"
+              />
             </Link>
             <a
               rel="noreferrer noopener"
               target="_blank"
               href={'https://za.pinterest.com/eatplayloveshop/'}
             >
-              <SocialLogo src={pinterest} />
+              <SocialLogo
+                src={pinterest}
+                alt="Eat play love events pinterest"
+                aria-label="pinterest"
+              />
             </a>
           </Social>
         </SocialWrapper>
