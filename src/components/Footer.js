@@ -22,7 +22,7 @@ const FooterWrap = styled.footer`
   max-width: 1400px;
   margin-bottom: 60px;
   align-items: center;
-  @media (max-width: 900px) {
+  @media (max\-width: ${props => props.theme.mobile}) {
     flex-direction: column;
     img {
       max-width: 220px;
@@ -37,7 +37,7 @@ const Social = styled.div`
 `;
 const SocialLogo = styled.img`
   height: 80px;
-  @media (max-width: 900px) {
+  @media (max\-width: ${props => props.theme.mobile}) {
     height: 50px;
   }
 `;

@@ -20,7 +20,7 @@ const PageContainer = styled.div`
     padding: 15px;
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: ${props => props.theme.mobile}) {
     margin-left: 15px;
     margin-right: 15px;
   }

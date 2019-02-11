@@ -36,7 +36,7 @@ const NavLinks = styled.div`
       opacity: 1;
     }
   }
-  @media (max-width: 900px) {
+  @media (max\-width: ${props => props.theme.mobile}) {
     padding-top: 30px;
     flex-direction: column;
     align-items: center;

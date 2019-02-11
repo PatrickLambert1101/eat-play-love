@@ -13,7 +13,6 @@ const NavbarBrand = styled.div`
     width: 620px;
   }
   .navbar-item img {
-    width: 100% !important;
     text-align: center;
     @media (max-width: ${props => props.theme.mobile}) {
       max-width: 300px;

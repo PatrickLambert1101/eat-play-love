@@ -12,7 +12,7 @@ const ContentCardWrapStyle = styled.div`
   margin: auto;
   max-width: 1300px;
   margin-bottom: 30px;
-  @media (max-width: 900px) {
+  @media (max\-width: ${props => props.theme.mobile}) {
     flex-direction: column;
   }
 `;

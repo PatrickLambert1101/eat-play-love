@@ -33,7 +33,6 @@ const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
   }
-
   *, *:before, *:after {
     box-sizing: inherit;
   }
@@ -94,16 +93,15 @@ p, li
 a
  { text-decoration: none; color: inherit}
 
-body
-  {margin: 0;}
 .navbar {
-  @media (max-width: 900px) {
+  @media (max\-width: ${theme.mobile}) {
     margin-bottom: 1.5rem;
   }
 }
 .gatsby-resp-image-link{
   margin:15px -15px;
 }
+
 .ReactModal__Overlay {
   opacity: 0;
   transition: opacity 200ms ease-in-out;
@@ -118,18 +116,18 @@ body
 }
 
  &::placeholder {
-    color: #824706;
+    color: ${theme.lightBrown};
     opacity: 1;
     font-weight: bold;
     font-family: 'Georgia', Arial, Helvetica, sans-serif;
   }
   &:-ms-input-placeholder {
-    color: #824706;
+    color: ${theme.lightBrown};
     font-weight: bold;
     font-family: 'Georgia', Arial, Helvetica, sans-serif;
   }
   &::-ms-input-placeholder {
-    color: #824706;
+    color: ${theme.lightBrown};
     font-weight: bold;
     font-family: 'Georgia', Arial, Helvetica, sans-serif;
   }
