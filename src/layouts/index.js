@@ -137,6 +137,17 @@ body
   }
 
 `;
+function makeTitle(slug) {
+  var words = slug.split('-');
+
+  for (var i = 0; i < words.length; i++) {
+    var word = words[i];
+    words[i] = word.charAt(0).toUpperCase() + word.slice(1);
+  }
+
+  return words.join(' ');
+}
+
 const TemplateWrapper = ({ children, location }) => (
   <StaticQuery
     query={graphql`
@@ -156,12 +167,26 @@ const TemplateWrapper = ({ children, location }) => (
           <React.Fragment>
             <Helmet>
               <html lang="en" />
-              <title>{data.site.siteMetadata.title}</title>
+              <title>
+                {data.site.siteMetadata.title} |
+                {' ' +
+                  makeTitle(
+                    location.pathname.split('/')[
+                      location.pathname.split('/').length - 2
+                    ]
+                  )}
+              </title>
+
               <meta
                 name="description"
-                content={data.site.siteMetadata.description}
+                content={
+                  location.pathname
+                    .split('/')
+                    .slice(1)
+                    .map(title => makeTitle(title)) +
+                  data.site.siteMetadata.description
+                }
               />
-
               <link
                 rel="apple-touch-icon"
                 sizes="180x180"
@@ -179,14 +204,12 @@ const TemplateWrapper = ({ children, location }) => (
                 href="/img/favicon-16x16.png"
                 sizes="16x16"
               />
-
               <link
                 rel="mask-icon"
                 href="/img/safari-pinned-tab.svg"
                 color="#ff4400"
               />
               <meta name="theme-color" content="#fff" />
-
               <meta property="og:type" content="business.business" />
               <meta
                 property="og:title"

@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactModal from 'react-modal';
-import { navigateTo } from 'gatsby-link';
 import styled from 'styled-components';
 import ReadMore from './styles/ReadMore';
 import ContactForm from './ContactForm';
