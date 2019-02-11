@@ -15,13 +15,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `GatsbyJS`,
-        short_name: `GatsbyJS`,
+        name: `Eat Play Love`,
+        short_name: `Eat Play Love`,
         start_url: `/`,
         background_color: `#f7f0eb`,
         theme_color: `#a2466c`,
         display: `standalone`,
-        icon: `${__dirname}/src/img/footer-logo.png` // This path is relative to the root of the site.
+        icon: `${__dirname}/static/img/fav.png`,
+        include_favicon: true
       }
     },
     `gatsby-plugin-offline`,
