@@ -47,7 +47,10 @@ export default class Navbar extends React.Component {
   }
 
   render() {
-    let menuClassName = this.state.isToggle ? 'toggle-open' : 'toggle-closed';
+    let menuClassName =
+      this.state.isToggle || this.state.width >= 800
+        ? 'toggle-open'
+        : 'toggle-closed';
     return (
       <nav>
         <NavbarBrand>
