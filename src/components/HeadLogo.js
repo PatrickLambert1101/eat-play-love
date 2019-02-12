@@ -1,6 +1,7 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import PreviewCompatibleImage from './PreviewCompatibleImage';
+const imgStyles = { objectFit: 'contain' };
 
 const HeadLogo = () => (
   <StaticQuery
@@ -16,7 +17,9 @@ const HeadLogo = () => (
         }
       }
     `}
-    render={data => <PreviewCompatibleImage imageInfo={data.file} />}
+    render={data => (
+      <PreviewCompatibleImage imgStyle={imgStyles} imageInfo={data.file} />
+    )}
   />
 );
 

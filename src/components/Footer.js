@@ -17,12 +17,12 @@ function encode(data) {
 const FooterWrap = styled.footer`
   padding-top: 4rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: auto;
-  max-width: 1400px;
+  max-width: 800px;
   margin-bottom: 60px;
   align-items: center;
-  @media (max\-width: ${props => props.theme.mobile}) {
+  @media (max-width: ${props => props.theme.mobile}) {
     flex-direction: column;
     img {
       max-width: 220px;
@@ -31,32 +31,34 @@ const FooterWrap = styled.footer`
 `;
 const Social = styled.div`
   display: flex;
-  flex: 2;
+
   justify-content: space-around;
   width: 100%;
 `;
 const SocialLogo = styled.img`
-  height: 80px;
-  @media (max\-width: ${props => props.theme.mobile}) {
+  height: 40px;
+  flex: 3;
+  @media (max-width: ${props => props.theme.mobile}) {
     height: 50px;
   }
 `;
 const SocialWrapper = styled.div`
   h3 {
+    font-size: 2.2em;
     margin-top: -20px;
   }
-  width: 60%;
-  max-width: 700px;
   @media (max-width: ${props => props.theme.mobile}) {
     width: 100%;
   }
 `;
 
 const FooterLogo = styled.div`
-  flex: 1;
-  max-width: 450px;
-  & > div {
-    width: 90%;
+  flex: 4;
+  .gatsby-image-wrapper {
+    img {
+      object-fit: contain;
+    }
+    width: 70%;
   }
   @media (max-width: ${props => props.theme.mobile}) {
     img {

@@ -1,11 +1,11 @@
 import React from 'react';
 import Img from 'gatsby-image';
 
-const PreviewCompatibleImage = ({ imageInfo }) => {
+const PreviewCompatibleImage = ({ imageInfo, imgStyle }) => {
   const { alt = '', childImageSharp } = imageInfo;
 
   if (!!childImageSharp) {
-    return <Img fluid={childImageSharp.fluid} alt={alt} />;
+    return <Img imgStyle={imgStyle} fluid={childImageSharp.fluid} alt={alt} />;
   }
   return null;
 };

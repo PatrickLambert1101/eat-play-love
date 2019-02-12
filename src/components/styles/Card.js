@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Card = styled.div`
   position: relative;
   text-align: center;
-  flex-basis: 48%;
+  flex-basis: 49%;
   margin-bottom: 2%;
   a::after {
     position: absolute;

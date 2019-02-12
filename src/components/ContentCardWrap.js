@@ -10,9 +10,9 @@ const ContentCardWrapStyle = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
   margin: auto;
-  max-width: 1300px;
+  max-width: ${props => props.theme.maxWidth};
   margin-bottom: 30px;
-  @media (max\-width: ${props => props.theme.mobile}) {
+  @media (max-width: ${props => props.theme.mobile}) {
     flex-direction: column;
   }
 `;

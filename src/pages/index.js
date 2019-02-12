@@ -16,7 +16,7 @@ export default class IndexPage extends React.Component {
   render() {
     var settings = {
       infinite: true,
-      slidesToShow: 4,
+      slidesToShow: 5,
       arrows: false,
       autoPlay: true,
       className: 'instafeed',
@@ -119,7 +119,7 @@ IndexPage.propTypes = {
 
 export const pageQuery = graphql`
   query IndexQuery {
-    instas: allInstaNode(limit: 5) {
+    instas: allInstaNode(limit: 8) {
       edges {
         node {
           id

@@ -12,7 +12,7 @@ const theme = {
   lightgrey: '#E1E1E1',
   overlay: '#615f5fa6',
   offWhite: '#EDEDED',
-  maxWidth: '94vw',
+  maxWidth: '1000px',
   bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)',
   goldLight: '#c67927',
   goldDark: '#965711',
@@ -94,7 +94,7 @@ a
  { text-decoration: none; color: inherit}
 
 .navbar {
-  @media (max\-width: ${theme.mobile}) {
+  @media (max-width: ${theme.mobile}) {
     margin-bottom: 1.5rem;
   }
 }

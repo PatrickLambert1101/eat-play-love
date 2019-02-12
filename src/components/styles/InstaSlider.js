@@ -1,14 +1,15 @@
 import styled from 'styled-components';
 
 const InstaSlider = styled.div`
-  max-width: 1400px;
+  max-width: ${props =>
+    parseInt(props.theme.maxWidth.split('px')[0], 10) + 200}px;
   margin: auto;
 
-  @media (max\-width: ${props => props.theme.mobile}) {
+  @media (max-width: ${props => props.theme.mobile}) {
     padding: 0;
   }
   .slick-slide > div {
-    padding: 0.5vw;
+    padding: 20px;
   }
   @media (max-width: ${props => props.theme.mobile}) {
     display: none;
