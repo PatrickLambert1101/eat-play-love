@@ -8,6 +8,10 @@ const InstaSlider = styled.div`
   .slick-slide > div {
     padding: 20px;
   }
+
+  .gatsby-image-wrapper {
+    height: 190px;
+  }
   @media (max-width: ${props => props.theme.desktop}) {
     padding: 10px;
   }
