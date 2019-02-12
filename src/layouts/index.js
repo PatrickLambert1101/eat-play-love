@@ -26,7 +26,8 @@ const theme = {
   georgia: 'Georgia, Arial, Helvetica, sans-serif',
   pink: '#f9decf',
   lightPink: '#ecc2aa',
-  mobile: '800px'
+  mobile: '800px',
+  desktop: '1100px'
 };
 
 const GlobalStyle = createGlobalStyle`

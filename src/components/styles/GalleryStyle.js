@@ -6,11 +6,15 @@ const GalleryStyle = styled.div`
   margin: auto;
   flex-wrap: wrap;
   list-style-type: none;
+  @media (min-width: ${props => props.theme.mobile}) {
+    display: ${props => (props.mobileShow ? 'none' : 'block')};
+  }
+
   & > div {
     .gatsby-image-wrapper {
       height: 290px;
       @media (max-width: ${props => props.theme.mobile}) {
-        height: 100px;
+        height: 200px;
       }
     }
     margin-top: 20px;
@@ -34,7 +38,7 @@ const GalleryStyle = styled.div`
       .gatsby-image-wrapper {
         height: 500px;
         @media (max-width: ${props => props.theme.mobile}) {
-          height: 190px;
+          height: 290px;
         }
       }
       padding-right: 20px;
@@ -47,7 +51,7 @@ const GalleryStyle = styled.div`
       .gatsby-image-wrapper {
         height: 500px;
         @media (max-width: ${props => props.theme.mobile}) {
-          height: 190px;
+          height: 290px;
         }
       }
       flex: 0 0 31.041666667%;

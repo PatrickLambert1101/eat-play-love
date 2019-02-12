@@ -7,6 +7,7 @@ import CardWrapper from '../components/CardWrapper';
 import BannerSlider from '../components/styles/BannerSlider';
 import Footer from '../components/Footer';
 import InstaSlider from '../components/styles/InstaSlider';
+import GalleryImage from '../components/GalleryImage';
 import InstaGallery from '../components/styles/InstaGallery';
 import '../../node_modules/slick-carousel/slick/slick.css';
 import '../../node_modules/slick-carousel/slick/slick-theme.css';
@@ -32,21 +33,11 @@ export default class IndexPage extends React.Component {
         }
       ]
     };
-    var bannerSettingsMobile = {
+    var bannerSettings = {
       infinite: true,
       slidesToShow: 1,
       arrows: false,
       autoPlay: true,
-      className: 'mobile',
-      speed: 500,
-      slidesToScroll: 1
-    };
-    var bannerSettingsDesktop = {
-      infinite: true,
-      slidesToShow: 1,
-      arrows: false,
-      autoPlay: true,
-      className: 'desktop',
       speed: 500,
       slidesToScroll: 1
     };
@@ -55,21 +46,14 @@ export default class IndexPage extends React.Component {
     const { edges: home } = data.home;
     const { edges: instas } = data.instas;
     const { edges: events } = data.events;
+    const instaGallery = instas.map(image => image.node.localFile);
 
     return (
       <React.Fragment>
         {home.map(({ node: house }) => (
           <div key={shortid.generate()}>
             <BannerSlider>
-              <Slider {...bannerSettingsMobile}>
-                {house.frontmatter.slider.map(slide => (
-                  <div key={shortid.generate()}>
-                    <h2>{slide.title}</h2>
-                    <PreviewCompatibleImage imageInfo={slide.sliderimage} />
-                  </div>
-                ))}
-              </Slider>
-              <Slider {...bannerSettingsDesktop}>
+              <Slider {...bannerSettings}>
                 {house.frontmatter.slider.map(slide => (
                   <div key={shortid.generate()}>
                     <h2>{slide.title}</h2>
@@ -94,15 +78,7 @@ export default class IndexPage extends React.Component {
             ))}
           </Slider>
         </InstaSlider>
-        <InstaGallery>
-          {instas.map(({ node: ig }) => (
-            <PreviewCompatibleImage
-              className="insta-image"
-              key={ig.id}
-              imageInfo={ig.localFile}
-            />
-          ))}
-        </InstaGallery>
+        <GalleryImage mobile gallery={instaGallery} />
         <Footer />
       </React.Fragment>
     );
@@ -119,7 +95,7 @@ IndexPage.propTypes = {
 
 export const pageQuery = graphql`
   query IndexQuery {
-    instas: allInstaNode(limit: 8) {
+    instas: allInstaNode(limit: 9) {
       edges {
         node {
           id
@@ -129,7 +105,7 @@ export const pageQuery = graphql`
           timestamp
           localFile {
             childImageSharp {
-              fluid(maxWidth: 267, maxHeight: 267, quality: 50) {
+              fluid(maxWidth: 800, maxHeight: 267, quality: 50) {
                 ...GatsbyImageSharpFluid
               }
             }

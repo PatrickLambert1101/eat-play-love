@@ -16,6 +16,8 @@ export const EventsPostTemplate = ({
   review,
   author
 }) => {
+  const galleryArr = gallery.map(gallery => gallery.galleryimage);
+  console.log('TCL: galleryArr', galleryArr);
   return (
     <div>
       <PageContainer>
@@ -23,9 +25,8 @@ export const EventsPostTemplate = ({
           <h1>{title}</h1>
         </div>
         <HTMLContent content={leadText} />
-        <GalleryImage gallery={gallery} />
+        <GalleryImage gallery={galleryArr} />
         <Review review={review} author={author} />
-
         <ModalButton />
       </PageContainer>
       <SingleSideButton>
