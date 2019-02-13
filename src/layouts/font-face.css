@@ -23,14 +23,16 @@
   font-style: normal;
 }
 @font-face {
-  font-family: 'Georgia';
+  font-family: 'Old Standard TT';
   font-display: fallback;
-  src: url('/../../fonts/Georgia.eot');
-  src: url('/../../fonts/Georgia?#iefix') format('embedded-opentype'),
-    url('/../../fonts/Georgia.woff2') format('woff2'),
-    url('/../../fonts/Georgia.woff') format('woff'),
-    url('/../../fonts/Georgia.ttf') format('truetype'),
-    url('/../../fonts/Georgia.svg#Georgia') format('svg');
+  src: url('/../../fonts/OldStandardTT-Regular.eot');
+  src: url('/../../fonts/OldStandardTT-Regular?#iefix')
+      format('embedded-opentype'),
+    url('/../../fonts/OldStandardTT-Regular.woff2') format('woff2'),
+    url('/../../fonts/OldStandardTT-Regular.woff') format('woff'),
+    url('/../../fonts/OldStandardTT-Regular.ttf') format('truetype'),
+    url('/../../fonts/OldStandardTT-Regular.svg#OldStandardTT-Regular')
+      format('svg');
   font-weight: normal;
   font-style: normal;
 }

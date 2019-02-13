@@ -23,7 +23,7 @@ const theme = {
   darkRed: '#a93a3a',
   greyButton: '#595959',
   grey: '#979797',
-  georgia: 'Georgia, Arial, Helvetica, sans-serif',
+  georgia: 'Old Standard TT, Arial, Helvetica, sans-serif',
   pink: '#f9decf',
   lightPink: '#ecc2aa',
   mobile: '800px',
@@ -74,7 +74,7 @@ h4
   {color: ${theme.goldLight};
   font-weight: 100;
   font-size: 21px;
-  line-height: 31px;
+  line-height: 26px;
   margin-top: 10px;
   text-decoration: none;
   font-family: ${theme.georgia};
@@ -90,7 +90,7 @@ h5
 p, li
  { font-family: ${theme.georgia};
   font-size: 16px;
-  line-height: 27px;
+  line-height: 20px;
 }
 a
  { text-decoration: none; color: inherit}
@@ -121,17 +121,17 @@ a
     color: ${theme.lightBrown};
     opacity: 1;
     font-weight: bold;
-    font-family: 'Georgia', Arial, Helvetica, sans-serif;
+    font-family: 'Old Standard TT', Arial, Helvetica, sans-serif;
   }
   &:-ms-input-placeholder {
     color: ${theme.lightBrown};
     font-weight: bold;
-    font-family: 'Georgia', Arial, Helvetica, sans-serif;
+    font-family: 'Old Standard TT', Arial, Helvetica, sans-serif;
   }
   &::-ms-input-placeholder {
     color: ${theme.lightBrown};
     font-weight: bold;
-    font-family: 'Georgia', Arial, Helvetica, sans-serif;
+    font-family: 'Old Standard TT', Arial, Helvetica, sans-serif;
   }
 
 `;

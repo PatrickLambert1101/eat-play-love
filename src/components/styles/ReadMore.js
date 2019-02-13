@@ -22,7 +22,7 @@ const ReadMore = styled.div`
   }
   &.large {
     font-weight: bold;
-    font-family: 'Georgia', Arial, Helvetica, sans-serif;
+    font-family: 'Old Standard TT', Arial, Helvetica, sans-serif;
     font-size: 28px;
     padding: 8px 22px;
     color: ${props => props.theme.brown};
