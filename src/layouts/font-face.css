@@ -23,15 +23,15 @@
   font-style: normal;
 }
 @font-face {
-  font-family: 'Old Standard TT';
+  font-family: 'Cormorant Garamond';
   font-display: fallback;
-  src: url('/../../fonts/OldStandardTT-Regular.eot');
-  src: url('/../../fonts/OldStandardTT-Regular?#iefix')
+  src: url('/../../fonts/CormorantGaramond-Regular.eot');
+  src: url('/../../fonts/CormorantGaramond-Regular?#iefix')
       format('embedded-opentype'),
-    url('/../../fonts/OldStandardTT-Regular.woff2') format('woff2'),
-    url('/../../fonts/OldStandardTT-Regular.woff') format('woff'),
-    url('/../../fonts/OldStandardTT-Regular.ttf') format('truetype'),
-    url('/../../fonts/OldStandardTT-Regular.svg#OldStandardTT-Regular')
+    url('/../../fonts/CormorantGaramond-Regular.woff2') format('woff2'),
+    url('/../../fonts/CormorantGaramond-Regular.woff') format('woff'),
+    url('/../../fonts/CormorantGaramond-Regular.ttf') format('truetype'),
+    url('/../../fonts/CormorantGaramond-Regular.svg#CormorantGaramond-Regular')
       format('svg');
   font-weight: normal;
   font-style: normal;
