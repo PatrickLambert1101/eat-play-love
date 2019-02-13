@@ -89,6 +89,8 @@ const Form = styled.form`
   }
   textarea {
     height: 150px;
+    padding-top: 16px;
+    margin-bottom: 11px;
   }
   .group {
     width: 100%;
@@ -112,6 +114,9 @@ const Form = styled.form`
   .flex {
     justify-content: space-between;
     display: flex;
+    @media (max-width: ${props => props.theme.mobile}) {
+      flex-direction: column;
+    }
   }
 `;
 
