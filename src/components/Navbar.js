@@ -4,6 +4,7 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 import NavbarBrand from './styles/NavbarBrand';
 import NavLinks from './styles/NavLinks';
+import HamburgerMenu from './HamburgerMenu';
 import NavButton from './styles/NavButton';
 import menu from '../img/menu.svg';
 
@@ -64,11 +65,13 @@ export default class Navbar extends React.Component {
             aria-expanded="false"
             aria-controls="menu-list"
           >
-            <img
-              src={menu}
-              onClick={this.toggleMenu}
-              style={{ width: '100px' }}
-              alt="menu"
+            <HamburgerMenu
+              isOpen={this.state.isToggle}
+              menuClicked={this.toggleMenu.bind(this)}
+              color={'#c58021'}
+              width={55}
+              strokeWidth={2}
+              height={30}
             />
           </NavButton>
         </NavbarBrand>

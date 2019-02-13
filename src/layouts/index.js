@@ -44,6 +44,8 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
   }
+button:focus { outline: none; }
+
 
 h1{
   font-size: 3.5rem;
@@ -91,6 +93,10 @@ p, li
  { font-family: ${theme.georgia};
   font-size: 16px;
   line-height: 20px;
+}
+
+li{
+  list-style:none;
 }
 a
  { text-decoration: none; color: inherit}

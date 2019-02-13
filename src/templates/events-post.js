@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
-import SingleSideButton from '../components/styles/SingleSideButton';
+import SingleSideButton from '../components/SingleSideButton';
 import GalleryImage from '../components/GalleryImage';
 import ModalButton from '../components/ModalButton';
 import Review from '../components/Review';
@@ -17,7 +17,6 @@ export const EventsPostTemplate = ({
   author
 }) => {
   const galleryArr = gallery.map(gallery => gallery.galleryimage);
-  console.log('TCL: galleryArr', galleryArr);
   return (
     <div>
       <PageContainer>
@@ -29,11 +28,7 @@ export const EventsPostTemplate = ({
         <Review review={review} author={author} />
         <ModalButton />
       </PageContainer>
-      <SingleSideButton>
-        <Link to={'/events'}>
-          <h4>Back to events</h4>
-        </Link>
-      </SingleSideButton>
+      <SingleSideButton to={'/events'} text={'Back to events'} />
       <Footer />
     </div>
   );

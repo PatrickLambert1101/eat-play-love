@@ -6,7 +6,7 @@ import ModalButton from '../components/ModalButton';
 import GalleryImage from '../components/GalleryImage';
 import Review from '../components/Review';
 import Content, { HTMLContent } from '../components/Content';
-import SingleSideButton from '../components/styles/SingleSideButton';
+import SingleSideButton from '../components/SingleSideButton';
 import PageContainer from '../components/styles/PageContainer';
 import Footer from '../components/Footer';
 
@@ -34,11 +34,7 @@ export const RetreatsPostTemplate = ({
         <GalleryImage gallery={gallery} />
         <Review review={review} author={author} />
       </PageContainer>
-      <SingleSideButton>
-        <Link to={'/retreats'}>
-          <h4>Back to retreats</h4>
-        </Link>
-      </SingleSideButton>
+      <SingleSideButton to={'/retreats'} text={'Back to retreats'} />
       <Footer />
     </div>
   );

@@ -11,7 +11,6 @@ const NavButton = styled.button`
   }
   @media (max-width: ${props => props.theme.mobile}) {
     margin-right: 15px;
-    margin-top: 15px;
   }
   img {
     max-width: 55px;

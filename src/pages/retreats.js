@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import ContentCardWrap from '../components/ContentCardWrap';
-import Button from '../components/Button';
 import PageContainer from '../components/styles/PageContainer';
 import Footer from '../components/Footer';
 import { HTMLContent } from '../components/Content';
+import SingleSideButton from '../components/SingleSideButton';
 
 export default class RetreatsPage extends React.Component {
   render() {
@@ -22,9 +22,17 @@ export default class RetreatsPage extends React.Component {
           <HTMLContent content={retreatsPageData.html} />
           <ContentCardWrap content={retreats} />
         </PageContainer>
-        <Link to={'/contact'}>
-          <Button text={'Contact us for more info'} align={'flex-end'} />
-        </Link>
+        <SingleSideButton
+          to={'/past-retreats'}
+          text={'View past retreats'}
+          align={'flex-start'}
+        />
+        <SingleSideButton
+          secondSideButton
+          to={'/contact'}
+          text={'Contact us for more info'}
+          align={'flex-end'}
+        />
         <Footer />
       </div>
     );
