@@ -15,9 +15,6 @@ const InstaSlider = styled.div`
   @media (max-width: ${props => props.theme.desktop}) {
     padding: 10px;
   }
-  @media (max-width: ${props => props.theme.mobile}) {
-    display: none;
-  }
 `;
 
 export default InstaSlider;

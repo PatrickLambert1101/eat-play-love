@@ -6,7 +6,7 @@ var shortid = require('shortid');
 class GalleryImage extends React.Component {
   render() {
     return (
-      <GalleryStyle mobileShow={this.props.mobile}>
+      <GalleryStyle>
         {this.props.gallery.map((image, i) => (
           <div key={shortid.generate()}>
             <PreviewCompatibleImage imageInfo={image} />
