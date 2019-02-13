@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import PreviewCompatibleImage from './PreviewCompatibleImage';
-import ReadMore from './styles/ReadMore';
+import ReadMore from './ReadMore';
 import styled from 'styled-components';
 var shortid = require('shortid');
 
@@ -55,7 +55,7 @@ class ContentCardWrap extends React.Component {
               <p>{item.node.frontmatter.date}</p>
               <PreviewCompatibleImage imageInfo={item.node.frontmatter.image} />
               <h5>{item.node.frontmatter.excerpt}</h5>
-              <ReadMore>Read more</ReadMore>
+              <ReadMore text={'MORE'} />
             </Link>
           </ContentCard>
         ))}

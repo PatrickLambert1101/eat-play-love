@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactModal from 'react-modal';
 import styled from 'styled-components';
-import ReadMore from './styles/ReadMore';
+import ReadMore from './ReadMore';
 import ContactForm from './ContactForm';
 
 const Close = styled.div`
@@ -61,10 +61,8 @@ class ModalButton extends React.Component {
   render() {
     return (
       <div>
-        <CenterButton>
-          <ReadMore onClick={this.handleOpenModal}>
-            <h4>Book Now</h4>
-          </ReadMore>
+        <CenterButton onClick={this.handleOpenModal}>
+          <ReadMore text={'Book'} />
         </CenterButton>
         <ReactModal
           closeTimeoutMS={200}

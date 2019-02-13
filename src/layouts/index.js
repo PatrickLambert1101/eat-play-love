@@ -11,7 +11,7 @@ const theme = {
   black: '#393939',
   lightgrey: '#E1E1E1',
   overlay: '#615f5fa6',
-  offWhite: '#EDEDED',
+  offWhite: '#fdf6f2',
   maxWidth: '1000px',
   bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)',
   goldLight: '#c67927',

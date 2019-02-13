@@ -95,6 +95,8 @@ const Form = styled.form`
   .group {
     width: 100%;
     position: relative;
+  }
+  .flex .group {
     &:first-child {
       margin-right: 10px;
     }
