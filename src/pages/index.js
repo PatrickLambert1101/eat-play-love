@@ -23,9 +23,9 @@ export default class IndexPage extends React.Component {
       slidesToScroll: 1,
       responsive: [
         {
-          breakpoint: 480,
+          breakpoint: 800,
           settings: {
-            slidesToShow: 2,
+            slidesToShow: 3,
             dots: false
           }
         }
@@ -102,7 +102,7 @@ export const pageQuery = graphql`
           timestamp
           localFile {
             childImageSharp {
-              fluid(maxWidth: 800, maxHeight: 267, quality: 50) {
+              fluid(maxWidth: 267, maxHeight: 267, quality: 50) {
                 ...GatsbyImageSharpFluid
               }
             }
