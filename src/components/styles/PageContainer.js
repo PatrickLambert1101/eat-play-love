@@ -21,11 +21,6 @@ const PageContainer = styled.div`
     text-align: center;
     padding: 15px;
   }
-
-  @media (max-width: ${props => props.theme.mobile}) {
-    margin-left: 15px;
-    margin-right: 15px;
-  }
 `;
 
 export default PageContainer;

@@ -8,7 +8,6 @@ import BannerSlider from '../components/styles/BannerSlider';
 import Footer from '../components/Footer';
 import InstaSlider from '../components/styles/InstaSlider';
 import GalleryImage from '../components/GalleryImage';
-import InstaGallery from '../components/styles/InstaGallery';
 import '../../node_modules/slick-carousel/slick/slick.css';
 import '../../node_modules/slick-carousel/slick/slick-theme.css';
 var shortid = require('shortid');

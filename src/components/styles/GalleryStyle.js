@@ -9,6 +9,9 @@ const GalleryStyle = styled.div`
   @media (min-width: ${props => props.theme.mobile}) {
     display: ${props => (props.mobileShow ? 'none' : 'block')};
   }
+  @media (max-width: ${props => props.theme.mobile}) {
+    padding: 0 15px;
+  }
 
   & > div {
     .gatsby-image-wrapper {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import PreviewCompatibleImage from './PreviewCompatibleImage';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 const imgStyles = { objectFit: 'contain' };
 
 const FootLogo = () => (
@@ -18,7 +19,9 @@ const FootLogo = () => (
       }
     `}
     render={data => (
-      <PreviewCompatibleImage imgStyle={imgStyles} imageInfo={data.file} />
+      <AniLink fade to="/" className="navbar-item">
+        <PreviewCompatibleImage imgStyle={imgStyles} imageInfo={data.file} />
+      </AniLink>
     )}
   />
 );
