@@ -46,7 +46,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
 h1{
-  font-size: 3.8rem;
+  font-size: 3.5rem;
   color: ${theme.goldLight};
   text-align: center;
   margin-bottom: 2rem;
@@ -55,7 +55,7 @@ h1{
   font-family: 'RV', Arial, Helvetica, sans-serif;
 }
 h2
-{font-size: 3.5rem;
+{font-size: 3.2rem;
   font-weight: 100;
   color: ${theme.goldLight};
   font-family: ${theme.georgia};
@@ -64,7 +64,7 @@ h2
   text-align: center;}
 
 h3
- { font-size: 2.6rem;
+ { font-size: 2.3rem;
   font-weight: 100;
   color: ${theme.goldLight};
   font-family: ${theme.georgia};
@@ -73,7 +73,7 @@ h3
 h4
   {color: ${theme.goldLight};
   font-weight: 100;
-  font-size: 24px;
+  font-size: 21px;
   line-height: 31px;
   margin-top: 10px;
   text-decoration: none;
@@ -82,14 +82,14 @@ h4
 h5
 {  color: ${theme.goldLight};
   font-weight: 100;
-  font-size: 18px;
+  font-size: 17px;
   margin-top: -20px;
   text-decoration: none;
   font-family: ${theme.georgia};
 }
 p, li
  { font-family: ${theme.georgia};
-  font-size: 18px;
+  font-size: 16px;
   line-height: 27px;
 }
 a
