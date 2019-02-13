@@ -49,33 +49,48 @@ class ContactForm extends React.Component {
           <input name="bot-field" onChange={this.handleChange} />
         </div>
         <div className={this.props.singleColumn ? 'single-column' : 'flex'}>
-          <input
-            className="input"
-            type={'text'}
-            name={'name'}
-            placeholder={'Name'}
-            onChange={this.handleChange}
-            id={'name'}
-            required={true}
-          />
-          <input
-            className="input"
-            type={'email'}
-            placeholder={'Email'}
-            name={'email'}
-            onChange={this.handleChange}
-            id={'email'}
-            required={true}
-          />
+          <div className="group">
+            <input
+              className="input"
+              type={'text'}
+              name={'name'}
+              placeholder={'Name'}
+              onChange={this.handleChange}
+              id={'name'}
+              required={true}
+            />
+            <span className="highlight" />
+            <span className="bar" />
+            <label>Name</label>
+          </div>
+          <div className="group">
+            <input
+              className="input"
+              type={'email'}
+              placeholder={'Email'}
+              name={'email'}
+              onChange={this.handleChange}
+              id={'email'}
+              required={true}
+            />
+            <span className="highlight" />
+            <span className="bar" />
+            <label>Email</label>
+          </div>
         </div>
-        <textarea
-          className="textarea"
-          name={'message'}
-          placeholder={'Message'}
-          onChange={this.handleChange}
-          id={'message'}
-          required={true}
-        />
+        <div className="group">
+          <textarea
+            className="textarea"
+            name={'message'}
+            placeholder={'Message'}
+            onChange={this.handleChange}
+            id={'message'}
+            required={true}
+          />
+          <span className="highlight" />
+          <span className="bar" />
+          <label>Message</label>
+        </div>
         <Button
           text={'Send'}
           align={'center'}
