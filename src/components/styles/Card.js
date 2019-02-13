@@ -3,18 +3,34 @@ import styled from 'styled-components';
 const Card = styled.div`
   position: relative;
   text-align: center;
-  flex-basis: 49%;
-  margin-bottom: 2%;
+  flex-basis: 50%;
+  margin-bottom: 40px;
   a::after {
     position: absolute;
     content: '';
     left: 0;
     top: 0;
+    right: 0;
     height: 100%;
-    width: 100%;
     background-color: ${props => props.theme.overlay};
     z-index: 1;
     transition: opacity 1s ease;
+  }
+  @media screen and (min-width: ${props => props.theme.mobile}) {
+    &:nth-child(2n + 1) {
+      padding-right: 20px;
+      a::after {
+        left: 0;
+        right: 20px;
+      }
+    }
+    &:nth-child(2n) {
+      padding-left: 20px;
+      a::after {
+        left: 20px;
+        right: 0;
+      }
+    }
   }
   a:hover::after {
     opacity: 0.6;

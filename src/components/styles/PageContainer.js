@@ -2,8 +2,11 @@ import styled from 'styled-components';
 
 const PageContainer = styled.div`
   max-width: ${props => (props.form ? '800px' : props.theme.maxWidth)};
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 40px;
+  padding-right: 40px;
+  @media (max-width: ${props => props.theme.mobile}) {
+    padding: 0 15px;
+  }
   margin: auto;
   text-align: center;
   .lead {
