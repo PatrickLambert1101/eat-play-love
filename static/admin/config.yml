@@ -28,6 +28,33 @@ collections:
         fields:
           - { label: 'Gallery Image', name: 'galleryimage', widget: 'image' }
 
+  - name: 'events-type'
+    label: 'Events Type'
+    folder: 'src/pages/events-type'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - {
+          label: 'Template Key',
+          name: 'templateKey',
+          widget: 'hidden',
+          default: 'events-type',
+        }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Leadtext', name: 'leadtext', widget: 'string' }
+      - { label: 'Image', name: 'image', widget: 'image' }
+      - { label: 'Review', name: 'review', widget: 'string' }
+      - { label: 'Author', name: 'author', widget: 'text' }
+      - label: 'Single'
+        name: 'single'
+        widget: 'list'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'text' }
+          - { label: 'Subtitle', name: 'subtitle', widget: 'text' }
+          - { label: 'Image', name: 'image', widget: 'image' }
+          - { label: 'Text', name: 'text', widget: 'text' }
+
+
   - name: 'retreats'
     label: 'Retreats'
     folder: 'src/pages/retreats'
@@ -67,6 +94,7 @@ collections:
           default: 'home-post',
         }
       - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Quote', name: 'quote', widget: 'string' }
       - label: 'Slider'
         name: 'slider'
         widget: 'list'

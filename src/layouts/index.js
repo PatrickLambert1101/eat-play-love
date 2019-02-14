@@ -48,16 +48,16 @@ button:focus { outline: none; }
 
 
 h1{
-  font-size: 3.5rem;
+  font-size: 3rem;
   color: ${theme.goldLight};
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: .5rem;
   margin-top: 5px;
   font-weight: 100;
   font-family: 'RV', Arial, Helvetica, sans-serif;
 }
 h2
-{font-size: 3.2rem;
+{font-size: 2.7rem;
   font-weight: 100;
   color: ${theme.goldLight};
   font-family: ${theme.georgia};
@@ -93,6 +93,7 @@ p, li
  { font-family: ${theme.georgia};
   font-size: 16px;
   line-height: 20px;
+  text-indent:0;
 }
 
 li{

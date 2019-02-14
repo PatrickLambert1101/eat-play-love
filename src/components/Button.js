@@ -37,6 +37,16 @@ const ButtonStyle = styled.button`
       props.brown ? props.theme.goldLight : props.theme.goldLight};
     color: #fff;
   }
+  &:active {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    &:before {
+      background-color: ${props => props.theme.offWhite};
+    }
+    &:after {
+      border-color: ${props => props.theme.offWhite};
+    }
+  }
 `;
 
 export default class Button extends React.Component {

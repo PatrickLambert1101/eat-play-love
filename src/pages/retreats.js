@@ -5,7 +5,7 @@ import ContentCardWrap from '../components/ContentCardWrap';
 import PageContainer from '../components/styles/PageContainer';
 import Footer from '../components/Footer';
 import { HTMLContent } from '../components/Content';
-import SingleSideButton from '../components/SingleSideButton';
+import ReadMore from '../components/ReadMore';
 
 export default class RetreatsPage extends React.Component {
   render() {
@@ -19,19 +19,13 @@ export default class RetreatsPage extends React.Component {
           <div className="lead">
             <h1>{retreatsPageData.frontmatter.title}</h1>
           </div>
-          <HTMLContent content={retreatsPageData.html} />
+          <HTMLContent className="body-text" content={retreatsPageData.html} />
           <ContentCardWrap content={retreats} />
         </PageContainer>
-        <SingleSideButton
+        <ReadMore
           to={'/past-retreats'}
-          text={'View past retreats'}
+          text={'past retreats'}
           align={'flex-start'}
-        />
-        <SingleSideButton
-          secondSideButton
-          to={'/contact'}
-          text={'Contact us for more info'}
-          align={'flex-end'}
         />
         <Footer />
       </div>

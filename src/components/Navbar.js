@@ -6,7 +6,6 @@ import NavbarBrand from './styles/NavbarBrand';
 import NavLinks from './styles/NavLinks';
 import HamburgerMenu from './HamburgerMenu';
 import NavButton from './styles/NavButton';
-import menu from '../img/menu.svg';
 
 export default class Navbar extends React.Component {
   constructor(props) {
@@ -57,7 +56,7 @@ export default class Navbar extends React.Component {
     return (
       <nav>
         <NavbarBrand>
-          <AniLink fade to="/" className="navbar-item">
+          <AniLink fade duration={0.5} to="/" className="navbar-item">
             <HeadLogo alt="Eat Play Love Logo" onClick={this.toggleMenu} />
           </AniLink>
           <NavButton
@@ -76,19 +75,19 @@ export default class Navbar extends React.Component {
           </NavButton>
         </NavbarBrand>
         <NavLinks className={menuClassName}>
-          <AniLink activeClassName="active" fade to="/">
+          <AniLink activeClassName="active" fade duration={0.5} to="/">
             <div onClick={this.toggleMenu}>HOME</div>
           </AniLink>
-          <AniLink activeClassName="active" fade to="/events">
+          <AniLink activeClassName="active" fade duration={0.5} to="/events">
             <div onClick={this.toggleMenu}>EVENTS</div>
           </AniLink>
-          <AniLink activeClassName="active" fade to="/retreats">
+          <AniLink activeClassName="active" fade duration={0.5} to="/retreats">
             <div onClick={this.toggleMenu}> RETREATS</div>
           </AniLink>
-          <AniLink activeClassName="active" fade to="/about">
+          <AniLink activeClassName="active" fade duration={0.5} to="/about">
             <div onClick={this.toggleMenu}>ABOUT US</div>
           </AniLink>
-          <AniLink activeClassName="active" fade to="/contact">
+          <AniLink activeClassName="active" fade duration={0.5} to="/contact">
             <div onClick={this.toggleMenu}>CONTACT</div>
           </AniLink>
         </NavLinks>

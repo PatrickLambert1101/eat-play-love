@@ -25,7 +25,7 @@ export default class EventsPage extends React.Component {
               </div>
               <HTMLContent className="body-text" content={page.node.html} />
             </PageContainer>
-            <CardWrapper baseUrl={'events'} data={events} />
+            <CardWrapper baseUrl={'events-type'} data={events} />
             <Review
               review={page.node.frontmatter.review}
               author={page.node.frontmatter.author}
@@ -64,7 +64,7 @@ export const pageQuery = graphql`
       }
     }
     events: allMarkdownRemark(
-      filter: { frontmatter: { templateKey: { eq: "events-post" } } }
+      filter: { frontmatter: { templateKey: { eq: "events-type" } } }
     ) {
       edges {
         node {

@@ -1,7 +1,33 @@
 import React from 'react';
 import Form from './styles/Form.js';
-import Button from './Button.js';
+import Btn from './styles/Btn.js';
+import ReadMore from './ReadMore.js';
 import { navigateTo } from 'gatsby-link';
+import Select from 'react-select';
+import styled from 'styled-components';
+
+const SelectSingle = styled(Select)`
+  outline: none;
+  > div {
+    border: 1px solid ${props => props.theme.goldLight};
+    &:hover {
+      border: 1px solid ${props => props.theme.goldLight};
+    }
+    border-radius: 0;
+    outline: none;
+    color: ${props => props.theme.lightBrown};
+    font-weight: normal;
+    font-size: 22px;
+    margin-bottom: 14px;
+    & > div > div {
+      color: ${props => props.theme.lightBrown};
+    }
+  }
+`;
+const options = [
+  { value: 'retreats', label: 'Retreats' },
+  { value: 'events', label: 'Events' }
+];
 
 function encode(data) {
   return Object.keys(data)
@@ -79,6 +105,9 @@ class ContactForm extends React.Component {
           </div>
         </div>
         <div className="group">
+          <SelectSingle options={options} />
+        </div>
+        <div className="group">
           <textarea
             className="textarea"
             name={'message'}
@@ -91,13 +120,9 @@ class ContactForm extends React.Component {
           <span className="bar" />
           <label>Message</label>
         </div>
-        <Button
-          text={'Send'}
-          align={'center'}
-          type="submit"
-          brown
-          fullWidth={this.props.singleColumn}
-        />
+        <Btn type="submit">
+          <ReadMore text={'Send'} align={'center'} />
+        </Btn>
       </Form>
     );
   }

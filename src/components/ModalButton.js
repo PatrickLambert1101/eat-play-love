@@ -62,7 +62,7 @@ class ModalButton extends React.Component {
     return (
       <div>
         <CenterButton onClick={this.handleOpenModal}>
-          <ReadMore text={'Book'} />
+          <ReadMore text={'BOOK'} />
         </CenterButton>
         <ReactModal
           closeTimeoutMS={200}

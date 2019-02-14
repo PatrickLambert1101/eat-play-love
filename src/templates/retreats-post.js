@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import ModalButton from '../components/ModalButton';
 import GalleryImage from '../components/GalleryImage';
 import Review from '../components/Review';
 import Content, { HTMLContent } from '../components/Content';
-import SingleSideButton from '../components/SingleSideButton';
+import ReadMore from '../components/ReadMore';
 import PageContainer from '../components/styles/PageContainer';
 import Footer from '../components/Footer';
 
@@ -19,6 +19,9 @@ export const RetreatsPostTemplate = ({
   author,
   contentComponent
 }) => {
+  const galleryArr = gallery.map(gallery => gallery.galleryimage);
+  console.log('TCL: galleryArr', galleryArr);
+
   const PageContent = contentComponent || Content;
   return (
     <div>
@@ -31,10 +34,14 @@ export const RetreatsPostTemplate = ({
         <PreviewCompatibleImage imageInfo={image} />
         <PageContent content={content} className="body-text" />
         <ModalButton />
-        <GalleryImage gallery={gallery} />
+        <GalleryImage gallery={galleryArr} />
         <Review review={review} author={author} />
       </PageContainer>
-      <SingleSideButton to={'/retreats'} text={'Back to retreats'} />
+      <ReadMore
+        to={'/retreats'}
+        text={'Back to retreats'}
+        align={'flex-start'}
+      />
       <Footer />
     </div>
   );

@@ -7,10 +7,14 @@ import CardWrapper from '../components/CardWrapper';
 import BannerSlider from '../components/styles/BannerSlider';
 import Footer from '../components/Footer';
 import InstaSlider from '../components/styles/InstaSlider';
+import styled from 'styled-components';
 import '../../node_modules/slick-carousel/slick/slick.css';
 import '../../node_modules/slick-carousel/slick/slick-theme.css';
 var shortid = require('shortid');
 
+const Quote = styled.h3`
+  font-style: italic;
+`;
 export default class IndexPage extends React.Component {
   render() {
     var settings = {
@@ -44,7 +48,6 @@ export default class IndexPage extends React.Component {
     const { edges: home } = data.home;
     const { edges: instas } = data.instas;
     const { edges: events } = data.events;
-    const instaGallery = instas.map(image => image.node.localFile);
 
     return (
       <React.Fragment>
@@ -60,6 +63,7 @@ export default class IndexPage extends React.Component {
                 ))}
               </Slider>
             </BannerSlider>
+            <Quote>“{house.frontmatter.quote}”</Quote>
             <h2>Recent Events</h2>
             <CardWrapper baseUrl={'events'} data={events} />
           </div>
@@ -143,6 +147,7 @@ export const pageQuery = graphql`
       edges {
         node {
           frontmatter {
+            quote
             slider {
               sliderimage {
                 id

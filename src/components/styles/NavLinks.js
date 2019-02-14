@@ -4,7 +4,7 @@ const NavLinks = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: ${props => props.theme.containerWidth};
+  max-width: ${props => props.theme.maxWidth};
   margin: 0 auto 35px;
   height: auto;
   opacity: 1;

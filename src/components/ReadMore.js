@@ -3,12 +3,15 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const ReadMoreStyle = styled.div`
+  margin-top: ${props => (props.secondBtn ? '50px' : '10px')};
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
 
   span {
     color: #333;
+    justify-content: center;
     transition: 0.3s all ease;
     &:hover {
       color: ${props => props.theme.lightPink};
@@ -19,9 +22,11 @@ const ReadMoreStyle = styled.div`
     &:active {
       color: #fff;
     }
-    width: 70px;
-    height: 70px;
-    line-height: 70px;
+    font-size: 0.85em;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -71,7 +76,7 @@ const ReadMoreStyle = styled.div`
 export default class ReadMore extends Component {
   render() {
     return (
-      <ReadMoreStyle>
+      <ReadMoreStyle secondBtn={this.props.secondBtn}>
         <span>{this.props.text}</span>
       </ReadMoreStyle>
     );

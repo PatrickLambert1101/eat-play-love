@@ -11,7 +11,7 @@ const PageContainer = styled.div`
   text-align: center;
   .lead {
     margin-top: 2.5em;
-    margin-bottom: 4em;
+    margin-bottom: 0.3em;
     p,
     .content {
       margin-top: 1.5em;

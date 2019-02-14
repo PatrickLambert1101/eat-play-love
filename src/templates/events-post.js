@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
-import SingleSideButton from '../components/SingleSideButton';
+import ReadMore from '../components/ReadMore';
 import GalleryImage from '../components/GalleryImage';
 import ModalButton from '../components/ModalButton';
 import Review from '../components/Review';
@@ -28,7 +28,14 @@ export const EventsPostTemplate = ({
         <Review review={review} author={author} />
         <ModalButton />
       </PageContainer>
-      <SingleSideButton to={'/events'} text={'Back to events'} />
+      <Link to={'/events'}>
+        <ReadMore
+          secondBtn
+          to={'/events'}
+          align={'flex-start'}
+          text={'BACK TO EVENTS'}
+        />
+      </Link>
       <Footer />
     </div>
   );

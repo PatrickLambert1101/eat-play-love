@@ -19,33 +19,33 @@ const FooterWrap = styled.footer`
   display: flex;
   justify-content: space-around;
   margin: auto;
-  max-width: 800px;
+  max-width: 600px;
   margin-bottom: 60px;
   align-items: center;
   @media (max-width: ${props => props.theme.mobile}) {
     flex-direction: column;
     img {
-      max-width: 220px;
+      max-width: 100px;
     }
   }
 `;
 const Social = styled.div`
   display: flex;
-
+  margin-top: 15px;
   justify-content: space-around;
   width: 100%;
 `;
 const SocialLogo = styled.img`
-  height: 40px;
+  height: 25px;
   flex: 3;
   @media (max-width: ${props => props.theme.mobile}) {
-    height: 50px;
+    height: 20px;
   }
 `;
 const SocialWrapper = styled.div`
-  h3 {
-    font-size: 2.2em;
-    margin-top: -20px;
+  h2,
+  h5 {
+    margin: 0;
   }
   @media (max-width: ${props => props.theme.mobile}) {
     width: 100%;
@@ -54,6 +54,7 @@ const SocialWrapper = styled.div`
 
 const FooterLogo = styled.div`
   flex: 4;
+  max-width: 200px;
   .gatsby-image-wrapper {
     img {
       object-fit: contain;
@@ -102,8 +103,8 @@ export default class Footer extends React.Component {
           <FootLogo />
         </FooterLogo>
         <SocialWrapper>
-          <h1>Follow us</h1>
-          <h3>Get all the latest updates</h3>
+          <h2>Follow us</h2>
+          <h5>Get all the latest updates</h5>
           <Social>
             <a
               rel="noreferrer noopener"
