@@ -59,11 +59,7 @@ export default class Navbar extends React.Component {
           <AniLink fade duration={0.5} to="/" className="navbar-item">
             <HeadLogo alt="Eat Play Love Logo" onClick={this.toggleMenu} />
           </AniLink>
-          <NavButton
-            type="button"
-            aria-expanded="false"
-            aria-controls="menu-list"
-          >
+          <NavButton type="button" aria-expanded="false">
             <HamburgerMenu
               isOpen={this.state.isToggle}
               menuClicked={this.toggleMenu.bind(this)}

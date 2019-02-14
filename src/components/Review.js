@@ -6,7 +6,7 @@ const ReviewStyle = styled.div`
   color: ${props => props.theme.textBrown};
   font-style: italic;
   font-weight: 600;
-  margin-bottom: 3em;
+  margin-bottom: 1.5em;
   margin-top: 2em;
   text-align: left;
   span {

@@ -23,7 +23,7 @@ const theme = {
   darkRed: '#a93a3a',
   greyButton: '#595959',
   grey: '#979797',
-  georgia: 'Cormorant Garamond, Arial, Helvetica, sans-serif',
+  georgia: 'Gilda, Arial, Helvetica, sans-serif',
   pink: '#f9decf',
   lightPink: '#ecc2aa',
   mobile: '800px',
@@ -75,7 +75,7 @@ h3
 h4
   {color: ${theme.goldLight};
   font-weight: 100;
-  font-size: 21px;
+  font-size: 19px;
   line-height: 26px;
   margin-top: 10px;
   text-decoration: none;
@@ -129,17 +129,17 @@ a
     color: ${theme.lightBrown};
     opacity: 1;
     font-weight: bold;
-    font-family: 'Cormorant Garamond', Arial, Helvetica, sans-serif;
+    font-family: 'Gilda', Arial, Helvetica, sans-serif;
   }
   &:-ms-input-placeholder {
     color: ${theme.lightBrown};
     font-weight: bold;
-    font-family: 'Cormorant Garamond', Arial, Helvetica, sans-serif;
+    font-family: 'Gilda', Arial, Helvetica, sans-serif;
   }
   &::-ms-input-placeholder {
     color: ${theme.lightBrown};
     font-weight: bold;
-    font-family: 'Cormorant Garamond', Arial, Helvetica, sans-serif;
+    font-family: 'Gilda', Arial, Helvetica, sans-serif;
   }
 
 `;

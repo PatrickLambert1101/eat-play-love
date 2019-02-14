@@ -4,18 +4,17 @@ title: Events
 review: >-
     My weekend at the farm was nothing short of amazing. It came at the perfect time in my life when I was feeling rather depleted. Carly’s hospitality was incredible, she whips up the most amazing vegan meals that keep you on top of the world. The retreat is beautiful and the time spent with wonderful women allowed me to step into my power and break down trust barriers. Highly recommend for anyone needing relaxation and a bit of a reset. PS: the yoga and massages were also incredible! There’s too much to mention...... Just Go! It’ll be good for you
 author: Sharné Manicom, September 2017 Wellness Yoga Retreat
-image: /img/events15.jpg
+image: /img/events10.jpg
 features:
-  - title: Nam id porta vehicula consequat velit
-  - title: Nam id porta vehicula consequat velit
-  - title: Nam id porta vehicula consequat velit
-  - title: Nam id porta vehicula consequat velit
-  - title: Nam id porta vehicula consequat velit
-  - title: Nam id porta vehicula consequat velit
-  - title: Nam id porta vehicula consequat velit
-  - title: Nam id porta vehicula consequat velit
-  - title: Nam id porta vehicula consequat velit
-  - title: Nam id porta vehicula consequat velit
+  - title: Nam id porta
+  - title: Nam id porta
+  - title: Nam id porta
+  - title: Nam id porta
+  - title: Nam id porta
+  - title: Nam id porta
+  - title: Nam id porta
+  - title: Nam id porta
+  - title: Nam id porta
 ---
 ####We run and create one of a kind events and experiences with a focus on custom design and unique experiences. All our props and decor items are individually sourced and made to create a unique and unforgettable experience. We work in partnership with The Souk Events (link) and various prop houses to create the look of your dreams. (styling & design)
 
