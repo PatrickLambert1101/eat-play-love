@@ -16,7 +16,7 @@ const Trans = posed.div({
   visible: {
     y: 0,
     opacity: 1,
-    delay: 50,
+    delay: 200,
     transition: {
       y: { type: 'spring', stiffness: 100, damping: 15 },
       default: { duration: 230 }
