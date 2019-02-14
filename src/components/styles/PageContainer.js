@@ -9,6 +9,12 @@ const PageContainer = styled.div`
   }
   margin: auto;
   text-align: center;
+  h4 {
+    margin-top: 25px;
+  }
+  h4:first-child {
+    margin-top: 10px;
+  }
   .lead {
     margin-top: 2.5em;
     margin-bottom: 0.3em;

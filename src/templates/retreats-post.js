@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import ModalButton from '../components/ModalButton';
 import GalleryImage from '../components/GalleryImage';
@@ -37,11 +38,9 @@ export const RetreatsPostTemplate = ({
         <GalleryImage gallery={galleryArr} />
         <Review review={review} author={author} />
       </PageContainer>
-      <ReadMore
-        to={'/retreats'}
-        text={'Back to retreats'}
-        align={'flex-start'}
-      />
+      <AniLink fade to={'/retreats'}>
+        <ReadMore text={'Back to retreats'} align={'flex-start'} />
+      </AniLink>
       <Footer />
     </div>
   );

@@ -22,11 +22,7 @@ export default class RetreatsPage extends React.Component {
           <HTMLContent className="body-text" content={retreatsPageData.html} />
           <ContentCardWrap content={retreats} />
         </PageContainer>
-        <ReadMore
-          to={'/past-retreats'}
-          text={'past retreats'}
-          align={'flex-start'}
-        />
+
         <Footer />
       </div>
     );

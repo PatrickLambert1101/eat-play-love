@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const GalleryStyle = styled.div`
   display: flex;
   max-width: 1200px;
-  margin: auto;
+  margin: 40px auto;
   flex-wrap: wrap;
   list-style-type: none;
 
@@ -23,19 +23,27 @@ const GalleryStyle = styled.div`
       margin-top: 10px;
     }
     &:nth-child(11n + 1) {
-      flex: 0 0 100%;
+      padding-right: 20px;
+      flex: 0 0 32%;
     }
     &:nth-child(11n + 2) {
-      flex: 0 0 36.5625%;
-      padding-right: 20px;
+      flex: 0 0 68%;
       @media (max-width: ${props => props.theme.mobile}) {
         padding-right: 10px;
       }
     }
     &:nth-child(11n + 3) {
-      flex: 0 0 63.4375%;
+      padding-right: 20px;
+      flex: 0 0 50%;
+      .gatsby-image-wrapper {
+        height: 500px;
+        @media (max-width: ${props => props.theme.mobile}) {
+          height: 290px;
+        }
+      }
     }
     &:nth-child(11n + 4) {
+      flex: 0 0 50%;
       .gatsby-image-wrapper {
         height: 500px;
         @media (max-width: ${props => props.theme.mobile}) {
@@ -46,48 +54,44 @@ const GalleryStyle = styled.div`
       @media (max-width: ${props => props.theme.mobile}) {
         padding-right: 10px;
       }
-      flex: 0 0 68.95833333333333%;
     }
     &:nth-child(11n + 5) {
-      .gatsby-image-wrapper {
-        height: 500px;
-        @media (max-width: ${props => props.theme.mobile}) {
-          height: 290px;
-        }
-      }
-      flex: 0 0 31.041666667%;
+      padding-right: 20px;
+      flex: 0 0 68%;
     }
     &:nth-child(11n + 6) {
-      flex: 0 0 36.5625%;
-      padding-right: 20px;
+      flex: 0 0 32%;
       @media (max-width: ${props => props.theme.mobile}) {
         padding-right: 10px;
       }
     }
     &:nth-child(11n + 7) {
-      flex: 0 0 63.4375%;
+      flex: 0 0 32%;
+      padding-right: 20px;
     }
     &:nth-child(11n + 8) {
-      flex: 0 0 61.5625%;
-      padding-right: 20px;
+      flex: 0 0 68%;
       @media (max-width: ${props => props.theme.mobile}) {
         padding-right: 10px;
       }
     }
     &:nth-child(11n + 9) {
-      flex: 0 0 38.4375%;
-    }
-    &:nth-child(11n + 10) {
+      flex: 0 0 50%;
+      padding-right: 20px;
       .gatsby-image-wrapper {
         height: 500px;
         @media (max-width: ${props => props.theme.mobile}) {
-          height: 190px;
+          height: 290px;
         }
       }
-      flex: 0 0 29.375%;
-      padding-right: 20px;
-      @media (max-width: ${props => props.theme.mobile}) {
-        padding-right: 10px;
+    }
+    &:nth-child(11n + 10) {
+      flex: 0 0 50%;
+      .gatsby-image-wrapper {
+        height: 500px;
+        @media (max-width: ${props => props.theme.mobile}) {
+          height: 290px;
+        }
       }
     }
     &:nth-child(11n) {
@@ -97,7 +101,7 @@ const GalleryStyle = styled.div`
           height: 190px;
         }
       }
-      flex: 0 0 70.625%;
+      flex: 0 0 100%;
     }
   }
 `;

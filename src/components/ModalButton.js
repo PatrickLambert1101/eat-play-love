@@ -36,6 +36,9 @@ ReactModal.setAppElement('body');
 const ModalTitle = styled.h2`
   margin-top: 5px;
   margin-bottom: 20px;
+  @media (max-width: ${props => props.theme.mobile}) {
+    text-align: left;
+  }
 `;
 
 class ModalButton extends React.Component {

@@ -26,7 +26,7 @@ const ContentCard = styled.div`
   }
   h5 {
     text-align: left;
-    margin: 20px auto;
+    margin: 20px auto 40px;
     padding: 0 15px;
   }
   p {
@@ -34,9 +34,15 @@ const ContentCard = styled.div`
   }
   &:nth-child(2n) {
     padding-left: 10px;
+    @media (max-width: ${props => props.theme.mobile}) {
+      padding-left: 0px;
+    }
   }
   &:nth-child(2n + 1) {
     padding-right: 10px;
+    @media (max-width: ${props => props.theme.mobile}) {
+      padding-right: 0px;
+    }
   }
   .gatsby-image-wrapper {
     margin-top: 30px;

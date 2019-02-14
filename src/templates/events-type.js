@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import EventTypeSingle from '../components/EventTypeSingle';
 import Review from '../components/Review';
+import Footer from '../components/Footer';
 
 import PageContainer from '../components/styles/PageContainer';
 const EventsType = ({ data }) => {
@@ -20,6 +21,7 @@ const EventsType = ({ data }) => {
           author={post.frontmatter.author}
         />
       </PageContainer>
+      <Footer />
     </div>
   );
 };

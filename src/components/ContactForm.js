@@ -63,6 +63,7 @@ class ContactForm extends React.Component {
   render() {
     return (
       <Form
+        singleColumn={this.props.singleColumn}
         name="contact"
         method="post"
         action="/contact/thanks/"

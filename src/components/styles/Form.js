@@ -9,6 +9,7 @@ const inputHighlighter = keyframes`
   }
 `;
 const Form = styled.form`
+  margin-top: ${props => (!props.singleColumn ? '60px' : '0')};
   label {
     color: ${props => props.theme.lightBrown};
     font-weight: normal;

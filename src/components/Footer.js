@@ -37,7 +37,6 @@ const Social = styled.div`
 `;
 const SocialLogo = styled.img`
   height: 25px;
-  flex: 3;
   @media (max-width: ${props => props.theme.mobile}) {
     height: 20px;
   }
@@ -45,27 +44,28 @@ const SocialLogo = styled.img`
 const SocialWrapper = styled.div`
   h2,
   h5 {
+    text-align: center;
     margin: 0;
   }
   @media (max-width: ${props => props.theme.mobile}) {
-    width: 100%;
+    max-width: 300px;
   }
 `;
 
 const FooterLogo = styled.div`
-  flex: 4;
-  max-width: 200px;
+  width: 120px;
+  height: 118px;
   .gatsby-image-wrapper {
+    width: 150px;
+    @media (max-width: ${props => props.theme.mobile}) {
+      width: 100px;
+    }
+    margin: auto;
     img {
       object-fit: contain;
     }
-    width: 70%;
   }
-  @media (max-width: ${props => props.theme.mobile}) {
-    img {
-      width: 100%;
-    }
-  }
+
   margin-bottom: 30px;
   @media (max-width: ${props => props.theme.mobile}) {
     margin-bottom: 0;

@@ -17,7 +17,7 @@ const ContentCardWrapStyle = styled.div`
 `;
 
 const ContentCard = styled.div`
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   flex-basis: 48%;
   color: ${props => props.theme.goldLight};
   h3 {

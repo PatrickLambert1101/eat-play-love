@@ -51,7 +51,7 @@ h1{
   font-size: 3rem;
   color: ${theme.goldLight};
   text-align: center;
-  margin-bottom: .5rem;
+  margin-bottom: 2rem;
   margin-top: 5px;
   font-weight: 100;
   font-family: 'RV', Arial, Helvetica, sans-serif;
@@ -95,6 +95,7 @@ p, li
   line-height: 20px;
   text-indent:0;
 }
+ul{padding-inline-start:0px;}
 
 li{
   list-style:none;
