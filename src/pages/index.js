@@ -10,11 +10,17 @@ import InstaSlider from '../components/styles/InstaSlider';
 import styled from 'styled-components';
 import '../../node_modules/slick-carousel/slick/slick.css';
 import '../../node_modules/slick-carousel/slick/slick-theme.css';
+import { TransitionState } from 'gatsby-plugin-transition-link';
+import posed from 'react-pose';
 var shortid = require('shortid');
 
 const Quote = styled.h3`
   font-style: italic;
 `;
+const Trans = posed.div({
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 }
+});
 export default class IndexPage extends React.Component {
   render() {
     var settings = {
@@ -50,38 +56,52 @@ export default class IndexPage extends React.Component {
     const { edges: events } = data.events;
 
     return (
-      <React.Fragment>
-        {home.map(({ node: house }) => (
-          <div key={shortid.generate()}>
-            <BannerSlider>
-              <Slider {...bannerSettings}>
-                {house.frontmatter.slider.map(slide => (
-                  <div key={shortid.generate()}>
-                    <h2>{slide.title}</h2>
-                    <PreviewCompatibleImage imageInfo={slide.sliderimage} />
-                  </div>
-                ))}
-              </Slider>
-            </BannerSlider>
-            <Quote>“{house.frontmatter.quote}”</Quote>
-            <h2>Recent Events</h2>
-            <CardWrapper baseUrl={'events'} data={events} />
-          </div>
-        ))}
-        <h2>Instagram</h2>
-        <InstaSlider>
-          <Slider {...settings}>
-            {instas.map(({ node: ig }) => (
-              <PreviewCompatibleImage
-                className="insta-image"
-                key={ig.id}
-                imageInfo={ig.localFile}
-              />
-            ))}
-          </Slider>
-        </InstaSlider>
-        <Footer />
-      </React.Fragment>
+      <TransitionState>
+        {({ transitionStatus }) => {
+          return (
+            <Trans
+              pose={
+                ['entering', 'entered'].includes(transitionStatus)
+                  ? 'visible'
+                  : 'hidden'
+              }
+            >
+              {home.map(({ node: house }) => (
+                <div key={shortid.generate()}>
+                  <BannerSlider>
+                    <Slider {...bannerSettings}>
+                      {house.frontmatter.slider.map(slide => (
+                        <div key={shortid.generate()}>
+                          <h2>{slide.title}</h2>
+                          <PreviewCompatibleImage
+                            imageInfo={slide.sliderimage}
+                          />
+                        </div>
+                      ))}
+                    </Slider>
+                  </BannerSlider>
+                  <Quote>“{house.frontmatter.quote}”</Quote>
+                  <h2>Recent Events</h2>
+                  <CardWrapper baseUrl={'events'} data={events} />
+                </div>
+              ))}
+              <h2>Instagram</h2>
+              <InstaSlider>
+                <Slider {...settings}>
+                  {instas.map(({ node: ig }) => (
+                    <PreviewCompatibleImage
+                      className="insta-image"
+                      key={ig.id}
+                      imageInfo={ig.localFile}
+                    />
+                  ))}
+                </Slider>
+              </InstaSlider>
+              <Footer />
+            </Trans>
+          );
+        }}
+      </TransitionState>
     );
   }
 }

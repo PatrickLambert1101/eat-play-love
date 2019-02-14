@@ -5,7 +5,12 @@ import ContentCardWrap from '../components/ContentCardWrap';
 import PageContainer from '../components/styles/PageContainer';
 import Footer from '../components/Footer';
 import { HTMLContent } from '../components/Content';
-
+import { TransitionState } from 'gatsby-plugin-transition-link';
+import posed from 'react-pose';
+const Trans = posed.div({
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 }
+});
 export default class RetreatsPage extends React.Component {
   render() {
     const { data } = this.props;
@@ -13,17 +18,31 @@ export default class RetreatsPage extends React.Component {
     const retreatsPageData = data.retreatsPageData.edges[0].node;
 
     return (
-      <div>
-        <PageContainer>
-          <div className="lead">
-            <h1>{retreatsPageData.frontmatter.title}</h1>
-          </div>
-          <HTMLContent className="body-text" content={retreatsPageData.html} />
-          <ContentCardWrap content={retreats} />
-        </PageContainer>
-
-        <Footer />
-      </div>
+      <TransitionState>
+        {({ transitionStatus }) => {
+          return (
+            <Trans
+              pose={
+                ['entering', 'entered'].includes(transitionStatus)
+                  ? 'visible'
+                  : 'hidden'
+              }
+            >
+              <PageContainer>
+                <div className="lead">
+                  <h1>{retreatsPageData.frontmatter.title}</h1>
+                </div>
+                <HTMLContent
+                  className="body-text"
+                  content={retreatsPageData.html}
+                />
+                <ContentCardWrap content={retreats} />
+              </PageContainer>
+              <Footer />
+            </Trans>
+          );
+        }}
+      </TransitionState>
     );
   }
 }

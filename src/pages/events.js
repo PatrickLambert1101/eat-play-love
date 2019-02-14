@@ -3,13 +3,15 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import CardWrapper from '../components/CardWrapper';
 import Footer from '../components/Footer';
-import Features from '../components/Features';
 import { HTMLContent } from '../components/Content';
-
-import Review from '../components/Review';
+import { TransitionState } from 'gatsby-plugin-transition-link';
+import posed from 'react-pose';
 import PageContainer from '../components/styles/PageContainer';
 var shortid = require('shortid');
-
+const Trans = posed.div({
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 }
+});
 export default class EventsPage extends React.Component {
   render() {
     const { data } = this.props;
@@ -17,21 +19,36 @@ export default class EventsPage extends React.Component {
     const { edges: eventsPageData } = data.eventsPageData;
 
     return (
-      <div>
-        {eventsPageData.map(page => (
-          <div key={shortid.generate()}>
-            <PageContainer>
-              <div className="lead">
-                <h1>{page.node.frontmatter.title}</h1>
-              </div>
-              <HTMLContent className="body-text" content={page.node.html} />
-            </PageContainer>
-            <CardWrapper baseUrl={'events-type'} data={events} />
+      <TransitionState>
+        {({ transitionStatus }) => {
+          return (
+            <Trans
+              pose={
+                ['entering', 'entered'].includes(transitionStatus)
+                  ? 'visible'
+                  : 'hidden'
+              }
+            >
+              {eventsPageData.map(page => (
+                <div key={shortid.generate()}>
+                  <PageContainer>
+                    <div className="lead">
+                      <h1>{page.node.frontmatter.title}</h1>
+                    </div>
+                    <HTMLContent
+                      className="body-text"
+                      content={page.node.html}
+                    />
+                  </PageContainer>
+                  <CardWrapper baseUrl={'events-type'} data={events} />
 
-            <Footer />
-          </div>
-        ))}
-      </div>
+                  <Footer />
+                </div>
+              ))}
+            </Trans>
+          );
+        }}
+      </TransitionState>
     );
   }
 }

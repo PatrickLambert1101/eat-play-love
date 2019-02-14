@@ -6,7 +6,7 @@ import FootLogo from './FootLogo.js';
 import pinterest from '../img/pinterest.svg';
 import styled from 'styled-components';
 import { navigateTo } from 'gatsby-link';
-import AniLink from 'gatsby-plugin-transition-link/AniLink';
+import TransitionLink from 'gatsby-plugin-transition-link';
 
 function encode(data) {
   return Object.keys(data)
@@ -109,13 +109,13 @@ export default class Footer extends React.Component {
           <FooterLogo>
             <FootLogo />
           </FooterLogo>
-          <AniLink to={'/contact'}>
+          <TransitionLink to={'/contact'}>
             <SocialLogo
               src={mail}
               alt="Eat play love events mail"
               aria-label="mail"
             />
-          </AniLink>
+          </TransitionLink>
           <a
             rel="noreferrer noopener"
             target="_blank"

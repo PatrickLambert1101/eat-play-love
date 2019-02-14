@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import AniLink from 'gatsby-plugin-transition-link/AniLink';
+import TransitionLink from 'gatsby-plugin-transition-link';
 import ReadMore from '../components/ReadMore';
 import GalleryImage from '../components/GalleryImage';
 import ModalButton from '../components/ModalButton';
@@ -9,7 +9,12 @@ import Review from '../components/Review';
 import PageContainer from '../components/styles/PageContainer';
 import Footer from '../components/Footer';
 import { HTMLContent } from '../components/Content';
-
+import { TransitionState } from 'gatsby-plugin-transition-link';
+import posed from 'react-pose';
+const Trans = posed.div({
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 }
+});
 export const EventsPostTemplate = ({
   title,
   leadText,
@@ -19,26 +24,38 @@ export const EventsPostTemplate = ({
 }) => {
   const galleryArr = gallery.map(gallery => gallery.galleryimage);
   return (
-    <div>
-      <PageContainer>
-        <div className="lead">
-          <h1>{title}</h1>
-        </div>
-        <HTMLContent content={leadText} />
-        <GalleryImage gallery={galleryArr} />
-        <Review review={review} author={author} />
-        <ModalButton />
-      </PageContainer>
-      <AniLink to={'/events'}>
-        <ReadMore
-          secondBtn
-          to={'/events'}
-          align={'flex-start'}
-          text={'BACK TO EVENTS'}
-        />
-      </AniLink>
-      <Footer />
-    </div>
+    <TransitionState>
+      {({ transitionStatus }) => {
+        return (
+          <Trans
+            pose={
+              ['entering', 'entered'].includes(transitionStatus)
+                ? 'visible'
+                : 'hidden'
+            }
+          >
+            <PageContainer>
+              <div className="lead">
+                <h1>{title}</h1>
+              </div>
+              <HTMLContent content={leadText} />
+              <GalleryImage gallery={galleryArr} />
+              <Review review={review} author={author} />
+              <ModalButton />
+            </PageContainer>
+            <TransitionLink to={'/events'}>
+              <ReadMore
+                secondBtn
+                to={'/events'}
+                align={'flex-start'}
+                text={'BACK TO EVENTS'}
+              />
+            </TransitionLink>
+            <Footer />
+          </Trans>
+        );
+      }}
+    </TransitionState>
   );
 };
 

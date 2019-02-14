@@ -3,26 +3,43 @@ import { graphql } from 'gatsby';
 import EventTypeSingle from '../components/EventTypeSingle';
 import Review from '../components/Review';
 import Footer from '../components/Footer';
-
+import { TransitionState } from 'gatsby-plugin-transition-link';
+import posed from 'react-pose';
 import PageContainer from '../components/styles/PageContainer';
+const Trans = posed.div({
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 }
+});
 const EventsType = ({ data }) => {
   const { markdownRemark: post } = data;
 
   return (
-    <div>
-      <PageContainer>
-        <div className="lead">
-          <h1>{post.frontmatter.title}</h1>
-        </div>
-        <h4 className="body-text">{post.frontmatter.leadtext}</h4>
-        <EventTypeSingle content={post.frontmatter.single} />
-        <Review
-          review={post.frontmatter.review}
-          author={post.frontmatter.author}
-        />
-      </PageContainer>
-      <Footer />
-    </div>
+    <TransitionState>
+      {({ transitionStatus }) => {
+        return (
+          <Trans
+            pose={
+              ['entering', 'entered'].includes(transitionStatus)
+                ? 'visible'
+                : 'hidden'
+            }
+          >
+            <PageContainer>
+              <div className="lead">
+                <h1>{post.frontmatter.title}</h1>
+              </div>
+              <h4 className="body-text">{post.frontmatter.leadtext}</h4>
+              <EventTypeSingle content={post.frontmatter.single} />
+              <Review
+                review={post.frontmatter.review}
+                author={post.frontmatter.author}
+              />
+            </PageContainer>
+            <Footer />
+          </Trans>
+        );
+      }}
+    </TransitionState>
   );
 };
 

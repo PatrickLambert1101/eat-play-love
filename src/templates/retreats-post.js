@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import AniLink from 'gatsby-plugin-transition-link/AniLink';
+import TransitionLink from 'gatsby-plugin-transition-link';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import ModalButton from '../components/ModalButton';
 import GalleryImage from '../components/GalleryImage';
@@ -10,7 +10,12 @@ import Content, { HTMLContent } from '../components/Content';
 import ReadMore from '../components/ReadMore';
 import PageContainer from '../components/styles/PageContainer';
 import Footer from '../components/Footer';
-
+import { TransitionState } from 'gatsby-plugin-transition-link';
+import posed from 'react-pose';
+const Trans = posed.div({
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 }
+});
 export const RetreatsPostTemplate = ({
   title,
   image,
@@ -25,24 +30,36 @@ export const RetreatsPostTemplate = ({
 
   const PageContent = contentComponent || Content;
   return (
-    <div>
-      <PageContainer>
-        <h2>{title}</h2>
-        <h5>
-          Hearth &amp; Soul Eco Farm Stanford
-          <br /> 5th-8th October
-        </h5>
-        <PreviewCompatibleImage imageInfo={image} />
-        <PageContent content={content} className="body-text" />
-        <ModalButton />
-        <GalleryImage gallery={galleryArr} />
-        <Review review={review} author={author} />
-      </PageContainer>
-      <AniLink fade to={'/retreats'}>
-        <ReadMore text={'Back to retreats'} align={'flex-start'} />
-      </AniLink>
-      <Footer />
-    </div>
+    <TransitionState>
+      {({ transitionStatus }) => {
+        return (
+          <Trans
+            pose={
+              ['entering', 'entered'].includes(transitionStatus)
+                ? 'visible'
+                : 'hidden'
+            }
+          >
+            <PageContainer>
+              <h2>{title}</h2>
+              <h5>
+                Hearth &amp; Soul Eco Farm Stanford
+                <br /> 5th-8th October
+              </h5>
+              <PreviewCompatibleImage imageInfo={image} />
+              <PageContent content={content} className="body-text" />
+              <ModalButton />
+              <GalleryImage gallery={galleryArr} />
+              <Review review={review} author={author} />
+            </PageContainer>
+            <TransitionLink to={'/retreats'}>
+              <ReadMore text={'Back to retreats'} align={'flex-start'} />
+            </TransitionLink>
+            <Footer />
+          </Trans>
+        );
+      }}
+    </TransitionState>
   );
 };
 

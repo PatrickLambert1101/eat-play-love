@@ -5,7 +5,12 @@ import Content, { HTMLContent } from '../components/Content';
 import PageContainer from '../components/styles/PageContainer';
 import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
-
+import { TransitionState } from 'gatsby-plugin-transition-link';
+import posed from 'react-pose';
+const Trans = posed.div({
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 }
+});
 export const AboutPageTemplate = ({
   title,
   content,
@@ -15,18 +20,30 @@ export const AboutPageTemplate = ({
   const PageContent = contentComponent || Content;
 
   return (
-    <div>
-      {' '}
-      <PageContainer>
-        <div className="lead">
-          <h1> {title}</h1>
-        </div>
-        <PageContent className="body-text" content={content} />
-        <h2>Contact us</h2>
-        <ContactForm />
-      </PageContainer>
-      <Footer />
-    </div>
+    <TransitionState>
+      {({ transitionStatus }) => {
+        return (
+          <Trans
+            pose={
+              ['entering', 'entered'].includes(transitionStatus)
+                ? 'visible'
+                : 'hidden'
+            }
+          >
+            <PageContainer>
+              <div className="lead">
+                <h1> {title}</h1>
+              </div>
+              <PageContent className="body-text" content={content} />
+              <h2>Contact us</h2>
+              <ContactForm />
+            </PageContainer>
+
+            <Footer />
+          </Trans>
+        );
+      }}
+    </TransitionState>
   );
 };
 

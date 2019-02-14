@@ -1,5 +1,5 @@
 import React from 'react';
-import AniLink from 'gatsby-plugin-transition-link/AniLink';
+import TransitionLink from 'gatsby-plugin-transition-link';
 import PreviewCompatibleImage from './PreviewCompatibleImage';
 import ReadMore from './ReadMore';
 import styled from 'styled-components';
@@ -55,14 +55,14 @@ class ContentCardWrap extends React.Component {
       <ContentCardWrapStyle>
         {this.props.content.map(item => (
           <ContentCard key={shortid.generate()}>
-            <AniLink to={item.node.fields.slug}>
+            <TransitionLink to={item.node.fields.slug}>
               <h3>{item.node.frontmatter.title}</h3>
               <p>{item.node.frontmatter.location}</p>
               <p>{item.node.frontmatter.date}</p>
               <PreviewCompatibleImage imageInfo={item.node.frontmatter.image} />
               <h5>{item.node.frontmatter.excerpt}</h5>
               <ReadMore text={'MORE'} />
-            </AniLink>
+            </TransitionLink>
           </ContentCard>
         ))}
       </ContentCardWrapStyle>

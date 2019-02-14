@@ -1,7 +1,7 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import PreviewCompatibleImage from './PreviewCompatibleImage';
-import AniLink from 'gatsby-plugin-transition-link/AniLink';
+import TransitionLink from 'gatsby-plugin-transition-link';
 
 const FootLogo = () => (
   <StaticQuery
@@ -18,9 +18,9 @@ const FootLogo = () => (
       }
     `}
     render={data => (
-      <AniLink fade to="/">
+      <TransitionLink to="/">
         <PreviewCompatibleImage imageInfo={data.file} />
-      </AniLink>
+      </TransitionLink>
     )}
   />
 );

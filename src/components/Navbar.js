@@ -1,6 +1,6 @@
 import React from 'react';
 import HeadLogo from './HeadLogo';
-import AniLink from 'gatsby-plugin-transition-link/AniLink';
+import TransitionLink from 'gatsby-plugin-transition-link';
 
 import NavbarBrand from './styles/NavbarBrand';
 import NavLinks from './styles/NavLinks';
@@ -56,9 +56,14 @@ export default class Navbar extends React.Component {
     return (
       <nav>
         <NavbarBrand>
-          <AniLink fade duration={0.5} to="/" className="navbar-item">
+          <TransitionLink
+            exit={{ length: 0.5 }}
+            entry={{ delay: 0.5 }}
+            to="/"
+            className="navbar-item"
+          >
             <HeadLogo alt="Eat Play Love Logo" onClick={this.toggleMenu} />
-          </AniLink>
+          </TransitionLink>
           <NavButton type="button" aria-expanded="false">
             <HamburgerMenu
               isOpen={this.state.isToggle}
@@ -71,21 +76,46 @@ export default class Navbar extends React.Component {
           </NavButton>
         </NavbarBrand>
         <NavLinks className={menuClassName}>
-          <AniLink activeClassName="active" fade duration={0.5} to="/">
+          <TransitionLink
+            exit={{ length: 0.5 }}
+            entry={{ delay: 0.5 }}
+            activeClassName="active"
+            to="/"
+          >
             <div onClick={this.toggleMenu}>HOME</div>
-          </AniLink>
-          <AniLink activeClassName="active" fade duration={0.5} to="/events">
+          </TransitionLink>
+          <TransitionLink
+            exit={{ length: 0.5 }}
+            entry={{ delay: 0.5 }}
+            activeClassName="active"
+            to="/events"
+          >
             <div onClick={this.toggleMenu}>EVENTS</div>
-          </AniLink>
-          <AniLink activeClassName="active" fade duration={0.5} to="/retreats">
+          </TransitionLink>
+          <TransitionLink
+            exit={{ length: 0.5 }}
+            entry={{ delay: 0.5 }}
+            activeClassName="active"
+            to="/retreats"
+          >
             <div onClick={this.toggleMenu}> RETREATS</div>
-          </AniLink>
-          <AniLink activeClassName="active" fade duration={0.5} to="/about">
+          </TransitionLink>
+          <TransitionLink
+            exit={{ length: 0.5 }}
+            entry={{ delay: 0.5 }}
+            activeClassName="active"
+            to="/about"
+          >
             <div onClick={this.toggleMenu}>ABOUT US</div>
-          </AniLink>
-          <AniLink activeClassName="active" fade duration={0.5} to="/contact">
+          </TransitionLink>
+          <TransitionLink
+            exit={{ length: 0.5 }}
+            entry={{ delay: 0.5 }}
+            activeClassName="active"
+            to="/contact"
+          >
             <div onClick={this.toggleMenu}>CONTACT</div>
-          </AniLink>
+          </TransitionLink>
         </NavLinks>
       </nav>
     );
