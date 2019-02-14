@@ -6,20 +6,20 @@ import { TransitionState } from 'gatsby-plugin-transition-link';
 import posed from 'react-pose';
 const Trans = posed.div({
   hidden: {
-    y: 50,
+    y: 30,
     opacity: 0,
     transition: {
       y: { type: 'spring', stiffness: 100, damping: 15 },
-      default: { duration: 150 }
+      default: { duration: 230 }
     }
   },
   visible: {
     y: 0,
     opacity: 1,
-    delay: 300,
+    delay: 50,
     transition: {
       y: { type: 'spring', stiffness: 100, damping: 15 },
-      default: { duration: 150 }
+      default: { duration: 230 }
     }
   }
 });
