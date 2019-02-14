@@ -5,8 +5,23 @@ import Footer from '../../components/Footer';
 import { TransitionState } from 'gatsby-plugin-transition-link';
 import posed from 'react-pose';
 const Trans = posed.div({
-  hidden: { opacity: 0 },
-  visible: { opacity: 1 }
+  hidden: {
+    y: 50,
+    opacity: 0,
+    transition: {
+      y: { type: 'spring', stiffness: 100, damping: 15 },
+      default: { duration: 150 }
+    }
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    delay: 300,
+    transition: {
+      y: { type: 'spring', stiffness: 100, damping: 15 },
+      default: { duration: 150 }
+    }
+  }
 });
 
 export default class Index extends React.Component {
