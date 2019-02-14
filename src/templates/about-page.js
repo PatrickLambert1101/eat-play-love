@@ -15,15 +15,18 @@ export const AboutPageTemplate = ({
   const PageContent = contentComponent || Content;
 
   return (
-    <PageContainer>
-      <div className="lead">
-        <h1> {title}</h1>
-      </div>
-      <PageContent className="body-text" content={content} />
-      <h2>Contact us</h2>
-      <ContactForm />
+    <div>
+      {' '}
+      <PageContainer>
+        <div className="lead">
+          <h1> {title}</h1>
+        </div>
+        <PageContent className="body-text" content={content} />
+        <h2>Contact us</h2>
+        <ContactForm />
+      </PageContainer>
       <Footer />
-    </PageContainer>
+    </div>
   );
 };
 

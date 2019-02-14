@@ -6,12 +6,12 @@ const ReviewStyle = styled.div`
   color: ${props => props.theme.textBrown};
   font-style: italic;
   font-weight: 600;
-  margin-bottom: 1.5em;
-  margin-top: 2em;
+  margin-bottom: 3em;
+  margin-top: 3em;
   text-align: left;
   span {
     padding-left: 1.6em;
-    font-size: 1.4em;
+    font-size: 1em;
     margin-top: -5px;
     display: block;
     position: relative;

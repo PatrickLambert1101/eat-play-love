@@ -92,7 +92,7 @@ h5
 p, li
  { font-family: ${theme.georgia};
   font-size: 16px;
-  line-height: 20px;
+  line-height: 24px;
   text-indent:0;
 }
 ul{padding-inline-start:0px;}

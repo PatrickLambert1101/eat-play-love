@@ -15,25 +15,21 @@ function encode(data) {
 }
 
 const FooterWrap = styled.footer`
+  background-color: #fdf6f2;
+`;
+const Social = styled.div`
   padding-top: 4rem;
   display: flex;
   justify-content: space-around;
+  max-width: ${props => props.theme.maxWidth};
   margin: auto;
-  max-width: 600px;
-  margin-bottom: 60px;
+  margin-top: 4rem;
+  padding-bottom: 60px;
   align-items: center;
-  @media (max-width: ${props => props.theme.mobile}) {
-    flex-direction: column;
-    img {
-      max-width: 100px;
-    }
+  a {
+    text-align: center;
+    flex: 1;
   }
-`;
-const Social = styled.div`
-  display: flex;
-  margin-top: 15px;
-  justify-content: space-around;
-  width: 100%;
 `;
 const SocialLogo = styled.img`
   height: 25px;
@@ -41,25 +37,13 @@ const SocialLogo = styled.img`
     height: 20px;
   }
 `;
-const SocialWrapper = styled.div`
-  h2,
-  h5 {
-    text-align: center;
-    margin: 0;
-  }
-  @media (max-width: ${props => props.theme.mobile}) {
-    max-width: 300px;
-  }
-`;
 
 const FooterLogo = styled.div`
-  width: 120px;
+  width: 180px;
   height: 118px;
   .gatsby-image-wrapper {
-    width: 150px;
-    @media (max-width: ${props => props.theme.mobile}) {
-      width: 100px;
-    }
+    width: 160px;
+    flex: 1;
     margin: auto;
     img {
       object-fit: contain;
@@ -99,55 +83,51 @@ export default class Footer extends React.Component {
   render() {
     return (
       <FooterWrap>
-        <FooterLogo>
-          <FootLogo />
-        </FooterLogo>
-        <SocialWrapper>
-          <h2>Follow us</h2>
-          <h5>Get all the latest updates</h5>
-          <Social>
-            <a
-              rel="noreferrer noopener"
-              target="_blank"
-              href={'https://www.facebook.com/eatplayloveretreat/'}
-            >
-              <SocialLogo
-                src={facebook}
-                alt="Eat play love events facebook"
-                aria-label="facebook"
-              />
-            </a>
-            <a
-              rel="noreferrer noopener"
-              target="_blank"
-              href={'https://www.instagram.com/eatplayloveretreat/'}
-            >
-              <SocialLogo
-                src={instagram}
-                alt="Eat play love events instagram"
-                aria-label="instagram"
-              />
-            </a>
-            <AniLink to={'/contact'}>
-              <SocialLogo
-                src={mail}
-                alt="Eat play love events mail"
-                aria-label="mail"
-              />
-            </AniLink>
-            <a
-              rel="noreferrer noopener"
-              target="_blank"
-              href={'https://za.pinterest.com/eatplayloveshop/'}
-            >
-              <SocialLogo
-                src={pinterest}
-                alt="Eat play love events pinterest"
-                aria-label="pinterest"
-              />
-            </a>
-          </Social>
-        </SocialWrapper>
+        <Social>
+          <a
+            rel="noreferrer noopener"
+            target="_blank"
+            href={'https://www.facebook.com/eatplayloveretreat/'}
+          >
+            <SocialLogo
+              src={facebook}
+              alt="Eat play love events facebook"
+              aria-label="facebook"
+            />
+          </a>
+          <a
+            rel="noreferrer noopener"
+            target="_blank"
+            href={'https://www.instagram.com/eatplayloveretreat/'}
+          >
+            <SocialLogo
+              src={instagram}
+              alt="Eat play love events instagram"
+              aria-label="instagram"
+            />
+          </a>
+          <FooterLogo>
+            <FootLogo />
+          </FooterLogo>
+          <AniLink to={'/contact'}>
+            <SocialLogo
+              src={mail}
+              alt="Eat play love events mail"
+              aria-label="mail"
+            />
+          </AniLink>
+          <a
+            rel="noreferrer noopener"
+            target="_blank"
+            href={'https://za.pinterest.com/eatplayloveshop/'}
+          >
+            <SocialLogo
+              src={pinterest}
+              alt="Eat play love events pinterest"
+              aria-label="pinterest"
+            />
+          </a>
+        </Social>
       </FooterWrap>
     );
   }

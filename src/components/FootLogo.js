@@ -10,7 +10,7 @@ const FootLogo = () => (
         file(relativePath: { regex: "img/footer-logo.png/" }) {
           name
           childImageSharp {
-            fluid(maxWidth: 120, maxHeight: 118, quality: 65) {
+            fluid(maxWidth: 180, maxHeight: 177, quality: 65) {
               ...GatsbyImageSharpFluid
             }
           }

@@ -27,18 +27,10 @@ export default class EventsPage extends React.Component {
               <HTMLContent className="body-text" content={page.node.html} />
             </PageContainer>
             <CardWrapper baseUrl={'events-type'} data={events} />
-            <Features
-              image={page.node.frontmatter.image}
-              features={page.node.frontmatter.features}
-            />
-            <Review
-              review={page.node.frontmatter.review}
-              author={page.node.frontmatter.author}
-            />
+
             <Footer />
           </div>
         ))}
-        ;
       </div>
     );
   }
@@ -62,8 +54,6 @@ export const pageQuery = graphql`
           html
           frontmatter {
             title
-            review
-            author
             image {
               childImageSharp {
                 fluid(maxWidth: 1680, maxHeight: 460, quality: 80) {

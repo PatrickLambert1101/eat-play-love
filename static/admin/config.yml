@@ -122,8 +122,6 @@ collections:
         }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Lead text', name: 'leadText', widget: 'markdown' }
-      - { label: 'Review', name: 'review', widget: 'string' }
-      - { label: 'Author', name: 'author', widget: 'text' }
       - { label: 'Image', name: 'image', widget: 'image' }
       - label: 'Features'
         name: 'features'
