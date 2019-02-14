@@ -5,7 +5,6 @@ import ContentCardWrap from '../components/ContentCardWrap';
 import PageContainer from '../components/styles/PageContainer';
 import Footer from '../components/Footer';
 import { HTMLContent } from '../components/Content';
-import ReadMore from '../components/ReadMore';
 
 export default class RetreatsPage extends React.Component {
   render() {

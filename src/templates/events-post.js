@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import ReadMore from '../components/ReadMore';
 import GalleryImage from '../components/GalleryImage';
 import ModalButton from '../components/ModalButton';
@@ -28,14 +29,14 @@ export const EventsPostTemplate = ({
         <Review review={review} author={author} />
         <ModalButton />
       </PageContainer>
-      <Link to={'/events'}>
+      <AniLink to={'/events'}>
         <ReadMore
           secondBtn
           to={'/events'}
           align={'flex-start'}
           text={'BACK TO EVENTS'}
         />
-      </Link>
+      </AniLink>
       <Footer />
     </div>
   );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import PageContainer from '../components/styles/PageContainer';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import Card from '../components/styles/Card';
@@ -13,7 +13,7 @@ class CardWrapper extends React.Component {
         <CardWrap>
           {this.props.data.map(card => (
             <Card textImage key={shortid.generate()}>
-              <Link
+              <AniLink
                 to={`/${
                   this.props.baseUrl
                 }/${card.node.frontmatter.title
@@ -24,7 +24,7 @@ class CardWrapper extends React.Component {
                 <PreviewCompatibleImage
                   imageInfo={card.node.frontmatter.image}
                 />
-              </Link>
+              </AniLink>
             </Card>
           ))}
         </CardWrap>

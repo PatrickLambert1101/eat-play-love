@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import CardWrapper from '../components/CardWrapper';
 import Footer from '../components/Footer';
+import Features from '../components/Features';
 import { HTMLContent } from '../components/Content';
 
 import Review from '../components/Review';
@@ -26,6 +27,10 @@ export default class EventsPage extends React.Component {
               <HTMLContent className="body-text" content={page.node.html} />
             </PageContainer>
             <CardWrapper baseUrl={'events-type'} data={events} />
+            <Features
+              image={page.node.frontmatter.image}
+              features={page.node.frontmatter.features}
+            />
             <Review
               review={page.node.frontmatter.review}
               author={page.node.frontmatter.author}
@@ -59,6 +64,16 @@ export const pageQuery = graphql`
             title
             review
             author
+            image {
+              childImageSharp {
+                fluid(maxWidth: 1680, maxHeight: 580, quality: 80) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            features {
+              title
+            }
           }
         }
       }

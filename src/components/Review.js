@@ -7,7 +7,7 @@ const ReviewStyle = styled.div`
   font-style: italic;
   font-weight: 600;
   margin-bottom: 3em;
-  margin-top: 4em;
+  margin-top: 2em;
   text-align: left;
   span {
     padding-left: 1.6em;

@@ -3,6 +3,7 @@ import ReactModal from 'react-modal';
 import styled from 'styled-components';
 import ReadMore from './ReadMore';
 import ContactForm from './ContactForm';
+import close from '../img/close.svg';
 
 const Close = styled.div`
   position: absolute;
@@ -10,9 +11,10 @@ const Close = styled.div`
   border-width: 0;
   button {
     border-width: 0;
-    font-size: 2.4em;
-    color: ${props => props.theme.lightBrown};
     background-color: inherit;
+  }
+  img {
+    width: 25px;
   }
 `;
 const CenterButton = styled.div`
@@ -85,7 +87,9 @@ class ModalButton extends React.Component {
           }}
         >
           <Close>
-            <button onClick={this.handleCloseModal}>X</button>
+            <button onClick={this.handleCloseModal}>
+              <img src={close} alt="Close Modal" />
+            </button>
           </Close>
           <ModalTitle>Book Now</ModalTitle>
           <ContactForm singleColumn />
