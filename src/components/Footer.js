@@ -7,6 +7,7 @@ import pinterest from '../img/pinterest.svg';
 import styled from 'styled-components';
 import { navigateTo } from 'gatsby-link';
 import TransitionLink from 'gatsby-plugin-transition-link';
+import AnimateContent from './AnimateContent';
 
 function encode(data) {
   return Object.keys(data)
@@ -83,51 +84,53 @@ export default class Footer extends React.Component {
   render() {
     return (
       <FooterWrap>
-        <Social>
-          <a
-            rel="noreferrer noopener"
-            target="_blank"
-            href={'https://www.facebook.com/eatplayloveretreat/'}
-          >
-            <SocialLogo
-              src={facebook}
-              alt="Eat play love events facebook"
-              aria-label="facebook"
-            />
-          </a>
-          <a
-            rel="noreferrer noopener"
-            target="_blank"
-            href={'https://www.instagram.com/eatplayloveretreat/'}
-          >
-            <SocialLogo
-              src={instagram}
-              alt="Eat play love events instagram"
-              aria-label="instagram"
-            />
-          </a>
-          <FooterLogo>
-            <FootLogo />
-          </FooterLogo>
-          <TransitionLink to={'/contact'}>
-            <SocialLogo
-              src={mail}
-              alt="Eat play love events mail"
-              aria-label="mail"
-            />
-          </TransitionLink>
-          <a
-            rel="noreferrer noopener"
-            target="_blank"
-            href={'https://za.pinterest.com/eatplayloveshop/'}
-          >
-            <SocialLogo
-              src={pinterest}
-              alt="Eat play love events pinterest"
-              aria-label="pinterest"
-            />
-          </a>
-        </Social>
+        <AnimateContent>
+          <Social>
+            <a
+              rel="noreferrer noopener"
+              target="_blank"
+              href={'https://www.facebook.com/eatplayloveretreat/'}
+            >
+              <SocialLogo
+                src={facebook}
+                alt="Eat play love events facebook"
+                aria-label="facebook"
+              />
+            </a>
+            <a
+              rel="noreferrer noopener"
+              target="_blank"
+              href={'https://www.instagram.com/eatplayloveretreat/'}
+            >
+              <SocialLogo
+                src={instagram}
+                alt="Eat play love events instagram"
+                aria-label="instagram"
+              />
+            </a>
+            <FooterLogo>
+              <FootLogo />
+            </FooterLogo>
+            <TransitionLink to={'/contact'}>
+              <SocialLogo
+                src={mail}
+                alt="Eat play love events mail"
+                aria-label="mail"
+              />
+            </TransitionLink>
+            <a
+              rel="noreferrer noopener"
+              target="_blank"
+              href={'https://za.pinterest.com/eatplayloveshop/'}
+            >
+              <SocialLogo
+                src={pinterest}
+                alt="Eat play love events pinterest"
+                aria-label="pinterest"
+              />
+            </a>
+          </Social>
+        </AnimateContent>
       </FooterWrap>
     );
   }

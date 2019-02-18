@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import Slider from 'react-slick';
@@ -11,32 +11,21 @@ import styled from 'styled-components';
 import '../../node_modules/slick-carousel/slick/slick.css';
 import '../../node_modules/slick-carousel/slick/slick-theme.css';
 import { TransitionState } from 'gatsby-plugin-transition-link';
-import posed from 'react-pose';
+import AnimateContent from '../components/AnimateContent';
+import Trans from '../components/Trans';
+
 var shortid = require('shortid');
 
 const Quote = styled.h3`
   font-style: italic;
 `;
-const Trans = posed.div({
-  hidden: {
-    y: 30,
-    opacity: 0,
-    transition: {
-      y: { type: 'spring', stiffness: 100, damping: 15 },
-      default: { duration: 230 }
-    }
-  },
-  visible: {
-    y: 0,
-    opacity: 1,
-    delay: 200,
-    transition: {
-      y: { type: 'spring', stiffness: 100, damping: 15 },
-      default: { duration: 230 }
-    }
+
+export default class IndexPage extends Component {
+  constructor(props) {
+    super(props);
+    this.page = React.createRef();
   }
-});
-export default class IndexPage extends React.Component {
+
   render() {
     var settings = {
       infinite: true,
@@ -71,52 +60,60 @@ export default class IndexPage extends React.Component {
     const { edges: events } = data.events;
 
     return (
-      <TransitionState>
-        {({ transitionStatus }) => {
-          return (
-            <Trans
-              pose={
-                ['entering', 'entered'].includes(transitionStatus)
-                  ? 'visible'
-                  : 'hidden'
-              }
-            >
-              {home.map(({ node: house }) => (
-                <div key={shortid.generate()}>
-                  <BannerSlider>
-                    <Slider {...bannerSettings}>
-                      {house.frontmatter.slider.map(slide => (
-                        <div key={shortid.generate()}>
-                          <h2>{slide.title}</h2>
-                          <PreviewCompatibleImage
-                            imageInfo={slide.sliderimage}
-                          />
-                        </div>
+      <div ref={n => (this.page = n)}>
+        <TransitionState>
+          {({ transitionStatus }) => {
+            return (
+              <Trans
+                pose={
+                  ['entering', 'entered'].includes(transitionStatus)
+                    ? 'visible'
+                    : 'hidden'
+                }
+              >
+                {home.map(({ node: house }) => (
+                  <div key={shortid.generate()}>
+                    <AnimateContent>
+                      <BannerSlider>
+                        <Slider {...bannerSettings}>
+                          {house.frontmatter.slider.map(slide => (
+                            <div key={shortid.generate()}>
+                              <h2>{slide.title}</h2>
+                              <PreviewCompatibleImage
+                                imageInfo={slide.sliderimage}
+                              />
+                            </div>
+                          ))}
+                        </Slider>
+                      </BannerSlider>
+                      <Quote>“{house.frontmatter.quote}”</Quote>
+                      <h2>Recent Events</h2>
+                    </AnimateContent>
+
+                    <CardWrapper baseUrl={'events'} data={events} />
+                  </div>
+                ))}
+                <AnimateContent>
+                  <h2>Instagram</h2>
+
+                  <InstaSlider>
+                    <Slider {...settings}>
+                      {instas.map(({ node: ig }) => (
+                        <PreviewCompatibleImage
+                          className="insta-image"
+                          key={ig.id}
+                          imageInfo={ig.localFile}
+                        />
                       ))}
                     </Slider>
-                  </BannerSlider>
-                  <Quote>“{house.frontmatter.quote}”</Quote>
-                  <h2>Recent Events</h2>
-                  <CardWrapper baseUrl={'events'} data={events} />
-                </div>
-              ))}
-              <h2>Instagram</h2>
-              <InstaSlider>
-                <Slider {...settings}>
-                  {instas.map(({ node: ig }) => (
-                    <PreviewCompatibleImage
-                      className="insta-image"
-                      key={ig.id}
-                      imageInfo={ig.localFile}
-                    />
-                  ))}
-                </Slider>
-              </InstaSlider>
-              <Footer />
-            </Trans>
-          );
-        }}
-      </TransitionState>
+                  </InstaSlider>
+                </AnimateContent>
+                <Footer />
+              </Trans>
+            );
+          }}
+        </TransitionState>
+      </div>
     );
   }
 }

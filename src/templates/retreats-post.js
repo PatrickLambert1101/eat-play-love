@@ -4,6 +4,7 @@ import { graphql } from 'gatsby';
 import TransitionLink from 'gatsby-plugin-transition-link';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import ModalButton from '../components/ModalButton';
+import PageTitle from '../components/PageTitle';
 import GalleryImage from '../components/GalleryImage';
 import Review from '../components/Review';
 import Content, { HTMLContent } from '../components/Content';
@@ -11,26 +12,9 @@ import ReadMore from '../components/ReadMore';
 import PageContainer from '../components/styles/PageContainer';
 import Footer from '../components/Footer';
 import { TransitionState } from 'gatsby-plugin-transition-link';
-import posed from 'react-pose';
-const Trans = posed.div({
-  hidden: {
-    y: 30,
-    opacity: 0,
-    transition: {
-      y: { type: 'spring', stiffness: 100, damping: 15 },
-      default: { duration: 230 }
-    }
-  },
-  visible: {
-    y: 0,
-    opacity: 1,
-    delay: 200,
-    transition: {
-      y: { type: 'spring', stiffness: 100, damping: 15 },
-      default: { duration: 230 }
-    }
-  }
-});
+import AnimateContent from '../components/AnimateContent';
+import Trans from '../components/Trans';
+
 export const RetreatsPostTemplate = ({
   title,
   image,
@@ -41,8 +25,6 @@ export const RetreatsPostTemplate = ({
   contentComponent
 }) => {
   const galleryArr = gallery.map(gallery => gallery.galleryimage);
-  console.log('TCL: galleryArr', galleryArr);
-
   const PageContent = contentComponent || Content;
   return (
     <TransitionState>
@@ -56,20 +38,25 @@ export const RetreatsPostTemplate = ({
             }
           >
             <PageContainer>
-              <h2>{title}</h2>
-              <h5>
-                Hearth &amp; Soul Eco Farm Stanford
-                <br /> 5th-8th October
-              </h5>
-              <PreviewCompatibleImage imageInfo={image} />
-              <PageContent content={content} className="body-text" />
-              <ModalButton />
+              <AnimateContent>
+                <PageTitle
+                  title={title}
+                  subtitle={
+                    'Hearth &amp; Soul Eco Farm Stanford 5th-8th October'
+                  }
+                />
+                <PreviewCompatibleImage imageInfo={image} />
+                <PageContent content={content} className="body-text" />
+                <ModalButton />
+              </AnimateContent>
               <GalleryImage gallery={galleryArr} />
-              <Review review={review} author={author} />
+              <AnimateContent>
+                <Review review={review} author={author} />
+                <TransitionLink to={'/retreats'}>
+                  <ReadMore text={'Back to retreats'} />
+                </TransitionLink>
+              </AnimateContent>
             </PageContainer>
-            <TransitionLink to={'/retreats'}>
-              <ReadMore text={'Back to retreats'} align={'flex-start'} />
-            </TransitionLink>
             <Footer />
           </Trans>
         );

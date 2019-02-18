@@ -1,9 +1,9 @@
 import React from 'react';
 import HeadLogo from './HeadLogo';
 import TransitionLink from 'gatsby-plugin-transition-link';
-
 import NavbarBrand from './styles/NavbarBrand';
 import NavLinks from './styles/NavLinks';
+import DropButton from './DropButton';
 import HamburgerMenu from './HamburgerMenu';
 import NavButton from './styles/NavButton';
 
@@ -75,6 +75,7 @@ export default class Navbar extends React.Component {
             />
           </NavButton>
         </NavbarBrand>
+
         <NavLinks className={menuClassName}>
           <TransitionLink
             exit={{ length: 0.5 }}
@@ -84,14 +85,7 @@ export default class Navbar extends React.Component {
           >
             <div onClick={this.toggleMenu}>HOME</div>
           </TransitionLink>
-          <TransitionLink
-            exit={{ length: 0.5 }}
-            entry={{ delay: 0.5 }}
-            activeClassName="active"
-            to="/events"
-          >
-            <div onClick={this.toggleMenu}>EVENTS</div>
-          </TransitionLink>
+          <DropButton />
           <TransitionLink
             exit={{ length: 0.5 }}
             entry={{ delay: 0.5 }}

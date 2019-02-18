@@ -4,6 +4,8 @@ import PageContainer from '../components/styles/PageContainer';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import Card from '../components/styles/Card';
 import CardWrap from '../components/styles/CardWrap';
+import AnimateContent from './AnimateContent';
+
 var shortid = require('shortid');
 
 class CardWrapper extends React.Component {
@@ -13,18 +15,22 @@ class CardWrapper extends React.Component {
         <CardWrap>
           {this.props.data.map(card => (
             <Card textImage key={shortid.generate()}>
-              <TransitionLink
-                to={`/${
-                  this.props.baseUrl
-                }/${card.node.frontmatter.title
-                  .toLowerCase()
-                  .replace(/\s+/g, '-')}`}
-              >
-                <h2>{card.node.frontmatter.title}</h2>
-                <PreviewCompatibleImage
-                  imageInfo={card.node.frontmatter.image}
-                />
-              </TransitionLink>
+              <AnimateContent>
+                <div>
+                  <TransitionLink
+                    to={`/${
+                      this.props.baseUrl
+                    }/${card.node.frontmatter.title
+                      .toLowerCase()
+                      .replace(/\s+/g, '-')}`}
+                  >
+                    <h2>{card.node.frontmatter.title}</h2>
+                    <PreviewCompatibleImage
+                      imageInfo={card.node.frontmatter.image}
+                    />
+                  </TransitionLink>
+                </div>
+              </AnimateContent>
             </Card>
           ))}
         </CardWrap>

@@ -8,28 +8,10 @@ import ModalButton from '../components/ModalButton';
 import Review from '../components/Review';
 import PageContainer from '../components/styles/PageContainer';
 import Footer from '../components/Footer';
+import Trans from '../components/Trans';
 import { HTMLContent } from '../components/Content';
 import { TransitionState } from 'gatsby-plugin-transition-link';
-import posed from 'react-pose';
-const Trans = posed.div({
-  hidden: {
-    y: 30,
-    opacity: 0,
-    transition: {
-      y: { type: 'spring', stiffness: 100, damping: 15 },
-      default: { duration: 230 }
-    }
-  },
-  visible: {
-    y: 0,
-    opacity: 1,
-    delay: 200,
-    transition: {
-      y: { type: 'spring', stiffness: 100, damping: 15 },
-      default: { duration: 230 }
-    }
-  }
-});
+
 export const EventsPostTemplate = ({
   title,
   leadText,

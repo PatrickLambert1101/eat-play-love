@@ -1,6 +1,35 @@
 import styled from 'styled-components';
 
 const NavLinks = styled.div`
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    left: 0;
+    top: 35px;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    padding: 12px 16px;
+    display: block;
+  }
+
+  .dropdown:hover .dropdown-content,
+  .dropdown-content a:hover {
+    display: block;
+  }
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -9,7 +38,7 @@ const NavLinks = styled.div`
   height: auto;
   opacity: 1;
   transition: all 0.7s cubic-bezier(0.5, 1, 0.22, 1);
-  a {
+  & > * {
     width: 250px;
     padding: 15px;
     text-align: center;

@@ -5,7 +5,18 @@ import ReadMore from './ReadMore.js';
 import { navigateTo } from 'gatsby-link';
 import Select from 'react-select';
 import styled from 'styled-components';
+import AnimateContent from './AnimateContent';
 
+const colourStyles = {
+  control: styles => ({ ...styles }),
+  option: (styles, { isFocused }) => {
+    return {
+      ...styles,
+      backgroundColor: isFocused ? '#c67927' : '#fff',
+      color: isFocused ? '#fff' : '#824706'
+    };
+  }
+};
 const SelectSingle = styled(Select)`
   outline: none;
   > div {
@@ -14,14 +25,12 @@ const SelectSingle = styled(Select)`
       border: 1px solid ${props => props.theme.goldLight};
     }
     border-radius: 0;
+    position: relative;
     outline: none;
-    color: ${props => props.theme.lightBrown};
     font-weight: normal;
     font-size: 22px;
+    color: ${props => props.theme.lightBrown};
     margin-bottom: 14px;
-    & > div > div {
-      color: ${props => props.theme.lightBrown};
-    }
   }
 `;
 const options = [
@@ -75,55 +84,71 @@ class ContactForm extends React.Component {
         <div hidden>
           <input name="bot-field" onChange={this.handleChange} />
         </div>
-        <div className={this.props.singleColumn ? 'single-column' : 'flex'}>
+        <AnimateContent>
+          <div className={this.props.singleColumn ? 'single-column' : 'flex'}>
+            <div className="group">
+              <input
+                className="input"
+                type={'text'}
+                name={'name'}
+                placeholder={'Name'}
+                onChange={this.handleChange}
+                id={'name'}
+                required={true}
+              />
+              <span className="highlight" />
+              <span className="bar" />
+              <label>Name</label>
+            </div>
+            <div className="group">
+              <input
+                className="input"
+                type={'email'}
+                placeholder={'Email'}
+                name={'email'}
+                onChange={this.handleChange}
+                id={'email'}
+                required={true}
+              />
+              <span className="highlight" />
+              <span className="bar" />
+              <label>Email</label>
+            </div>
+          </div>
           <div className="group">
-            <input
-              className="input"
-              type={'text'}
-              name={'name'}
-              placeholder={'Name'}
+            <SelectSingle
+              styles={colourStyles}
+              options={options}
+              theme={theme => ({
+                ...theme,
+                borderRadius: 0,
+                colors: {
+                  ...theme.colors,
+                  primary25: '#c67927',
+                  primary75: '#c67927',
+                  primary50: '#c67927',
+                  primary: '#c67927'
+                }
+              })}
+            />
+          </div>
+          <div className="group">
+            <textarea
+              className="textarea"
+              name={'message'}
+              placeholder={'Message'}
               onChange={this.handleChange}
-              id={'name'}
+              id={'message'}
               required={true}
             />
             <span className="highlight" />
             <span className="bar" />
-            <label>Name</label>
+            <label>Message</label>
           </div>
-          <div className="group">
-            <input
-              className="input"
-              type={'email'}
-              placeholder={'Email'}
-              name={'email'}
-              onChange={this.handleChange}
-              id={'email'}
-              required={true}
-            />
-            <span className="highlight" />
-            <span className="bar" />
-            <label>Email</label>
-          </div>
-        </div>
-        <div className="group">
-          <SelectSingle options={options} />
-        </div>
-        <div className="group">
-          <textarea
-            className="textarea"
-            name={'message'}
-            placeholder={'Message'}
-            onChange={this.handleChange}
-            id={'message'}
-            required={true}
-          />
-          <span className="highlight" />
-          <span className="bar" />
-          <label>Message</label>
-        </div>
-        <Btn type="submit">
-          <ReadMore text={'Send'} align={'center'} />
-        </Btn>
+          <Btn type="submit">
+            <ReadMore text={'Send'} align={'center'} />
+          </Btn>
+        </AnimateContent>
       </Form>
     );
   }

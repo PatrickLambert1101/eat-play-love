@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PreviewCompatibleImage from './PreviewCompatibleImage';
 import ModalButton from '../components/ModalButton';
+import AnimateContent from '../components/AnimateContent';
 import styled from 'styled-components';
 var shortid = require('shortid');
 
@@ -42,11 +43,13 @@ export default class EventTypeSingle extends Component {
       <ContentCardWrapStyle>
         {this.props.content.map(item => (
           <ContentCard key={shortid.generate()}>
-            <h3>{item.title}</h3>
-            <p>{item.subtitle}</p>
-            <PreviewCompatibleImage imageInfo={item.image} />
-            <h5>{item.text}</h5>
-            <ModalButton text={'MORE'} />
+            <AnimateContent>
+              <h3>{item.title}</h3>
+              <p>{item.subtitle}</p>
+              <PreviewCompatibleImage imageInfo={item.image} />
+              <h5>{item.text}</h5>
+              <ModalButton text={'MORE'} />
+            </AnimateContent>
           </ContentCard>
         ))}
       </ContentCardWrapStyle>

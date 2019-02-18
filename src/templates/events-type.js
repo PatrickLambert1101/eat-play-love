@@ -4,27 +4,10 @@ import EventTypeSingle from '../components/EventTypeSingle';
 import Review from '../components/Review';
 import Footer from '../components/Footer';
 import { TransitionState } from 'gatsby-plugin-transition-link';
-import posed from 'react-pose';
 import PageContainer from '../components/styles/PageContainer';
-const Trans = posed.div({
-  hidden: {
-    y: 30,
-    opacity: 0,
-    transition: {
-      y: { type: 'spring', stiffness: 100, damping: 15 },
-      default: { duration: 230 }
-    }
-  },
-  visible: {
-    y: 0,
-    opacity: 1,
-    delay: 200,
-    transition: {
-      y: { type: 'spring', stiffness: 100, damping: 15 },
-      default: { duration: 230 }
-    }
-  }
-});
+import PageTitle from '../components/PageTitle';
+import Trans from '../components/Trans';
+
 const EventsType = ({ data }) => {
   const { markdownRemark: post } = data;
 
@@ -40,10 +23,10 @@ const EventsType = ({ data }) => {
             }
           >
             <PageContainer>
-              <div className="lead">
-                <h1>{post.frontmatter.title}</h1>
-              </div>
-              <h4 className="body-text">{post.frontmatter.leadtext}</h4>
+              <PageTitle
+                title={post.frontmatter.title}
+                subtitle={post.frontmatter.leadtext}
+              />
               <EventTypeSingle content={post.frontmatter.single} />
               <Review
                 review={post.frontmatter.review}

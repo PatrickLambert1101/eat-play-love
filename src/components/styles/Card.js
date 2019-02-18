@@ -21,13 +21,11 @@ const Card = styled.div`
       padding-right: 20px;
       a::after {
         left: 0;
-        right: 20px;
       }
     }
     &:nth-child(2n) {
       padding-left: 20px;
       a::after {
-        left: 20px;
         right: 0;
       }
     }
@@ -39,13 +37,15 @@ const Card = styled.div`
     margin-bottom: 15px;
     flex-basis: 100%;
   }
-
+  a > div {
+    position: relative;
+  }
   h2 {
     position: absolute;
-    left: 50%;
+    width: 100%;
+
     color: #fff;
     top: 50%;
-    transform: translate(-50%, -50%);
     z-index: 2;
     margin: 0;
   }

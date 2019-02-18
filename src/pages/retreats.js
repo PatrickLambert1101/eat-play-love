@@ -4,28 +4,10 @@ import { graphql } from 'gatsby';
 import ContentCardWrap from '../components/ContentCardWrap';
 import PageContainer from '../components/styles/PageContainer';
 import Footer from '../components/Footer';
+import Trans from '../components/Trans';
 import { HTMLContent } from '../components/Content';
 import { TransitionState } from 'gatsby-plugin-transition-link';
-import posed from 'react-pose';
-const Trans = posed.div({
-  hidden: {
-    y: 30,
-    opacity: 0,
-    transition: {
-      y: { type: 'spring', stiffness: 100, damping: 15 },
-      default: { duration: 230 }
-    }
-  },
-  visible: {
-    y: 0,
-    opacity: 1,
-    delay: 200,
-    transition: {
-      y: { type: 'spring', stiffness: 100, damping: 15 },
-      default: { duration: 230 }
-    }
-  }
-});
+
 export default class RetreatsPage extends React.Component {
   render() {
     const { data } = this.props;

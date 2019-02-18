@@ -1,28 +1,11 @@
 import React from 'react';
-import PageContainer from '../../components/styles/PageContainer.js';
-import ContactForm from '../../components/ContactForm.js';
+import PageContainer from '../../components/styles/PageContainer';
+import ContactForm from '../../components/ContactForm';
+import PageTitle from '../../components/PageTitle';
 import Footer from '../../components/Footer';
 import { TransitionState } from 'gatsby-plugin-transition-link';
-import posed from 'react-pose';
-const Trans = posed.div({
-  hidden: {
-    y: 30,
-    opacity: 0,
-    transition: {
-      y: { type: 'spring', stiffness: 100, damping: 15 },
-      default: { duration: 230 }
-    }
-  },
-  visible: {
-    y: 0,
-    opacity: 1,
-    delay: 200,
-    transition: {
-      y: { type: 'spring', stiffness: 100, damping: 15 },
-      default: { duration: 230 }
-    }
-  }
-});
+import AnimateContent from '../../components/AnimateContent';
+import Trans from '../../components/Trans';
 
 export default class Index extends React.Component {
   render() {
@@ -38,11 +21,10 @@ export default class Index extends React.Component {
               }
             >
               <PageContainer>
-                <div className="lead">
-                  <h1>Contact</h1>
-                </div>
+                <AnimateContent>
+                  <PageTitle title={'Contact'} />
+                </AnimateContent>
                 <ContactForm />
-                <Footer />
               </PageContainer>
               <Footer />
             </Trans>
