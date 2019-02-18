@@ -20,16 +20,9 @@ const colourStyles = {
 const SelectSingle = styled(Select)`
   outline: none;
   > div {
-    border: 1px solid ${props => props.theme.goldLight};
-    &:hover {
-      border: 1px solid ${props => props.theme.goldLight};
-    }
-    border-radius: 0;
     position: relative;
-    outline: none;
     font-weight: normal;
     font-size: 22px;
-    color: ${props => props.theme.lightBrown};
     margin-bottom: 14px;
   }
 `;
@@ -42,6 +35,24 @@ function encode(data) {
   return Object.keys(data)
     .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
     .join('&');
+}
+
+function EventType(props) {
+  return props.eventName ? (
+    <div className="group">
+      <input
+        className="input"
+        type={'text'}
+        name={'Event Type'}
+        defaultValue={props.eventName}
+        id={props.eventName}
+        required={true}
+      />
+      <span className="highlight" />
+      <span className="bar" />
+      <label>{'Event Type'}</label>
+    </div>
+  ) : null;
 }
 
 class ContactForm extends React.Component {
@@ -86,6 +97,9 @@ class ContactForm extends React.Component {
         </div>
         <AnimateContent>
           <div className={this.props.singleColumn ? 'single-column' : 'flex'}>
+            <div onChange={this.handleChange}>
+              <EventType eventName={this.props.eventName} />
+            </div>
             <div className="group">
               <input
                 className="input"
@@ -122,12 +136,20 @@ class ContactForm extends React.Component {
               theme={theme => ({
                 ...theme,
                 borderRadius: 0,
+                border: '1px solid #c67927',
                 colors: {
                   ...theme.colors,
                   primary25: '#c67927',
                   primary75: '#c67927',
                   primary50: '#c67927',
-                  primary: '#c67927'
+                  primary: '#c67927',
+                  neutral10: '#c67927',
+                  neutral20: '#c67927',
+                  neutral50: '#824706',
+                  neutral60: '#824706',
+                  neutral70: '#824706',
+                  neutral80: '#824706',
+                  neutral90: '#824706'
                 }
               })}
             />

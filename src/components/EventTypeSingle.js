@@ -48,7 +48,7 @@ export default class EventTypeSingle extends Component {
               <p>{item.subtitle}</p>
               <PreviewCompatibleImage imageInfo={item.image} />
               <h5>{item.text}</h5>
-              <ModalButton text={'MORE'} />
+              <ModalButton eventName={item.title} text={'MORE'} />
             </AnimateContent>
           </ContentCard>
         ))}

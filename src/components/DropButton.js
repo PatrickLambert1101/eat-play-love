@@ -53,45 +53,26 @@ export default class DropButton extends Component {
   render() {
     return (
       <div onMouseOver={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
-        <TransitionLink
-          exit={{ length: 0.5 }}
-          entry={{ delay: 0.5 }}
-          activeClassName="active"
-          to="/events"
-        >
+        <TransitionLink {...this.props.isEntryExit} to="events">
           <div onClick={this.toggleMenu}>EVENTS</div>
         </TransitionLink>
         <InnerDrop openIt={this.state.dropdownOpen}>
           <TransitionLink
-            exit={{ length: 0.5 }}
-            entry={{ delay: 0.5 }}
-            activeClassName="active"
-            to="/events-type/private-events"
+            {...this.props.isEntryExit}
+            to="events-type/private-events"
           >
             Private Events
           </TransitionLink>
-          <TransitionLink
-            exit={{ length: 0.5 }}
-            entry={{ delay: 0.5 }}
-            activeClassName="active"
-            to="/events-type/weddings"
-          >
+          <TransitionLink {...this.props.isEntryExit} to="events-type/weddings">
             Weddings
           </TransitionLink>
           <TransitionLink
-            exit={{ length: 0.5 }}
-            entry={{ delay: 0.5 }}
-            activeClassName="active"
-            to="/events-type/holistic-events"
+            {...this.props.isEntryExit}
+            to="events-type/holistic-events"
           >
             Holistic Events
           </TransitionLink>
-          <TransitionLink
-            exit={{ length: 0.5 }}
-            entry={{ delay: 0.5 }}
-            activeClassName="active"
-            to="/events-type/flowers"
-          >
+          <TransitionLink {...this.props.isEntryExit} to="events-type/flowers">
             Flowers
           </TransitionLink>
         </InnerDrop>

@@ -6,7 +6,11 @@ import NavLinks from './styles/NavLinks';
 import DropButton from './DropButton';
 import HamburgerMenu from './HamburgerMenu';
 import NavButton from './styles/NavButton';
-
+const isEntryExit = {
+  exit: { length: 0.5 },
+  entry: { delay: 0.5 },
+  activeClassName: 'active'
+};
 export default class Navbar extends React.Component {
   constructor(props) {
     super(props);
@@ -56,12 +60,7 @@ export default class Navbar extends React.Component {
     return (
       <nav>
         <NavbarBrand>
-          <TransitionLink
-            exit={{ length: 0.5 }}
-            entry={{ delay: 0.5 }}
-            to="/"
-            className="navbar-item"
-          >
+          <TransitionLink {...isEntryExit} to="/" className="navbar-item">
             <HeadLogo alt="Eat Play Love Logo" onClick={this.toggleMenu} />
           </TransitionLink>
           <NavButton type="button" aria-expanded="false">
@@ -77,37 +76,17 @@ export default class Navbar extends React.Component {
         </NavbarBrand>
 
         <NavLinks className={menuClassName}>
-          <TransitionLink
-            exit={{ length: 0.5 }}
-            entry={{ delay: 0.5 }}
-            activeClassName="active"
-            to="/"
-          >
+          <TransitionLink {...isEntryExit} to="/">
             <div onClick={this.toggleMenu}>HOME</div>
           </TransitionLink>
-          <DropButton />
-          <TransitionLink
-            exit={{ length: 0.5 }}
-            entry={{ delay: 0.5 }}
-            activeClassName="active"
-            to="/retreats"
-          >
+          <DropButton {...isEntryExit} />
+          <TransitionLink {...isEntryExit} to="/retreats">
             <div onClick={this.toggleMenu}> RETREATS</div>
           </TransitionLink>
-          <TransitionLink
-            exit={{ length: 0.5 }}
-            entry={{ delay: 0.5 }}
-            activeClassName="active"
-            to="/about"
-          >
+          <TransitionLink {...isEntryExit} to="/about">
             <div onClick={this.toggleMenu}>ABOUT US</div>
           </TransitionLink>
-          <TransitionLink
-            exit={{ length: 0.5 }}
-            entry={{ delay: 0.5 }}
-            activeClassName="active"
-            to="/contact"
-          >
+          <TransitionLink {...isEntryExit} to="/contact">
             <div onClick={this.toggleMenu}>CONTACT</div>
           </TransitionLink>
         </NavLinks>

@@ -92,7 +92,7 @@ class ModalButton extends React.Component {
             </button>
           </Close>
           <ModalTitle>Book Now</ModalTitle>
-          <ContactForm singleColumn />
+          <ContactForm singleColumn eventName={this.props.eventName} />
         </ReactModal>
       </div>
     );

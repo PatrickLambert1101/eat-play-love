@@ -21,7 +21,6 @@ export default class AnimateContent extends Component {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.style.opacity = 1;
-          entry.target.style.transform = 'translateY(0)';
         } else {
           entry.target.style.opacity = 0.05;
         }
@@ -31,7 +30,6 @@ export default class AnimateContent extends Component {
     elements.forEach(element => {
       observer.observe(element);
       element.style.opacity = 0.03;
-      element.style.transform = 'translateY(20px)';
     });
 
     setTimeout(() => {
