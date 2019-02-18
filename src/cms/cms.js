@@ -1,6 +1,6 @@
 import CMS from 'netlify-cms';
 
-import HomePagePreview from './preview-templates/HomePagePreview';
+import EventsPostPreview from './preview-templates/EventsPostPreview';
 // import BlogPostPreview from './preview-templates/BlogPostPreview';
 
 // CMS.registerPreviewTemplate('about', AboutPagePreview);
