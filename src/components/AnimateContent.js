@@ -10,7 +10,7 @@ export default class AnimateContent extends Component {
     if (typeof IntersectionObserver === 'undefined') return; // no intersection observer support so just bail out;
 
     const elements = this.wrapper.querySelectorAll(
-      ':scope > p, :scope > h1,:scope > h2,:scope > h3,:scope > h4, :scope > div'
+      ':scope > p, :scope > h1,:scope > h2,:scope > h3,:scope > h4, :scope > h5, :scope > div'
     );
 
     const config = {

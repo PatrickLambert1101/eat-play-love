@@ -7,6 +7,7 @@ import { TransitionState } from 'gatsby-plugin-transition-link';
 import PageContainer from '../components/styles/PageContainer';
 import PageTitle from '../components/PageTitle';
 import Trans from '../components/Trans';
+import AnimateContent from '../components/AnimateContent';
 
 const EventsType = ({ data }) => {
   const { markdownRemark: post } = data;

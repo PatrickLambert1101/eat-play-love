@@ -1,5 +1,6 @@
 import React from 'react';
 import PageContainer from '../components/styles/PageContainer';
+import AnimateContent from '../components/AnimateContent';
 import styled from 'styled-components';
 
 const ReviewStyle = styled.div`
@@ -32,10 +33,12 @@ class Review extends React.Component {
   render() {
     return (
       <PageContainer>
-        <ReviewStyle>
-          <p>“{this.props.review}”</p>
-          <span>{this.props.author}</span>
-        </ReviewStyle>
+        <AnimateContent>
+          <ReviewStyle>
+            <p>“{this.props.review}”</p>
+            <span>{this.props.author}</span>
+          </ReviewStyle>
+        </AnimateContent>
       </PageContainer>
     );
   }

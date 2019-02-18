@@ -11,6 +11,8 @@ const InnerDrop = styled.div`
   z-index: 4;
   top: 110%;
   left: 50%;
+  width: 200px;
+
   transform: translateX(-50%);
   text-align: center;
   transition: all 0.7s ease;
@@ -19,6 +21,7 @@ const InnerDrop = styled.div`
     display: none;
   }
   & > a {
+    width: 100%;
     padding: 10px 30px;
     transition: all 0.4s ease;
     float: left;
