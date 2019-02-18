@@ -6,10 +6,6 @@ var shortid = require('shortid');
 
 class GalleryImage extends React.Component {
   render() {
-    console.log(
-      'TCL: GalleryImage -> render -> this.props.gallery',
-      this.props.gallery
-    );
     return (
       <GalleryStyle>
         {this.props.gallery.map((image, i) => (

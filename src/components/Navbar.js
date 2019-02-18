@@ -74,7 +74,6 @@ export default class Navbar extends React.Component {
             />
           </NavButton>
         </NavbarBrand>
-
         <NavLinks className={menuClassName}>
           <TransitionLink {...isEntryExit} to="/">
             <div onClick={this.toggleMenu}>HOME</div>

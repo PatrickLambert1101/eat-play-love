@@ -47,7 +47,7 @@ export const RetreatsPostTemplate = ({
                 />
                 <PreviewCompatibleImage imageInfo={image} />
                 <PageContent content={content} className="body-text" />
-                <ModalButton />
+                <ModalButton eventName={title} />
               </AnimateContent>
               <GalleryImage gallery={galleryArr} />
               <AnimateContent>
