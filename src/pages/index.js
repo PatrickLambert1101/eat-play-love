@@ -16,8 +16,9 @@ import Trans from '../components/Trans';
 
 var shortid = require('shortid');
 
-const Quote = styled.h3`
+const Quote = styled.h4`
   font-style: italic;
+  text-align: center;
 `;
 
 export default class IndexPage extends Component {
@@ -95,7 +96,6 @@ export default class IndexPage extends Component {
                 ))}
                 <AnimateContent>
                   <h2>Instagram</h2>
-
                   <InstaSlider>
                     <Slider {...settings}>
                       {instas.map(({ node: ig }) => (

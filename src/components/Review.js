@@ -21,7 +21,7 @@ const ReviewStyle = styled.div`
       content: '';
       left: 7px;
       top: 14px;
-      margin-top: -1px;
+      margin-top: -6px;
       height: 2px;
       width: 15px;
       background-color: ${props => props.theme.textBrown};

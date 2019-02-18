@@ -20,13 +20,13 @@ const Card = styled.div`
     &:nth-child(2n + 1) {
       padding-right: 20px;
       a::after {
-        left: 0;
+        right: 20px;
       }
     }
     &:nth-child(2n) {
       padding-left: 20px;
       a::after {
-        right: 0;
+        left: 20px;
       }
     }
   }

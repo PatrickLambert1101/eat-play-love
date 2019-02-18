@@ -5,7 +5,7 @@ import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import Card from '../components/styles/Card';
 import CardWrap from '../components/styles/CardWrap';
 import AnimateContent from './AnimateContent';
-
+import isEntryExit from './isEntryExit';
 var shortid = require('shortid');
 
 class CardWrapper extends React.Component {
@@ -18,6 +18,7 @@ class CardWrapper extends React.Component {
               <AnimateContent>
                 <div>
                   <TransitionLink
+                    {...isEntryExit}
                     to={`/${
                       this.props.baseUrl
                     }/${card.node.frontmatter.title

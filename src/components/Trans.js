@@ -2,11 +2,11 @@ import posed from 'react-pose';
 
 const Trans = posed.div({
   hidden: {
-    y: 30,
+    y: 15,
     opacity: 0,
     transition: {
-      y: { type: 'spring', stiffness: 100, damping: 15 },
-      default: { duration: 230 }
+      y: { type: 'spring', stiffness: 150, damping: 30 },
+      default: { duration: 80 }
     }
   },
   visible: {
@@ -14,8 +14,8 @@ const Trans = posed.div({
     opacity: 1,
     delay: 200,
     transition: {
-      y: { type: 'spring', stiffness: 100, damping: 15 },
-      default: { duration: 230 }
+      y: { type: 'spring', stiffness: 150, damping: 30 },
+      default: { duration: 80 }
     }
   }
 });

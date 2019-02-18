@@ -6,11 +6,7 @@ import NavLinks from './styles/NavLinks';
 import DropButton from './DropButton';
 import HamburgerMenu from './HamburgerMenu';
 import NavButton from './styles/NavButton';
-const isEntryExit = {
-  exit: { length: 0.5 },
-  entry: { delay: 0.5 },
-  activeClassName: 'active'
-};
+import isEntryExit from './isEntryExit';
 export default class Navbar extends React.Component {
   constructor(props) {
     super(props);
