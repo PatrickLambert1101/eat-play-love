@@ -25,11 +25,6 @@ const NavLinks = styled.div`
     display: block;
   }
 
-  .dropdown:hover .dropdown-content,
-  .dropdown-content a:hover {
-    display: block;
-  }
-
   display: flex;
   align-items: center;
   justify-content: space-between;
