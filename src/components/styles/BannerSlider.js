@@ -1,6 +1,16 @@
 import styled from 'styled-components';
 
 const BannerSlider = styled.div`
+  .slick-slider .slick-list,
+  .slick-track,
+  .slick-slide,
+  .slick-slide img {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: none;
+    -o-transform: translate3d(0, 0, 0);
+    transform: none;
+  }
   margin: 0 auto 80px;
   width: 100%;
 

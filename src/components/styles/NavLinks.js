@@ -37,7 +37,7 @@ const NavLinks = styled.div`
   margin: 0 auto 35px;
   height: auto;
   opacity: 1;
-  transition: all 0.7s cubic-bezier(0.5, 1, 0.22, 1);
+  transition: opacity 0.7s cubic-bezier(0.325, 1, 0.22, 1);
   & > * {
     width: 250px;
     padding: 15px;
@@ -65,10 +65,11 @@ const NavLinks = styled.div`
       opacity: 1;
     }
   }
+
   @media (max-width: ${props => props.theme.mobile}) {
     flex-direction: column;
     align-items: center;
-    a {
+    & > a {
       min-height: 60px;
       display: flex;
       justify-content: center;

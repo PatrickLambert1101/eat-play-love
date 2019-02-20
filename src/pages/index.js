@@ -74,19 +74,19 @@ export default class IndexPage extends Component {
               >
                 {home.map(({ node: house }) => (
                   <div key={shortid.generate()}>
+                    <BannerSlider>
+                      <Slider {...bannerSettings}>
+                        {house.frontmatter.slider.map(slide => (
+                          <div key={shortid.generate()}>
+                            <h2>{slide.title}</h2>
+                            <PreviewCompatibleImage
+                              imageInfo={slide.sliderimage}
+                            />
+                          </div>
+                        ))}
+                      </Slider>
+                    </BannerSlider>
                     <AnimateContent>
-                      <BannerSlider>
-                        <Slider {...bannerSettings}>
-                          {house.frontmatter.slider.map(slide => (
-                            <div key={shortid.generate()}>
-                              <h2>{slide.title}</h2>
-                              <PreviewCompatibleImage
-                                imageInfo={slide.sliderimage}
-                              />
-                            </div>
-                          ))}
-                        </Slider>
-                      </BannerSlider>
                       <Quote>“{house.frontmatter.quote}”</Quote>
                       <h2>Recent Events</h2>
                     </AnimateContent>
