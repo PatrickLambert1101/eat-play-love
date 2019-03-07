@@ -1,6 +1,9 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
+import Trans from '../components/Trans';
+import { TransitionState } from 'gatsby-plugin-transition-link';
+
 import Navbar from '../components/Navbar';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import './font-face.css';
@@ -44,6 +47,20 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
 button:focus { outline: none; }
+@keyframes spin{
+  0%, 100%   { opacity: 0; }
+  50% { opacity: 1; }
+}
+.spinner{
+position: absolute;
+top: 80px;
+width: 120px;
+left: 50%;
+margin-left: -60px;
+opacity: 1;
+animation: spin 1.3s;
+
+}
 
 
 h1{
@@ -195,7 +212,21 @@ const TemplateWrapper = ({ children, location }) => (
                 <meta property="og:url" content="/" />
               </Helmet>
               <Navbar />
-              {children}
+              <TransitionState>
+                {({ transitionStatus }) => {
+                  return (
+                    <Trans
+                      pose={
+                        ['entering', 'entered'].includes(transitionStatus)
+                          ? 'visible'
+                          : 'hidden'
+                      }
+                    >
+                      {children}
+                    </Trans>
+                  );
+                }}
+              </TransitionState>
             </React.Fragment>
           </ThemeProvider>
         </React.Fragment>

@@ -34,7 +34,7 @@ export default class AnimateContent extends Component {
 
     setTimeout(() => {
       elements.forEach(element => {
-        element.style.transition = '.7s opacity ease-in, .25s transform ease';
+        element.style.transition = '.5s opacity ease-in';
       });
     }, 500);
   }

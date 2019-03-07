@@ -4,9 +4,7 @@ import { graphql } from 'gatsby';
 import CardWrapper from '../components/CardWrapper';
 import Footer from '../components/Footer';
 import { HTMLContent } from '../components/Content';
-import { TransitionState } from 'gatsby-plugin-transition-link';
 import PageContainer from '../components/styles/PageContainer';
-import Trans from '../components/Trans';
 var shortid = require('shortid');
 
 export default class EventsPage extends React.Component {
@@ -16,36 +14,20 @@ export default class EventsPage extends React.Component {
     const { edges: eventsPageData } = data.eventsPageData;
 
     return (
-      <TransitionState>
-        {({ transitionStatus }) => {
-          return (
-            <Trans
-              pose={
-                ['entering', 'entered'].includes(transitionStatus)
-                  ? 'visible'
-                  : 'hidden'
-              }
-            >
-              {eventsPageData.map(page => (
-                <div key={shortid.generate()}>
-                  <PageContainer>
-                    <div className="lead">
-                      <h1>{page.node.frontmatter.title}</h1>
-                    </div>
-                    <HTMLContent
-                      className="body-text"
-                      content={page.node.html}
-                    />
-                  </PageContainer>
-                  <CardWrapper baseUrl={'events-type'} data={events} />
-
-                  <Footer />
-                </div>
-              ))}
-            </Trans>
-          );
-        }}
-      </TransitionState>
+      <div>
+        {eventsPageData.map(page => (
+          <div key={shortid.generate()}>
+            <PageContainer>
+              <div className="lead">
+                <h1>{page.node.frontmatter.title}</h1>
+              </div>
+              <HTMLContent className="body-text" content={page.node.html} />
+            </PageContainer>
+            <CardWrapper baseUrl={'events-type'} data={events} />
+            <Footer />
+          </div>
+        ))}
+      </div>
     );
   }
 }

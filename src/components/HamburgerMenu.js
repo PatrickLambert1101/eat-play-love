@@ -1,72 +1,95 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
-export default function HamburgerMenu(props) {
-  const width = `${props.width || 36}px`,
-    height = `${props.height || 30}px`,
-    halfHeight = `${parseInt(height.replace('px', '')) / 2}px`,
-    isOpen = props.isOpen || false,
-    strokeWidth = props.strokeWidth || 2,
-    halfStrokeWidth = `-${strokeWidth / 2}px`,
-    animationDuration = props.animationDuration || '0.4';
+const Hamburger = styled.button`
+  @media (min-width: 901px) {
+    display: none;
+  }
+  @media (max-width: ${props => props.theme.mobile}) {
+    margin-right: 15px;
+  }
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: inherit;
+  border: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  :focus {
+    outline: none !important;
+  }
+  .menu-toggle {
+    cursor: pointer;
+    display: flex;
+    position: relative;
+    height: 30px;
+    width: 50px;
+    align-items: center;
 
-  const getTransformValue = (isOpen, defaultPos, rotateVal) =>
-    `translate3d(0,${isOpen ? halfHeight : defaultPos},0) rotate(${
-      isOpen ? `${rotateVal}deg` : '0'
-    })`;
-
-  const styles = {
-    container: {
-      width,
-      height,
-      position: 'relative',
-      transform: `rotate(${props.rotate || 0}deg)`
-    },
-    lineBase: {
-      display: 'block',
-      height: `${strokeWidth}px`,
-      width: '100%',
-      background: props.color || '#000',
-      transitionTimingFunction: 'ease',
-      transitionDuration: `${animationDuration}s`,
-      borderRadius: `${props.borderRadius || 0}px`,
-      transformOrigin: 'center',
-      position: 'absolute'
-    },
-    firstLine: {
-      transform: getTransformValue(isOpen, 0, 45),
-      marginTop: halfStrokeWidth
-    },
-    secondLine: {
-      transitionTimingFunction: 'ease-out',
-      transitionDuration: `${animationDuration / 4}s`,
-      opacity: isOpen ? '0' : '1',
-      top: halfHeight,
-      marginTop: halfStrokeWidth
-    },
-    thirdLine: {
-      transform: getTransformValue(isOpen, height, -45),
-      marginTop: halfStrokeWidth
+    &:before,
+    &:after,
+    & em {
+      content: '';
+      position: absolute;
+      display: inline-block;
+      width: 100%;
+      height: 2px;
+      background: ${props => props.theme.goldLight};
+      border-radius: 10px;
+      left: 0px;
+      transition: all 0.3s ease;
     }
-  };
+
+    &:before {
+      top: 0px;
+    }
+
+    &:after {
+      bottom: 0px;
+    }
+
+    & em {
+      position: relative;
+    }
+
+    /* adjust percentage accordingly */
+    &.open::before {
+      top: calc(30px - 55%);
+      transform: rotate(-45deg);
+    }
+
+    /* adjust percentage accordingly */
+    &.open::after {
+      bottom: 14px;
+      transform: rotate(45deg);
+    }
+
+    &.open em {
+      opacity: 0;
+    }
+  }
+`;
+
+const HamburgerMenu = () => {
+  const [isActive, setIsActive] = useState(false);
+
+  function handleMenuClick() {
+    setIsActive(!isActive);
+  }
 
   return (
-    <div style={styles.container} onClick={props.menuClicked}>
-      <span style={Object.assign({}, styles.lineBase, styles.firstLine)} />
-      <span style={Object.assign({}, styles.lineBase, styles.secondLine)} />
-      <span style={Object.assign({}, styles.lineBase, styles.thirdLine)} />
-    </div>
+    <Hamburger>
+      <span
+        className={`menu-toggle ${isActive ? 'open' : ''}`}
+        onClick={handleMenuClick}
+      >
+        <em />
+      </span>
+    </Hamburger>
   );
-}
-
-HamburgerMenu.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  menuClicked: PropTypes.func.isRequired,
-  width: PropTypes.number,
-  height: PropTypes.number,
-  strokeWidth: PropTypes.number,
-  rotate: PropTypes.number,
-  color: PropTypes.string,
-  borderRadius: PropTypes.number,
-  animationDuration: PropTypes.number
 };
+export default HamburgerMenu;
