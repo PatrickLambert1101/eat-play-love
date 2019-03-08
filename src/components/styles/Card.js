@@ -19,15 +19,9 @@ const Card = styled.div`
   @media screen and (min-width: ${props => props.theme.mobile}) {
     &:nth-child(2n + 1) {
       padding-right: 20px;
-      a::after {
-        right: 20px;
-      }
     }
     &:nth-child(2n) {
       padding-left: 20px;
-      a::after {
-        left: 20px;
-      }
     }
   }
   a:hover::after {

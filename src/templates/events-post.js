@@ -10,15 +10,13 @@ import PageContainer from '../components/styles/PageContainer';
 import Layout from '../components/layout';
 import { HTMLContent } from '../components/Content';
 
-export const location = ({ post } = ({
+export const EventsPostTemplate = ({
   title,
-  location,
   leadText,
   gallery,
   review,
   author
 }) => {
-  console.log('TCL: this', location);
   const galleryArr = gallery.map(gallery => gallery.galleryimage);
   return (
     <Layout location={'test'}>
@@ -41,7 +39,7 @@ export const location = ({ post } = ({
       </TransitionLink>
     </Layout>
   );
-});
+};
 
 EventsPostTemplate.propTypes = {
   title: PropTypes.string,
@@ -54,7 +52,6 @@ const EventsPost = ({ data }) => {
   return (
     <div>
       <EventsPostTemplate
-        location={post}
         title={post.frontmatter.title}
         leadText={post.html}
         review={post.frontmatter.review}

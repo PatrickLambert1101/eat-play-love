@@ -5,6 +5,7 @@
   "author": "Austin Green",
   "dependencies": {
     "@rehooks/window-size": "^1.0.2",
+    "@rooks/use-visibility-sensor": "^1.1.1",
     "babel-plugin-styled-components": "^1.8.0",
     "bulma": "^0.7.0",
     "formik": "^1.5.0",
