@@ -13,7 +13,7 @@ export default function Navbar() {
   const [isToggledOn, setToggle] = useState(false);
   const toggle = () => setToggle(!isToggledOn);
   try {
-    let windowSize = useWindowSize();
+    var windowSize = useWindowSize();
   } catch (e) {
     console.log(e);
   }
