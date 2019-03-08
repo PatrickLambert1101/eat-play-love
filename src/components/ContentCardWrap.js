@@ -50,28 +50,24 @@ const ContentCard = styled.div`
   }
 `;
 
-class ContentCardWrap extends React.Component {
-  render() {
-    return (
-      <ContentCardWrapStyle>
-        {this.props.content.map(item => (
-          <ContentCard key={shortid.generate()}>
-            <TransitionLink {...isEntryExit} to={item.node.fields.slug}>
-              <h3>{item.node.frontmatter.title}</h3>
-              <p>{item.node.frontmatter.location}</p>
-              <p>{item.node.frontmatter.date}</p>
-              <PreviewCompatibleImage
-                scale
-                imageInfo={item.node.frontmatter.image}
-              />
-              <h5>{item.node.frontmatter.excerpt}</h5>
-              <ReadMore text={'MORE'} />
-            </TransitionLink>
-          </ContentCard>
-        ))}
-      </ContentCardWrapStyle>
-    );
-  }
+export default function ContentCardWrap(props) {
+  return (
+    <ContentCardWrapStyle>
+      {props.content.map(item => (
+        <ContentCard key={shortid.generate()}>
+          <TransitionLink {...isEntryExit} to={item.node.fields.slug}>
+            <h3>{item.node.frontmatter.title}</h3>
+            <p>{item.node.frontmatter.location}</p>
+            <p>{item.node.frontmatter.date}</p>
+            <PreviewCompatibleImage
+              scale
+              imageInfo={item.node.frontmatter.image}
+            />
+            <h5>{item.node.frontmatter.excerpt}</h5>
+            <ReadMore text={'MORE'} />
+          </TransitionLink>
+        </ContentCard>
+      ))}
+    </ContentCardWrapStyle>
+  );
 }
-
-export default ContentCardWrap;

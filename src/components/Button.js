@@ -49,18 +49,16 @@ const ButtonStyle = styled.button`
   }
 `;
 
-export default class Button extends React.Component {
-  render() {
-    return (
-      <ButtonStyle
-        brown={this.props.brown}
-        align={this.props.align || 'center'}
-        size={this.props.size}
-        isLarge={this.props.isLarge}
-        fullWidth={this.props.fullWidth}
-      >
-        {this.props.text}
-      </ButtonStyle>
-    );
-  }
+export default function Button(props) {
+  return (
+    <ButtonStyle
+      brown={props.brown}
+      align={props.align || 'center'}
+      size={props.size}
+      isLarge={props.isLarge}
+      fullWidth={props.fullWidth}
+    >
+      {props.text}
+    </ButtonStyle>
+  );
 }

@@ -29,19 +29,15 @@ const ReviewStyle = styled.div`
   }
 `;
 
-class Review extends React.Component {
-  render() {
-    return (
-      <PageContainer>
-        <AnimateContent>
-          <ReviewStyle>
-            <p>“{this.props.review}”</p>
-            <span>{this.props.author}</span>
-          </ReviewStyle>
-        </AnimateContent>
-      </PageContainer>
-    );
-  }
+export default function Review(props) {
+  return (
+    <PageContainer>
+      <AnimateContent>
+        <ReviewStyle>
+          <p>“{props.review}”</p>
+          <span>{props.author}</span>
+        </ReviewStyle>
+      </AnimateContent>
+    </PageContainer>
+  );
 }
-
-export default Review;

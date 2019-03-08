@@ -37,22 +37,21 @@ const ContentCard = styled.div`
     margin-top: 30px;
   }
 `;
-export default class EventTypeSingle extends Component {
-  render() {
-    return (
-      <ContentCardWrapStyle>
-        {this.props.content.map(item => (
-          <ContentCard key={shortid.generate()}>
-            <AnimateContent>
-              <h3>{item.title}</h3>
-              <p>{item.subtitle}</p>
-              <PreviewCompatibleImage imageInfo={item.image} />
-              <h5>{item.text}</h5>
-              <ModalButton eventName={item.title} text={'MORE'} />
-            </AnimateContent>
-          </ContentCard>
-        ))}
-      </ContentCardWrapStyle>
-    );
-  }
+
+export default function EventTypeSingle(props) {
+  return (
+    <ContentCardWrapStyle>
+      {props.content.map(item => (
+        <ContentCard key={shortid.generate()}>
+          <AnimateContent>
+            <h3>{item.title}</h3>
+            <p>{item.subtitle}</p>
+            <PreviewCompatibleImage imageInfo={item.image} />
+            <h5>{item.text}</h5>
+            <ModalButton eventName={item.title} text={'MORE'} />
+          </AnimateContent>
+        </ContentCard>
+      ))}
+    </ContentCardWrapStyle>
+  );
 }

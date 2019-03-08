@@ -2,6 +2,7 @@ import React from 'react';
 import ReactModal from 'react-modal';
 import styled from 'styled-components';
 import ReadMore from './ReadMore';
+import { useState } from 'react';
 import ContactForm from './ContactForm';
 import close from '../img/close.svg';
 
@@ -43,60 +44,39 @@ const ModalTitle = styled.h2`
   }
 `;
 
-class ModalButton extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      showModal: false,
-      isValidated: false
-    };
-
-    this.handleOpenModal = this.handleOpenModal.bind(this);
-    this.handleCloseModal = this.handleCloseModal.bind(this);
-  }
-
-  handleOpenModal() {
-    this.setState({ showModal: true });
-  }
-
-  handleCloseModal() {
-    this.setState({ showModal: false });
-  }
-
-  render() {
-    return (
-      <div>
-        <CenterButton onClick={this.handleOpenModal}>
-          <ReadMore text={'BOOK'} />
-        </CenterButton>
-        <ReactModal
-          closeTimeoutMS={200}
-          isOpen={this.state.showModal}
-          onRequestClose={this.handleCloseModal}
-          style={{
-            overlay: { backgroundColor: '#ffefd587' },
-            content: {
-              maxWidth: '500px',
-              margin: 'auto',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              border: 'none',
-              borderRadius: '0',
-              bottom: 'auto'
-            }
-          }}
-        >
-          <Close>
-            <button onClick={this.handleCloseModal}>
-              <img src={close} alt="Close Modal" />
-            </button>
-          </Close>
-          <ModalTitle>Book Now</ModalTitle>
-          <ContactForm singleColumn eventName={this.props.eventName} />
-        </ReactModal>
-      </div>
-    );
-  }
+export default function ModalButton(props) {
+  const [isOpened, setToggleModal] = useState(false);
+  const toggleModal = () => setToggleModal(!isOpened);
+  return (
+    <div>
+      <CenterButton onClick={toggleModal}>
+        <ReadMore text={'BOOK'} />
+      </CenterButton>
+      <ReactModal
+        closeTimeoutMS={200}
+        isOpen={isOpened}
+        onRequestClose={toggleModal}
+        style={{
+          overlay: { backgroundColor: '#ffefd587' },
+          content: {
+            maxWidth: '500px',
+            margin: 'auto',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            border: 'none',
+            borderRadius: '0',
+            bottom: 'auto'
+          }
+        }}
+      >
+        <Close>
+          <button onClick={toggleModal}>
+            <img src={close} alt="Close Modal" />
+          </button>
+        </Close>
+        <ModalTitle>Book Now</ModalTitle>
+        <ContactForm singleColumn eventName={props.eventName} />
+      </ReactModal>
+    </div>
+  );
 }
-
-export default ModalButton;
