@@ -8,8 +8,7 @@ const Fader = styled.div`
 export default function AnimateContent(props) {
   const rootNode = useRef(null);
 
-  console.log('TCL: AnimateContent -> props', rootNode);
-  const { isVisible, visibilityRect } = useVisibilitySensor(rootNode, {
+  const { isVisible } = useVisibilitySensor(rootNode, {
     intervalCheck: 400,
     partialVisibility: true,
     scrollCheck: true,
@@ -17,14 +16,7 @@ export default function AnimateContent(props) {
   });
 
   return (
-    <Fader
-      ref={rootNode}
-      style={
-        isVisible
-          ? { opacity: 1, transform: 'translateY(0) ' }
-          : { opacity: 0, transform: 'translateY(10px)' }
-      }
-    >
+    <Fader ref={rootNode} style={isVisible ? { opacity: 1 } : { opacity: 0 }}>
       {props.children}
     </Fader>
   );

@@ -12,10 +12,12 @@ import ReadMore from '../components/ReadMore';
 import PageContainer from '../components/styles/PageContainer';
 import AnimateContent from '../components/AnimateContent';
 import Layout from '../components/layout';
+import isEntryExit from '../components/isEntryExit';
 
 export const RetreatsPostTemplate = ({
   title,
   image,
+  location,
   content,
   gallery,
   review,
@@ -25,7 +27,7 @@ export const RetreatsPostTemplate = ({
   const galleryArr = gallery.map(gallery => gallery.galleryimage);
   const PageContent = contentComponent || Content;
   return (
-    <Layout location={this.props.location.pathname}>
+    <Layout location={location}>
       <PageContainer>
         <AnimateContent>
           <PageTitle
@@ -39,7 +41,7 @@ export const RetreatsPostTemplate = ({
         <GalleryImage gallery={galleryArr} />
         <AnimateContent>
           <Review review={review} author={author} />
-          <TransitionLink to={'/retreats'}>
+          <TransitionLink {...isEntryExit} to={'/retreats'}>
             <ReadMore text={'Back to retreats'} />
           </TransitionLink>
         </AnimateContent>
@@ -54,12 +56,13 @@ RetreatsPostTemplate.propTypes = {
   content: PropTypes.node.isRequired
 };
 
-const RetreatsPost = ({ data }) => {
+const RetreatsPost = ({ data, location }) => {
   const { markdownRemark: post } = data;
 
   return (
     <div>
       <RetreatsPostTemplate
+        location={location.pathname}
         title={post.frontmatter.title}
         image={post.frontmatter.image}
         review={post.frontmatter.review}

@@ -9,8 +9,10 @@ import Review from '../components/Review';
 import PageContainer from '../components/styles/PageContainer';
 import Layout from '../components/layout';
 import { HTMLContent } from '../components/Content';
+import isEntryExit from '../components/isEntryExit';
 
 export const EventsPostTemplate = ({
+  location,
   title,
   leadText,
   gallery,
@@ -19,7 +21,7 @@ export const EventsPostTemplate = ({
 }) => {
   const galleryArr = gallery.map(gallery => gallery.galleryimage);
   return (
-    <Layout location={'test'}>
+    <Layout location={location}>
       <PageContainer>
         <div className="lead">
           <h1>{title}</h1>
@@ -29,7 +31,7 @@ export const EventsPostTemplate = ({
         <Review review={review} author={author} />
         <ModalButton />
       </PageContainer>
-      <TransitionLink to={'/events'}>
+      <TransitionLink {...isEntryExit} to={'/events'}>
         <ReadMore
           secondBtn
           to={'/events'}
@@ -46,12 +48,13 @@ EventsPostTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string])
 };
 
-const EventsPost = ({ data }) => {
+const EventsPost = ({ data, location }) => {
   const { markdownRemark: post } = data;
 
   return (
     <div>
       <EventsPostTemplate
+        location={location.pathname}
         title={post.frontmatter.title}
         leadText={post.html}
         review={post.frontmatter.review}

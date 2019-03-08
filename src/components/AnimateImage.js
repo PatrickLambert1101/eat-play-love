@@ -1,56 +1,35 @@
 import React, { Component } from 'react';
+import useVisibilitySensor from '@rooks/use-visibility-sensor';
+import { useRef } from 'react';
 import styled from 'styled-components';
-const ScaleImage = styled.div`
-  /* position: relative;
-  overflow: hidden; */
+const Fader = styled.div`
   img {
-    transform: translate(-50%, -50%) scale(1.1);
-    transition: transform 0.35s;
+    transition: all 0.9s ease-out !important;
+    overflow: hidden;
+  }
+  &.scale-large img {
+    transform: scale(1.06);
+  }
+  &.scale-normal img {
+    transform: scale(1);
   }
 `;
+export default function AnimateImage(props) {
+  const rootNode = useRef(null);
 
-export default class AnimateImage extends Component {
-  constructor(props) {
-    super(props);
+  const { isVisible } = useVisibilitySensor(rootNode, {
+    intervalCheck: 400,
+    partialVisibility: true,
+    scrollCheck: true,
+    resizeCheck: true
+  });
 
-    this.wrapper = React.createRef();
-  }
-  componentDidMount() {
-    if (typeof IntersectionObserver === 'undefined') return; // no intersection observer support so just bail out;
-
-    const elements = this.wrapper.querySelectorAll(':scope > img');
-
-    const config = {
-      threshold: 0.3
-    };
-
-    let observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.transform = 'translate(-50%, -50%) scale(1.3)';
-        } else {
-          entry.target.style.transform = 'translate(-50%, -50%) scale(1)';
-        }
-      });
-    }, config);
-
-    elements.forEach(element => {
-      observer.observe(element);
-      element.style.transform = 'translate(-50%, -50%) scale(1.1)';
-    });
-
-    setTimeout(() => {
-      elements.forEach(element => {
-        element.style.transition = 'transform 0.35s';
-      });
-    }, 500);
-  }
-
-  render() {
-    return (
-      <ScaleImage ref={n => (this.wrapper = n)}>
-        {this.props.children}
-      </ScaleImage>
-    );
-  }
+  return (
+    <Fader
+      ref={rootNode}
+      className={isVisible ? 'scale-normal' : 'scale-large'}
+    >
+      {props.children}
+    </Fader>
+  );
 }

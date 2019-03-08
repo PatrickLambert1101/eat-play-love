@@ -11,7 +11,7 @@ class GalleryImage extends React.Component {
         {this.props.gallery.map((image, i) => (
           <div key={shortid.generate()}>
             <AnimateContent>
-              <PreviewCompatibleImage imageInfo={image} />
+              <PreviewCompatibleImage scale imageInfo={image} />
             </AnimateContent>
           </div>
         ))}

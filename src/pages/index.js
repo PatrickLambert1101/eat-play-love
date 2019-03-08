@@ -57,7 +57,6 @@ export default class IndexPage extends Component {
     const { edges: home } = data.home;
     const { edges: instas } = data.instas;
     const { edges: events } = data.events;
-    console.log('thsi', this.props);
     return (
       <Layout location={this.props.location.pathname}>
         <div ref={n => (this.page = n)}>

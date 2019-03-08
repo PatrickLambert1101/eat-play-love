@@ -27,6 +27,7 @@ class CardWrapper extends React.Component {
                   >
                     <h2>{card.node.frontmatter.title}</h2>
                     <PreviewCompatibleImage
+                      scale
                       imageInfo={card.node.frontmatter.image}
                     />
                   </TransitionLink>

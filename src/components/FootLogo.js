@@ -2,6 +2,7 @@ import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import PreviewCompatibleImage from './PreviewCompatibleImage';
 import TransitionLink from 'gatsby-plugin-transition-link';
+import isEntryExit from './isEntryExit';
 
 const FootLogo = () => (
   <StaticQuery
@@ -18,7 +19,7 @@ const FootLogo = () => (
       }
     `}
     render={data => (
-      <TransitionLink to="/">
+      <TransitionLink {...isEntryExit} to="/">
         <PreviewCompatibleImage imageInfo={data.file} />
       </TransitionLink>
     )}

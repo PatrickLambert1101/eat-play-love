@@ -2,6 +2,7 @@ import React from 'react';
 import TransitionLink from 'gatsby-plugin-transition-link';
 import PreviewCompatibleImage from './PreviewCompatibleImage';
 import ReadMore from './ReadMore';
+import isEntryExit from './isEntryExit';
 import styled from 'styled-components';
 var shortid = require('shortid');
 
@@ -55,11 +56,14 @@ class ContentCardWrap extends React.Component {
       <ContentCardWrapStyle>
         {this.props.content.map(item => (
           <ContentCard key={shortid.generate()}>
-            <TransitionLink to={item.node.fields.slug}>
+            <TransitionLink {...isEntryExit} to={item.node.fields.slug}>
               <h3>{item.node.frontmatter.title}</h3>
               <p>{item.node.frontmatter.location}</p>
               <p>{item.node.frontmatter.date}</p>
-              <PreviewCompatibleImage imageInfo={item.node.frontmatter.image} />
+              <PreviewCompatibleImage
+                scale
+                imageInfo={item.node.frontmatter.image}
+              />
               <h5>{item.node.frontmatter.excerpt}</h5>
               <ReadMore text={'MORE'} />
             </TransitionLink>
