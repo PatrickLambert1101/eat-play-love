@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const Hamburger = styled.button`
@@ -74,19 +74,11 @@ const Hamburger = styled.button`
   }
 `;
 
-const HamburgerMenu = () => {
-  const [isActive, setIsActive] = useState(false);
-
-  function handleMenuClick() {
-    setIsActive(!isActive);
-  }
-
+const HamburgerMenu = props => {
+  console.log('TCL: props', props);
   return (
     <Hamburger>
-      <span
-        className={`menu-toggle ${isActive ? 'open' : ''}`}
-        onClick={handleMenuClick}
-      >
+      <span className={`menu-toggle ${props.isToggle ? 'open' : ''}`}>
         <em />
       </span>
     </Hamburger>

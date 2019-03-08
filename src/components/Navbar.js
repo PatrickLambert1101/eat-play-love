@@ -20,7 +20,12 @@ export default function Navbar() {
         <TransitionLink {...isEntryExit} to="/" className="navbar-item">
           <HeadLogo alt="Eat Play Love Logo" />
         </TransitionLink>
-        <HamburgerMenu />
+        <HamburgerMenu
+          isToggle={
+            (isToggledOn && windowSize.innerWidth < 800) ||
+            windowSize.innerWidth > 800
+          }
+        />
       </NavbarBrand>
       <NavLinks
         className={

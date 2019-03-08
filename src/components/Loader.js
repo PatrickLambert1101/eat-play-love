@@ -3,9 +3,6 @@ import { TransitionState } from 'gatsby-plugin-transition-link';
 import styled from 'styled-components';
 import posed from 'react-pose';
 import { StaticQuery, graphql } from 'gatsby';
-import PreviewCompatibleImage from './PreviewCompatibleImage';
-
-const imgStyles = { objectFit: 'contain' };
 
 const Spin = posed.div({
   hidden: {
@@ -37,7 +34,7 @@ const Spinner = styled.div`
     position: absolute;
     width: 120px;
     left: 50vw;
-    top: 30vh;
+    top: 100px;
     margin-left: -60px;
     opacity: 1;
     animation: spin 1.7s linear infinite;
@@ -58,21 +55,13 @@ export default function Loader() {
                 query={graphql`
                   query LoaderQuery {
                     file(relativePath: { regex: "img/epl.png/" }) {
-                      name
-                      childImageSharp {
-                        fluid(maxWidth: 120, maxHeight: 120, quality: 80) {
-                          ...GatsbyImageSharpFluid_tracedSVG
-                        }
-                      }
+                      publicURL
                     }
                   }
                 `}
                 render={data => (
                   <Spinner>
-                    <PreviewCompatibleImage
-                      imgStyle={imgStyles}
-                      imageInfo={data.file}
-                    />
+                    <img src={data.file.publicURL} />
                   </Spinner>
                 )}
               />

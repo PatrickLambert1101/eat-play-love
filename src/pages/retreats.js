@@ -5,7 +5,6 @@ import ContentCardWrap from '../components/ContentCardWrap';
 import PageContainer from '../components/styles/PageContainer';
 import Layout from '../components/layout';
 import { HTMLContent } from '../components/Content';
-import { TransitionState } from 'gatsby-plugin-transition-link';
 
 export default class RetreatsPage extends React.Component {
   render() {
