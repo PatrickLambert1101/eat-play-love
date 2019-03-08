@@ -12,8 +12,11 @@ import InnerDrop from './InnerDrop';
 export default function Navbar() {
   const [isToggledOn, setToggle] = useState(false);
   const toggle = () => setToggle(!isToggledOn);
-  let windowSize = useWindowSize();
-
+  try {
+    let windowSize = useWindowSize();
+  } catch (e) {
+    console.log(e);
+  }
   return (
     <nav onClick={toggle}>
       <NavbarBrand>
