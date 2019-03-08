@@ -1,13 +1,13 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
-import Trans from '../components/Trans';
-import { TransitionState } from 'gatsby-plugin-transition-link';
-
-import Navbar from '../components/Navbar';
+import Navbar from './Navbar';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import './font-face.css';
-
+import { TransitionState } from 'gatsby-plugin-transition-link';
+import Trans from './Trans';
+import Loader from './Loader';
+import Footer from './Footer';
 const theme = {
   red: '#FF0000',
   black: '#393939',
@@ -47,21 +47,6 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
 button:focus { outline: none; }
-@keyframes spin{
-  0%, 100%   { opacity: 0; }
-  50% { opacity: 1; }
-}
-.spinner{
-position: absolute;
-top: 80px;
-width: 120px;
-left: 50%;
-margin-left: -60px;
-opacity: 1;
-animation: spin 1.3s;
-
-}
-
 
 h1{
   font-size: 3rem;
@@ -168,7 +153,7 @@ function titleCase(str) {
   return splitStr.join(' ');
 }
 
-const TemplateWrapper = ({ children, location }) => (
+export default ({ children, location }) => (
   <StaticQuery
     query={graphql`
       query HeadingQuery {
@@ -184,16 +169,17 @@ const TemplateWrapper = ({ children, location }) => (
     `}
     render={function(data) {
       const title = data.site.siteMetadata.title;
+
       const page = titleCase(
-        location.pathname
+        location
           .split('/')
           .filter(i => i)
           .join(' | ')
       );
       const pageTitle =
-        location.pathname === '/' ? title + ' | Home' : title + ' | ' + page;
+        location === '/' ? title + ' | Home' : title + ' | ' + page;
       return (
-        <React.Fragment>
+        <div className="targeted">
           <GlobalStyle />
           <ThemeProvider theme={theme}>
             <React.Fragment>
@@ -212,6 +198,7 @@ const TemplateWrapper = ({ children, location }) => (
                 <meta property="og:url" content="/" />
               </Helmet>
               <Navbar />
+              <Loader />
               <TransitionState>
                 {({ transitionStatus }) => {
                   return (
@@ -227,12 +214,11 @@ const TemplateWrapper = ({ children, location }) => (
                   );
                 }}
               </TransitionState>
+              <Footer />
             </React.Fragment>
           </ThemeProvider>
-        </React.Fragment>
+        </div>
       );
     }}
   />
 );
-
-export default TemplateWrapper;

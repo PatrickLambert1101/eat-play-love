@@ -2,43 +2,27 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import EventTypeSingle from '../components/EventTypeSingle';
 import Review from '../components/Review';
-import Footer from '../components/Footer';
-import { TransitionState } from 'gatsby-plugin-transition-link';
 import PageContainer from '../components/styles/PageContainer';
 import PageTitle from '../components/PageTitle';
-import Trans from '../components/Trans';
-import AnimateContent from '../components/AnimateContent';
+import Layout from '../components/layout';
 
 const EventsType = ({ data }) => {
   const { markdownRemark: post } = data;
 
   return (
-    <TransitionState>
-      {({ transitionStatus }) => {
-        return (
-          <Trans
-            pose={
-              ['entering', 'entered'].includes(transitionStatus)
-                ? 'visible'
-                : 'hidden'
-            }
-          >
-            <PageContainer>
-              <PageTitle
-                title={post.frontmatter.title}
-                subtitle={post.frontmatter.leadtext}
-              />
-              <EventTypeSingle content={post.frontmatter.single} />
-              <Review
-                review={post.frontmatter.review}
-                author={post.frontmatter.author}
-              />
-            </PageContainer>
-            <Footer />
-          </Trans>
-        );
-      }}
-    </TransitionState>
+    <Layout location={this.props.location.pathname}>
+      <PageContainer>
+        <PageTitle
+          title={post.frontmatter.title}
+          subtitle={post.frontmatter.leadtext}
+        />
+        <EventTypeSingle content={post.frontmatter.single} />
+        <Review
+          review={post.frontmatter.review}
+          author={post.frontmatter.author}
+        />
+      </PageContainer>
+    </Layout>
   );
 };
 

@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import CardWrapper from '../components/CardWrapper';
-import Footer from '../components/Footer';
+import Layout from '../components/layout';
 import { HTMLContent } from '../components/Content';
 import PageContainer from '../components/styles/PageContainer';
+
 var shortid = require('shortid');
 
 export default class EventsPage extends React.Component {
@@ -14,7 +15,7 @@ export default class EventsPage extends React.Component {
     const { edges: eventsPageData } = data.eventsPageData;
 
     return (
-      <div>
+      <Layout location={this.props.location.pathname}>
         {eventsPageData.map(page => (
           <div key={shortid.generate()}>
             <PageContainer>
@@ -24,10 +25,9 @@ export default class EventsPage extends React.Component {
               <HTMLContent className="body-text" content={page.node.html} />
             </PageContainer>
             <CardWrapper baseUrl={'events-type'} data={events} />
-            <Footer />
           </div>
         ))}
-      </div>
+      </Layout>
     );
   }
 }

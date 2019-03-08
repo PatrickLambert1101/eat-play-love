@@ -7,54 +7,41 @@ import GalleryImage from '../components/GalleryImage';
 import ModalButton from '../components/ModalButton';
 import Review from '../components/Review';
 import PageContainer from '../components/styles/PageContainer';
-import Footer from '../components/Footer';
-import Trans from '../components/Trans';
+import Layout from '../components/layout';
 import { HTMLContent } from '../components/Content';
-import { TransitionState } from 'gatsby-plugin-transition-link';
 
-export const EventsPostTemplate = ({
+export const location = ({ post } = ({
   title,
+  location,
   leadText,
   gallery,
   review,
   author
 }) => {
+  console.log('TCL: this', location);
   const galleryArr = gallery.map(gallery => gallery.galleryimage);
   return (
-    <TransitionState>
-      {({ transitionStatus }) => {
-        return (
-          <Trans
-            pose={
-              ['entering', 'entered'].includes(transitionStatus)
-                ? 'visible'
-                : 'hidden'
-            }
-          >
-            <PageContainer>
-              <div className="lead">
-                <h1>{title}</h1>
-              </div>
-              <HTMLContent content={leadText} />
-              <GalleryImage gallery={galleryArr} />
-              <Review review={review} author={author} />
-              <ModalButton />
-            </PageContainer>
-            <TransitionLink to={'/events'}>
-              <ReadMore
-                secondBtn
-                to={'/events'}
-                align={'flex-start'}
-                text={'BACK TO EVENTS'}
-              />
-            </TransitionLink>
-            <Footer />
-          </Trans>
-        );
-      }}
-    </TransitionState>
+    <Layout location={'test'}>
+      <PageContainer>
+        <div className="lead">
+          <h1>{title}</h1>
+        </div>
+        <HTMLContent content={leadText} />
+        <GalleryImage gallery={galleryArr} />
+        <Review review={review} author={author} />
+        <ModalButton />
+      </PageContainer>
+      <TransitionLink to={'/events'}>
+        <ReadMore
+          secondBtn
+          to={'/events'}
+          align={'flex-start'}
+          text={'BACK TO EVENTS'}
+        />
+      </TransitionLink>
+    </Layout>
   );
-};
+});
 
 EventsPostTemplate.propTypes = {
   title: PropTypes.string,
@@ -67,6 +54,7 @@ const EventsPost = ({ data }) => {
   return (
     <div>
       <EventsPostTemplate
+        location={post}
         title={post.frontmatter.title}
         leadText={post.html}
         review={post.frontmatter.review}

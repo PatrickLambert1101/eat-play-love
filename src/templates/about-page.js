@@ -4,38 +4,22 @@ import { graphql } from 'gatsby';
 import Content, { HTMLContent } from '../components/Content';
 import PageContainer from '../components/styles/PageContainer';
 import ContactForm from '../components/ContactForm';
-import Footer from '../components/Footer';
-import Trans from '../components/Trans';
-import { TransitionState } from 'gatsby-plugin-transition-link';
+import Layout from '../components/layout';
 
 export const AboutPageTemplate = ({ title, content, contentComponent }) => {
   const PageContent = contentComponent || Content;
 
   return (
-    <TransitionState>
-      {({ transitionStatus }) => {
-        return (
-          <Trans
-            pose={
-              ['entering', 'entered'].includes(transitionStatus)
-                ? 'visible'
-                : 'hidden'
-            }
-          >
-            <PageContainer>
-              <div className="lead">
-                <h1> {title}</h1>
-              </div>
-              <PageContent className="body-text" content={content} />
-              <h2>Contact us</h2>
-              <ContactForm />
-            </PageContainer>
-
-            <Footer />
-          </Trans>
-        );
-      }}
-    </TransitionState>
+    <Layout location={'/about'}>
+      <PageContainer>
+        <div className="lead">
+          <h1> {title}</h1>
+        </div>
+        <PageContent className="body-text" content={content} />
+        <h2>Contact us</h2>
+        <ContactForm />
+      </PageContainer>
+    </Layout>
   );
 };
 

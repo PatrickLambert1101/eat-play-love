@@ -7,7 +7,7 @@ const HeadLogo = () => (
   <StaticQuery
     query={graphql`
       query NavbarQuery {
-        file(relativePath: { regex: "img/epl.png/" }) {
+        file(relativePath: { regex: "img/epl-head.png/" }) {
           name
           childImageSharp {
             fluid(maxWidth: 580, maxHeight: 160, quality: 80) {

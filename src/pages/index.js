@@ -4,15 +4,13 @@ import { graphql } from 'gatsby';
 import Slider from 'react-slick';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import CardWrapper from '../components/CardWrapper';
+import Layout from '../components/layout';
 import BannerSlider from '../components/styles/BannerSlider';
-import Footer from '../components/Footer';
 import InstaSlider from '../components/styles/InstaSlider';
 import styled from 'styled-components';
 import '../../node_modules/slick-carousel/slick/slick.css';
 import '../../node_modules/slick-carousel/slick/slick-theme.css';
-import { TransitionState } from 'gatsby-plugin-transition-link';
 import AnimateContent from '../components/AnimateContent';
-import Trans from '../components/Trans';
 
 var shortid = require('shortid');
 
@@ -59,61 +57,45 @@ export default class IndexPage extends Component {
     const { edges: home } = data.home;
     const { edges: instas } = data.instas;
     const { edges: events } = data.events;
-
+    console.log('thsi', this.props);
     return (
-      <div ref={n => (this.page = n)}>
-        <TransitionState>
-          {({ transitionStatus }) => {
-            return (
-              <Trans
-                pose={
-                  ['entering', 'entered'].includes(transitionStatus)
-                    ? 'visible'
-                    : 'hidden'
-                }
-              >
-                {home.map(({ node: house }) => (
-                  <div key={shortid.generate()}>
-                    <BannerSlider>
-                      <Slider {...bannerSettings}>
-                        {house.frontmatter.slider.map(slide => (
-                          <div key={shortid.generate()}>
-                            <h2>{slide.title}</h2>
-                            <PreviewCompatibleImage
-                              imageInfo={slide.sliderimage}
-                            />
-                          </div>
-                        ))}
-                      </Slider>
-                    </BannerSlider>
-                    <AnimateContent>
-                      <Quote>“{house.frontmatter.quote}”</Quote>
-                      <h2>Recent Events</h2>
-                    </AnimateContent>
-
-                    <CardWrapper baseUrl={'events'} data={events} />
-                  </div>
+      <Layout location={this.props.location.pathname}>
+        <div ref={n => (this.page = n)}>
+          {home.map(({ node: house }) => (
+            <div key={shortid.generate()}>
+              <BannerSlider>
+                <Slider {...bannerSettings}>
+                  {house.frontmatter.slider.map(slide => (
+                    <div key={shortid.generate()}>
+                      <h2>{slide.title}</h2>
+                      <PreviewCompatibleImage imageInfo={slide.sliderimage} />
+                    </div>
+                  ))}
+                </Slider>
+              </BannerSlider>
+              <AnimateContent>
+                <Quote>“{house.frontmatter.quote}”</Quote>
+                <h2>Recent Events</h2>
+              </AnimateContent>
+              <CardWrapper baseUrl={'events'} data={events} />
+            </div>
+          ))}
+          <AnimateContent>
+            <h2>Instagram</h2>
+            <InstaSlider>
+              <Slider {...settings}>
+                {instas.map(({ node: ig }) => (
+                  <PreviewCompatibleImage
+                    className="insta-image"
+                    key={ig.id}
+                    imageInfo={ig.localFile}
+                  />
                 ))}
-                <AnimateContent>
-                  <h2>Instagram</h2>
-                  <InstaSlider>
-                    <Slider {...settings}>
-                      {instas.map(({ node: ig }) => (
-                        <PreviewCompatibleImage
-                          className="insta-image"
-                          key={ig.id}
-                          imageInfo={ig.localFile}
-                        />
-                      ))}
-                    </Slider>
-                  </InstaSlider>
-                </AnimateContent>
-                <Footer />
-              </Trans>
-            );
-          }}
-        </TransitionState>
-      </div>
+              </Slider>
+            </InstaSlider>
+          </AnimateContent>
+        </div>
+      </Layout>
     );
   }
 }
