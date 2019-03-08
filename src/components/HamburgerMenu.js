@@ -75,7 +75,6 @@ const Hamburger = styled.button`
 `;
 
 const HamburgerMenu = props => {
-  console.log('TCL: props', props);
   return (
     <Hamburger>
       <span className={`menu-toggle ${props.isToggle ? 'open' : ''}`}>

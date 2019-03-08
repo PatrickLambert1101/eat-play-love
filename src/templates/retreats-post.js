@@ -34,7 +34,7 @@ export const RetreatsPostTemplate = ({
             title={title}
             subtitle={'Hearth &amp; Soul Eco Farm Stanford 5th-8th October'}
           />
-          <PreviewCompatibleImage imageInfo={image} />
+          <PreviewCompatibleImage scale imageInfo={image} />
           <PageContent content={content} className="body-text" />
           <ModalButton eventName={title} />
         </AnimateContent>

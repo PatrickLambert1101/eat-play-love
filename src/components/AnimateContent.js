@@ -16,7 +16,7 @@ export default function AnimateContent(props) {
   });
 
   return (
-    <Fader ref={rootNode} style={isVisible ? { opacity: 1 } : { opacity: 0 }}>
+    <Fader ref={rootNode} style={isVisible ? { opacity: 1 } : { opacity: 0.4 }}>
       {props.children}
     </Fader>
   );

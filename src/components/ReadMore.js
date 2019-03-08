@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import styled from 'styled-components';
 
@@ -73,12 +73,10 @@ const ReadMoreStyle = styled.div`
   }
 `;
 
-export default class ReadMore extends Component {
-  render() {
-    return (
-      <ReadMoreStyle secondBtn={this.props.secondBtn}>
-        <span>{this.props.text}</span>
-      </ReadMoreStyle>
-    );
-  }
+export default function ReadMore(props) {
+  return (
+    <ReadMoreStyle secondBtn={props.secondBtn}>
+      <span>{props.text}</span>
+    </ReadMoreStyle>
+  );
 }

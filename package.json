@@ -48,6 +48,7 @@
     "react-slick": "^0.23.2",
     "react-transition-group": "^2.5.3",
     "react-typography": "^0.16.18",
+    "react-use-form-state": "^0.7.0",
     "shortid": "^2.2.14",
     "slick-carousel": "^1.8.1",
     "styled-components": "^4.1.1",
