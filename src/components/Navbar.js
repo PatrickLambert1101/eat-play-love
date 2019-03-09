@@ -12,10 +12,10 @@ import InnerDrop from './InnerDrop';
 export default function Navbar() {
   const [isToggledOn, setToggle] = useState(false);
   const toggle = () => setToggle(!isToggledOn);
-  var windowSize = 900;
-  useEffect(() => {
-    windowSize = useWindowSize();
-  });
+  let windowsize = 900;
+  if (typeof window !== 'undefined') {
+    windowsize = useWindowSize();
+  }
 
   return (
     <nav onClick={toggle}>
