@@ -30,8 +30,14 @@ const Card = styled.div`
       }
     }
   }
-  a:hover::after {
-    opacity: 0.6;
+  a:hover {
+    &::after {
+      opacity: 0.6;
+    }
+    img {
+      transition: all 0.9s ease-out !important;
+      transform: scale(1.06);
+    }
   }
   @media screen and (max-width: ${props => props.theme.mobile}) {
     margin-bottom: 15px;
@@ -43,11 +49,11 @@ const Card = styled.div`
   h2 {
     position: absolute;
     width: 100%;
-
     color: #fff;
     top: 50%;
     z-index: 2;
     margin: 0;
+    transform: translateY(-50%);
   }
 `;
 

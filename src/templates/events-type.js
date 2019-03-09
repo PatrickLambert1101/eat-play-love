@@ -5,22 +5,27 @@ import Review from '../components/Review';
 import PageContainer from '../components/styles/PageContainer';
 import PageTitle from '../components/PageTitle';
 import Layout from '../components/layout';
+import AnimateContent from '../components/AnimateContent';
 
-const EventsType = ({ data }) => {
+const EventsType = ({ data, location }) => {
   const { markdownRemark: post } = data;
 
   return (
-    <Layout location={this.props.location.pathname}>
+    <Layout location={location.pathname}>
       <PageContainer>
-        <PageTitle
-          title={post.frontmatter.title}
-          subtitle={post.frontmatter.leadtext}
-        />
+        <AnimateContent>
+          <PageTitle
+            title={post.frontmatter.title}
+            subtitle={post.frontmatter.leadtext}
+          />
+        </AnimateContent>
         <EventTypeSingle content={post.frontmatter.single} />
-        <Review
-          review={post.frontmatter.review}
-          author={post.frontmatter.author}
-        />
+        <AnimateContent>
+          <Review
+            review={post.frontmatter.review}
+            author={post.frontmatter.author}
+          />
+        </AnimateContent>
       </PageContainer>
     </Layout>
   );

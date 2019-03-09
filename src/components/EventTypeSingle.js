@@ -35,6 +35,12 @@ const ContentCard = styled.div`
 
   .gatsby-image-wrapper {
     margin-top: 30px;
+    &:hover {
+      img {
+        transition: all 0.9s ease-out !important;
+        transform: scale(1.06);
+      }
+    }
   }
 `;
 
@@ -46,7 +52,7 @@ export default function EventTypeSingle(props) {
           <AnimateContent>
             <h3>{item.title}</h3>
             <p>{item.subtitle}</p>
-            <PreviewCompatibleImage imageInfo={item.image} />
+            <PreviewCompatibleImage scale imageInfo={item.image} />
             <h5>{item.text}</h5>
             <ModalButton eventName={item.title} text={'MORE'} />
           </AnimateContent>

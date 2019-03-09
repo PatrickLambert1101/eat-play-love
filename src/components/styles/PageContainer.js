@@ -7,7 +7,7 @@ const PageContainer = styled.div`
   @media (max-width: ${props => props.theme.mobile}) {
     padding: 0 15px;
   }
-  margin: auto;
+  margin: 60px auto 0;
   text-align: center;
   h4 {
     margin-top: 25px;
