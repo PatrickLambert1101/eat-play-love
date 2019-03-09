@@ -14,7 +14,7 @@ export default function Navbar() {
   const toggle = () => setToggle(!isToggledOn);
   var windowSize = 900;
   useEffect(() => {
-    var windowSize = useWindowSize();
+    windowSize = useWindowSize();
   });
 
   return (
