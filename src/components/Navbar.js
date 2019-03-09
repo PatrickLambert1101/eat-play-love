@@ -12,7 +12,7 @@ import InnerDrop from './InnerDrop';
 export default function Navbar() {
   const [isToggledOn, setToggle] = useState(false);
   const toggle = () => setToggle(!isToggledOn);
-  if (window != 'undefined') {
+  if (window !== 'undefined') {
     var windowSize = useWindowSize();
   }
   return (
@@ -24,18 +24,18 @@ export default function Navbar() {
         <HamburgerMenu
           isToggle={
             (isToggledOn &&
-              windowSize != 'undefined' &&
+              windowSize !== 'undefined' &&
               windowSize.innerWidth < 800) ||
-            (windowSize != 'undefined' && windowSize.innerWidth > 800)
+            (windowSize !== 'undefined' && windowSize.innerWidth > 800)
           }
         />
       </NavbarBrand>
       <NavLinks
         className={
           (isToggledOn &&
-            windowSize != 'undefined' &&
+            windowSize !== 'undefined' &&
             windowSize.innerWidth < 800) ||
-          (windowSize != 'undefined' && windowSize.innerWidth > 800)
+          (windowSize !== 'undefined' && windowSize.innerWidth > 800)
             ? 'toggle-open'
             : 'toggle-closed'
         }
