@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import HeadLogo from './HeadLogo';
 import useWindowSize from '@rehooks/window-size';
 import TransitionLink from 'gatsby-plugin-transition-link';
