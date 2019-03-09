@@ -12,7 +12,8 @@ import InnerDrop from './InnerDrop';
 export default function Navbar() {
   const [isToggledOn, setToggle] = useState(false);
   const toggle = () => setToggle(!isToggledOn);
-  let windowsize = 900;
+  var windowsize = { innerWidth: '900' };
+
   if (typeof window !== 'undefined') {
     windowsize = useWindowSize();
   }
