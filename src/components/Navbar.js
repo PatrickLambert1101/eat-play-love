@@ -13,10 +13,9 @@ export default function Navbar() {
   const [isToggledOn, setToggle] = useState(false);
   const toggle = () => setToggle(!isToggledOn);
   var windowSize = 900;
-  useEffect(() => {
+  if (window) {
     windowSize = useWindowSize();
-  });
-
+  }
   return (
     <nav onClick={toggle}>
       <NavbarBrand>
