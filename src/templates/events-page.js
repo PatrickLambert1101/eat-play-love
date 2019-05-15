@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const EventsPage = () => {
   return (
     <div>
-      <h1>test</h1>
+      <h1>Events Page</h1>
     </div>
   );
 };
